@@ -1,0 +1,23 @@
+{
+  "username" : "jordan@newlinefinancial.com",
+  "password" : "7b6a43524a010148266a542e52310d1d577b7931214216286025",
+  "url" : "jdbc:sqlserver://newline.database.windows.net:1433;databaseName=platform",
+  "driverClass" : "com.microsoft.sqlserver.jdbc.SQLServerDriver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.WMSQLServerDialect",
+  "serviceId" : "platform",
+  "packageName" : "com.portal.platform",
+  "dbType" : "SQLServer",
+  "host" : "newline.database.windows.net",
+  "dbName" : "platform",
+  "port" : "1433",
+  "schemaName" : null,
+  "tableFilter" : [ "accounting", "accrual", "accrual_type", "assessment", "auction", "auction_result", "auction_stat", "available_subs", "balance", "bank_report", "bid_sequence", "borrowing_base", "buyer", "buyer_group", "certificate", "county", "date", "disbursement", "disbursement_type", "grade", "grade_stat", "inspection", "inspection_route", "interest_type", "matter", "matter_party", "model_data", "model_historical_auctions", "model_posting_availability", "model_title", "note", "note_type", "number", "party", "payment", "portal_address", "portal_auction_data", "portal_auction_filter", "portal_auction_history", "portal_auction_note", "portal_auction_title", "portal_certificate_address", "portal_certificate_data", "portal_certificate_filter", "portal_certificate_note", "portal_inspect_filter", "portal_links", "portal_matter_data", "portal_matter_filter", "portal_matter_party", "portal_tags", "property", "property_class", "property_exterior", "property_sale", "property_type", "reject_reason", "research", "rule", "rule_result", "sample", "score", "source", "state", "sysdiagrams", "tax_history", "tax_schedule", "title_transaction", "title_type", "township", "underwriting" ],
+  "schemaFilter" : [ "dbo", "servicing", "data", "review" ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "readOnly" : false
+}

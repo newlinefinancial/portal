@@ -23,9 +23,153 @@ Application.$controller("MainPageController", ["$scope", function ($scope) {
     };
 
 }]);
+
+
+
+
+
+Application.$controller("livefilter1Controller", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
+]);
 </script>
 <script id="Main.variables.json">
-var _MainPage_Variables_ ={};
+var _MainPage_Variables_ ={
+  "PlatformPortalCertificateNoteData" : {
+    "_id" : "wm-PlatformPortalCertificateNoteData-wm.LiveVariable-1459183060186",
+    "name" : "PlatformPortalCertificateNoteData",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ ],
+    "operation" : "read",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "PortalCertificateNote",
+    "isList" : true,
+    "saveInPhonegap" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "liveSource" : "platform",
+    "ignoreCase" : false,
+    "matchMode" : "start",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "noteId",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "note_id",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "certificateId",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "certificate_id",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "user",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "user",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 10,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "created",
+        "type" : "timestamp",
+        "fullyQualifiedType" : "timestamp",
+        "columnName" : "created",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 23,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "due",
+        "type" : "date",
+        "fullyQualifiedType" : "date",
+        "columnName" : "due",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 10,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "done",
+        "type" : "timestamp",
+        "fullyQualifiedType" : "timestamp",
+        "columnName" : "done",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 23,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "noteDescription",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "note_description",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 19,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "noteTypeId",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "note_type_id",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "PortalCertificateNote",
+      "fullyQualifiedName" : "com.portal.platform.PortalCertificateNote",
+      "primaryFields" : [ ]
+    },
+    "isDefault" : true,
+    "bindCount" : 3,
+    "tableName" : "portal_certificate_note",
+    "properties" : [ ],
+    "relatedTables" : [ ],
+    "package" : "com.portal.platform.PortalCertificateNote"
+  }
+}
 </script>
 <script id="Main.html" type="text/ng-template">
 <wm-page data-ng-controller="MainPageController" name="mainpage" pagetitle="Main">
@@ -33,9 +177,7 @@ var _MainPage_Variables_ ={};
     <wm-top-nav name="topnav" content="topnav"></wm-top-nav>
     <wm-content name="content">
         <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav"></wm-left-panel>
-        <wm-page-content columnwidth="8" paddingleft="15" paddingright="15" name="mainContent">
-        </wm-page-content>
-        <wm-right-panel columnwidth="2" name="rightpanel" content="rightnav"></wm-right-panel>
+        <wm-page-content columnwidth="10" paddingleft="15" paddingright="15" name="mainContent"></wm-page-content>
     </wm-content>
     <wm-footer name="footer" content="footer"></wm-footer>
 </wm-page>
