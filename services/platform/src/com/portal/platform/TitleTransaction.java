@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -44,7 +45,7 @@ public class TitleTransaction  implements java.io.Serializable {
     
     private String docNumber;
     
-    private java.util.Date date;
+    private Date date;
     
     private Double consideration;
     
@@ -92,11 +93,11 @@ public class TitleTransaction  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`date`", length=10)
-    public java.util.Date getDate() {
+    public Date getDate() {
         return this.date;
     }
     
-    public void setDate(java.util.Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

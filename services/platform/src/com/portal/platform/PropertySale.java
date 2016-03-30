@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +43,7 @@ public class PropertySale  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date researchDate;
+    private Date researchDate;
     
     private String researchSource;
     
@@ -50,7 +51,7 @@ public class PropertySale  implements java.io.Serializable {
     
     private Boolean priorAssignment;
     
-    private java.util.Date saleDate;
+    private Date saleDate;
     
     private Double saleAmount;
     
@@ -81,11 +82,11 @@ public class PropertySale  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`research_date`", length=10)
-    public java.util.Date getResearchDate() {
+    public Date getResearchDate() {
         return this.researchDate;
     }
     
-    public void setResearchDate(java.util.Date researchDate) {
+    public void setResearchDate(Date researchDate) {
         this.researchDate = researchDate;
     }
 
@@ -125,11 +126,11 @@ public class PropertySale  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`sale_date`", length=10)
-    public java.util.Date getSaleDate() {
+    public Date getSaleDate() {
         return this.saleDate;
     }
     
-    public void setSaleDate(java.util.Date saleDate) {
+    public void setSaleDate(Date saleDate) {
         this.saleDate = saleDate;
     }
 

@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,13 +43,13 @@ public class Accrual  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date enteredTimestamp;
+    private Date enteredTimestamp;
     
-    private java.util.Date updatedTimestamp;
+    private Date updatedTimestamp;
     
     private String disbursementCategory;
     
-    private java.util.Date effectiveDate;
+    private Date effectiveDate;
     
     private Double revenueAmount;
     
@@ -87,22 +88,22 @@ public class Accrual  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`entered_timestamp`", length=23)
-    public java.util.Date getEnteredTimestamp() {
+    public Date getEnteredTimestamp() {
         return this.enteredTimestamp;
     }
     
-    public void setEnteredTimestamp(java.util.Date enteredTimestamp) {
+    public void setEnteredTimestamp(Date enteredTimestamp) {
         this.enteredTimestamp = enteredTimestamp;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`updated_timestamp`", length=23)
-    public java.util.Date getUpdatedTimestamp() {
+    public Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
     
-    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
+    public void setUpdatedTimestamp(Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 
@@ -120,11 +121,11 @@ public class Accrual  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`effective_date`", length=10)
-    public java.util.Date getEffectiveDate() {
+    public Date getEffectiveDate() {
         return this.effectiveDate;
     }
     
-    public void setEffectiveDate(java.util.Date effectiveDate) {
+    public void setEffectiveDate(Date effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
 

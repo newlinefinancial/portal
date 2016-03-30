@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -53,13 +54,13 @@ public class Matter  implements java.io.Serializable {
     
     private String user;
     
-    private java.util.Date filedDate;
+    private Date filedDate;
     
-    private java.util.Date lastWorkDate;
+    private Date lastWorkDate;
     
-    private java.util.Date initialCourtDate;
+    private Date initialCourtDate;
     
-    private java.util.Date closedDate;
+    private Date closedDate;
     
     private Set<MatterParty> matterParties = new HashSet<MatterParty>(0);
     
@@ -128,44 +129,44 @@ public class Matter  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`filed_date`", length=10)
-    public java.util.Date getFiledDate() {
+    public Date getFiledDate() {
         return this.filedDate;
     }
     
-    public void setFiledDate(java.util.Date filedDate) {
+    public void setFiledDate(Date filedDate) {
         this.filedDate = filedDate;
     }
 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`last_work_date`", length=10)
-    public java.util.Date getLastWorkDate() {
+    public Date getLastWorkDate() {
         return this.lastWorkDate;
     }
     
-    public void setLastWorkDate(java.util.Date lastWorkDate) {
+    public void setLastWorkDate(Date lastWorkDate) {
         this.lastWorkDate = lastWorkDate;
     }
 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`initial_court_date`", length=10)
-    public java.util.Date getInitialCourtDate() {
+    public Date getInitialCourtDate() {
         return this.initialCourtDate;
     }
     
-    public void setInitialCourtDate(java.util.Date initialCourtDate) {
+    public void setInitialCourtDate(Date initialCourtDate) {
         this.initialCourtDate = initialCourtDate;
     }
 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`closed_date`", length=10)
-    public java.util.Date getClosedDate() {
+    public Date getClosedDate() {
         return this.closedDate;
     }
     
-    public void setClosedDate(java.util.Date closedDate) {
+    public void setClosedDate(Date closedDate) {
         this.closedDate = closedDate;
     }
 

@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,9 +44,9 @@ public class BankReport  implements java.io.Serializable {
     
     private String type;
     
-    private java.util.Date startTimestamp;
+    private Date startTimestamp;
     
-    private java.util.Date endTimestamp;
+    private Date endTimestamp;
 
     public BankReport() {
     }
@@ -88,22 +89,22 @@ public class BankReport  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`start_timestamp`", length=23)
-    public java.util.Date getStartTimestamp() {
+    public Date getStartTimestamp() {
         return this.startTimestamp;
     }
     
-    public void setStartTimestamp(java.util.Date startTimestamp) {
+    public void setStartTimestamp(Date startTimestamp) {
         this.startTimestamp = startTimestamp;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`end_timestamp`", length=23)
-    public java.util.Date getEndTimestamp() {
+    public Date getEndTimestamp() {
         return this.endTimestamp;
     }
     
-    public void setEndTimestamp(java.util.Date endTimestamp) {
+    public void setEndTimestamp(Date endTimestamp) {
         this.endTimestamp = endTimestamp;
     }
 

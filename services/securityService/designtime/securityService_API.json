@@ -1,0 +1,432 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Swagger API documentation for securityService",
+    "version" : "2.0",
+    "title" : "securityServiceService Swagger Documentation",
+    "x-WM-SERVICE_TYPE" : "SecurityServiceType",
+    "x-WM-SERVICE_ID" : "securityService"
+  },
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "SecurityController",
+    "description" : "Exposes APIs to work with application security services",
+    "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.runtime.security.controller.SecurityController",
+    "x-WM-CONTROLLER_NAME" : "Security",
+    "x-WM-VERSION" : ""
+  } ],
+  "schemes" : [ "https", "http" ],
+  "paths" : {
+    "/security/enabled" : {
+      "get" : {
+        "tags" : [ "SecurityController" ],
+        "description" : "Returns security status of the application.",
+        "operationId" : "SecurityController-isSecurityEnabled-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/StringWrapper",
+              "x-WM-TYPE_ARGUMENTS" : [ ]
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "1e6d01d4-52ea-418f-916d-6495e2d3d161",
+        "x-WM-METHOD_NAME" : "isSecurityEnabled",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/enabled",
+      "x-WM-RELATIVE_PATH" : "/enabled"
+    },
+    "/security/info" : {
+      "get" : {
+        "tags" : [ "SecurityController" ],
+        "description" : "returns security information",
+        "operationId" : "SecurityController-getSecurityInfo-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/SecurityInfo",
+              "x-WM-TYPE_ARGUMENTS" : [ ]
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "b912af79-6cd3-4c77-9d3e-f4e5f99fdd56",
+        "x-WM-METHOD_NAME" : "getSecurityInfo",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/info",
+      "x-WM-RELATIVE_PATH" : "/info"
+    },
+    "/security/logout" : {
+      "post" : {
+        "tags" : [ "SecurityController" ],
+        "description" : "Logout the current user from the application.",
+        "operationId" : "SecurityController-logout-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "type" : "object"
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "0bbb9128-a137-461e-9bcd-b255a9b5eb60",
+        "x-WM-METHOD_NAME" : "logout",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/logout",
+      "x-WM-RELATIVE_PATH" : "/logout"
+    },
+    "/security/token" : {
+      "get" : {
+        "tags" : [ "SecurityController" ],
+        "description" : "Returns access token for current logged in user",
+        "operationId" : "SecurityController-getAccessToken-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/Token",
+              "x-WM-TYPE_ARGUMENTS" : [ ]
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "ce958cc0-f529-46da-8a39-55bb38927a18",
+        "x-WM-METHOD_NAME" : "getAccessToken",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/token",
+      "x-WM-RELATIVE_PATH" : "/token"
+    },
+    "/security/user" : {
+      "get" : {
+        "tags" : [ "SecurityController" ],
+        "description" : "Returns logged-in user details.",
+        "operationId" : "SecurityController-getLoggedInUser-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/WMCurrentUser",
+              "x-WM-TYPE_ARGUMENTS" : [ ]
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "b9647053-201b-4e34-a545-6ee7b1fa8f92",
+        "x-WM-METHOD_NAME" : "getLoggedInUser",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/user",
+      "x-WM-RELATIVE_PATH" : "/user"
+    },
+    "/security/user/authenticated" : {
+      "get" : {
+        "tags" : [ "SecurityController" ],
+        "description" : "Returns authentication status of the logged-in user.",
+        "operationId" : "SecurityController-isAuthenticated-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/BooleanWrapper",
+              "x-WM-TYPE_ARGUMENTS" : [ ]
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "31425897-2956-4407-a96d-429c31076e3c",
+        "x-WM-METHOD_NAME" : "isAuthenticated",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/user/authenticated",
+      "x-WM-RELATIVE_PATH" : "/user/authenticated"
+    },
+    "/security/user/login_time" : {
+      "get" : {
+        "tags" : [ "SecurityController" ],
+        "operationId" : "SecurityController-getLoginTime-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/StringWrapper",
+              "x-WM-TYPE_ARGUMENTS" : [ ]
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "b7331620-f378-4749-808f-f34ab8d073b5",
+        "x-WM-METHOD_NAME" : "getLoginTime",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/user/login_time",
+      "x-WM-RELATIVE_PATH" : "/user/login_time"
+    },
+    "/security/user/roles" : {
+      "get" : {
+        "tags" : [ "SecurityController" ],
+        "description" : "Returns list of roles for the logged-in user.",
+        "operationId" : "SecurityController-getUserRoles-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "type" : "array",
+              "uniqueItems" : false,
+              "items" : {
+                "type" : "string"
+              },
+              "x-WM-IS_LIST" : true
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "6239fd18-d5cf-4233-aafc-c594e35919fb",
+        "x-WM-METHOD_NAME" : "getUserRoles",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/user/roles",
+      "x-WM-RELATIVE_PATH" : "/user/roles"
+    },
+    "/security/user/tenantid" : {
+      "get" : {
+        "tags" : [ "SecurityController" ],
+        "description" : "Returns tenant-id for the logged-in user.",
+        "operationId" : "SecurityController-getTenantId-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/IntegerWrapper",
+              "x-WM-TYPE_ARGUMENTS" : [ ]
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "b5983e56-2f60-4429-a75d-85c56ef6f1c7",
+        "x-WM-METHOD_NAME" : "getTenantId",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/user/tenantid",
+      "x-WM-RELATIVE_PATH" : "/user/tenantid"
+    },
+    "/security/user/userid" : {
+      "get" : {
+        "tags" : [ "SecurityController" ],
+        "description" : "Returns logged-in user's userid",
+        "operationId" : "SecurityController-getUserId-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/StringWrapper",
+              "x-WM-TYPE_ARGUMENTS" : [ ]
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "7adbdd71-99bf-432a-ab6d-b05fe3024751",
+        "x-WM-METHOD_NAME" : "getUserId",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/user/userid",
+      "x-WM-RELATIVE_PATH" : "/user/userid"
+    },
+    "/security/user/username" : {
+      "get" : {
+        "tags" : [ "SecurityController" ],
+        "description" : "Returns logged-in user's username",
+        "operationId" : "SecurityController-getUsername-0-17",
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "schema" : {
+              "$ref" : "#/definitions/StringWrapper",
+              "x-WM-TYPE_ARGUMENTS" : [ ]
+            }
+          }
+        },
+        "x-WM-OPERATION_UID" : "5b6bf9f0-8d2e-4259-bd8e-601059200b7e",
+        "x-WM-METHOD_NAME" : "getUsername",
+        "x-WM-ACCESS_SPECIFIER" : "APP_ONLY"
+      },
+      "x-WM-TAG" : "SecurityController",
+      "x-WM-BASE_PATH" : "/security",
+      "x-WM-COMPLETE_PATH" : "/security/user/username",
+      "x-WM-RELATIVE_PATH" : "/user/username"
+    }
+  },
+  "definitions" : {
+    "LoginConfig" : {
+      "properties" : {
+        "pageName" : {
+          "type" : "string"
+        },
+        "sessionTimeout" : {
+          "$ref" : "#/definitions/SessionTimeoutConfig",
+          "x-WM-TYPE_ARGUMENTS" : [ ]
+        },
+        "type" : {
+          "type" : "string",
+          "enum" : [ "DIALOG", "PAGE" ]
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.studio.common.model.security.LoginConfig",
+      "x-WM-TAGS" : [ "SecurityController" ]
+    },
+    "BooleanWrapper" : {
+      "properties" : {
+        "result" : {
+          "type" : "boolean"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.studio.common.wrapper.BooleanWrapper",
+      "x-WM-TAGS" : [ "SecurityController" ]
+    },
+    "IntegerWrapper" : {
+      "properties" : {
+        "result" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.studio.common.wrapper.IntegerWrapper",
+      "x-WM-TAGS" : [ "SecurityController" ]
+    },
+    "UserInfo" : {
+      "properties" : {
+        "userId" : {
+          "type" : "string"
+        },
+        "userRoles" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "landingPage" : {
+          "type" : "string"
+        },
+        "userName" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.runtime.security.model.UserInfo",
+      "x-WM-TAGS" : [ "SecurityController" ]
+    },
+    "SecurityInfo" : {
+      "properties" : {
+        "authenticated" : {
+          "type" : "boolean"
+        },
+        "securityEnabled" : {
+          "type" : "boolean"
+        },
+        "userInfo" : {
+          "$ref" : "#/definitions/UserInfo",
+          "x-WM-TYPE_ARGUMENTS" : [ ]
+        },
+        "loginConfig" : {
+          "$ref" : "#/definitions/LoginConfig",
+          "x-WM-TYPE_ARGUMENTS" : [ ]
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.runtime.security.model.SecurityInfo",
+      "x-WM-TAGS" : [ "SecurityController" ]
+    },
+    "WMCurrentUser" : {
+      "properties" : {
+        "securityEnabled" : {
+          "type" : "boolean"
+        },
+        "userName" : {
+          "type" : "string"
+        },
+        "tenantId" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "loginTime" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "userRoles" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "authenticated" : {
+          "type" : "boolean"
+        },
+        "userId" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.runtime.security.WMCurrentUser",
+      "x-WM-TAGS" : [ "SecurityController" ]
+    },
+    "SessionTimeoutConfig" : {
+      "properties" : {
+        "timeoutValue" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "pageName" : {
+          "type" : "string"
+        },
+        "type" : {
+          "type" : "string",
+          "enum" : [ "DIALOG", "PAGE" ]
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.studio.common.model.security.SessionTimeoutConfig",
+      "x-WM-TAGS" : [ "SecurityController" ]
+    },
+    "StringWrapper" : {
+      "properties" : {
+        "result" : {
+          "type" : "string"
+        }
+      },
+      "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.studio.common.wrapper.StringWrapper",
+      "x-WM-TAGS" : [ "SecurityController" ]
+    },
+    "Token" : {
+      "allOf" : [ {
+        "$ref" : "#/definitions/Serializable"
+      }, {
+        "properties" : {
+          "wmAuthToken" : {
+            "type" : "string"
+          }
+        }
+      } ],
+      "x-WM-FULLY_QUALIFIED_NAME" : "com.wavemaker.runtime.security.token.Token",
+      "x-WM-TAGS" : [ "SecurityController" ]
+    },
+    "Serializable" : {
+      "x-WM-FULLY_QUALIFIED_NAME" : "java.io.Serializable",
+      "x-WM-TAGS" : [ "SecurityController" ]
+    }
+  }
+}

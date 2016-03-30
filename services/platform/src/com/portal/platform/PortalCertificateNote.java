@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -42,11 +43,11 @@ public class PortalCertificateNote  implements java.io.Serializable {
     
     private String user;
     
-    private java.util.Date created;
+    private Date created;
     
-    private java.util.Date due;
+    private Date due;
     
-    private java.util.Date done;
+    private Date done;
     
     private String noteDescription;
     
@@ -93,33 +94,33 @@ public class PortalCertificateNote  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`created`", insertable=false, updatable=false, length=23)
-    public java.util.Date getCreated() {
+    public Date getCreated() {
         return this.created;
     }
     
-    public void setCreated(java.util.Date created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
     @Id 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`due`", insertable=false, updatable=false, length=10)
-    public java.util.Date getDue() {
+    public Date getDue() {
         return this.due;
     }
     
-    public void setDue(java.util.Date due) {
+    public void setDue(Date due) {
         this.due = due;
     }
     @Id 
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`done`", insertable=false, updatable=false, length=23)
-    public java.util.Date getDone() {
+    public Date getDone() {
         return this.done;
     }
     
-    public void setDone(java.util.Date done) {
+    public void setDone(Date done) {
         this.done = done;
     }
     @Id 

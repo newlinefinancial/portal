@@ -147,186 +147,41 @@
       </key-property>
     </composite-id>
   </class>
-  <class table="`model_title`" name="com.portal.platform.ModelTitle" entity-name="com.portal.platform.ModelTitle" schema="review">
-    <composite-id mapped="true" class="ModelTitleId">
-      <key-property name="auctionId" type="java.lang.Integer">
-        <column name="`auction_id`" length="255" not-null="true" precision="10"/>
-      </key-property>
-      <key-property name="propertyId" type="java.lang.Integer">
-        <column name="`property_id`" length="255" not-null="true" precision="10"/>
-      </key-property>
-      <key-property name="demoFlg" type="java.math.BigDecimal">
-        <column name="`demo_flg`" length="255" not-null="false" precision="53" scale="9"/>
-      </key-property>
-      <key-property name="gov" type="java.lang.Integer">
-        <column name="`gov`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="govLien" type="java.lang.Integer">
-        <column name="`gov_lien`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numMortgages" type="java.lang.Integer">
-        <column name="`num_mortgages`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valMortgages" type="java.math.BigInteger">
-        <column name="`val_mortgages`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValMortgages" type="java.math.BigInteger">
-        <column name="`max_val_mortgages`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValMortgages" type="java.math.BigInteger">
-        <column name="`min_val_mortgages`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestMortgage" type="java.lang.Integer">
-        <column name="`newest_mortgage`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestMortgage" type="java.lang.Integer">
-        <column name="`oldest_mortgage`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numDeed" type="java.lang.Integer">
-        <column name="`num_deed`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valDeed" type="java.math.BigInteger">
-        <column name="`val_deed`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValDeed" type="java.math.BigInteger">
-        <column name="`max_val_deed`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValDeed" type="java.math.BigInteger">
-        <column name="`min_val_deed`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestDeed" type="java.lang.Integer">
-        <column name="`newest_deed`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestDeed" type="java.lang.Integer">
-        <column name="`oldest_deed`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numLien" type="java.lang.Integer">
-        <column name="`num_LIEN`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valLien" type="java.math.BigInteger">
-        <column name="`val_LIEN`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValLien" type="java.math.BigInteger">
-        <column name="`max_val_LIEN`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValLien" type="java.math.BigInteger">
-        <column name="`min_val_LIEN`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestLien" type="java.lang.Integer">
-        <column name="`newest_LIEN`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestLien" type="java.lang.Integer">
-        <column name="`oldest_LIEN`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numLis" type="java.lang.Integer">
-        <column name="`num_LIS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valLis" type="java.math.BigInteger">
-        <column name="`val_LIS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValLis" type="java.math.BigInteger">
-        <column name="`max_val_LIS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValLis" type="java.math.BigInteger">
-        <column name="`min_val_LIS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestLis" type="java.lang.Integer">
-        <column name="`newest_LIS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestLis" type="java.lang.Integer">
-        <column name="`oldest_LIS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numAssignment" type="java.lang.Integer">
-        <column name="`num_ASSIGNMENT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valAssignment" type="java.math.BigInteger">
-        <column name="`val_ASSIGNMENT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValAssignment" type="java.math.BigInteger">
-        <column name="`max_val_ASSIGNMENT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValAssignment" type="java.math.BigInteger">
-        <column name="`min_val_ASSIGNMENT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestAssignment" type="java.lang.Integer">
-        <column name="`newest_ASSIGNMENT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestAssignment" type="java.lang.Integer">
-        <column name="`oldest_ASSIGNMENT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numQuit" type="java.lang.Integer">
-        <column name="`num_QUIT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valQuit" type="java.math.BigInteger">
-        <column name="`val_QUIT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValQuit" type="java.math.BigInteger">
-        <column name="`max_val_QUIT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValQuit" type="java.math.BigInteger">
-        <column name="`min_val_QUIT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestQuit" type="java.lang.Integer">
-        <column name="`newest_QUIT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestQuit" type="java.lang.Integer">
-        <column name="`oldest_QUIT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numForeclosure" type="java.lang.Integer">
-        <column name="`num_FORECLOSURE`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valForeclosure" type="java.math.BigInteger">
-        <column name="`val_FORECLOSURE`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValForeclosure" type="java.math.BigInteger">
-        <column name="`max_val_FORECLOSURE`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValForeclosure" type="java.math.BigInteger">
-        <column name="`min_val_FORECLOSURE`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestForeclosure" type="java.lang.Integer">
-        <column name="`newest_FORECLOSURE`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestForeclosure" type="java.lang.Integer">
-        <column name="`oldest_FORECLOSURE`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numRents" type="java.lang.Integer">
-        <column name="`num_RENTS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valRents" type="java.math.BigInteger">
-        <column name="`val_RENTS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValRents" type="java.math.BigInteger">
-        <column name="`max_val_RENTS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValRents" type="java.math.BigInteger">
-        <column name="`min_val_RENTS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestRents" type="java.lang.Integer">
-        <column name="`newest_RENTS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestRents" type="java.lang.Integer">
-        <column name="`oldest_RENTS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numBuilding" type="java.lang.Integer">
-        <column name="`num_BUILDING`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valBuilding" type="java.math.BigInteger">
-        <column name="`val_BUILDING`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValBuilding" type="java.math.BigInteger">
-        <column name="`max_val_BUILDING`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValBuilding" type="java.math.BigInteger">
-        <column name="`min_val_BUILDING`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestBuilding" type="java.lang.Integer">
-        <column name="`newest_BUILDING`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestBuilding" type="java.lang.Integer">
-        <column name="`oldest_BUILDING`" length="255" not-null="false" precision="10"/>
-      </key-property>
-    </composite-id>
+  <class table="`inspection`" name="com.portal.platform.Inspection" entity-name="com.portal.platform.Inspection" schema="review">
+    <id name="id" type="java.lang.Integer">
+      <column name="`ID`" length="255" not-null="true" precision="10"/>
+      <generator class="identity"/>
+    </id>
+    <property name="inspectionDate" type="java.sql.Date">
+      <column name="`inspection_date`" length="10" not-null="true" precision="19"/>
+    </property>
+    <property name="grade" type="java.lang.Character">
+      <column name="`grade`" length="1" not-null="true" precision="19"/>
+    </property>
+    <property name="notOccupied" type="java.lang.Boolean">
+      <column name="`not_occupied`" length="255" not-null="true" precision="19"/>
+    </property>
+    <property name="forSale" type="java.lang.Boolean">
+      <column name="`for_sale`" length="255" not-null="true" precision="19"/>
+    </property>
+    <property name="rejectReasonId" type="java.lang.Integer">
+      <column name="`reject_reason_id`" length="255" not-null="false" precision="10"/>
+    </property>
+    <property name="user" type="java.lang.String">
+      <column name="`user`" length="25" not-null="false" precision="19"/>
+    </property>
+    <property name="source" type="java.lang.String">
+      <column name="`source`" length="50" not-null="true" precision="19"/>
+    </property>
+    <many-to-one
+      name="property"
+      class="Property"
+      fetch="select">
+      <meta attribute="mapping-property_id">
+        ID
+      </meta>
+      <column name="`property_id`" length="255" not-null="true" precision="10"/>
+    </many-to-one>
   </class>
   <class table="`accounting`" name="com.portal.platform.Accounting" entity-name="com.portal.platform.Accounting" schema="servicing">
     <composite-id mapped="true" class="AccountingId">
@@ -358,48 +213,6 @@
         <column name="`cash`" length="255" not-null="false" precision="19" scale="4"/>
       </key-property>
     </composite-id>
-  </class>
-  <class table="`inspection`" name="com.portal.platform.Inspection" entity-name="com.portal.platform.Inspection" schema="review">
-    <id name="id" type="java.lang.Integer">
-      <column name="`ID`" length="255" not-null="true" precision="10"/>
-      <generator class="identity"/>
-    </id>
-    <property name="inspectionDate" type="java.sql.Date">
-      <column name="`inspection_date`" length="10" not-null="true" precision="19"/>
-    </property>
-    <property name="grade" type="java.lang.Character">
-      <column name="`grade`" length="1" not-null="true" precision="19"/>
-    </property>
-    <property name="notOccupied" type="java.lang.Boolean">
-      <column name="`not_occupied`" length="255" not-null="true" precision="19"/>
-    </property>
-    <property name="forSale" type="java.lang.Boolean">
-      <column name="`for_sale`" length="255" not-null="true" precision="19"/>
-    </property>
-    <property name="user" type="java.lang.String">
-      <column name="`user`" length="25" not-null="false" precision="19"/>
-    </property>
-    <property name="source" type="java.lang.String">
-      <column name="`source`" length="50" not-null="true" precision="19"/>
-    </property>
-    <many-to-one
-      name="property"
-      class="Property"
-      fetch="select">
-      <meta attribute="mapping-property_id">
-        ID
-      </meta>
-      <column name="`property_id`" length="255" not-null="true" precision="10"/>
-    </many-to-one>
-    <many-to-one
-      name="rejectReason"
-      class="RejectReason"
-      fetch="select">
-      <meta attribute="mapping-reject_reason_id">
-        Id
-      </meta>
-      <column name="`reject_reason_id`" length="255" not-null="false" precision="10"/>
-    </many-to-one>
   </class>
   <class table="`underwriting`" name="com.portal.platform.Underwriting" entity-name="com.portal.platform.Underwriting" schema="review">
     <id name="id" type="java.lang.Integer">
@@ -621,6 +434,36 @@
       <one-to-many class="Accrual"/>
     </set>
   </class>
+  <class table="`note_type`" name="com.portal.platform.NoteType" entity-name="com.portal.platform.NoteType" schema="review">
+    <id name="id" type="java.lang.Integer">
+      <column name="`id`" length="255" not-null="true" precision="10"/>
+      <generator class="identity"/>
+    </id>
+    <property name="type" type="java.lang.String">
+      <column name="`type`" length="50" not-null="true" precision="19"/>
+    </property>
+    <property name="name" type="java.lang.String">
+      <column name="`name`" length="50" not-null="true" precision="19"/>
+    </property>
+    <property name="underwriting" type="java.lang.String">
+      <column name="`underwriting`" length="50" not-null="true" precision="19"/>
+    </property>
+    <property name="autoGenerate" type="java.lang.Boolean">
+      <column name="`auto_generate`" length="255" not-null="true" precision="19"/>
+    </property>
+    <property name="delay" type="java.lang.Integer">
+      <column name="`delay`" length="255" not-null="false" precision="10"/>
+    </property>
+    <property name="duration" type="java.lang.Integer">
+      <column name="`duration`" length="255" not-null="false" precision="10"/>
+    </property>
+    <set name="notes" table="note" inverse="true" lazy="true" fetch="select">
+      <key>
+        <column name="`note_type_id`"/>
+      </key>
+      <one-to-many class="Note"/>
+    </set>
+  </class>
   <class table="`rule`" name="com.portal.platform.Rule" entity-name="com.portal.platform.Rule" schema="review">
     <id name="id" type="java.lang.Integer">
       <column name="`id`" length="255" not-null="true" precision="10"/>
@@ -695,36 +538,6 @@
     <property name="tag" type="java.lang.String">
       <column name="`tag`" length="50" not-null="false" precision="19"/>
     </property>
-  </class>
-  <class table="`note_type`" name="com.portal.platform.NoteType" entity-name="com.portal.platform.NoteType" schema="review">
-    <id name="id" type="java.lang.Integer">
-      <column name="`id`" length="255" not-null="true" precision="10"/>
-      <generator class="identity"/>
-    </id>
-    <property name="type" type="java.lang.String">
-      <column name="`type`" length="50" not-null="true" precision="19"/>
-    </property>
-    <property name="name" type="java.lang.String">
-      <column name="`name`" length="50" not-null="true" precision="19"/>
-    </property>
-    <property name="underwriting" type="java.lang.String">
-      <column name="`underwriting`" length="50" not-null="true" precision="19"/>
-    </property>
-    <property name="autoGenerate" type="java.lang.Boolean">
-      <column name="`auto_generate`" length="255" not-null="true" precision="19"/>
-    </property>
-    <property name="delay" type="java.lang.Integer">
-      <column name="`delay`" length="255" not-null="false" precision="10"/>
-    </property>
-    <property name="duration" type="java.lang.Integer">
-      <column name="`duration`" length="255" not-null="false" precision="10"/>
-    </property>
-    <set name="notes" table="note" inverse="true" lazy="true" fetch="select">
-      <key>
-        <column name="`note_type_id`"/>
-      </key>
-      <one-to-many class="Note"/>
-    </set>
   </class>
   <class table="`title_type`" name="com.portal.platform.TitleType" entity-name="com.portal.platform.TitleType" schema="data">
     <id name="id" type="java.lang.Integer">
@@ -1642,24 +1455,6 @@
       <column name="`title_type`" length="255" not-null="true" precision="19"/>
     </many-to-one>
   </class>
-  <class table="`score`" name="com.portal.platform.Score" entity-name="com.portal.platform.Score" schema="review">
-    <id name="id" type="java.lang.Integer">
-      <column name="`id`" length="255" not-null="true" precision="10"/>
-      <generator class="identity"/>
-    </id>
-    <property name="timestamp" type="java.sql.Timestamp">
-      <column name="`timestamp`" length="23" not-null="true" precision="19"/>
-    </property>
-    <property name="auctionId" type="java.lang.Integer">
-      <column name="`auction_id`" length="255" not-null="false" precision="10"/>
-    </property>
-    <property name="label" type="java.lang.String">
-      <column name="`label`" length="255" not-null="false" precision="19"/>
-    </property>
-    <property name="probability" type="java.math.BigDecimal">
-      <column name="`probability`" length="255" not-null="false" precision="53" scale="9"/>
-    </property>
-  </class>
   <class table="`portal_matter_data`" name="com.portal.platform.PortalMatterData" entity-name="com.portal.platform.PortalMatterData" schema="review">
     <composite-id mapped="true" class="PortalMatterDataId">
       <key-property name="certificateId" type="java.lang.Integer">
@@ -1810,12 +1605,6 @@
       </meta>
       <column name="`property_id`" length="255" not-null="true" precision="10"/>
     </many-to-one>
-    <set name="samples" table="sample" inverse="true" lazy="true" fetch="select">
-      <key>
-        <column name="`auction_id`"/>
-      </key>
-      <one-to-many class="Sample"/>
-    </set>
     <set name="auctionResults" table="auction_result" inverse="true" lazy="true" fetch="select">
       <key>
         <column name="`auction_id`"/>
@@ -2051,6 +1840,81 @@
       </key-property>
     </composite-id>
   </class>
+  <class table="`grade_stat`" name="com.portal.platform.GradeStat" entity-name="com.portal.platform.GradeStat" schema="review">
+    <id name="gradeId" type="java.lang.Integer">
+      <column name="`grade_id`" length="255" not-null="true" precision="10"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="countyId" type="java.lang.Integer">
+      <column name="`county_id`" length="255" not-null="true" precision="10"/>
+    </property>
+    <property name="lookup" type="java.lang.String">
+      <column name="`lookup`" length="10" not-null="true" precision="19"/>
+    </property>
+    <property name="areaGrade" type="java.lang.Character">
+      <column name="`area_grade`" length="1" not-null="true" precision="19"/>
+    </property>
+    <property name="avgInspectiongrade" type="java.lang.Float">
+      <column name="`avg_inspectiongrade`" length="255" not-null="false" precision="4" scale="2"/>
+    </property>
+    <property name="avgMarketvalue" type="java.lang.Double">
+      <column name="`avg_marketvalue`" length="255" not-null="false" precision="19" scale="4"/>
+    </property>
+    <property name="countPublished" type="java.lang.Integer">
+      <column name="`count_published`" length="255" not-null="false" precision="10"/>
+    </property>
+    <property name="countAuctioned" type="java.lang.Integer">
+      <column name="`count_auctioned`" length="255" not-null="false" precision="10"/>
+    </property>
+    <property name="countForfeited" type="java.lang.Integer">
+      <column name="`count_forfeited`" length="255" not-null="false" precision="10"/>
+    </property>
+    <property name="pctForf" type="java.lang.Float">
+      <column name="`pct_forf`" length="255" not-null="false" precision="4" scale="2"/>
+    </property>
+    <property name="avgBidrate" type="java.lang.Float">
+      <column name="`avg_bidrate`" length="255" not-null="false" precision="4" scale="2"/>
+    </property>
+    <property name="countRedeemed" type="java.lang.Integer">
+      <column name="`count_redeemed`" length="255" not-null="false" precision="10"/>
+    </property>
+    <property name="pctRedeemed" type="java.lang.Float">
+      <column name="`pct_redeemed`" length="255" not-null="false" precision="4" scale="2"/>
+    </property>
+  </class>
+  <class table="`state`" name="com.portal.platform.State" entity-name="com.portal.platform.State" schema="data">
+    <id name="id" type="java.lang.Integer">
+      <column name="`id`" length="255" not-null="true" precision="10"/>
+      <generator class="identity"/>
+    </id>
+    <property name="state" type="java.lang.String">
+      <column name="`state`" length="2" not-null="true" precision="19"/>
+    </property>
+    <property name="interestType" type="java.lang.String">
+      <column name="`interest_type`" length="9" not-null="true" precision="19"/>
+    </property>
+    <property name="frequency" type="java.lang.String">
+      <column name="`frequency`" length="2" not-null="true" precision="19"/>
+    </property>
+    <property name="certPeriod" type="java.lang.Integer">
+      <column name="`cert_period`" length="255" not-null="true" precision="10"/>
+    </property>
+    <property name="subPeriod" type="java.lang.Integer">
+      <column name="`sub_period`" length="255" not-null="true" precision="10"/>
+    </property>
+    <property name="subRate" type="java.math.BigDecimal">
+      <column name="`sub_rate`" length="255" not-null="true" precision="53" scale="9"/>
+    </property>
+    <property name="termMonths" type="java.lang.Integer">
+      <column name="`term_months`" length="255" not-null="true" precision="10"/>
+    </property>
+    <set name="counties" table="county" inverse="true" lazy="true" fetch="select">
+      <key>
+        <column name="`state_id`"/>
+      </key>
+      <one-to-many class="County"/>
+    </set>
+  </class>
   <class table="`portal_matter_filter`" name="com.portal.platform.PortalMatterFilter" entity-name="com.portal.platform.PortalMatterFilter" schema="review">
     <composite-id mapped="true" class="PortalMatterFilterId">
       <key-property name="propertyId" type="java.lang.Integer">
@@ -2093,81 +1957,6 @@
         <column name="`certificate_id`" length="255" not-null="true" precision="10"/>
       </key-property>
     </composite-id>
-  </class>
-  <class table="`state`" name="com.portal.platform.State" entity-name="com.portal.platform.State" schema="data">
-    <id name="id" type="java.lang.Integer">
-      <column name="`id`" length="255" not-null="true" precision="10"/>
-      <generator class="identity"/>
-    </id>
-    <property name="state" type="java.lang.String">
-      <column name="`state`" length="2" not-null="true" precision="19"/>
-    </property>
-    <property name="interestType" type="java.lang.String">
-      <column name="`interest_type`" length="9" not-null="true" precision="19"/>
-    </property>
-    <property name="frequency" type="java.lang.String">
-      <column name="`frequency`" length="2" not-null="true" precision="19"/>
-    </property>
-    <property name="certPeriod" type="java.lang.Integer">
-      <column name="`cert_period`" length="255" not-null="true" precision="10"/>
-    </property>
-    <property name="subPeriod" type="java.lang.Integer">
-      <column name="`sub_period`" length="255" not-null="true" precision="10"/>
-    </property>
-    <property name="subRate" type="java.math.BigDecimal">
-      <column name="`sub_rate`" length="255" not-null="true" precision="53" scale="9"/>
-    </property>
-    <property name="termMonths" type="java.lang.Integer">
-      <column name="`term_months`" length="255" not-null="true" precision="10"/>
-    </property>
-    <set name="counties" table="county" inverse="true" lazy="true" fetch="select">
-      <key>
-        <column name="`state_id`"/>
-      </key>
-      <one-to-many class="County"/>
-    </set>
-  </class>
-  <class table="`grade_stat`" name="com.portal.platform.GradeStat" entity-name="com.portal.platform.GradeStat" schema="review">
-    <id name="gradeId" type="java.lang.Integer">
-      <column name="`grade_id`" length="255" not-null="true" precision="10"/>
-      <generator class="assigned"/>
-    </id>
-    <property name="countyId" type="java.lang.Integer">
-      <column name="`county_id`" length="255" not-null="true" precision="10"/>
-    </property>
-    <property name="lookup" type="java.lang.String">
-      <column name="`lookup`" length="10" not-null="true" precision="19"/>
-    </property>
-    <property name="areaGrade" type="java.lang.Character">
-      <column name="`area_grade`" length="1" not-null="true" precision="19"/>
-    </property>
-    <property name="avgInspectiongrade" type="java.lang.Float">
-      <column name="`avg_inspectiongrade`" length="255" not-null="false" precision="4" scale="2"/>
-    </property>
-    <property name="avgMarketvalue" type="java.lang.Double">
-      <column name="`avg_marketvalue`" length="255" not-null="false" precision="19" scale="4"/>
-    </property>
-    <property name="countPublished" type="java.lang.Integer">
-      <column name="`count_published`" length="255" not-null="false" precision="10"/>
-    </property>
-    <property name="countAuctioned" type="java.lang.Integer">
-      <column name="`count_auctioned`" length="255" not-null="false" precision="10"/>
-    </property>
-    <property name="countForfeited" type="java.lang.Integer">
-      <column name="`count_forfeited`" length="255" not-null="false" precision="10"/>
-    </property>
-    <property name="pctForf" type="java.lang.Float">
-      <column name="`pct_forf`" length="255" not-null="false" precision="4" scale="2"/>
-    </property>
-    <property name="avgBidrate" type="java.lang.Float">
-      <column name="`avg_bidrate`" length="255" not-null="false" precision="4" scale="2"/>
-    </property>
-    <property name="countRedeemed" type="java.lang.Integer">
-      <column name="`count_redeemed`" length="255" not-null="false" precision="10"/>
-    </property>
-    <property name="pctRedeemed" type="java.lang.Float">
-      <column name="`pct_redeemed`" length="255" not-null="false" precision="4" scale="2"/>
-    </property>
   </class>
   <class table="`portal_address`" name="com.portal.platform.PortalAddress" entity-name="com.portal.platform.PortalAddress" schema="review">
     <composite-id mapped="true" class="PortalAddressId">
@@ -2419,391 +2208,6 @@
       <one-to-many class="Accrual"/>
     </set>
   </class>
-  <class table="`model_data`" name="com.portal.platform.ModelData" entity-name="com.portal.platform.ModelData" schema="review">
-    <composite-id mapped="true" class="ModelDataId">
-      <key-property name="auctionId" type="java.lang.Integer">
-        <column name="`auction_id`" length="255" not-null="true" precision="10"/>
-      </key-property>
-      <key-property name="taxYear" type="java.lang.Integer">
-        <column name="`tax_year`" length="255" not-null="true" precision="10"/>
-      </key-property>
-      <key-property name="monthsDelinquent" type="java.lang.Integer">
-        <column name="`months_delinquent`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="priorYearsDue" type="java.lang.Integer">
-        <column name="`prior_years_due`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="otherDue" type="java.lang.Integer">
-        <column name="`other_due`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="auctionYearDue" type="java.lang.Integer">
-        <column name="`auction_year_due`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="totalAmtDue" type="java.lang.Integer">
-        <column name="`total_amt_due`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="annualTaxAmt" type="java.lang.Integer">
-        <column name="`annual_tax_amt`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="iniSubStatus" type="java.lang.String">
-        <column name="`ini_sub_status`" length="7" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="iniSubPct" type="java.math.BigDecimal">
-        <column name="`ini_sub_pct`" length="255" not-null="false" precision="53" scale="9"/>
-      </key-property>
-      <key-property name="ltv" type="java.math.BigDecimal">
-        <column name="`ltv`" length="255" not-null="false" precision="53" scale="9"/>
-      </key-property>
-      <key-property name="lastRedemptionDate" type="java.sql.Date">
-        <column name="`last_redemption_date`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="status" type="java.lang.String">
-        <column name="`status`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="dispositionDate" type="java.sql.Date">
-        <column name="`disposition_date`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="dispositionResearchDate" type="java.sql.Date">
-        <column name="`disposition_research_date`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="label" type="java.lang.String">
-        <column name="`Label`" length="4" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="propertyId" type="java.lang.Integer">
-        <column name="`property_id`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="propertyPin" type="java.lang.String">
-        <column name="`property_pin`" length="255" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="countyName" type="java.lang.String">
-        <column name="`county_name`" length="50" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="townshipName" type="java.lang.String">
-        <column name="`township_name`" length="50" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="dead" type="java.lang.Boolean">
-        <column name="`dead`" length="255" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="addressLine1" type="java.lang.String">
-        <column name="`address_line1`" length="220" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="addressLine2" type="java.lang.String">
-        <column name="`address_line2`" length="220" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="addressCity" type="java.lang.String">
-        <column name="`address_city`" length="220" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="state" type="java.lang.String">
-        <column name="`state`" length="2" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="addressZip" type="java.lang.String">
-        <column name="`address_zip`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="latitude" type="java.lang.Float">
-        <column name="`latitude`" length="255" not-null="false" precision="9" scale="6"/>
-      </key-property>
-      <key-property name="longitude" type="java.lang.Float">
-        <column name="`longitude`" length="255" not-null="false" precision="9" scale="6"/>
-      </key-property>
-      <key-property name="propertyType" type="java.lang.String">
-        <column name="`property_type`" length="50" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="propertyExteriorId" type="java.lang.Integer">
-        <column name="`property_exterior_id`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="propertyExterior" type="java.lang.String">
-        <column name="`property_exterior`" length="255" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="yearBuilt" type="java.lang.Integer">
-        <column name="`year_built`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="yearImproved" type="java.lang.Integer">
-        <column name="`year_improved`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="lotSize" type="java.lang.Integer">
-        <column name="`lot_size`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="sqftLiving" type="java.lang.Integer">
-        <column name="`sqft_living`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="sqftTotal" type="java.lang.Integer">
-        <column name="`sqft_total`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="lookup" type="java.lang.String">
-        <column name="`lookup`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="grade" type="java.lang.Integer">
-        <column name="`grade`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="buildingCount" type="java.lang.Integer">
-        <column name="`building_count`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="areaCountPublished" type="java.lang.Integer">
-        <column name="`area_count_published`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="areaCountForfeited" type="java.lang.Integer">
-        <column name="`area_count_forfeited`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="areaCountAuctioned" type="java.lang.Integer">
-        <column name="`area_count_auctioned`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="areaCountRedeemed" type="java.lang.Integer">
-        <column name="`area_count_redeemed`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="assTaxYear" type="java.lang.Integer">
-        <column name="`ass_tax_year`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="marketValue" type="java.lang.Integer">
-        <column name="`market_value`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="homeExemption" type="java.lang.Integer">
-        <column name="`home_exemption`" length="255" not-null="true" precision="10"/>
-      </key-property>
-      <key-property name="seniorExemption" type="java.lang.Integer">
-        <column name="`senior_exemption`" length="255" not-null="true" precision="10"/>
-      </key-property>
-      <key-property name="doubleExemption" type="java.lang.Integer">
-        <column name="`double_exemption`" length="255" not-null="true" precision="10"/>
-      </key-property>
-      <key-property name="equalizedValuation" type="java.lang.Integer">
-        <column name="`equalized_valuation`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="seniorFreeze" type="java.lang.Boolean">
-        <column name="`senior_freeze`" length="255" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="assesseeName" type="java.lang.String">
-        <column name="`assessee_name`" length="100" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="assesseeAddressLine1" type="java.lang.String">
-        <column name="`assessee_address_line1`" length="100" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="assesseeAddressCity" type="java.lang.String">
-        <column name="`assessee_address_city`" length="50" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="assesseeAddressState" type="java.lang.String">
-        <column name="`assessee_address_state`" length="2" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="assesseeAddressZip" type="java.lang.String">
-        <column name="`assessee_address_zip`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="propertyClassId" type="java.lang.Integer">
-        <column name="`property_class_id`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="zoningImprovement" type="java.lang.String">
-        <column name="`zoning_improvement`" length="235" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="description" type="java.lang.String">
-        <column name="`description`" length="255" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="filter" type="java.lang.Character">
-        <column name="`filter`" length="1" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="countPublished" type="java.lang.Integer">
-        <column name="`count_published`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="countAuctioned" type="java.lang.Integer">
-        <column name="`count_auctioned`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="countForfeited" type="java.lang.Integer">
-        <column name="`count_forfeited`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="countOpensales" type="java.lang.Integer">
-        <column name="`count_opensales`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="countOpenpriors" type="java.lang.Integer">
-        <column name="`count_openpriors`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="demoFlg" type="java.math.BigDecimal">
-        <column name="`demo_flg`" length="255" not-null="false" precision="53" scale="9"/>
-      </key-property>
-      <key-property name="gov" type="java.lang.Integer">
-        <column name="`gov`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="govLien" type="java.lang.Integer">
-        <column name="`gov_lien`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numMortgages" type="java.lang.Integer">
-        <column name="`num_mortgages`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valMortgages" type="java.math.BigInteger">
-        <column name="`val_mortgages`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValMortgages" type="java.math.BigInteger">
-        <column name="`max_val_mortgages`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValMortgages" type="java.math.BigInteger">
-        <column name="`min_val_mortgages`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestMortgage" type="java.lang.Integer">
-        <column name="`newest_mortgage`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestMortgage" type="java.lang.Integer">
-        <column name="`oldest_mortgage`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numDeed" type="java.lang.Integer">
-        <column name="`num_deed`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valDeed" type="java.math.BigInteger">
-        <column name="`val_deed`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValDeed" type="java.math.BigInteger">
-        <column name="`max_val_deed`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValDeed" type="java.math.BigInteger">
-        <column name="`min_val_deed`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestDeed" type="java.lang.Integer">
-        <column name="`newest_deed`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestDeed" type="java.lang.Integer">
-        <column name="`oldest_deed`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numLien" type="java.lang.Integer">
-        <column name="`num_LIEN`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valLien" type="java.math.BigInteger">
-        <column name="`val_LIEN`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValLien" type="java.math.BigInteger">
-        <column name="`max_val_LIEN`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValLien" type="java.math.BigInteger">
-        <column name="`min_val_LIEN`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestLien" type="java.lang.Integer">
-        <column name="`newest_LIEN`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestLien" type="java.lang.Integer">
-        <column name="`oldest_LIEN`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numLis" type="java.lang.Integer">
-        <column name="`num_LIS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valLis" type="java.math.BigInteger">
-        <column name="`val_LIS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValLis" type="java.math.BigInteger">
-        <column name="`max_val_LIS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValLis" type="java.math.BigInteger">
-        <column name="`min_val_LIS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestLis" type="java.lang.Integer">
-        <column name="`newest_LIS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestLis" type="java.lang.Integer">
-        <column name="`oldest_LIS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numAssignment" type="java.lang.Integer">
-        <column name="`num_ASSIGNMENT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valAssignment" type="java.math.BigInteger">
-        <column name="`val_ASSIGNMENT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValAssignment" type="java.math.BigInteger">
-        <column name="`max_val_ASSIGNMENT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValAssignment" type="java.math.BigInteger">
-        <column name="`min_val_ASSIGNMENT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestAssignment" type="java.lang.Integer">
-        <column name="`newest_ASSIGNMENT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestAssignment" type="java.lang.Integer">
-        <column name="`oldest_ASSIGNMENT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numQuit" type="java.lang.Integer">
-        <column name="`num_QUIT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valQuit" type="java.math.BigInteger">
-        <column name="`val_QUIT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValQuit" type="java.math.BigInteger">
-        <column name="`max_val_QUIT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValQuit" type="java.math.BigInteger">
-        <column name="`min_val_QUIT`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestQuit" type="java.lang.Integer">
-        <column name="`newest_QUIT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestQuit" type="java.lang.Integer">
-        <column name="`oldest_QUIT`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numForeclosure" type="java.lang.Integer">
-        <column name="`num_FORECLOSURE`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valForeclosure" type="java.math.BigInteger">
-        <column name="`val_FORECLOSURE`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValForeclosure" type="java.math.BigInteger">
-        <column name="`max_val_FORECLOSURE`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValForeclosure" type="java.math.BigInteger">
-        <column name="`min_val_FORECLOSURE`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestForeclosure" type="java.lang.Integer">
-        <column name="`newest_FORECLOSURE`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestForeclosure" type="java.lang.Integer">
-        <column name="`oldest_FORECLOSURE`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numRents" type="java.lang.Integer">
-        <column name="`num_RENTS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valRents" type="java.math.BigInteger">
-        <column name="`val_RENTS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValRents" type="java.math.BigInteger">
-        <column name="`max_val_RENTS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValRents" type="java.math.BigInteger">
-        <column name="`min_val_RENTS`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestRents" type="java.lang.Integer">
-        <column name="`newest_RENTS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestRents" type="java.lang.Integer">
-        <column name="`oldest_RENTS`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="numBuilding" type="java.lang.Integer">
-        <column name="`num_BUILDING`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="valBuilding" type="java.math.BigInteger">
-        <column name="`val_BUILDING`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="maxValBuilding" type="java.math.BigInteger">
-        <column name="`max_val_BUILDING`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="minValBuilding" type="java.math.BigInteger">
-        <column name="`min_val_BUILDING`" length="255" not-null="false" precision="20"/>
-      </key-property>
-      <key-property name="newestBuilding" type="java.lang.Integer">
-        <column name="`newest_BUILDING`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="oldestBuilding" type="java.lang.Integer">
-        <column name="`oldest_BUILDING`" length="255" not-null="false" precision="10"/>
-      </key-property>
-    </composite-id>
-  </class>
-  <class table="`sample`" name="com.portal.platform.Sample" entity-name="com.portal.platform.Sample" schema="review">
-    <id name="id" type="java.lang.Integer">
-      <column name="`id`" length="255" not-null="true" precision="10"/>
-      <generator class="identity"/>
-    </id>
-    <property name="sampleName" type="java.lang.String">
-      <column name="`sample_name`" length="50" not-null="true" precision="19"/>
-    </property>
-    <many-to-one
-      name="auction"
-      class="Auction"
-      fetch="select">
-      <meta attribute="mapping-auction_id">
-        id
-      </meta>
-      <column name="`auction_id`" length="255" not-null="true" precision="10"/>
-    </many-to-one>
-  </class>
   <class table="`assessment`" name="com.portal.platform.Assessment" entity-name="com.portal.platform.Assessment" schema="data">
     <id name="id" type="java.lang.Integer">
       <column name="`ID`" length="255" not-null="true" precision="10"/>
@@ -2881,106 +2285,6 @@
       </meta>
       <column name="`property_class_id`" length="255" not-null="true" precision="10"/>
     </many-to-one>
-  </class>
-  <class table="`model_historical_auctions`" name="com.portal.platform.ModelHistoricalAuctions" entity-name="com.portal.platform.ModelHistoricalAuctions" schema="review">
-    <composite-id mapped="true" class="ModelHistoricalAuctionsId">
-      <key-property name="auctionId" type="java.lang.Integer">
-        <column name="`auction_id`" length="255" not-null="true" precision="10"/>
-      </key-property>
-      <key-property name="auctionYear" type="java.lang.Integer">
-        <column name="`auction_year`" length="255" not-null="true" precision="10"/>
-      </key-property>
-      <key-property name="countPublished" type="java.lang.Integer">
-        <column name="`count_published`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="countAuctioned" type="java.lang.Integer">
-        <column name="`count_auctioned`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="countForfeited" type="java.lang.Integer">
-        <column name="`count_forfeited`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="countOpensales" type="java.lang.Integer">
-        <column name="`count_opensales`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="countOpenpriors" type="java.lang.Integer">
-        <column name="`count_openpriors`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="taxYear1" type="java.lang.Integer">
-        <column name="`tax_year1`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="auctionResult1" type="java.lang.String">
-        <column name="`auction_result1`" length="9" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="dispositionStatus1" type="java.lang.String">
-        <column name="`disposition_status1`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="dispositionDate1" type="java.sql.Date">
-        <column name="`disposition_date1`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="openStatus1" type="java.lang.String">
-        <column name="`open_status1`" length="8" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="taxYear2" type="java.lang.Integer">
-        <column name="`tax_year2`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="auctionResult2" type="java.lang.String">
-        <column name="`auction_result2`" length="9" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="dispositionStatus2" type="java.lang.String">
-        <column name="`disposition_status2`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="dispositionDate2" type="java.sql.Date">
-        <column name="`disposition_date2`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="openStatus2" type="java.lang.String">
-        <column name="`open_status2`" length="8" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="taxYear3" type="java.lang.Integer">
-        <column name="`tax_year3`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="auctionResult3" type="java.lang.String">
-        <column name="`auction_result3`" length="9" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="dispositionStatus3" type="java.lang.String">
-        <column name="`disposition_status3`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="dispositionDate3" type="java.sql.Date">
-        <column name="`disposition_date3`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="openStatus3" type="java.lang.String">
-        <column name="`open_status3`" length="8" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="taxYear4" type="java.lang.Integer">
-        <column name="`tax_year4`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="auctionResult4" type="java.lang.String">
-        <column name="`auction_result4`" length="9" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="dispositionStatus4" type="java.lang.String">
-        <column name="`disposition_status4`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="dispositionDate4" type="java.sql.Date">
-        <column name="`disposition_date4`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="openStatus4" type="java.lang.String">
-        <column name="`open_status4`" length="8" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="taxYear5" type="java.lang.Integer">
-        <column name="`tax_year5`" length="255" not-null="false" precision="10"/>
-      </key-property>
-      <key-property name="auctionResult5" type="java.lang.String">
-        <column name="`auction_result5`" length="9" not-null="true" precision="19"/>
-      </key-property>
-      <key-property name="dispositionStatus5" type="java.lang.String">
-        <column name="`disposition_status5`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="dispositionDate5" type="java.sql.Date">
-        <column name="`disposition_date5`" length="10" not-null="false" precision="19"/>
-      </key-property>
-      <key-property name="openStatus5" type="java.lang.String">
-        <column name="`open_status5`" length="8" not-null="true" precision="19"/>
-      </key-property>
-    </composite-id>
   </class>
   <class table="`accrual`" name="com.portal.platform.Accrual" entity-name="com.portal.platform.Accrual" schema="servicing">
     <id name="id" type="java.lang.Integer">
@@ -3081,6 +2385,27 @@
       <column name="`county_id`" length="255" not-null="true" precision="10"/>
     </many-to-one>
   </class>
+  <class table="`property_type`" name="com.portal.platform.PropertyType" entity-name="com.portal.platform.PropertyType" schema="data">
+    <id name="id" type="java.lang.Integer">
+      <column name="`id`" length="255" not-null="true" precision="10"/>
+      <generator class="identity"/>
+    </id>
+    <property name="zoning" type="java.lang.String">
+      <column name="`zoning`" length="50" not-null="true" precision="19"/>
+    </property>
+    <property name="improvementLevel" type="java.lang.String">
+      <column name="`improvement_level`" length="50" not-null="true" precision="19"/>
+    </property>
+    <property name="type" type="java.lang.String">
+      <column name="`type`" length="50" not-null="true" precision="19"/>
+    </property>
+    <set name="properties" table="property" inverse="true" lazy="true" fetch="select">
+      <key>
+        <column name="`property_type_id`"/>
+      </key>
+      <one-to-many class="Property"/>
+    </set>
+  </class>
   <class table="`portal_matter_party`" name="com.portal.platform.PortalMatterParty" entity-name="com.portal.platform.PortalMatterParty" schema="review">
     <composite-id mapped="true" class="PortalMatterPartyId">
       <key-property name="matterPartyId" type="java.lang.Integer">
@@ -3162,27 +2487,6 @@
         <column name="`matter_id`" length="255" not-null="true" precision="10"/>
       </key-property>
     </composite-id>
-  </class>
-  <class table="`property_type`" name="com.portal.platform.PropertyType" entity-name="com.portal.platform.PropertyType" schema="data">
-    <id name="id" type="java.lang.Integer">
-      <column name="`id`" length="255" not-null="true" precision="10"/>
-      <generator class="identity"/>
-    </id>
-    <property name="zoning" type="java.lang.String">
-      <column name="`zoning`" length="50" not-null="true" precision="19"/>
-    </property>
-    <property name="improvementLevel" type="java.lang.String">
-      <column name="`improvement_level`" length="50" not-null="true" precision="19"/>
-    </property>
-    <property name="type" type="java.lang.String">
-      <column name="`type`" length="50" not-null="true" precision="19"/>
-    </property>
-    <set name="properties" table="property" inverse="true" lazy="true" fetch="select">
-      <key>
-        <column name="`property_type_id`"/>
-      </key>
-      <one-to-many class="Property"/>
-    </set>
   </class>
   <class table="`portal_auction_data`" name="com.portal.platform.PortalAuctionData" entity-name="com.portal.platform.PortalAuctionData" schema="review">
     <composite-id mapped="true" class="PortalAuctionDataId">
@@ -3317,30 +2621,6 @@
       </key-property>
     </composite-id>
   </class>
-  <class table="`reject_reason`" name="com.portal.platform.RejectReason" entity-name="com.portal.platform.RejectReason" schema="review">
-    <id name="id" type="java.lang.Integer">
-      <column name="`Id`" length="255" not-null="true" precision="10"/>
-      <generator class="identity"/>
-    </id>
-    <property name="rejectReason" type="java.lang.String">
-      <column name="`reject_reason`" length="50" not-null="true" precision="19"/>
-    </property>
-    <property name="type" type="java.lang.String">
-      <column name="`type`" length="50" not-null="false" precision="19"/>
-    </property>
-    <property name="noteTypeId" type="java.lang.Integer">
-      <column name="`note_type_id`" length="255" not-null="false" precision="10"/>
-    </property>
-    <property name="newNoteTypeId" type="java.lang.Integer">
-      <column name="`new_note_type_id`" length="255" not-null="false" precision="10"/>
-    </property>
-    <set name="inspections" table="inspection" inverse="true" lazy="true" fetch="select">
-      <key>
-        <column name="`reject_reason_id`"/>
-      </key>
-      <one-to-many class="Inspection"/>
-    </set>
-  </class>
   <class table="`party`" name="com.portal.platform.Party" entity-name="com.portal.platform.Party" schema="servicing">
     <id name="id" type="java.lang.Integer">
       <column name="`id`" length="255" not-null="true" precision="10"/>
@@ -3403,12 +2683,6 @@
       </meta>
       <column name="`source1`" length="4" not-null="false" precision="19"/>
     </many-to-one>
-  </class>
-  <class table="`date`" name="com.portal.platform.Date" entity-name="com.portal.platform.Date" schema="dbo">
-    <id name="date" type="java.sql.Date">
-      <column name="`date`" length="10" not-null="true" precision="19"/>
-      <generator class="assigned"/>
-    </id>
   </class>
   <class table="`buyer`" name="com.portal.platform.Buyer" entity-name="com.portal.platform.Buyer" schema="data">
     <id name="id" type="java.lang.Integer">
@@ -3725,55 +2999,6 @@
       </meta>
       <column name="`property_id`" length="255" not-null="true" precision="10"/>
     </many-to-one>
-  </class>
-  <class table="`number`" name="com.portal.platform.NumberTable" entity-name="com.portal.platform.NumberTable" schema="dbo">
-    <id name="number" type="java.lang.Integer">
-      <column name="`number`" length="255" not-null="true" precision="10"/>
-      <generator class="identity"/>
-    </id>
-  </class>
-  <class table="`model_posting_availability`" name="com.portal.platform.ModelPostingAvailability" entity-name="com.portal.platform.ModelPostingAvailability" schema="review">
-    <composite-id mapped="true" class="ModelPostingAvailabilityId">
-      <key-property name="auctionId" type="java.lang.Integer">
-        <column name="`auction_id`" length="255" not-null="true" precision="10"/>
-      </key-property>
-      <key-property name="sub1Pct" type="java.math.BigDecimal">
-        <column name="`sub_1_pct`" length="255" not-null="false" precision="53" scale="9"/>
-      </key-property>
-      <key-property name="sub2Pct" type="java.math.BigDecimal">
-        <column name="`sub_2_pct`" length="255" not-null="false" precision="53" scale="9"/>
-      </key-property>
-      <key-property name="sub3Pct" type="java.math.BigDecimal">
-        <column name="`sub_3_pct`" length="255" not-null="false" precision="53" scale="9"/>
-      </key-property>
-      <key-property name="sub4Pct" type="java.math.BigDecimal">
-        <column name="`sub_4_pct`" length="255" not-null="false" precision="53" scale="9"/>
-      </key-property>
-      <key-property name="sub5Pct" type="java.math.BigDecimal">
-        <column name="`sub_5_pct`" length="255" not-null="false" precision="53" scale="9"/>
-      </key-property>
-      <key-property name="sub6Pct" type="java.math.BigDecimal">
-        <column name="`sub_6_pct`" length="255" not-null="false" precision="53" scale="9"/>
-      </key-property>
-    </composite-id>
-  </class>
-  <class table="`sysdiagrams`" name="com.portal.platform.Sysdiagrams" entity-name="com.portal.platform.Sysdiagrams" schema="dbo">
-    <id name="diagramId" type="java.lang.Integer">
-      <column name="`diagram_id`" length="255" not-null="true" precision="10"/>
-      <generator class="identity"/>
-    </id>
-    <property name="name" type="java.lang.String">
-      <column name="`name`" length="255" not-null="true" precision="19"/>
-    </property>
-    <property name="principalId" type="java.lang.Integer">
-      <column name="`principal_id`" length="255" not-null="true" precision="10"/>
-    </property>
-    <property name="version" type="java.lang.Integer">
-      <column name="`version`" length="255" not-null="false" precision="10"/>
-    </property>
-    <property name="definition" type="binary">
-      <column name="`definition`" length="255" not-null="false" precision="19"/>
-    </property>
   </class>
   <class table="`portal_certificate_note`" name="com.portal.platform.PortalCertificateNote" entity-name="com.portal.platform.PortalCertificateNote" schema="review">
     <composite-id mapped="true" class="PortalCertificateNoteId">

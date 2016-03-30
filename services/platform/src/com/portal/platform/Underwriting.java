@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -52,7 +53,7 @@ public class Underwriting  implements java.io.Serializable {
     
     private String modelDecision;
     
-    private java.util.Date modelTimestamp;
+    private Date modelTimestamp;
     
     private Float predRedemptionPct;
     
@@ -60,7 +61,7 @@ public class Underwriting  implements java.io.Serializable {
     
     private Float predBidConfidence;
     
-    private java.util.Date overrideTimestamp;
+    private Date overrideTimestamp;
     
     private String overrideUser;
     
@@ -142,11 +143,11 @@ public class Underwriting  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`model_timestamp`", length=23)
-    public java.util.Date getModelTimestamp() {
+    public Date getModelTimestamp() {
         return this.modelTimestamp;
     }
     
-    public void setModelTimestamp(java.util.Date modelTimestamp) {
+    public void setModelTimestamp(Date modelTimestamp) {
         this.modelTimestamp = modelTimestamp;
     }
 
@@ -186,11 +187,11 @@ public class Underwriting  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`override_timestamp`", length=23)
-    public java.util.Date getOverrideTimestamp() {
+    public Date getOverrideTimestamp() {
         return this.overrideTimestamp;
     }
     
-    public void setOverrideTimestamp(java.util.Date overrideTimestamp) {
+    public void setOverrideTimestamp(Date overrideTimestamp) {
         this.overrideTimestamp = overrideTimestamp;
     }
 

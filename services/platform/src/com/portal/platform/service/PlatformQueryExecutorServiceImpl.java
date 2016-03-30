@@ -1,7 +1,3 @@
-/*Copyright (c) 2016-2017 newlinefinancial.com All Rights Reserved.
- This software is the confidential and proprietary information of newlinefinancial.com You shall not disclose such Confidential Information and shall use it only in accordance
- with the terms of the source code license agreement you entered into with newlinefinancial.com*/
-
 
 package com.portal.platform.service;
 
@@ -33,6 +29,13 @@ public class PlatformQueryExecutorServiceImpl implements PlatformQueryExecutorSe
 	@Qualifier("platformWMQueryExecutor")
 	private WMQueryExecutor queryExecutor;
 
+	@Transactional(value = "platformTransactionManager")
+	@Override
+	public Page<Object> executeInspection_drop_down(Pageable pageable)
+	throws QueryParameterMismatchException{
+        Map<String, Object> params = new HashMap<String, Object>();
+        return queryExecutor.executeNamedQuery("inspection_drop_down", params, pageable);
+	}
 
 	@Transactional(value = "platformTransactionManager")
 	@Override

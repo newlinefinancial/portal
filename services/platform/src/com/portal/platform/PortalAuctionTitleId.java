@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Embeddable;
 
 
@@ -28,7 +29,7 @@ public class PortalAuctionTitleId  implements java.io.Serializable {
     
     private Double consideration;
     
-    private java.util.Date date;
+    private Date date;
     
     private String docNumber;
     
@@ -57,11 +58,11 @@ public class PortalAuctionTitleId  implements java.io.Serializable {
     public void setConsideration(Double consideration) {
         this.consideration = consideration;
     }
-    public java.util.Date getDate() {
+    public Date getDate() {
         return this.date;
     }
     
-    public void setDate(java.util.Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
     public String getDocNumber() {

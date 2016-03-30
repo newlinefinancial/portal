@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +43,7 @@ public class Inspection  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date inspectionDate;
+    private Date inspectionDate;
     
     private Character grade;
     
@@ -50,13 +51,13 @@ public class Inspection  implements java.io.Serializable {
     
     private Boolean forSale;
     
+    private Integer rejectReasonId;
+    
     private String user;
     
     private String source;
     
     private Property property;
-    
-    private RejectReason rejectReason;
 
     public Inspection() {
     }
@@ -77,11 +78,11 @@ public class Inspection  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`inspection_date`", length=10)
-    public java.util.Date getInspectionDate() {
+    public Date getInspectionDate() {
         return this.inspectionDate;
     }
     
-    public void setInspectionDate(java.util.Date inspectionDate) {
+    public void setInspectionDate(Date inspectionDate) {
         this.inspectionDate = inspectionDate;
     }
 
@@ -120,6 +121,17 @@ public class Inspection  implements java.io.Serializable {
 
     
 
+    @Column(name="`reject_reason_id`", precision=10)
+    public Integer getRejectReasonId() {
+        return this.rejectReasonId;
+    }
+    
+    public void setRejectReasonId(Integer rejectReasonId) {
+        this.rejectReasonId = rejectReasonId;
+    }
+
+    
+
     @Column(name="`user`", length=25)
     public String getUser() {
         return this.user;
@@ -148,16 +160,6 @@ public class Inspection  implements java.io.Serializable {
     
     public void setProperty(Property property) {
         this.property = property;
-    }
-
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name="`reject_reason_id`")
-    public RejectReason getRejectReason() {
-        return this.rejectReason;
-    }
-    
-    public void setRejectReason(RejectReason rejectReason) {
-        this.rejectReason = rejectReason;
     }
 
 

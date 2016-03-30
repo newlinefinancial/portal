@@ -9,6 +9,7 @@ package com.portal.platform;
 
 import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -87,11 +88,11 @@ public class PortalAuctionHistory  implements java.io.Serializable {
     
     private Integer bidRate;
     
-    private java.util.Date overrideTimestamp;
+    private Date overrideTimestamp;
     
     private String overrideUser;
     
-    private java.util.Date saleDate;
+    private Date saleDate;
     
     private BigDecimal winningBid;
     
@@ -101,9 +102,9 @@ public class PortalAuctionHistory  implements java.io.Serializable {
     
     private String auctionStatus;
     
-    private java.util.Date dispositionDate;
+    private Date dispositionDate;
     
-    private java.util.Date dispositionResearchDate;
+    private Date dispositionResearchDate;
 
     public PortalAuctionHistory() {
     }
@@ -388,11 +389,11 @@ public class PortalAuctionHistory  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`override_timestamp`", insertable=false, updatable=false, length=23)
-    public java.util.Date getOverrideTimestamp() {
+    public Date getOverrideTimestamp() {
         return this.overrideTimestamp;
     }
     
-    public void setOverrideTimestamp(java.util.Date overrideTimestamp) {
+    public void setOverrideTimestamp(Date overrideTimestamp) {
         this.overrideTimestamp = overrideTimestamp;
     }
     @Id 
@@ -410,11 +411,11 @@ public class PortalAuctionHistory  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`sale_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getSaleDate() {
+    public Date getSaleDate() {
         return this.saleDate;
     }
     
-    public void setSaleDate(java.util.Date saleDate) {
+    public void setSaleDate(Date saleDate) {
         this.saleDate = saleDate;
     }
     @Id 
@@ -465,22 +466,22 @@ public class PortalAuctionHistory  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`disposition_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getDispositionDate() {
+    public Date getDispositionDate() {
         return this.dispositionDate;
     }
     
-    public void setDispositionDate(java.util.Date dispositionDate) {
+    public void setDispositionDate(Date dispositionDate) {
         this.dispositionDate = dispositionDate;
     }
     @Id 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`disposition_research_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getDispositionResearchDate() {
+    public Date getDispositionResearchDate() {
         return this.dispositionResearchDate;
     }
     
-    public void setDispositionResearchDate(java.util.Date dispositionResearchDate) {
+    public void setDispositionResearchDate(Date dispositionResearchDate) {
         this.dispositionResearchDate = dispositionResearchDate;
     }
 

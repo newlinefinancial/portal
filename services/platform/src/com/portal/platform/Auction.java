@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -45,7 +46,7 @@ public class Auction  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date updatedTimestamp;
+    private Date updatedTimestamp;
     
     private Integer taxYear;
     
@@ -75,8 +76,6 @@ public class Auction  implements java.io.Serializable {
     
     private Property property;
     
-    private Set<Sample> samples = new HashSet<Sample>(0);
-    
     private Set<AuctionResult> auctionResults = new HashSet<AuctionResult>(0);
 
     public Auction() {
@@ -98,11 +97,11 @@ public class Auction  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`updated_timestamp`", length=10)
-    public java.util.Date getUpdatedTimestamp() {
+    public Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
     
-    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
+    public void setUpdatedTimestamp(Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 
@@ -254,15 +253,6 @@ public class Auction  implements java.io.Serializable {
     
     public void setProperty(Property property) {
         this.property = property;
-    }
-
-    @OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy="auction")
-    public Set<Sample> getSamples() {
-        return this.samples;
-    }
-    
-    public void setSamples(Set<Sample> samples) {
-        this.samples = samples;
     }
 
     @OneToMany(fetch=FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy="auction")

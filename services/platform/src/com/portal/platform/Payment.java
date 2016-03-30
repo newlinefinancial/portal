@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -45,15 +46,15 @@ public class Payment  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date updatedTimestamp;
+    private Date updatedTimestamp;
     
     private String paymentType;
     
     private Double amount;
     
-    private java.util.Date effectiveDate;
+    private Date effectiveDate;
     
-    private java.util.Date receivedDate;
+    private Date receivedDate;
     
     private String checkNumber;
     
@@ -88,11 +89,11 @@ public class Payment  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`updated_timestamp`", length=23)
-    public java.util.Date getUpdatedTimestamp() {
+    public Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
     
-    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
+    public void setUpdatedTimestamp(Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 
@@ -121,22 +122,22 @@ public class Payment  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`effective_date`", length=10)
-    public java.util.Date getEffectiveDate() {
+    public Date getEffectiveDate() {
         return this.effectiveDate;
     }
     
-    public void setEffectiveDate(java.util.Date effectiveDate) {
+    public void setEffectiveDate(Date effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`received_date`", length=10)
-    public java.util.Date getReceivedDate() {
+    public Date getReceivedDate() {
         return this.receivedDate;
     }
     
-    public void setReceivedDate(java.util.Date receivedDate) {
+    public void setReceivedDate(Date receivedDate) {
         this.receivedDate = receivedDate;
     }
 

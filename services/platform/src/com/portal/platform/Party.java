@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -45,9 +46,9 @@ public class Party  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date createdTimestamp;
+    private Date createdTimestamp;
     
-    private java.util.Date updatedTimestamp;
+    private Date updatedTimestamp;
     
     private String class_;
     
@@ -92,22 +93,22 @@ public class Party  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`created_timestamp`", length=23)
-    public java.util.Date getCreatedTimestamp() {
+    public Date getCreatedTimestamp() {
         return this.createdTimestamp;
     }
     
-    public void setCreatedTimestamp(java.util.Date createdTimestamp) {
+    public void setCreatedTimestamp(Date createdTimestamp) {
         this.createdTimestamp = createdTimestamp;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`updated_timestamp`", length=23)
-    public java.util.Date getUpdatedTimestamp() {
+    public Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
     
-    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
+    public void setUpdatedTimestamp(Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 

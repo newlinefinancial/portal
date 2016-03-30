@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -58,7 +59,7 @@ public class PortalCertificateFilter  implements java.io.Serializable {
     
     private Integer volume;
     
-    private java.util.Date expirationDate;
+    private Date expirationDate;
     
     private String matterNumber;
     
@@ -193,11 +194,11 @@ public class PortalCertificateFilter  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`expiration_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getExpirationDate() {
+    public Date getExpirationDate() {
         return this.expirationDate;
     }
     
-    public void setExpirationDate(java.util.Date expirationDate) {
+    public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
     @Id 

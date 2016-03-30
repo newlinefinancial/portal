@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +43,7 @@ public class AvailableSubs  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date researchDate;
+    private Date researchDate;
     
     private Integer taxYear;
     
@@ -58,7 +59,7 @@ public class AvailableSubs  implements java.io.Serializable {
     
     private Double paidAfterImport;
     
-    private java.util.Date datePaid;
+    private Date datePaid;
     
     private Certificate certificate;
     
@@ -83,11 +84,11 @@ public class AvailableSubs  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`research_date`", length=10)
-    public java.util.Date getResearchDate() {
+    public Date getResearchDate() {
         return this.researchDate;
     }
     
-    public void setResearchDate(java.util.Date researchDate) {
+    public void setResearchDate(Date researchDate) {
         this.researchDate = researchDate;
     }
 
@@ -171,11 +172,11 @@ public class AvailableSubs  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`date_paid`", length=10)
-    public java.util.Date getDatePaid() {
+    public Date getDatePaid() {
         return this.datePaid;
     }
     
-    public void setDatePaid(java.util.Date datePaid) {
+    public void setDatePaid(Date datePaid) {
         this.datePaid = datePaid;
     }
 

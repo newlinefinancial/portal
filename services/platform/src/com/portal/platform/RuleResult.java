@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,7 +42,7 @@ public class RuleResult  implements java.io.Serializable {
     
     private Integer auctionId;
     
-    private java.util.Date batch;
+    private Date batch;
     
     private String inputs;
     
@@ -79,11 +80,11 @@ public class RuleResult  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`batch`", length=23)
-    public java.util.Date getBatch() {
+    public Date getBatch() {
         return this.batch;
     }
     
-    public void setBatch(java.util.Date batch) {
+    public void setBatch(Date batch) {
         this.batch = batch;
     }
 

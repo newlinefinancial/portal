@@ -1,5 +1,18 @@
 {
   "name" : "platform",
   "description" : "Queries for platform",
-  "queries" : [ ]
+  "queries" : [ {
+    "name" : "inspection_drop_down",
+    "query" : "select distinct drop_down \nfrom review.portal_inspect_filter\norder by 1",
+    "comment" : "",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ ],
+    "outputType" : null,
+    "returnTypeMetadata" : {
+      "drop_down" : "java.lang.String"
+    }
+  } ]
 }

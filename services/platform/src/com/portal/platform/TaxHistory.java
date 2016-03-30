@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +43,7 @@ public class TaxHistory  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date researchDate;
+    private Date researchDate;
     
     private Integer taxYear;
     
@@ -58,7 +59,7 @@ public class TaxHistory  implements java.io.Serializable {
     
     private String saleStatus;
     
-    private java.util.Date dispositionDate;
+    private Date dispositionDate;
     
     private String caseNumber;
     
@@ -87,11 +88,11 @@ public class TaxHistory  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`research_date`", length=10)
-    public java.util.Date getResearchDate() {
+    public Date getResearchDate() {
         return this.researchDate;
     }
     
-    public void setResearchDate(java.util.Date researchDate) {
+    public void setResearchDate(Date researchDate) {
         this.researchDate = researchDate;
     }
 
@@ -175,11 +176,11 @@ public class TaxHistory  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`disposition_date`", length=10)
-    public java.util.Date getDispositionDate() {
+    public Date getDispositionDate() {
         return this.dispositionDate;
     }
     
-    public void setDispositionDate(java.util.Date dispositionDate) {
+    public void setDispositionDate(Date dispositionDate) {
         this.dispositionDate = dispositionDate;
     }
 

@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +43,7 @@ public class Assessment  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date updatedTimestamp;
+    private Date updatedTimestamp;
     
     private Integer taxYear;
     
@@ -101,11 +102,11 @@ public class Assessment  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`updated_timestamp`", length=10)
-    public java.util.Date getUpdatedTimestamp() {
+    public Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
     
-    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
+    public void setUpdatedTimestamp(Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 

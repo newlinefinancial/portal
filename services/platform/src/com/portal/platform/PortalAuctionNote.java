@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -42,9 +43,9 @@ public class PortalAuctionNote  implements java.io.Serializable {
     
     private String user;
     
-    private java.util.Date created;
+    private Date created;
     
-    private java.util.Date done;
+    private Date done;
     
     private String noteDescription;
     
@@ -91,22 +92,22 @@ public class PortalAuctionNote  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`created`", insertable=false, updatable=false, length=23)
-    public java.util.Date getCreated() {
+    public Date getCreated() {
         return this.created;
     }
     
-    public void setCreated(java.util.Date created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
     @Id 
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`done`", insertable=false, updatable=false, length=23)
-    public java.util.Date getDone() {
+    public Date getDone() {
         return this.done;
     }
     
-    public void setDone(java.util.Date done) {
+    public void setDone(Date done) {
         this.done = done;
     }
     @Id 

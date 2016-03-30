@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -38,9 +39,9 @@ public class Accounting  implements java.io.Serializable {
     
     private Integer certificateId;
     
-    private java.util.Date accountingDate;
+    private Date accountingDate;
     
-    private java.util.Date effectiveDate;
+    private Date effectiveDate;
     
     private String transaction;
     
@@ -73,22 +74,22 @@ public class Accounting  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`accounting_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getAccountingDate() {
+    public Date getAccountingDate() {
         return this.accountingDate;
     }
     
-    public void setAccountingDate(java.util.Date accountingDate) {
+    public void setAccountingDate(Date accountingDate) {
         this.accountingDate = accountingDate;
     }
     @Id 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`effective_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getEffectiveDate() {
+    public Date getEffectiveDate() {
         return this.effectiveDate;
     }
     
-    public void setEffectiveDate(java.util.Date effectiveDate) {
+    public void setEffectiveDate(Date effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
     @Id 

@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -47,7 +48,7 @@ public class Research  implements java.io.Serializable {
     
     private String type;
     
-    private java.util.Date date;
+    private Date date;
     
     private Set<PropertySale> propertySales = new HashSet<PropertySale>(0);
     
@@ -87,11 +88,11 @@ public class Research  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`date`", length=10)
-    public java.util.Date getDate() {
+    public Date getDate() {
         return this.date;
     }
     
-    public void setDate(java.util.Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

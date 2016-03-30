@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -50,13 +51,13 @@ public class PortalMatterFilter  implements java.io.Serializable {
     
     private Integer volume;
     
-    private java.util.Date expirationDate;
+    private Date expirationDate;
     
     private String matterNumber;
     
-    private java.util.Date closedDate;
+    private Date closedDate;
     
-    private java.util.Date filedDate;
+    private Date filedDate;
     
     private Integer matterId;
     
@@ -147,11 +148,11 @@ public class PortalMatterFilter  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`expiration_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getExpirationDate() {
+    public Date getExpirationDate() {
         return this.expirationDate;
     }
     
-    public void setExpirationDate(java.util.Date expirationDate) {
+    public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
     @Id 
@@ -169,22 +170,22 @@ public class PortalMatterFilter  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`closed_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getClosedDate() {
+    public Date getClosedDate() {
         return this.closedDate;
     }
     
-    public void setClosedDate(java.util.Date closedDate) {
+    public void setClosedDate(Date closedDate) {
         this.closedDate = closedDate;
     }
     @Id 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`filed_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getFiledDate() {
+    public Date getFiledDate() {
         return this.filedDate;
     }
     
-    public void setFiledDate(java.util.Date filedDate) {
+    public void setFiledDate(Date filedDate) {
         this.filedDate = filedDate;
     }
     @Id 

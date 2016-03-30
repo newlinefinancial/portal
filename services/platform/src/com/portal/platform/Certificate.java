@@ -9,6 +9,7 @@ package com.portal.platform;
 
 import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -58,9 +59,9 @@ public class Certificate  implements java.io.Serializable {
     
     private BigDecimal bidRate;
     
-    private java.util.Date dateSold;
+    private Date dateSold;
     
-    private java.util.Date expirationDate;
+    private Date expirationDate;
     
     private String status;
     
@@ -68,11 +69,11 @@ public class Certificate  implements java.io.Serializable {
     
     private String storageStatus;
     
-    private java.util.Date releasedDate;
+    private Date releasedDate;
     
     private Integer currentPenaltyPeriod;
     
-    private java.util.Date statusChangeDate;
+    private Date statusChangeDate;
     
     private Boolean selectPrint;
     
@@ -90,7 +91,7 @@ public class Certificate  implements java.io.Serializable {
     
     private String subtaxDecision;
     
-    private java.util.Date subtaxDecisionDate;
+    private Date subtaxDecisionDate;
     
     private Set<Disbursement> disbursements = new HashSet<Disbursement>(0);
     
@@ -193,22 +194,22 @@ public class Certificate  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`date_sold`", length=10)
-    public java.util.Date getDateSold() {
+    public Date getDateSold() {
         return this.dateSold;
     }
     
-    public void setDateSold(java.util.Date dateSold) {
+    public void setDateSold(Date dateSold) {
         this.dateSold = dateSold;
     }
 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`expiration_date`", length=10)
-    public java.util.Date getExpirationDate() {
+    public Date getExpirationDate() {
         return this.expirationDate;
     }
     
-    public void setExpirationDate(java.util.Date expirationDate) {
+    public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
 
@@ -248,11 +249,11 @@ public class Certificate  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`released_date`", length=10)
-    public java.util.Date getReleasedDate() {
+    public Date getReleasedDate() {
         return this.releasedDate;
     }
     
-    public void setReleasedDate(java.util.Date releasedDate) {
+    public void setReleasedDate(Date releasedDate) {
         this.releasedDate = releasedDate;
     }
 
@@ -270,11 +271,11 @@ public class Certificate  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`status_change_date`", length=10)
-    public java.util.Date getStatusChangeDate() {
+    public Date getStatusChangeDate() {
         return this.statusChangeDate;
     }
     
-    public void setStatusChangeDate(java.util.Date statusChangeDate) {
+    public void setStatusChangeDate(Date statusChangeDate) {
         this.statusChangeDate = statusChangeDate;
     }
 
@@ -369,11 +370,11 @@ public class Certificate  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`subtax_decision_date`", length=10)
-    public java.util.Date getSubtaxDecisionDate() {
+    public Date getSubtaxDecisionDate() {
         return this.subtaxDecisionDate;
     }
     
-    public void setSubtaxDecisionDate(java.util.Date subtaxDecisionDate) {
+    public void setSubtaxDecisionDate(Date subtaxDecisionDate) {
         this.subtaxDecisionDate = subtaxDecisionDate;
     }
 

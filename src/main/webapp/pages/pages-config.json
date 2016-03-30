@@ -8,10 +8,19 @@
   "name" : "Main",
   "type" : "PAGE"
 }, {
+  "name" : "Page",
+  "type" : "PARTIAL"
+}, {
   "name" : "footer",
   "type" : "PARTIAL"
 }, {
   "name" : "header",
+  "type" : "PARTIAL"
+}, {
+  "name" : "inspect",
+  "type" : "PAGE"
+}, {
+  "name" : "inspect_filter",
   "type" : "PARTIAL"
 }, {
   "name" : "leftnav",
@@ -19,6 +28,9 @@
 }, {
   "name" : "rightnav",
   "type" : "PARTIAL"
+}, {
+  "name" : "service",
+  "type" : "PAGE"
 }, {
   "name" : "topnav",
   "type" : "PARTIAL"

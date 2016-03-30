@@ -9,6 +9,7 @@ package com.portal.platform;
 
 import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -46,25 +47,25 @@ public class AuctionResult  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date updatedTimestamp;
+    private Date updatedTimestamp;
     
-    private java.util.Date saleDate;
+    private Date saleDate;
     
     private BigDecimal bidRate;
     
     private BigDecimal bidAmount;
     
-    private java.util.Date subSaleDate;
+    private Date subSaleDate;
     
-    private java.util.Date lastRedemptionDate;
+    private Date lastRedemptionDate;
     
     private String status;
     
-    private java.util.Date dispositionDate;
+    private Date dispositionDate;
     
     private String caseNumber;
     
-    private java.util.Date dispositionResearchDate;
+    private Date dispositionResearchDate;
     
     private Integer lastImportId;
     
@@ -97,22 +98,22 @@ public class AuctionResult  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`updated_timestamp`", length=23)
-    public java.util.Date getUpdatedTimestamp() {
+    public Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
     
-    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
+    public void setUpdatedTimestamp(Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`sale_date`", length=10)
-    public java.util.Date getSaleDate() {
+    public Date getSaleDate() {
         return this.saleDate;
     }
     
-    public void setSaleDate(java.util.Date saleDate) {
+    public void setSaleDate(Date saleDate) {
         this.saleDate = saleDate;
     }
 
@@ -141,22 +142,22 @@ public class AuctionResult  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`sub_sale_date`", length=10)
-    public java.util.Date getSubSaleDate() {
+    public Date getSubSaleDate() {
         return this.subSaleDate;
     }
     
-    public void setSubSaleDate(java.util.Date subSaleDate) {
+    public void setSubSaleDate(Date subSaleDate) {
         this.subSaleDate = subSaleDate;
     }
 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`last_redemption_date`", length=10)
-    public java.util.Date getLastRedemptionDate() {
+    public Date getLastRedemptionDate() {
         return this.lastRedemptionDate;
     }
     
-    public void setLastRedemptionDate(java.util.Date lastRedemptionDate) {
+    public void setLastRedemptionDate(Date lastRedemptionDate) {
         this.lastRedemptionDate = lastRedemptionDate;
     }
 
@@ -174,11 +175,11 @@ public class AuctionResult  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`disposition_date`", length=10)
-    public java.util.Date getDispositionDate() {
+    public Date getDispositionDate() {
         return this.dispositionDate;
     }
     
-    public void setDispositionDate(java.util.Date dispositionDate) {
+    public void setDispositionDate(Date dispositionDate) {
         this.dispositionDate = dispositionDate;
     }
 
@@ -196,11 +197,11 @@ public class AuctionResult  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`disposition_research_date`", length=10)
-    public java.util.Date getDispositionResearchDate() {
+    public Date getDispositionResearchDate() {
         return this.dispositionResearchDate;
     }
     
-    public void setDispositionResearchDate(java.util.Date dispositionResearchDate) {
+    public void setDispositionResearchDate(Date dispositionResearchDate) {
         this.dispositionResearchDate = dispositionResearchDate;
     }
 

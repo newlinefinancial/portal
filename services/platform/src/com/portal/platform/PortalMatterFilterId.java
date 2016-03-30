@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Embeddable;
 
 
@@ -40,13 +41,13 @@ public class PortalMatterFilterId  implements java.io.Serializable {
     
     private Integer volume;
     
-    private java.util.Date expirationDate;
+    private Date expirationDate;
     
     private String matterNumber;
     
-    private java.util.Date closedDate;
+    private Date closedDate;
     
-    private java.util.Date filedDate;
+    private Date filedDate;
     
     private Integer matterId;
     
@@ -105,11 +106,11 @@ public class PortalMatterFilterId  implements java.io.Serializable {
     public void setVolume(Integer volume) {
         this.volume = volume;
     }
-    public java.util.Date getExpirationDate() {
+    public Date getExpirationDate() {
         return this.expirationDate;
     }
     
-    public void setExpirationDate(java.util.Date expirationDate) {
+    public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
     public String getMatterNumber() {
@@ -119,18 +120,18 @@ public class PortalMatterFilterId  implements java.io.Serializable {
     public void setMatterNumber(String matterNumber) {
         this.matterNumber = matterNumber;
     }
-    public java.util.Date getClosedDate() {
+    public Date getClosedDate() {
         return this.closedDate;
     }
     
-    public void setClosedDate(java.util.Date closedDate) {
+    public void setClosedDate(Date closedDate) {
         this.closedDate = closedDate;
     }
-    public java.util.Date getFiledDate() {
+    public Date getFiledDate() {
         return this.filedDate;
     }
     
-    public void setFiledDate(java.util.Date filedDate) {
+    public void setFiledDate(Date filedDate) {
         this.filedDate = filedDate;
     }
     public Integer getMatterId() {

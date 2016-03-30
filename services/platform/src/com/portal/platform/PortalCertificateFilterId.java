@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Embeddable;
 
 
@@ -48,7 +49,7 @@ public class PortalCertificateFilterId  implements java.io.Serializable {
     
     private Integer volume;
     
-    private java.util.Date expirationDate;
+    private Date expirationDate;
     
     private String matterNumber;
     
@@ -135,11 +136,11 @@ public class PortalCertificateFilterId  implements java.io.Serializable {
     public void setVolume(Integer volume) {
         this.volume = volume;
     }
-    public java.util.Date getExpirationDate() {
+    public Date getExpirationDate() {
         return this.expirationDate;
     }
     
-    public void setExpirationDate(java.util.Date expirationDate) {
+    public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
     public String getMatterNumber() {

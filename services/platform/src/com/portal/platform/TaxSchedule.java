@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -46,9 +47,9 @@ public class TaxSchedule  implements java.io.Serializable {
     
     private Integer inst;
     
-    private java.util.Date dueDate;
+    private Date dueDate;
     
-    private java.util.Date postingDate;
+    private Date postingDate;
     
     private Float equalizationFactor;
     
@@ -95,22 +96,22 @@ public class TaxSchedule  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`due_date`", length=10)
-    public java.util.Date getDueDate() {
+    public Date getDueDate() {
         return this.dueDate;
     }
     
-    public void setDueDate(java.util.Date dueDate) {
+    public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`posting_date`", length=10)
-    public java.util.Date getPostingDate() {
+    public Date getPostingDate() {
         return this.postingDate;
     }
     
-    public void setPostingDate(java.util.Date postingDate) {
+    public void setPostingDate(Date postingDate) {
         this.postingDate = postingDate;
     }
 

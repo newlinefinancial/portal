@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,11 +43,11 @@ public class Note  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date createdTimestamp;
+    private Date createdTimestamp;
     
-    private java.util.Date dueDate;
+    private Date dueDate;
     
-    private java.util.Date doneTimestamp;
+    private Date doneTimestamp;
     
     private String comments;
     
@@ -79,33 +80,33 @@ public class Note  implements java.io.Serializable {
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`created_timestamp`", length=23)
-    public java.util.Date getCreatedTimestamp() {
+    public Date getCreatedTimestamp() {
         return this.createdTimestamp;
     }
     
-    public void setCreatedTimestamp(java.util.Date createdTimestamp) {
+    public void setCreatedTimestamp(Date createdTimestamp) {
         this.createdTimestamp = createdTimestamp;
     }
 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`due_date`", length=10)
-    public java.util.Date getDueDate() {
+    public Date getDueDate() {
         return this.dueDate;
     }
     
-    public void setDueDate(java.util.Date dueDate) {
+    public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
 
     @Column(name="`done_timestamp`", length=23)
-    public java.util.Date getDoneTimestamp() {
+    public Date getDoneTimestamp() {
         return this.doneTimestamp;
     }
     
-    public void setDoneTimestamp(java.util.Date doneTimestamp) {
+    public void setDoneTimestamp(Date doneTimestamp) {
         this.doneTimestamp = doneTimestamp;
     }
 

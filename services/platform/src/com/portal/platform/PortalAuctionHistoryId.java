@@ -9,6 +9,7 @@ package com.portal.platform;
 
 import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Embeddable;
 
 
@@ -77,11 +78,11 @@ public class PortalAuctionHistoryId  implements java.io.Serializable {
     
     private Integer bidRate;
     
-    private java.util.Date overrideTimestamp;
+    private Date overrideTimestamp;
     
     private String overrideUser;
     
-    private java.util.Date saleDate;
+    private Date saleDate;
     
     private BigDecimal winningBid;
     
@@ -91,9 +92,9 @@ public class PortalAuctionHistoryId  implements java.io.Serializable {
     
     private String auctionStatus;
     
-    private java.util.Date dispositionDate;
+    private Date dispositionDate;
     
-    private java.util.Date dispositionResearchDate;
+    private Date dispositionResearchDate;
 
     public PortalAuctionHistoryId() {
     }
@@ -274,11 +275,11 @@ public class PortalAuctionHistoryId  implements java.io.Serializable {
     public void setBidRate(Integer bidRate) {
         this.bidRate = bidRate;
     }
-    public java.util.Date getOverrideTimestamp() {
+    public Date getOverrideTimestamp() {
         return this.overrideTimestamp;
     }
     
-    public void setOverrideTimestamp(java.util.Date overrideTimestamp) {
+    public void setOverrideTimestamp(Date overrideTimestamp) {
         this.overrideTimestamp = overrideTimestamp;
     }
     public String getOverrideUser() {
@@ -288,11 +289,11 @@ public class PortalAuctionHistoryId  implements java.io.Serializable {
     public void setOverrideUser(String overrideUser) {
         this.overrideUser = overrideUser;
     }
-    public java.util.Date getSaleDate() {
+    public Date getSaleDate() {
         return this.saleDate;
     }
     
-    public void setSaleDate(java.util.Date saleDate) {
+    public void setSaleDate(Date saleDate) {
         this.saleDate = saleDate;
     }
     public BigDecimal getWinningBid() {
@@ -323,18 +324,18 @@ public class PortalAuctionHistoryId  implements java.io.Serializable {
     public void setAuctionStatus(String auctionStatus) {
         this.auctionStatus = auctionStatus;
     }
-    public java.util.Date getDispositionDate() {
+    public Date getDispositionDate() {
         return this.dispositionDate;
     }
     
-    public void setDispositionDate(java.util.Date dispositionDate) {
+    public void setDispositionDate(Date dispositionDate) {
         this.dispositionDate = dispositionDate;
     }
-    public java.util.Date getDispositionResearchDate() {
+    public Date getDispositionResearchDate() {
         return this.dispositionResearchDate;
     }
     
-    public void setDispositionResearchDate(java.util.Date dispositionResearchDate) {
+    public void setDispositionResearchDate(Date dispositionResearchDate) {
         this.dispositionResearchDate = dispositionResearchDate;
     }
 

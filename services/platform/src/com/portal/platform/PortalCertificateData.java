@@ -9,6 +9,7 @@ package com.portal.platform;
 
 import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -57,17 +58,17 @@ public class PortalCertificateData  implements java.io.Serializable {
     
     private Integer taxYear;
     
-    private java.util.Date dateSold;
+    private Date dateSold;
     
     private String status;
     
-    private java.util.Date statusChangeDate;
+    private Date statusChangeDate;
     
     private String storageStatus;
     
     private String bank;
     
-    private java.util.Date expirationDate;
+    private Date expirationDate;
     
     private String countyName;
     
@@ -95,11 +96,11 @@ public class PortalCertificateData  implements java.io.Serializable {
     
     private String matterNumber;
     
-    private java.util.Date initialCourtDate;
+    private Date initialCourtDate;
     
-    private java.util.Date filedDate;
+    private Date filedDate;
     
-    private java.util.Date closedDate;
+    private Date closedDate;
 
     public PortalCertificateData() {
     }
@@ -219,11 +220,11 @@ public class PortalCertificateData  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`date_sold`", insertable=false, updatable=false, length=10)
-    public java.util.Date getDateSold() {
+    public Date getDateSold() {
         return this.dateSold;
     }
     
-    public void setDateSold(java.util.Date dateSold) {
+    public void setDateSold(Date dateSold) {
         this.dateSold = dateSold;
     }
     @Id 
@@ -241,11 +242,11 @@ public class PortalCertificateData  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`status_change_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getStatusChangeDate() {
+    public Date getStatusChangeDate() {
         return this.statusChangeDate;
     }
     
-    public void setStatusChangeDate(java.util.Date statusChangeDate) {
+    public void setStatusChangeDate(Date statusChangeDate) {
         this.statusChangeDate = statusChangeDate;
     }
     @Id 
@@ -274,11 +275,11 @@ public class PortalCertificateData  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`expiration_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getExpirationDate() {
+    public Date getExpirationDate() {
         return this.expirationDate;
     }
     
-    public void setExpirationDate(java.util.Date expirationDate) {
+    public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
     @Id 
@@ -428,33 +429,33 @@ public class PortalCertificateData  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`initial_court_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getInitialCourtDate() {
+    public Date getInitialCourtDate() {
         return this.initialCourtDate;
     }
     
-    public void setInitialCourtDate(java.util.Date initialCourtDate) {
+    public void setInitialCourtDate(Date initialCourtDate) {
         this.initialCourtDate = initialCourtDate;
     }
     @Id 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`filed_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getFiledDate() {
+    public Date getFiledDate() {
         return this.filedDate;
     }
     
-    public void setFiledDate(java.util.Date filedDate) {
+    public void setFiledDate(Date filedDate) {
         this.filedDate = filedDate;
     }
     @Id 
     @Temporal(TemporalType.DATE)
 
     @Column(name="`closed_date`", insertable=false, updatable=false, length=10)
-    public java.util.Date getClosedDate() {
+    public Date getClosedDate() {
         return this.closedDate;
     }
     
-    public void setClosedDate(java.util.Date closedDate) {
+    public void setClosedDate(Date closedDate) {
         this.closedDate = closedDate;
     }
 

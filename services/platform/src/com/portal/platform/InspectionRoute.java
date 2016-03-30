@@ -8,6 +8,7 @@ package com.portal.platform;
 
 
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +43,7 @@ public class InspectionRoute  implements java.io.Serializable {
     
     private Integer id;
     
-    private java.util.Date createdTimestamp;
+    private Date createdTimestamp;
     
     private String inspectionName;
     
@@ -69,11 +70,11 @@ public class InspectionRoute  implements java.io.Serializable {
     @Temporal(TemporalType.DATE)
 
     @Column(name="`created_timestamp`", length=10)
-    public java.util.Date getCreatedTimestamp() {
+    public Date getCreatedTimestamp() {
         return this.createdTimestamp;
     }
     
-    public void setCreatedTimestamp(java.util.Date createdTimestamp) {
+    public void setCreatedTimestamp(Date createdTimestamp) {
         this.createdTimestamp = createdTimestamp;
     }
 

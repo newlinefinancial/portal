@@ -9,6 +9,7 @@ package com.portal.platform;
 
 import javax.persistence.PrimaryKeyJoinColumn;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Embeddable;
 
 
@@ -47,17 +48,17 @@ public class PortalCertificateDataId  implements java.io.Serializable {
     
     private Integer taxYear;
     
-    private java.util.Date dateSold;
+    private Date dateSold;
     
     private String status;
     
-    private java.util.Date statusChangeDate;
+    private Date statusChangeDate;
     
     private String storageStatus;
     
     private String bank;
     
-    private java.util.Date expirationDate;
+    private Date expirationDate;
     
     private String countyName;
     
@@ -85,11 +86,11 @@ public class PortalCertificateDataId  implements java.io.Serializable {
     
     private String matterNumber;
     
-    private java.util.Date initialCourtDate;
+    private Date initialCourtDate;
     
-    private java.util.Date filedDate;
+    private Date filedDate;
     
-    private java.util.Date closedDate;
+    private Date closedDate;
 
     public PortalCertificateDataId() {
     }
@@ -165,11 +166,11 @@ public class PortalCertificateDataId  implements java.io.Serializable {
     public void setTaxYear(Integer taxYear) {
         this.taxYear = taxYear;
     }
-    public java.util.Date getDateSold() {
+    public Date getDateSold() {
         return this.dateSold;
     }
     
-    public void setDateSold(java.util.Date dateSold) {
+    public void setDateSold(Date dateSold) {
         this.dateSold = dateSold;
     }
     public String getStatus() {
@@ -179,11 +180,11 @@ public class PortalCertificateDataId  implements java.io.Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-    public java.util.Date getStatusChangeDate() {
+    public Date getStatusChangeDate() {
         return this.statusChangeDate;
     }
     
-    public void setStatusChangeDate(java.util.Date statusChangeDate) {
+    public void setStatusChangeDate(Date statusChangeDate) {
         this.statusChangeDate = statusChangeDate;
     }
     public String getStorageStatus() {
@@ -200,11 +201,11 @@ public class PortalCertificateDataId  implements java.io.Serializable {
     public void setBank(String bank) {
         this.bank = bank;
     }
-    public java.util.Date getExpirationDate() {
+    public Date getExpirationDate() {
         return this.expirationDate;
     }
     
-    public void setExpirationDate(java.util.Date expirationDate) {
+    public void setExpirationDate(Date expirationDate) {
         this.expirationDate = expirationDate;
     }
     public String getCountyName() {
@@ -298,25 +299,25 @@ public class PortalCertificateDataId  implements java.io.Serializable {
     public void setMatterNumber(String matterNumber) {
         this.matterNumber = matterNumber;
     }
-    public java.util.Date getInitialCourtDate() {
+    public Date getInitialCourtDate() {
         return this.initialCourtDate;
     }
     
-    public void setInitialCourtDate(java.util.Date initialCourtDate) {
+    public void setInitialCourtDate(Date initialCourtDate) {
         this.initialCourtDate = initialCourtDate;
     }
-    public java.util.Date getFiledDate() {
+    public Date getFiledDate() {
         return this.filedDate;
     }
     
-    public void setFiledDate(java.util.Date filedDate) {
+    public void setFiledDate(Date filedDate) {
         this.filedDate = filedDate;
     }
-    public java.util.Date getClosedDate() {
+    public Date getClosedDate() {
         return this.closedDate;
     }
     
-    public void setClosedDate(java.util.Date closedDate) {
+    public void setClosedDate(Date closedDate) {
         this.closedDate = closedDate;
     }
 
