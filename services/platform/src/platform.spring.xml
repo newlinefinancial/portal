@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-
-    <context:component-scan base-package="com.portal.platform.controller,com.portal.platform.service,com.portal.platform.dao"/>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:security="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <context:component-scan base-package="com.portal.platform.controller,com.portal.platform.service,com.portal.platform.dao" xmlns:context="http://www.springframework.org/schema/context"/>
     <bean class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
@@ -12,27 +11,8 @@
         </property>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
     </bean>
-   <bean id="platformWMManagedDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close" depends-on="systemPropertyInitializer" lazy-init="true"
-                      p:driverClass="${platform.driverClass}"
-                      p:jdbcUrl="${platform.url}"
-                      p:user="${platform.username}"
-                      p:password="${platform.password}"
-                      p:maxPoolSize="4"
-                      p:minPoolSize="2"
-                      p:maxIdleTime="600"
-                      p:maxStatements="50"
-                      p:maxStatementsPerConnection="20"
-                      p:checkoutTimeout="10000"
-                      p:idleConnectionTestPeriod="300"
-                      p:unreturnedConnectionTimeout="300"
-                      p:debugUnreturnedConnectionStackTraces="true"
-                      p:acquireRetryAttempts="3"
-                      p:acquireRetryDelay="1000"
-                      p:contextClassLoaderSource="library"
-                      p:privilegeSpawnedThreads="true"
-                      />
-    
-    <bean id="platformSessionFactory" class="com.wavemaker.runtime.data.factory.TypeResolverSessionFactoryBean">
+    <bean class="com.mchange.v2.c3p0.ComboPooledDataSource" lazy-init="true" depends-on="systemPropertyInitializer" destroy-method="close" id="platformWMManagedDataSource" p:unreturnedConnectionTimeout="300" p:password="${platform.password}" p:checkoutTimeout="10000" p:contextClassLoaderSource="library" p:maxIdleTime="600" p:privilegeSpawnedThreads="true" p:debugUnreturnedConnectionStackTraces="true" p:acquireRetryAttempts="3" p:acquireRetryDelay="1000" p:jdbcUrl="${platform.url}" p:user="${platform.username}" p:driverClass="${platform.driverClass}" p:maxStatementsPerConnection="20" p:maxPoolSize="4" p:maxStatements="50" p:idleConnectionTestPeriod="300" p:minPoolSize="2" xmlns:p="http://www.springframework.org/schema/p"/>
+    <bean class="com.wavemaker.runtime.data.factory.TypeResolverSessionFactoryBean" id="platformSessionFactory">
         <property name="dataSource" ref="platformDataSource"/>
         <property name="packagesToScan" value="com.portal.platform"/>
         <property name="mappingResources">
@@ -61,25 +41,25 @@
                 <prop key="hibernate.hbm2ddl.auto">
                     ${platform.hbm2ddl}
                 </prop>
+                <prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
             </props>
         </property>
     </bean>
-    <bean id="platformTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    <bean class="org.springframework.orm.hibernate4.HibernateTransactionManager" id="platformTransactionManager">
         <property name="sessionFactory" ref="platformSessionFactory"/>
     </bean>
-    <bean id="platformTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+    <bean class="org.springframework.orm.hibernate4.HibernateTemplate" id="platformTemplate">
         <property name="sessionFactory" ref="platformSessionFactory"/>
     </bean>
-    <bean id="platformWMQueryExecutor" class="com.wavemaker.runtime.data.dao.query.WMQueryExecutorImpl">
+    <bean class="com.wavemaker.runtime.data.dao.query.WMQueryExecutorImpl" id="platformWMQueryExecutor">
         <property name="template" ref="platformTemplate"/>
     </bean>
-    <bean id="platformWMProcedureExecutor" class="com.wavemaker.runtime.data.dao.procedure.WMProcedureExecutorImpl">
+    <bean class="com.wavemaker.runtime.data.dao.procedure.WMProcedureExecutorImpl" id="platformWMProcedureExecutor">
         <property name="template" ref="platformTemplate"/>
-        <property name="serviceId" value="platform" />
+        <property name="serviceId" value="platform"/>
     </bean>
-
-    <bean id="persistentLocalDateTimeType" class="com.wavemaker.studio.common.data.type.WMPersistentLocalDateTime"/>
-    <bean id="dateTimeCustomType" class="com.wavemaker.runtime.data.CustomType">
+    <bean class="com.wavemaker.studio.common.data.type.WMPersistentLocalDateTime" id="persistentLocalDateTimeType"/>
+    <bean class="com.wavemaker.runtime.data.CustomType" id="dateTimeCustomType">
         <property name="type" ref="persistentLocalDateTimeType"/>
         <property name="keys">
             <list>
@@ -88,27 +68,22 @@
             </list>
         </property>
     </bean>
-    <bean id="platformPageableHandlerMethodResolver" class="com.wavemaker.runtime.resolver.WMPageableHandlerMethodArgumentResolver" >
+    <bean class="com.wavemaker.runtime.resolver.WMPageableHandlerMethodArgumentResolver" id="platformPageableHandlerMethodResolver">
         <property name="pageParameterName" value="page"/>
         <property name="sizeParameterName" value="size"/>
         <property name="oneIndexedParameters" value="true"/>
         <property name="maxPageSize" value="${platform.maxPageSize}"/>
         <property name="fallbackPageable">
-         <bean  class="org.springframework.data.domain.PageRequest">
-            <constructor-arg  value="0"/>
-            <constructor-arg  value="20"/>
-         </bean>
-         </property>
+            <bean class="org.springframework.data.domain.PageRequest">
+                <constructor-arg value="0"/>
+                <constructor-arg value="20"/>
+            </bean>
+        </property>
     </bean>
-
-    <bean id="platformDataSource" class="com.wavemaker.runtime.data.datasource.WMDataSource">
-           <property name="dataSourceType" value="${platform.dataSourceType}"/>
-           <property name="jndiName" value="${platform.jndiName}"/>
-           <property name="serviceId" value="platform"/>
+    <bean class="com.wavemaker.runtime.data.datasource.WMDataSource" id="platformDataSource">
+        <property name="dataSourceType" value="${platform.dataSourceType}"/>
+        <property name="jndiName" value="${platform.jndiName}"/>
+        <property name="serviceId" value="platform"/>
     </bean>
-
-
-    <tx:annotation-driven/>
-
+    <tx:annotation-driven xmlns:tx="http://www.springframework.org/schema/tx"/>
 </beans>
-

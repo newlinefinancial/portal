@@ -2,6 +2,9 @@
 <beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd" xmlns="http://www.springframework.org/schema/beans" xmlns:security="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <security:global-method-security pre-post-annotations="enabled" authentication-manager-ref="authenticationManager"/>
     <security:http pattern="/app.variables.json" security="none"/>
+    <security:http pattern="/print.css" security="none"/>
+    <security:http pattern="/favicon.ico" security="none"/>
+    <security:http pattern="/app/prefabs/**" security="none"/>
     <security:http pattern="/app.css" security="none"/>
     <security:http pattern="/config.js" security="none"/>
     <security:http pattern="/config.json" security="none"/>
@@ -21,6 +24,8 @@
         <security:intercept-url pattern="/j_spring_security_check" access="permitAll"/>
         <security:intercept-url pattern="/j_spring_security_logout" access="permitAll"/>
         <security:intercept-url pattern="/services/security/**" access="permitAll"/>
+        <security:intercept-url pattern="/prefabs/**/servicedefs" access="permitAll"/>
+        <security:intercept-url pattern="/services/servicedefs" access="permitAll"/>
         <security:intercept-url pattern="/" access="isAuthenticated()"/>
         <security:intercept-url pattern="/**" access="isAuthenticated()"/>
         <security:request-cache ref="nullRequestCache"/>
@@ -119,11 +124,11 @@
             </map>
         </property>
     </bean>
-    <security:authentication-manager id="authenticationManager" alias="authenticationManagerDemo">
-        <security:authentication-provider user-service-ref="demoAuthentication"/>
+    <security:authentication-manager id="authenticationManager">
+        <security:authentication-provider ref="demoAuthenticationProvider"/>
         <security:authentication-provider ref="rememberMeAuthenticationProvider"/>
     </security:authentication-manager>
-    <bean class="com.wavemaker.runtime.security.DemoUserDetailsManager" id="demoAuthentication">
+    <bean class="com.wavemaker.runtime.security.DemoUserDetailsManager" id="demoUserDetailsService">
         <property name="users">
             <list>
                 <bean class="com.wavemaker.runtime.security.WMUser">
@@ -146,5 +151,8 @@
                 </bean>
             </list>
         </property>
+    </bean>
+    <bean class="org.springframework.security.authentication.dao.DaoAuthenticationProvider" id="demoAuthenticationProvider">
+        <property name="userDetailsService" ref="demoUserDetailsService"/>
     </bean>
 </beans>

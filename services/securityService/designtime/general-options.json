@@ -3,7 +3,7 @@
   "rememberMeConfig" : null,
   "useSSL" : false,
   "sslPort" : "8443",
-  "dataSourceType" : "DEMO",
+  "authProviders" : [ "DEMO" ],
   "login" : {
     "type" : "PAGE",
     "pageName" : "Login",

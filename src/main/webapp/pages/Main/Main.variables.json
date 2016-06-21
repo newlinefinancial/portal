@@ -6,9 +6,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalCertificateNote",
     "isList" : true,
     "saveInPhonegap" : false,

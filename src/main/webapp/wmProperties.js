@@ -1,1 +1,10 @@
-var _WM_APP_PROPERTIES = {"name":"Portal","version":"1.0","defaultLanguage":"en","type":"APPLICATION","homePage":"Main","platformType":"WEB","activeTheme":"slate"}
+var _WM_APP_PROPERTIES = {
+  "activeTheme" : "slate",
+  "defaultLanguage" : "en",
+  "displayName" : "Portal",
+  "homePage" : "Main",
+  "name" : "Portal",
+  "platformType" : "WEB",
+  "type" : "APPLICATION",
+  "version" : "1.0"
+};

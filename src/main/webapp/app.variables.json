@@ -1334,12 +1334,12 @@
     "category" : "wm.Variable",
     "dataBinding" : [ ],
     "dataSet" : {
-      "name" : "",
-      "id" : "",
       "tenantId" : "",
-      "isAuthenticated" : false,
+      "id" : "",
       "isSecurityEnabled" : true,
-      "roles" : [ ]
+      "isAuthenticated" : false,
+      "roles" : [ ],
+      "name" : ""
     },
     "type" : "string",
     "isList" : false,
@@ -1364,9 +1364,9 @@
       "type" : "boolean"
     } ],
     "dataSet" : {
+      "rememberme" : false,
       "username" : "",
-      "password" : "",
-      "rememberme" : false
+      "password" : ""
     },
     "type" : "string",
     "saveInPhonegap" : false,
@@ -1396,9 +1396,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Accounting",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -1540,9 +1538,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Accrual",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -2481,9 +2477,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "AccrualType",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -2565,9 +2559,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Assessment",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -3380,9 +3372,7 @@
       "type" : "number"
     } ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Auction",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -4253,9 +4243,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "AuctionResult",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -5247,9 +5235,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "AuctionStat",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -5379,9 +5365,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "AvailableSubs",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -6239,9 +6223,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Balance",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -6467,9 +6449,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "BankReport",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -6563,9 +6543,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "BidSequence",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -6659,9 +6637,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "BorrowingBase",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -6767,9 +6743,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Buyer",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -6948,9 +6922,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "BuyerGroup",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -7020,9 +6992,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Certificate",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -8024,9 +7994,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "County",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -8456,9 +8424,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Disbursement",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -8998,9 +8964,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "DisbursementType",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -9072,25 +9036,8 @@
     "type" : "platforminspection_drop_downrtnType",
     "service" : "platform",
     "operation" : "executeInspection_drop_down",
+    "operationId" : "QueryExecutionController_executeInspection_drop_down",
     "serviceType" : "DataService",
-    "wmServiceOperationInfo" : {
-      "relativePath" : "/platform/queryExecutor/queries/inspection_drop_down",
-      "httpMethod" : "get",
-      "name" : "executeInspection_drop_down",
-      "parameters" : [ {
-        "name" : "page",
-        "parameterType" : "query",
-        "type" : "integer"
-      }, {
-        "name" : "size",
-        "parameterType" : "query",
-        "type" : "integer"
-      }, {
-        "name" : "sort",
-        "parameterType" : "query",
-        "type" : "string"
-      } ]
-    },
     "dataSet" : {
       "dataValue" : ""
     },
@@ -9112,9 +9059,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Grade",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -9594,9 +9539,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "GradeStat",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -9786,9 +9729,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Inspection",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -10284,9 +10225,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "InspectionRoute",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -10734,9 +10673,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "InterestType",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -10794,9 +10731,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Matter",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -11276,9 +11211,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "MatterParty",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -11915,9 +11848,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Note",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -12921,9 +12852,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "NoteType",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -13041,9 +12970,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Party",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -13317,9 +13244,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Payment",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -14016,9 +13941,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalAddress",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -14472,9 +14395,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalAuctionData",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -15024,9 +14945,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalAuctionFilter",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -15276,9 +15195,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalAuctionHistory",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -15720,9 +15637,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalAuctionNote",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -15840,9 +15755,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalAuctionTitle",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -15996,9 +15909,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalCertificateAddress",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -16464,9 +16375,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalCertificateData",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -16885,9 +16794,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalCertificateFilter",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -17090,9 +16997,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalCertificateNote",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -17222,9 +17127,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalInspectFilter",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -17367,9 +17270,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalLinks",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -17487,9 +17388,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalMatterData",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -17847,9 +17746,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalMatterFilter",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -18039,9 +17936,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalMatterParty",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -18387,9 +18282,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PortalTags",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -18687,9 +18580,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PropertyClass",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -19180,9 +19071,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Property",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -20831,9 +20720,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PropertyExterior",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -20891,9 +20778,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PropertySale",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -21682,9 +21567,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "PropertyType",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -21766,9 +21649,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Research",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -22204,9 +22085,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Rule",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -22528,9 +22407,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "RuleResult",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -22636,9 +22513,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Source",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -22696,9 +22571,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "State",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -22828,9 +22701,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "TaxHistory",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -23447,9 +23318,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "TaxSchedule",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -23868,9 +23737,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "TitleTransaction",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -24511,9 +24378,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "TitleType",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -24595,9 +24460,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Township",
     "isList" : true,
     "saveInPhonegap" : false,
@@ -25004,9 +24867,7 @@
     "category" : "wm.LiveVariable",
     "dataBinding" : [ ],
     "operation" : "read",
-    "dataSet" : {
-      "dataValue" : ""
-    },
+    "dataSet" : [ ],
     "type" : "Underwriting",
     "isList" : true,
     "saveInPhonegap" : false,
