@@ -1,37 +1,20 @@
-<wm-page data-ng-controller="inspectPageController" pagetitle="Inspect" name="page1"> 
-    <wm-header content="header" name="header1"></wm-header> 
-    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
-    <wm-content name="content1"> 
-        <wm-left-panel columnwidth="2" content="inspect_filter" name="left_panel1"></wm-left-panel> 
-        <wm-page-content columnwidth="10" name="page_content1"> 
-            <wm-layoutgrid name="layoutgrid1"> 
-                <wm-gridrow name="gridrow1"> 
-                    <wm-gridcolumn columnwidth="12" name="gridcolumn1"></wm-gridcolumn> 
-                </wm-gridrow> 
-                <wm-gridrow name="gridrow2"> 
-                    <wm-gridcolumn columnwidth="12" name="gridcolumn5"></wm-gridcolumn> 
-                </wm-gridrow> 
-                <wm-gridrow name="gridrow3"> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn8"> 
-                        <wm-tabs name="tabs1" show="true" transition="none"> 
-                            <wm-tabpane name="tabpane2" heading="Auction">   
-                            </wm-tabpane> 
-                            <wm-tabpane name="tabpane1" heading="Certificate">   
-                            </wm-tabpane> 
-                            <wm-tabpane name="tabpane3" heading="Title">   
-                            </wm-tabpane> 
-                            <wm-tabpane name="tabpane4" heading="Notes">   
-                            </wm-tabpane> 
-                        </wm-tabs> 
-                    </wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="8" name="gridcolumn8_1"> 
-                        <wm-html name="html1">
-                            Unexpected error "not an association: id; nested exception is org.hibernate.QueryException: not an association: id",please check server logs for more information
-                        </wm-html> 
-                    </wm-gridcolumn> 
-                </wm-gridrow> 
-            </wm-layoutgrid> 
-        </wm-page-content> 
-    </wm-content> 
-    <wm-footer content="footer" name="footer1"></wm-footer> 
+<wm-page data-ng-controller="inspectPageController" pagetitle="Inspect" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1" animation="slide-over"></wm-left-panel>
+        <wm-page-content columnwidth="5" name="page_content1">
+            <wm-panel name="panel1">
+                <wm-panel-footer name="panel_footer1"></wm-panel-footer>
+            </wm-panel>
+            <wm-accordion name="accordion1" closeothers="false">
+                <wm-accordionpane name="accordionpane1" heading="Photo"></wm-accordionpane>
+                <wm-accordionpane name="accordionpane2" heading="Recent Auction"></wm-accordionpane>
+                <wm-accordionpane name="accordionpane3" heading="Certificate"></wm-accordionpane>
+                <wm-accordionpane name="accordionpane4" heading="Notes"></wm-accordionpane>
+            </wm-accordion>
+        </wm-page-content>
+        <wm-right-panel columnwidth="5" content="rightnav" name="right_panel1"></wm-right-panel>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
 </wm-page>

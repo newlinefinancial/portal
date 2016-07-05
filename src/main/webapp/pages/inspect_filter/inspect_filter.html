@@ -1,39 +1,8 @@
-<wm-partial data-ng-controller="inspect_filterPageController" name="partial1"> 
-    <wm-layoutgrid name="layoutgrid3"> 
-        <wm-gridrow name="gridrow5"> 
-            <wm-gridcolumn columnwidth="12" name="gridcolumn11"> 
-                <wm-livefilter dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="left" name="livefilter2" class="panel-default"> 
-                    <wm-layoutgrid name="layoutgrid4"> 
-                        <wm-gridrow name="gridrow8"> 
-                            <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn20"> 
-                                <wm-filter-field name="dropDown" field="dropDown" displayname="Drop Down" widget="select" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true" defaultvalue="bind:Variables.PlatformExecuteInspection_drop_down.dataSet"></wm-filter-field> 
-                            </wm-gridcolumn> 
-                        </wm-gridrow> 
-                    </wm-layoutgrid> 
-                    <wm-filter-action key="filter" class="btn-primary" iconclass="wi wi-filter-list" action="filter()" display-name="Filter" show="true" type="button"></wm-filter-action> 
-                    <wm-filter-action key="clear" class="btn" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear" show="true" type="button"></wm-filter-action> 
-                </wm-livefilter> 
-            </wm-gridcolumn> 
-        </wm-gridrow> 
-        <wm-gridrow name="gridrow6"> 
-            <wm-gridcolumn columnwidth="12" name="gridcolumn14"> 
-                <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" dataset="bind:Widgets.livefilter2.result" navigation="Scroll" name="livelist1"> 
-                    <wm-listtemplate layout="gridlayout" name="listtemplate1"> 
-                        <wm-layoutgrid class="gridlayout" name="layoutgrid5"> 
-                            <wm-gridrow name="gridrow9"> 
-                                <wm-gridcolumn columnwidth="7" data-template-ctr="true" class="col-xs-8" name="gridcolumn22"> 
-                                    <wm-label name="Firstname" caption="bind:Widgets.livefilter2.result.pin" class="media-heading h4 col-xs-12"></wm-label> 
-                                    <wm-label name="Role" caption="bind:Widgets.livefilter2.result.address" class="text-muted" paddingleft="1" paddingunit="em"></wm-label> 
-                                </wm-gridcolumn> 
-                                <wm-gridcolumn columnwidth="3" data-template-ctr="true" class="col-xs-1 pull-right" name="gridcolumn23"> 
-                                    <wm-label class="badge" name="Badge" caption="bind:Widgets.livefilter2.result.order"></wm-label> 
-                                </wm-gridcolumn> 
-                            </wm-gridrow> 
-                        </wm-layoutgrid> 
-                    </wm-listtemplate> 
-                </wm-livelist> 
-            </wm-gridcolumn> 
-        </wm-gridrow> 
-        <wm-gridrow name="gridrow7"></wm-gridrow> 
-    </wm-layoutgrid> 
+<wm-partial data-ng-controller="inspect_filterPageController" name="partial1">
+    <wm-composite name="composite1">
+        <wm-label class="col-md-3 control-label" name="label4"></wm-label>
+        <wm-container class="col-md-9" name="container1">
+            <wm-select name="select1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" datafield="dropDown" displayfield="dropDown"></wm-select>
+        </wm-container>
+    </wm-composite>
 </wm-partial>

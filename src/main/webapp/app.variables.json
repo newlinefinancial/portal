@@ -17256,7 +17256,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 4,
+    "bindCount" : 5,
     "tableName" : "portal_inspect_filter",
     "dbSystem" : "SQLServer",
     "properties" : [ ],
