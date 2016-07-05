@@ -16983,7 +16983,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 6,
+    "bindCount" : 7,
     "tableName" : "portal_certificate_filter",
     "dbSystem" : "SQLServer",
     "properties" : [ ],
@@ -17395,7 +17395,7 @@
     "firstRow" : 0,
     "maxResults" : 20,
     "designMaxResults" : 10,
-    "startUpdate" : false,
+    "startUpdate" : true,
     "autoUpdate" : true,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
@@ -17733,6 +17733,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
+    "bindCount" : 1,
     "tableName" : "portal_matter_data",
     "dbSystem" : "SQLServer",
     "properties" : [ ],
