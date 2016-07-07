@@ -1,102 +1,84 @@
-<wm-page data-ng-controller="servicePageController" pagetitle="Service" name="page1"> 
-    <wm-header content="header" name="header1"></wm-header> 
-    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
-    <wm-content name="content1"> 
-        <wm-page-content columnwidth="12" name="page_content1"> 
-            <wm-layoutgrid name="layoutgrid1"> 
-                <wm-gridrow name="gridrow1"> 
-                    <wm-gridcolumn columnwidth="3" name="gridcolumn1"></wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn2"></wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn3"></wm-gridcolumn> 
-                </wm-gridrow> 
-                <wm-gridrow name="gridrow7"> 
-                    <wm-gridcolumn columnwidth="3" name="gridcolumn9"> 
-                        <wm-livefilter title="Filter portal_certificate_filter" dataset="bind:Variables.PlatformPortalCertificateFilterData.dataSet" captionalign="left" captionposition="left" name="livefilter3" class="panel-default"> 
-                            <wm-layoutgrid name="layoutgrid7"> 
-                                <wm-gridrow name="gridrow17"> 
-                                    <wm-gridcolumn columnwidth="12" name="gridcolumn43"> 
-                                        <wm-filter-field name="countyName" field="countyName" displayname="County Name" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true" inputtype="text" primary-key="false" is-related="false" key="countyName" placeholder="Enter value" matchmode="start"></wm-filter-field> 
-                                    </wm-gridcolumn> 
-                                </wm-gridrow> 
-                                <wm-gridrow name="gridrow18"> 
-                                    <wm-gridcolumn columnwidth="12" name="gridcolumn44"> 
-                                        <wm-filter-field name="propertyType" field="propertyType" displayname="Property Type" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true" inputtype="text" primary-key="false" is-related="false" key="propertyType" placeholder="Enter value" matchmode="start"></wm-filter-field> 
-                                    </wm-gridcolumn> 
-                                </wm-gridrow> 
-                                <wm-gridrow name="gridrow19"> 
-                                    <wm-gridcolumn columnwidth="12" name="gridcolumn45"> 
-                                        <wm-filter-field name="taxYear" field="taxYear" displayname="Tax Year" widget="text" is-range="false" type="integer" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true" inputtype="number" primary-key="false" is-related="false" key="taxYear" placeholder="Enter value"></wm-filter-field> 
-                                    </wm-gridcolumn> 
-                                </wm-gridrow> 
-                                <wm-gridrow name="gridrow20"> 
-                                    <wm-gridcolumn columnwidth="12" name="gridcolumn46"> 
-                                        <wm-filter-field name="status" field="status" displayname="Status" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true" primary-key="false" is-related="false" key="status" placeholder="Select value" datafield="key" displayfield="value" matchmode="start"></wm-filter-field> 
-                                    </wm-gridcolumn> 
-                                </wm-gridrow> 
-                                <wm-gridrow name="gridrow21"> 
-                                    <wm-gridcolumn columnwidth="12" name="gridcolumn47"> 
-                                        <wm-filter-field name="tags" field="tags" displayname="Tags" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true" inputtype="text" primary-key="false" is-related="false" key="tags" placeholder="Enter value" matchmode="start"></wm-filter-field> 
-                                    </wm-gridcolumn> 
-                                </wm-gridrow> 
-                            </wm-layoutgrid> 
-                            <wm-filter-action key="filter" display-name="Filter" show="true" class="btn-primary" iconclass="wi wi-filter-list" action="filter()" type="button"></wm-filter-action> 
-                            <wm-filter-action key="clear" display-name="Clear" show="true" class="btn" iconclass="wi wi-cancel" action="clearFilter()" type="button"></wm-filter-action> 
-                        </wm-livefilter> 
-                    </wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn10"></wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn11"></wm-gridcolumn> 
-                </wm-gridrow> 
-                <wm-gridrow name="gridrow8"> 
-                    <wm-gridcolumn columnwidth="3" name="gridcolumn12"> 
-                        <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" dataset="bind:Widgets.livefilter3.result" navigation="None" name="livelist4"> 
-                            <wm-listtemplate layout="blank" name="listtemplate4"> 
-                                <wm-container class="blank" data-template-ctr="true" name="container3"> 
-                                    <wm-layoutgrid class="gridlayout" name="layoutgrid8"> 
-                                        <wm-gridrow name="gridrow22"> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn48"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.id" name="label26"></wm-label> 
-                                            </wm-gridcolumn> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn49"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.propertyId" name="label27"></wm-label> 
-                                            </wm-gridcolumn> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn50"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.countyName" name="label28"></wm-label> 
-                                            </wm-gridcolumn> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn51"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.townshipName" name="label29"></wm-label> 
-                                            </wm-gridcolumn> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn52"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.code" name="label30"></wm-label> 
-                                            </wm-gridcolumn> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn53"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.propertyType" name="label31"></wm-label> 
-                                            </wm-gridcolumn> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn54"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.certificateNumber" name="label32"></wm-label> 
-                                            </wm-gridcolumn> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn55"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.taxYear" name="label33"></wm-label> 
-                                            </wm-gridcolumn> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn56"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.status" name="label34"></wm-label> 
-                                            </wm-gridcolumn> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn57"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.pin" name="label35"></wm-label> 
-                                            </wm-gridcolumn> 
-                                            <wm-gridcolumn class="col-xs-6" columnwidth="1" name="gridcolumn58"> 
-                                                <wm-label width="100%" caption="bind:Widgets.livefilter3.result.volume" name="label36"></wm-label> 
-                                            </wm-gridcolumn> 
-                                        </wm-gridrow> 
-                                    </wm-layoutgrid> 
-                                </wm-container> 
-                            </wm-listtemplate> 
-                        </wm-livelist> 
-                    </wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn13"></wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn14"></wm-gridcolumn> 
-                </wm-gridrow> 
-            </wm-layoutgrid> 
-        </wm-page-content> 
-    </wm-content> 
-    <wm-footer content="footer" name="footer1"></wm-footer> 
+<wm-page data-ng-controller="servicePageController" name="page1" pagetitle="Service">
+    <wm-header name="header1" content="header"></wm-header>
+    <wm-top-nav name="top_nav1" content="topnav"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content name="page_content1" columnwidth="12">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn name="gridcolumn1" columnwidth="3"></wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn2" columnwidth="4"></wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn3" columnwidth="4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow7">
+                    <wm-gridcolumn name="gridcolumn9" columnwidth="3">
+                        <wm-livefilter title="Filter portal_certificate_filter" class="panel-default" name="livefilter3" captionposition="left" captionalign="left" dataset="bind:Variables.PlatformPortalCertificateFilterData.dataSet">
+                            <wm-layoutgrid name="layoutgrid7">
+                                <wm-gridrow name="gridrow17">
+                                    <wm-gridcolumn name="gridcolumn43" columnwidth="12">
+                                        <wm-filter-field type="string" show="true" name="countyName" placeholder="Enter value" mobile-display="true" pc-display="true" generator="assigned" is-primary-key="false" is-range="false" widget="text" displayname="County Name"
+                                        field="countyName" key="countyName" inputtype="text" is-related="false" primary-key="false" matchmode="start"></wm-filter-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow18">
+                                    <wm-gridcolumn name="gridcolumn44" columnwidth="12">
+                                        <wm-filter-field type="string" show="true" name="propertyType" placeholder="Enter value" mobile-display="true" pc-display="true" generator="assigned" is-primary-key="false" is-range="false" widget="text" displayname="Property Type"
+                                        field="propertyType" key="propertyType" inputtype="text" is-related="false" primary-key="false" matchmode="start"></wm-filter-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow19">
+                                    <wm-gridcolumn name="gridcolumn45" columnwidth="12">
+                                        <wm-filter-field type="integer" show="true" name="taxYear" placeholder="Enter value" mobile-display="true" pc-display="true" generator="assigned" is-primary-key="false" is-range="false" widget="text" displayname="Tax Year"
+                                        field="taxYear" key="taxYear" inputtype="number" is-related="false" primary-key="false"></wm-filter-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow20">
+                                    <wm-gridcolumn name="gridcolumn46" columnwidth="12">
+                                        <wm-filter-field type="string" show="true" name="status" placeholder="Select value" mobile-display="true" pc-display="true" generator="assigned" is-primary-key="false" is-range="false" widget="text" displayname="Status"
+                                        field="status" key="status" is-related="false" primary-key="false" matchmode="start" displayfield="value" datafield="key"></wm-filter-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow21">
+                                    <wm-gridcolumn name="gridcolumn47" columnwidth="12">
+                                        <wm-filter-field type="string" show="true" name="tags" placeholder="Enter value" mobile-display="true" pc-display="true" generator="assigned" is-primary-key="false" is-range="false" widget="text" displayname="Tags"
+                                        field="tags" key="tags" inputtype="text" is-related="false" primary-key="false" matchmode="start"></wm-filter-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-filter-action class="btn-primary" type="button" show="true" display-name="Filter" action="filter()" iconclass="wi wi-filter-list" key="filter"></wm-filter-action>
+                            <wm-filter-action class="btn" type="button" show="true" display-name="Clear" action="clearFilter()" iconclass="wi wi-cancel" key="clear"></wm-filter-action>
+                        </wm-livefilter>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn10" columnwidth="4"></wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn11" columnwidth="4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow8">
+                    <wm-gridcolumn name="gridcolumn12" columnwidth="3">
+                        <wm-livelist name="livelist4" dataset="bind:Widgets.livefilter3.result" navigation="None" selectfirstitem="true" listclass="list-group" itemclass="list-group-item" template="true">
+                            <wm-listtemplate name="listtemplate4" layout="blank">
+                                <wm-container class="blank" name="container3" data-template-ctr="true">
+                                    <wm-layoutgrid class="gridlayout" name="layoutgrid8">
+                                        <wm-gridrow name="gridrow22">
+                                            <wm-gridcolumn class="col-xs-6" name="gridcolumn49" columnwidth="6">
+                                                <wm-label caption="bind:Widgets.livefilter3.result.taxYear" name="txtTaxYear" width="100%"></wm-label>
+                                                <wm-label caption="bind:Widgets.livefilter3.result.pin" name="txtPIN" width="100%" on-Click="goToPage_CertificateDetails"></wm-label>
+                                                <wm-label caption="bind:Widgets.livefilter3.result.countyName" name="txtCountyName" horizontalalign="left" width="122"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn class="col-xs-6" name="gridcolumn52" columnwidth="6">
+                                                <wm-label caption="bind:Widgets.livefilter3.result.status" name="txtStatus" width="100%"></wm-label>
+                                                <wm-label caption="bind:Widgets.livefilter3.result.propertyType" name="txtPropertyType" width="100%"></wm-label>
+                                                <wm-label caption="bind:Widgets.livefilter3.result.certificateNumber" name="txtCertificateNo" width="100%"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-container>
+                            </wm-listtemplate>
+                        </wm-livelist>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn13" columnwidth="4"></wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn14" columnwidth="4"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1" content="footer"></wm-footer>
 </wm-page>

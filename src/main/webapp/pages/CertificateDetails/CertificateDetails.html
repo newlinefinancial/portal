@@ -1,0 +1,179 @@
+<wm-page data-ng-controller="CertificateDetailsPageController" name="page1" pagetitle="Certificate Details">
+    <wm-header name="header1" content="header"></wm-header>
+    <wm-top-nav name="top_nav1" content="topnav"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-left-panel name="left_panel1" content="leftnav" columnwidth="2"></wm-left-panel>
+        <wm-page-content name="page_content1" columnwidth="8">
+            <wm-livegrid name="livegrid1" service="platform@PortalCertificateAddress"></wm-livegrid>
+            <wm-livegrid name="livegrid2" service="platform@PortalCertificateData">
+                <wm-grid title="Portal_certificate_data List" name="grid2" dataset="bind:Variables.PlatformPortalCertificateDataData.dataSet" readonlygrid="true" gridfirstrowselect="true" navigation="Basic">
+                    <wm-grid-column type="integer" readonly="true" caption="Certificate Id" generator="assigned" pcdisplay="true" mobiledisplay="true" binding="certificateId"></wm-grid-column>
+                    <wm-grid-column type="integer" readonly="true" caption="Property Id" generator="assigned" pcdisplay="true" mobiledisplay="true" binding="propertyId"></wm-grid-column>
+                    <wm-grid-column type="string" readonly="true" caption="Pin" generator="assigned" pcdisplay="true" mobiledisplay="true" binding="pin"></wm-grid-column>
+                    <wm-grid-column type="integer" readonly="true" caption="Volume" generator="assigned" pcdisplay="true" mobiledisplay="true" binding="volume"></wm-grid-column>
+                    <wm-grid-column type="string" readonly="true" caption="Header" generator="assigned" pcdisplay="true" mobiledisplay="true" binding="header"></wm-grid-column>
+                    <wm-grid-column type="string" readonly="true" caption="Code" generator="assigned" pcdisplay="true" mobiledisplay="true" binding="code"></wm-grid-column>
+                    <wm-grid-column type="string" readonly="true" caption="Property Type" generator="assigned" pcdisplay="true" mobiledisplay="true" binding="propertyType"></wm-grid-column>
+                    <wm-grid-column type="string" readonly="true" caption="Certificate Number" generator="assigned" pcdisplay="true" mobiledisplay="true" binding="certificateNumber"></wm-grid-column>
+                    <wm-grid-column type="big_decimal" readonly="true" caption="Bid Rate" generator="assigned" pcdisplay="true" mobiledisplay="true" binding="bidRate"></wm-grid-column>
+                    <wm-grid-column type="integer" readonly="true" caption="Tax Year" generator="assigned" pcdisplay="true" mobiledisplay="true" binding="taxYear"></wm-grid-column>
+                </wm-grid>
+                <wm-liveform title="Portal_certificate_data Info" name="liveform2" captionposition="top" captionalign="left" dataset="bind:Variables.PlatformPortalCertificateDataData.dataSet" formlayout="inline" novalidate="false">
+                    <wm-layoutgrid name="layoutgrid2">
+                        <wm-gridrow name="gridrow13">
+                            <wm-gridcolumn show="show" name="gridcolumn37" columnwidth="6">
+                                <wm-form-field type="integer" show="true" name="certificateId" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Certificate Id" key="certificateId" required="true" step="0" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn38" columnwidth="6">
+                                <wm-form-field type="integer" show="true" name="propertyId" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Property Id" key="propertyId" required="true" step="0" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow14">
+                            <wm-gridcolumn show="show" name="gridcolumn39" columnwidth="6">
+                                <wm-form-field type="string" show="true" name="pin" mobile-display="true" pc-display="true" generator="assigned" widget="text" displayname="Pin" key="pin" required="true" maxchars="255" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn40" columnwidth="6">
+                                <wm-form-field type="integer" show="true" name="volume" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Volume" key="volume" required="false" step="0" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow15">
+                            <wm-gridcolumn show="show" name="gridcolumn41" columnwidth="6">
+                                <wm-form-field type="string" show="true" name="header" mobile-display="true" pc-display="true" generator="assigned" widget="text" displayname="Header" key="header" required="true" maxchars="255" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn42" columnwidth="6">
+                                <wm-form-field type="string" show="true" name="code" mobile-display="true" pc-display="true" generator="assigned" widget="text" displayname="Code" key="code" required="false" maxchars="50" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow16">
+                            <wm-gridcolumn show="show" name="gridcolumn43" columnwidth="6">
+                                <wm-form-field type="string" show="true" name="propertyType" mobile-display="true" pc-display="true" generator="assigned" widget="text" displayname="Property Type" key="propertyType" required="false" maxchars="235" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn44" columnwidth="6">
+                                <wm-form-field type="string" show="true" name="certificateNumber" mobile-display="true" pc-display="true" generator="assigned" widget="text" displayname="Certificate Number" key="certificateNumber" required="true" maxchars="50"
+                                is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow17">
+                            <wm-gridcolumn show="show" name="gridcolumn45" columnwidth="6">
+                                <wm-form-field type="big_decimal" show="true" name="bidRate" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Bid Rate" key="bidRate" required="true" step="1e-9" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn46" columnwidth="6">
+                                <wm-form-field type="integer" show="true" name="taxYear" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Tax Year" key="taxYear" required="true" step="0" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow18">
+                            <wm-gridcolumn show="show" name="gridcolumn47" columnwidth="6">
+                                <wm-form-field type="date" show="true" name="dateSold" mobile-display="true" pc-display="true" generator="assigned" widget="date" displayname="Date Sold" key="dateSold" required="true" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn48" columnwidth="6">
+                                <wm-form-field type="string" show="true" name="status" mobile-display="true" pc-display="true" generator="assigned" widget="text" displayname="Status" key="status" required="true" maxchars="50" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow19">
+                            <wm-gridcolumn show="show" name="gridcolumn49" columnwidth="6">
+                                <wm-form-field type="date" show="true" name="statusChangeDate" mobile-display="true" pc-display="true" generator="assigned" widget="date" displayname="Status Change Date" key="statusChangeDate" required="false" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn50" columnwidth="6">
+                                <wm-form-field type="string" show="true" name="storageStatus" mobile-display="true" pc-display="true" generator="assigned" widget="text" displayname="Storage Status" key="storageStatus" required="true" maxchars="50" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow20">
+                            <wm-gridcolumn show="show" name="gridcolumn51" columnwidth="6">
+                                <wm-form-field type="string" show="true" name="bank" mobile-display="true" pc-display="true" generator="assigned" widget="text" displayname="Bank" key="bank" required="false" maxchars="50" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn52" columnwidth="6">
+                                <wm-form-field type="date" show="true" name="expirationDate" mobile-display="true" pc-display="true" generator="assigned" widget="date" displayname="Expiration Date" key="expirationDate" required="true" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow21">
+                            <wm-gridcolumn show="show" name="gridcolumn53" columnwidth="6">
+                                <wm-form-field type="string" show="true" name="countyName" mobile-display="true" pc-display="true" generator="assigned" widget="text" displayname="County Name" key="countyName" required="true" maxchars="50" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn54" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="certificatePrincipal" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Certificate Principal" key="certificatePrincipal" required="false"
+                                step="0.0001" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow22">
+                            <wm-gridcolumn show="show" name="gridcolumn55" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="subPrincipal" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Sub Principal" key="subPrincipal" required="false" step="0.0001" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn56" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="feePrincipal" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Fee Principal" key="feePrincipal" required="false" step="0.0001" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow23">
+                            <wm-gridcolumn show="show" name="gridcolumn57" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="certificateRevenue" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Certificate Revenue" key="certificateRevenue" required="false" step="0.0001"
+                                is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn58" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="subRevenue" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Sub Revenue" key="subRevenue" required="false" step="0.0001" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow24">
+                            <wm-gridcolumn show="show" name="gridcolumn59" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="feeRevenue" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Fee Revenue" key="feeRevenue" required="false" step="0.0001" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn60" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="principal" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Principal" key="principal" required="false" step="0.0001" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow25">
+                            <wm-gridcolumn show="show" name="gridcolumn61" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="revenue" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Revenue" key="revenue" required="false" step="0.0001" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn62" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="balanceDue" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Balance Due" key="balanceDue" required="false" step="0.0001" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow26">
+                            <wm-gridcolumn show="show" name="gridcolumn63" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="paymentInTransit" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Payment In Transit" key="paymentInTransit" required="false" step="0.0001"
+                                is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn64" columnwidth="6">
+                                <wm-form-field type="double" show="true" name="dueAfterSettlement" mobile-display="true" pc-display="true" generator="assigned" widget="number" displayname="Due After Settlement" key="dueAfterSettlement" required="false" step="0.0001"
+                                is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow27">
+                            <wm-gridcolumn show="show" name="gridcolumn65" columnwidth="6">
+                                <wm-form-field type="string" show="true" name="matterNumber" mobile-display="true" pc-display="true" generator="assigned" widget="text" displayname="Matter Number" key="matterNumber" required="false" maxchars="50" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn66" columnwidth="6">
+                                <wm-form-field type="date" show="true" name="initialCourtDate" mobile-display="true" pc-display="true" generator="assigned" widget="date" displayname="Initial Court Date" key="initialCourtDate" required="false" is-related="false"
+                                primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow28">
+                            <wm-gridcolumn show="show" name="gridcolumn67" columnwidth="6">
+                                <wm-form-field type="date" show="true" name="filedDate" mobile-display="true" pc-display="true" generator="assigned" widget="date" displayname="Filed Date" key="filedDate" required="false" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn show="show" name="gridcolumn68" columnwidth="6">
+                                <wm-form-field type="date" show="true" name="closedDate" mobile-display="true" pc-display="true" generator="assigned" widget="date" displayname="Closed Date" key="closedDate" required="false" is-related="false" primary-key="false"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-action class="form-cancel btn-secondary" type="button" show="true" display-name="Cancel" action="cancel()" iconclass="wi wi-cancel" key="cancel" update-mode="true"></wm-form-action>
+                    <wm-form-action class="form-save btn-success" type="submit" show="true" display-name="Save" iconclass="wi wi-save" key="save" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-livegrid>
+        </wm-page-content>
+        <wm-right-panel name="right_panel1" content="rightnav" columnwidth="2"></wm-right-panel>
+    </wm-content>
+    <wm-footer name="footer1" content="footer"></wm-footer>
+</wm-page>
