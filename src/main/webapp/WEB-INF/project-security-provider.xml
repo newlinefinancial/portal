@@ -38,7 +38,7 @@
         <security:authentication-provider ref="rememberMeAuthenticationProvider"/>
     </security:authentication-manager>
     <bean class="org.springframework.security.web.authentication.logout.LogoutFilter" id="logoutFilter">
-        <constructor-arg value="/"/>
+        <constructor-arg ref="logoutSuccessHandler"/>
         <constructor-arg>
             <list>
                 <ref bean="securityContextLogoutHandler"/>
@@ -125,6 +125,12 @@
                 </entry>
             </map>
         </property>
+        <property name="sslConfig">
+            <bean class="com.wavemaker.studio.common.model.security.SSLConfig">
+                <property name="useSSL" value="false"/>
+                <property name="sslPort" value="8443"/>
+            </bean>
+        </property>
     </bean>
     <bean class="org.springframework.security.authentication.dao.DaoAuthenticationProvider" id="demoAuthenticationProvider">
         <property name="userDetailsService" ref="demoUserDetailsService"/>
@@ -153,4 +159,9 @@
             </list>
         </property>
     </bean>
+    <bean class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler" id="logoutSuccessHandler">
+        <property name="defaultTargetUrl" value="/"/>
+        <property name="redirectStrategy" ref="redirectStrategyBean"/>
+    </bean>
+    <bean class="org.springframework.security.web.DefaultRedirectStrategy" id="redirectStrategyBean"/>
 </beans>

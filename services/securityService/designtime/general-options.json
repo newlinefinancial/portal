@@ -1,8 +1,11 @@
 {
   "enforceSecurity" : true,
   "rememberMeConfig" : null,
-  "useSSL" : false,
-  "sslPort" : "8443",
+  "sslConfig" : {
+    "sslPort" : 443,
+    "useSSL" : false,
+    "excludedUrls" : null
+  },
   "authProviders" : [ "DEMO" ],
   "login" : {
     "type" : "PAGE",

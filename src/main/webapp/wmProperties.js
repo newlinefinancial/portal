@@ -5,6 +5,7 @@ var _WM_APP_PROPERTIES = {
   "homePage" : "Main",
   "name" : "Portal",
   "platformType" : "WEB",
+  "supportedLanguages" : "en",
   "type" : "APPLICATION",
   "version" : "1.0"
 };

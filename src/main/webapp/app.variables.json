@@ -30,6 +30,17 @@
     "pageName" : "inspect_filter",
     "pageTransitions" : "none"
   },
+  "goToPage_Issues" : {
+    "_id" : "wm-goToPage_Issues-wm.NavigationVariable-1467826225753",
+    "name" : "goToPage_Issues",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Issues",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Main" : {
     "_id" : "wm-wm.NavigationVariable1389180517517",
     "name" : "goToPage_Main",
@@ -17279,7 +17290,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 5,
+    "bindCount" : 6,
     "tableName" : "portal_inspect_filter",
     "dbSystem" : "SQLServer",
     "properties" : [ ],
