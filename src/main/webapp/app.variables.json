@@ -8001,7 +8001,7 @@
       "primaryFields" : [ "id" ]
     },
     "isDefault" : true,
-    "bindCount" : 4,
+    "bindCount" : 6,
     "tableName" : "certificate",
     "dbSystem" : "SQLServer",
     "properties" : [ "county", "property" ],
@@ -16814,7 +16814,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 3,
+    "bindCount" : 14,
     "tableName" : "portal_certificate_data",
     "dbSystem" : "SQLServer",
     "properties" : [ ],
@@ -16833,7 +16833,7 @@
     "isList" : true,
     "saveInPhonegap" : false,
     "firstRow" : 0,
-    "maxResults" : 20,
+    "maxResults" : 1000,
     "designMaxResults" : 10,
     "startUpdate" : true,
     "autoUpdate" : true,
@@ -17017,11 +17017,12 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 7,
+    "bindCount" : 9,
     "tableName" : "portal_certificate_filter",
     "dbSystem" : "SQLServer",
     "properties" : [ ],
     "relatedTables" : [ ],
+    "filterFields" : { },
     "package" : "com.portal.platform.PortalCertificateFilter"
   },
   "PlatformPortalCertificateNoteData" : {

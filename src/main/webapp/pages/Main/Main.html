@@ -1,36 +1,37 @@
 <wm-page data-ng-controller="MainPageController" name="mainpage" pagetitle="Main">
-    <wm-header content="header" name="header" height="auto"></wm-header>
+    <wm-header name="header" content="header" height="auto"></wm-header>
     <wm-top-nav name="topnav" content="topnav"></wm-top-nav>
     <wm-content name="content">
-        <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav"></wm-left-panel>
-        <wm-page-content columnwidth="10" name="mainContent" padding="unset 15px">
-            <wm-livefilter title="Filter Portal_certificate_filter" dataset="bind:Variables.PlatformPortalCertificateFilterData.dataSet" captionalign="left" captionposition="top" name="livefilter1">
+        <wm-left-panel name="leftpanel" content="leftnav" columnwidth="2"></wm-left-panel>
+        <wm-page-content name="mainContent" columnwidth="8" padding="unset 15px">
+            <wm-livefilter title="Filter Portal_certificate_filter" name="livefilter1" captionposition="top" captionalign="left" dataset="bind:Variables.PlatformPortalCertificateFilterData.dataSet">
                 <wm-layoutgrid name="layoutgrid1">
                     <wm-gridrow name="gridrow1">
-                        <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn1">
-                            <wm-filter-field name="countyName" field="countyName" displayname="County Name" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
+                        <wm-gridcolumn show="true" name="gridcolumn1" columnwidth="12">
+                            <wm-filter-field type="string" show="true" name="countyName" mobile-display="true" pc-display="true" generator="assigned" is-primary-key="false" is-range="false" widget="text" displayname="County Name" field="countyName"></wm-filter-field>
                         </wm-gridcolumn>
                     </wm-gridrow>
                     <wm-gridrow name="gridrow2">
-                        <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn2">
-                            <wm-filter-field name="townshipName" field="townshipName" displayname="Township Name" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
+                        <wm-gridcolumn show="true" name="gridcolumn2" columnwidth="12">
+                            <wm-filter-field type="string" show="true" name="townshipName" mobile-display="true" pc-display="true" generator="assigned" is-primary-key="false" is-range="false" widget="text" displayname="Township Name" field="townshipName"></wm-filter-field>
                         </wm-gridcolumn>
                     </wm-gridrow>
                     <wm-gridrow name="gridrow3">
-                        <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn3">
-                            <wm-filter-field name="taxYear" field="taxYear" displayname="Tax Year" widget="number" is-range="false" type="integer" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
+                        <wm-gridcolumn show="true" name="gridcolumn3" columnwidth="12">
+                            <wm-filter-field type="integer" show="true" name="taxYear" mobile-display="true" pc-display="true" generator="assigned" is-primary-key="false" is-range="false" widget="number" displayname="Tax Year" field="taxYear"></wm-filter-field>
                         </wm-gridcolumn>
                     </wm-gridrow>
                     <wm-gridrow name="gridrow4">
-                        <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn4">
-                            <wm-filter-field name="status" field="status" displayname="Status" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
+                        <wm-gridcolumn show="true" name="gridcolumn4" columnwidth="12">
+                            <wm-filter-field type="string" show="true" name="status" mobile-display="true" pc-display="true" generator="assigned" is-primary-key="false" is-range="false" widget="text" displayname="Status" field="status"></wm-filter-field>
                         </wm-gridcolumn>
                     </wm-gridrow>
                 </wm-layoutgrid>
-                <wm-filter-action key="filter" class="btn-primary" iconclass="wi wi-filter-list" action="filter()" display-name="Filter" show="true" type="button"></wm-filter-action>
-                <wm-filter-action key="clear" class="btn-secondary" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear" show="true" type="button"></wm-filter-action>
+                <wm-filter-action class="btn-primary" type="button" show="true" display-name="Filter" action="filter()" iconclass="wi wi-filter-list" key="filter"></wm-filter-action>
+                <wm-filter-action class="btn-secondary" type="button" show="true" display-name="Clear" action="clearFilter()" iconclass="wi wi-cancel" key="clear"></wm-filter-action>
             </wm-livefilter>
         </wm-page-content>
+        <wm-right-panel name="right_panel1" content="rightnav" columnwidth="2"></wm-right-panel>
     </wm-content>
     <wm-footer name="footer" content="footer"></wm-footer>
 </wm-page>

@@ -4,6 +4,14 @@
         <return typeRef="platforminspection_drop_downrtnType" isList="false"/>
     </operation>
     <dataobjects>
+        <dataobject javaType="com.portal.platform.BorrowingBase">
+            <element name="trustReceipt" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="taxYear" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="county" typeRef="java.lang.String" allowNull="true"/>
+            <element name="state" typeRef="java.lang.String" allowNull="true"/>
+            <element name="certificatePrincipal" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="subPrincipal" typeRef="java.lang.Double" allowNull="true"/>
+        </dataobject>
         <dataobject javaType="com.portal.platform.Assessment">
             <element name="assessedValuationBuilding" typeRef="java.lang.Double" allowNull="true"/>
             <element name="property" typeRef="com.portal.platform.Property" allowNull="true"/>
@@ -26,14 +34,6 @@
             <element name="assesseeName" typeRef="java.lang.String" allowNull="true"/>
             <element name="assessedValuationLand" typeRef="java.lang.Double" allowNull="true"/>
             <element name="assesseeAddressCity" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.portal.platform.BorrowingBase">
-            <element name="trustReceipt" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="taxYear" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="county" typeRef="java.lang.String" allowNull="true"/>
-            <element name="state" typeRef="java.lang.String" allowNull="true"/>
-            <element name="certificatePrincipal" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="subPrincipal" typeRef="java.lang.Double" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.Underwriting">
             <element name="auction" typeRef="com.portal.platform.Auction" allowNull="true"/>
@@ -153,6 +153,16 @@
             <element name="notes" typeRef="com.portal.platform.Note" isList="true" allowNull="true"/>
             <element name="addressZip" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
+        <dataobject javaType="com.portal.platform.NoteType">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="duration" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="name" typeRef="java.lang.String" allowNull="true"/>
+            <element name="delay" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="underwriting" typeRef="java.lang.String" allowNull="true"/>
+            <element name="notes" typeRef="com.portal.platform.Note" isList="true" allowNull="true"/>
+            <element name="autoGenerate" typeRef="java.lang.Boolean" allowNull="true"/>
+            <element name="type" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
         <dataobject javaType="com.portal.platform.Payment">
             <element name="trustReceipt" typeRef="java.lang.String" allowNull="true"/>
             <element name="paymentType" typeRef="java.lang.String" allowNull="true"/>
@@ -167,16 +177,6 @@
             <element name="locked" typeRef="java.lang.Boolean" allowNull="true"/>
             <element name="effectiveDate" typeRef="java.util.Date" allowNull="true"/>
             <element name="user" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.portal.platform.NoteType">
-            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="duration" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="name" typeRef="java.lang.String" allowNull="true"/>
-            <element name="delay" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="underwriting" typeRef="java.lang.String" allowNull="true"/>
-            <element name="notes" typeRef="com.portal.platform.Note" isList="true" allowNull="true"/>
-            <element name="autoGenerate" typeRef="java.lang.Boolean" allowNull="true"/>
-            <element name="type" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.PropertySale">
             <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
@@ -565,6 +565,16 @@
             <element name="feeRevenue" typeRef="java.lang.Double" allowNull="true"/>
             <element name="dateSold" typeRef="java.util.Date" allowNull="true"/>
         </dataobject>
+        <dataobject javaType="com.portal.platform.PortalCertificateNote">
+            <element name="created" typeRef="java.util.Date" allowNull="true"/>
+            <element name="done" typeRef="java.util.Date" allowNull="true"/>
+            <element name="noteDescription" typeRef="java.lang.String" allowNull="true"/>
+            <element name="due" typeRef="java.util.Date" allowNull="true"/>
+            <element name="certificateId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="noteId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="user" typeRef="java.lang.String" allowNull="true"/>
+            <element name="noteTypeId" typeRef="java.lang.Integer" allowNull="true"/>
+        </dataobject>
         <dataobject javaType="com.portal.platform.PortalAuctionFilter">
             <element name="tags" typeRef="java.lang.String" allowNull="true"/>
             <element name="priorYearsDue" typeRef="java.lang.Double" allowNull="true"/>
@@ -584,16 +594,6 @@
             <element name="removed" typeRef="java.lang.Boolean" allowNull="true"/>
             <element name="auctionDay" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="townshipName" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.portal.platform.PortalCertificateNote">
-            <element name="created" typeRef="java.util.Date" allowNull="true"/>
-            <element name="done" typeRef="java.util.Date" allowNull="true"/>
-            <element name="noteDescription" typeRef="java.lang.String" allowNull="true"/>
-            <element name="due" typeRef="java.util.Date" allowNull="true"/>
-            <element name="certificateId" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="noteId" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="user" typeRef="java.lang.String" allowNull="true"/>
-            <element name="noteTypeId" typeRef="java.lang.Integer" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.Auction">
             <element name="priorYearsDue" typeRef="java.lang.Double" allowNull="true"/>
@@ -702,6 +702,15 @@
             <element name="inst" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="dueDate" typeRef="java.util.Date" allowNull="true"/>
         </dataobject>
+        <dataobject javaType="com.portal.platform.Grade">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="township" typeRef="com.portal.platform.Township" allowNull="true"/>
+            <element name="county" typeRef="com.portal.platform.County" allowNull="true"/>
+            <element name="grade" typeRef="java.lang.String" allowNull="true"/>
+            <element name="properties" typeRef="com.portal.platform.Property" isList="true" allowNull="true"/>
+            <element name="notes" typeRef="com.portal.platform.Note" isList="true" allowNull="true"/>
+            <element name="lookup" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
         <dataobject javaType="com.portal.platform.TaxHistory">
             <element name="inst1Due" typeRef="java.lang.Double" allowNull="true"/>
             <element name="saleStatus" typeRef="java.lang.String" allowNull="true"/>
@@ -717,15 +726,6 @@
             <element name="openStatus" typeRef="java.lang.String" allowNull="true"/>
             <element name="inst2Due" typeRef="java.lang.Double" allowNull="true"/>
             <element name="dispositionDate" typeRef="java.util.Date" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.portal.platform.Grade">
-            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="township" typeRef="com.portal.platform.Township" allowNull="true"/>
-            <element name="county" typeRef="com.portal.platform.County" allowNull="true"/>
-            <element name="grade" typeRef="java.lang.String" allowNull="true"/>
-            <element name="properties" typeRef="com.portal.platform.Property" isList="true" allowNull="true"/>
-            <element name="notes" typeRef="com.portal.platform.Note" isList="true" allowNull="true"/>
-            <element name="lookup" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.MatterParty">
             <element name="service1Reference" typeRef="java.lang.String" allowNull="true"/>
@@ -836,18 +836,6 @@
             <element name="auctionDay" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="townshipName" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
-        <dataobject javaType="com.portal.platform.Note">
-            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="certificate" typeRef="com.portal.platform.Certificate" allowNull="true"/>
-            <element name="createdTimestamp" typeRef="java.util.Date" allowNull="true"/>
-            <element name="noteType" typeRef="com.portal.platform.NoteType" allowNull="true"/>
-            <element name="grade" typeRef="com.portal.platform.Grade" allowNull="true"/>
-            <element name="property" typeRef="com.portal.platform.Property" allowNull="true"/>
-            <element name="doneTimestamp" typeRef="java.util.Date" allowNull="true"/>
-            <element name="user" typeRef="java.lang.String" allowNull="true"/>
-            <element name="dueDate" typeRef="java.util.Date" allowNull="true"/>
-            <element name="comments" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
         <dataobject javaType="com.portal.platform.Rule">
             <element name="marketValueCeiling" typeRef="java.lang.Double" allowNull="true"/>
             <element name="newStatus" typeRef="java.lang.String" allowNull="true"/>
@@ -873,6 +861,18 @@
             <element name="openSalesFloor" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="grades" typeRef="java.lang.String" allowNull="true"/>
             <element name="modelScoreCeiling" typeRef="java.lang.Integer" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.portal.platform.Note">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="certificate" typeRef="com.portal.platform.Certificate" allowNull="true"/>
+            <element name="createdTimestamp" typeRef="java.util.Date" allowNull="true"/>
+            <element name="noteType" typeRef="com.portal.platform.NoteType" allowNull="true"/>
+            <element name="grade" typeRef="com.portal.platform.Grade" allowNull="true"/>
+            <element name="property" typeRef="com.portal.platform.Property" allowNull="true"/>
+            <element name="doneTimestamp" typeRef="java.util.Date" allowNull="true"/>
+            <element name="user" typeRef="java.lang.String" allowNull="true"/>
+            <element name="dueDate" typeRef="java.util.Date" allowNull="true"/>
+            <element name="comments" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.Accounting">
             <element name="category" typeRef="java.lang.String" allowNull="true"/>

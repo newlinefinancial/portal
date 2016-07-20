@@ -46,6 +46,11 @@
             </list>
         </constructor-arg>
     </bean>
+    <bean class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler" id="logoutSuccessHandler">
+        <property name="defaultTargetUrl" value="/"/>
+        <property name="redirectStrategy" ref="redirectStrategyBean"/>
+    </bean>
+    <bean class="org.springframework.security.web.DefaultRedirectStrategy" id="redirectStrategyBean"/>
     <bean class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" id="securityContextLogoutHandler"/>
     <bean class="org.springframework.security.web.savedrequest.NullRequestCache" id="nullRequestCache"/>
     <bean class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter" id="WMSecAuthFilter">
@@ -128,7 +133,7 @@
         <property name="sslConfig">
             <bean class="com.wavemaker.studio.common.model.security.SSLConfig">
                 <property name="useSSL" value="false"/>
-                <property name="sslPort" value="8443"/>
+                <property name="sslPort" value="443"/>
             </bean>
         </property>
     </bean>
@@ -159,9 +164,4 @@
             </list>
         </property>
     </bean>
-    <bean class="org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler" id="logoutSuccessHandler">
-        <property name="defaultTargetUrl" value="/"/>
-        <property name="redirectStrategy" ref="redirectStrategyBean"/>
-    </bean>
-    <bean class="org.springframework.security.web.DefaultRedirectStrategy" id="redirectStrategyBean"/>
 </beans>

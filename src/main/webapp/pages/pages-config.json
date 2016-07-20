@@ -11,10 +11,6 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
-  "name" : "Issues",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
   "name" : "Login",
   "type" : "PAGE",
   "params" : [ ]
