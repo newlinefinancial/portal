@@ -109,13 +109,6 @@ public class CertificateController {
         return certificateService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Certificate instances.")
-    public Long countCertificates(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Certificates");
-        return certificateService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/disbursements", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the disbursements instance associated with the given id.")
     public Page<Disbursement> findAssociatedDisbursements(Pageable pageable, @PathVariable("id") Integer id) {
@@ -235,6 +228,14 @@ public class CertificateController {
 	 */
     protected void setDisbursementService(DisbursementService service) {
         this.disbursementService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Certificate instances.")
+    public Long countCertificates(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Certificates");
+        return certificateService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

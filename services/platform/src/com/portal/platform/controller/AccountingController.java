@@ -45,25 +45,6 @@ public class AccountingController {
     @Qualifier("platform.AccountingService")
     private AccountingService accountingService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the Accounting instance associated with the given composite-id.")
-    public Accounting getAccounting(@RequestParam("certificateId") int certificateId, @RequestParam("accountingDate") Date accountingDate, @RequestParam("effectiveDate") Date effectiveDate, @RequestParam("transaction") String transaction, @RequestParam("category") String category, @RequestParam("type") String type, @RequestParam("principal") Double principal, @RequestParam("revenue") Double revenue, @RequestParam("cash") Double cash) throws EntityNotFoundException {
-        AccountingId accountingId = new AccountingId();
-        accountingId.setCertificateId(certificateId);
-        accountingId.setAccountingDate(accountingDate);
-        accountingId.setEffectiveDate(effectiveDate);
-        accountingId.setTransaction(transaction);
-        accountingId.setCategory(category);
-        accountingId.setType(type);
-        accountingId.setPrincipal(principal);
-        accountingId.setRevenue(revenue);
-        accountingId.setCash(cash);
-        LOGGER.debug("Getting Accounting with id: {}", accountingId);
-        Accounting accounting = accountingService.getById(accountingId);
-        LOGGER.debug("Accounting details with id: {}", accounting);
-        return accounting;
-    }
-
     /**
      * @deprecated Use {@link #findAccountings(String)} instead.
      */
@@ -88,13 +69,6 @@ public class AccountingController {
         return accountingService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Accounting instances.")
-    public Long countAccountings(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Accountings");
-        return accountingService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -102,5 +76,33 @@ public class AccountingController {
 	 */
     protected void setAccountingService(AccountingService service) {
         this.accountingService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the Accounting instance associated with the given composite-id.")
+    public Accounting getAccounting(@RequestParam(value = "certificateId", required = true) int certificateId, @RequestParam(value = "accountingDate", required = true) Date accountingDate, @RequestParam(value = "effectiveDate", required = true) Date effectiveDate, @RequestParam(value = "transaction", required = true) String transaction, @RequestParam(value = "category", required = true) String category, @RequestParam(value = "type", required = true) String type, @RequestParam(value = "principal", required = true) Double principal, @RequestParam(value = "revenue", required = true) Double revenue, @RequestParam(value = "cash", required = true) Double cash) throws EntityNotFoundException {
+        AccountingId accountingId = new AccountingId();
+        accountingId.setCertificateId(certificateId);
+        accountingId.setAccountingDate(accountingDate);
+        accountingId.setEffectiveDate(effectiveDate);
+        accountingId.setTransaction(transaction);
+        accountingId.setCategory(category);
+        accountingId.setType(type);
+        accountingId.setPrincipal(principal);
+        accountingId.setRevenue(revenue);
+        accountingId.setCash(cash);
+        LOGGER.debug("Getting Accounting with id: {}", accountingId);
+        Accounting accounting = accountingService.getById(accountingId);
+        LOGGER.debug("Accounting details with id: {}", accounting);
+        return accounting;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Accounting instances.")
+    public Long countAccountings(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Accountings");
+        return accountingService.count(query);
     }
 }

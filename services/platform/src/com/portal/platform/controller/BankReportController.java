@@ -46,31 +46,6 @@ public class BankReportController {
     @Qualifier("platform.BankReportService")
     private BankReportService bankReportService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the BankReport instance associated with the given composite-id.")
-    public BankReport getBankReport(@RequestParam("event") String event, @RequestParam("state") String state, @RequestParam("countyName") String countyName, @RequestParam("taxYear") int taxYear, @RequestParam("certificateNumber") String certificateNumber, @RequestParam("volume") int volume, @RequestParam("pin") String pin, @RequestParam("bank") String bank, @RequestParam("activityDate") Date activityDate, @RequestParam("amount") Double amount, @RequestParam("lenderPortion") BigDecimal lenderPortion, @RequestParam("certificatePrincipal") Double certificatePrincipal, @RequestParam("subPrincipal") Double subPrincipal, @RequestParam("revenue") Double revenue, @RequestParam("balanceDue") Double balanceDue) throws EntityNotFoundException {
-        BankReportId bankreportId = new BankReportId();
-        bankreportId.setEvent(event);
-        bankreportId.setState(state);
-        bankreportId.setCountyName(countyName);
-        bankreportId.setTaxYear(taxYear);
-        bankreportId.setCertificateNumber(certificateNumber);
-        bankreportId.setVolume(volume);
-        bankreportId.setPin(pin);
-        bankreportId.setBank(bank);
-        bankreportId.setActivityDate(activityDate);
-        bankreportId.setAmount(amount);
-        bankreportId.setLenderPortion(lenderPortion);
-        bankreportId.setCertificatePrincipal(certificatePrincipal);
-        bankreportId.setSubPrincipal(subPrincipal);
-        bankreportId.setRevenue(revenue);
-        bankreportId.setBalanceDue(balanceDue);
-        LOGGER.debug("Getting BankReport with id: {}", bankreportId);
-        BankReport bankreport = bankReportService.getById(bankreportId);
-        LOGGER.debug("BankReport details with id: {}", bankreport);
-        return bankreport;
-    }
-
     /**
      * @deprecated Use {@link #findBankReports(String)} instead.
      */
@@ -95,13 +70,6 @@ public class BankReportController {
         return bankReportService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of BankReport instances.")
-    public Long countBankReports(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting BankReports");
-        return bankReportService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -109,5 +77,39 @@ public class BankReportController {
 	 */
     protected void setBankReportService(BankReportService service) {
         this.bankReportService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the BankReport instance associated with the given composite-id.")
+    public BankReport getBankReport(@RequestParam(value = "event", required = true) String event, @RequestParam(value = "state", required = true) String state, @RequestParam(value = "countyName", required = true) String countyName, @RequestParam(value = "taxYear", required = true) int taxYear, @RequestParam(value = "certificateNumber", required = true) String certificateNumber, @RequestParam(value = "volume", required = true) int volume, @RequestParam(value = "pin", required = true) String pin, @RequestParam(value = "bank", required = true) String bank, @RequestParam(value = "activityDate", required = true) Date activityDate, @RequestParam(value = "amount", required = true) Double amount, @RequestParam(value = "lenderPortion", required = true) BigDecimal lenderPortion, @RequestParam(value = "certificatePrincipal", required = true) Double certificatePrincipal, @RequestParam(value = "subPrincipal", required = true) Double subPrincipal, @RequestParam(value = "revenue", required = true) Double revenue, @RequestParam(value = "balanceDue", required = true) Double balanceDue) throws EntityNotFoundException {
+        BankReportId bankreportId = new BankReportId();
+        bankreportId.setEvent(event);
+        bankreportId.setState(state);
+        bankreportId.setCountyName(countyName);
+        bankreportId.setTaxYear(taxYear);
+        bankreportId.setCertificateNumber(certificateNumber);
+        bankreportId.setVolume(volume);
+        bankreportId.setPin(pin);
+        bankreportId.setBank(bank);
+        bankreportId.setActivityDate(activityDate);
+        bankreportId.setAmount(amount);
+        bankreportId.setLenderPortion(lenderPortion);
+        bankreportId.setCertificatePrincipal(certificatePrincipal);
+        bankreportId.setSubPrincipal(subPrincipal);
+        bankreportId.setRevenue(revenue);
+        bankreportId.setBalanceDue(balanceDue);
+        LOGGER.debug("Getting BankReport with id: {}", bankreportId);
+        BankReport bankreport = bankReportService.getById(bankreportId);
+        LOGGER.debug("BankReport details with id: {}", bankreport);
+        return bankreport;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of BankReport instances.")
+    public Long countBankReports(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting BankReports");
+        return bankReportService.count(query);
     }
 }

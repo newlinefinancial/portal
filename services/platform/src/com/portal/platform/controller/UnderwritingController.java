@@ -67,13 +67,6 @@ public class UnderwritingController {
         return underwritingService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Underwriting instances.")
-    public Long countUnderwritings(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Underwritings");
-        return underwritingService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class UnderwritingController {
 	 */
     protected void setUnderwritingService(UnderwritingService service) {
         this.underwritingService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Underwriting instances.")
+    public Long countUnderwritings(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Underwritings");
+        return underwritingService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

@@ -67,13 +67,6 @@ public class AvailableSubsController {
         return availableSubsService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of AvailableSubs instances.")
-    public Long countAvailableSubs(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting AvailableSubs");
-        return availableSubsService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class AvailableSubsController {
 	 */
     protected void setAvailableSubsService(AvailableSubsService service) {
         this.availableSubsService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of AvailableSubs instances.")
+    public Long countAvailableSubs(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting AvailableSubs");
+        return availableSubsService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

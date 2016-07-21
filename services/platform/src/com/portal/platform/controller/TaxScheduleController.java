@@ -67,13 +67,6 @@ public class TaxScheduleController {
         return taxScheduleService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of TaxSchedule instances.")
-    public Long countTaxSchedules(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting TaxSchedules");
-        return taxScheduleService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class TaxScheduleController {
 	 */
     protected void setTaxScheduleService(TaxScheduleService service) {
         this.taxScheduleService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of TaxSchedule instances.")
+    public Long countTaxSchedules(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting TaxSchedules");
+        return taxScheduleService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

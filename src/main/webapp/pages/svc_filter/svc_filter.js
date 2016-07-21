@@ -1,4 +1,4 @@
-Application.$controller("svc_dataPageController", ["$scope", function ($scope) {
+Application.$controller("svc_filterPageController", ["$scope", function ($scope) {
     "use strict";
 
     /* perform any action on widgets/variables within this block */
@@ -15,3 +15,11 @@ Application.$controller("svc_dataPageController", ["$scope", function ($scope) {
     };
 
 }]);
+
+
+Application.$controller("livefilter1Controller", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
+]);

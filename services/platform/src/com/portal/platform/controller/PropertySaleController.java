@@ -67,13 +67,6 @@ public class PropertySaleController {
         return propertySaleService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of PropertySale instances.")
-    public Long countPropertySales(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting PropertySales");
-        return propertySaleService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class PropertySaleController {
 	 */
     protected void setPropertySaleService(PropertySaleService service) {
         this.propertySaleService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of PropertySale instances.")
+    public Long countPropertySales(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting PropertySales");
+        return propertySaleService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

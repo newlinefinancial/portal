@@ -46,9 +46,43 @@ public class PortalCertificateDataController {
     @Qualifier("platform.PortalCertificateDataService")
     private PortalCertificateDataService portalCertificateDataService;
 
+    /**
+     * @deprecated Use {@link #findPortalCertificateDatas(String)} instead.
+     */
+    @Deprecated
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ApiOperation(value = "Returns the list of PortalCertificateData instances matching the search criteria.")
+    public Page<PortalCertificateData> findPortalCertificateDatas(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
+        LOGGER.debug("Rendering PortalCertificateDatas list");
+        return portalCertificateDataService.findAll(queryFilters, pageable);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the list of PortalCertificateData instances matching the search criteria.")
+    public Page<PortalCertificateData> findPortalCertificateDatas(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        LOGGER.debug("Rendering PortalCertificateDatas list");
+        return portalCertificateDataService.findAll(query, pageable);
+    }
+
+    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @ApiOperation(value = "Returns downloadable file for the data.")
+    public Downloadable exportPortalCertificateDatas(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        return portalCertificateDataService.export(exportType, query, pageable);
+    }
+
+    /**
+	 * This setter method should only be used by unit tests
+	 *
+	 * @param service PortalCertificateDataService instance
+	 */
+    protected void setPortalCertificateDataService(PortalCertificateDataService service) {
+        this.portalCertificateDataService = service;
+    }
+
     @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the PortalCertificateData instance associated with the given composite-id.")
-    public PortalCertificateData getPortalCertificateData(@RequestParam("certificateId") int certificateId, @RequestParam("propertyId") int propertyId, @RequestParam("pin") String pin, @RequestParam("volume") Integer volume, @RequestParam("header") String header, @RequestParam("code") String code, @RequestParam("propertyType") String propertyType, @RequestParam("certificateNumber") String certificateNumber, @RequestParam("bidRate") BigDecimal bidRate, @RequestParam("taxYear") int taxYear, @RequestParam("dateSold") Date dateSold, @RequestParam("status") String status, @RequestParam("statusChangeDate") Date statusChangeDate, @RequestParam("storageStatus") String storageStatus, @RequestParam("bank") String bank, @RequestParam("expirationDate") Date expirationDate, @RequestParam("countyName") String countyName, @RequestParam("certificatePrincipal") Double certificatePrincipal, @RequestParam("subPrincipal") Double subPrincipal, @RequestParam("feePrincipal") Double feePrincipal, @RequestParam("certificateRevenue") Double certificateRevenue, @RequestParam("subRevenue") Double subRevenue, @RequestParam("feeRevenue") Double feeRevenue, @RequestParam("principal") Double principal, @RequestParam("revenue") Double revenue, @RequestParam("balanceDue") Double balanceDue, @RequestParam("paymentInTransit") Double paymentInTransit, @RequestParam("dueAfterSettlement") Double dueAfterSettlement, @RequestParam("matterNumber") String matterNumber, @RequestParam("initialCourtDate") Date initialCourtDate, @RequestParam("filedDate") Date filedDate, @RequestParam("closedDate") Date closedDate) throws EntityNotFoundException {
+    public PortalCertificateData getPortalCertificateData(@RequestParam(value = "certificateId", required = true) int certificateId, @RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "pin", required = true) String pin, @RequestParam(value = "volume", required = true) Integer volume, @RequestParam(value = "header", required = true) String header, @RequestParam(value = "code", required = true) String code, @RequestParam(value = "propertyType", required = true) String propertyType, @RequestParam(value = "certificateNumber", required = true) String certificateNumber, @RequestParam(value = "bidRate", required = true) BigDecimal bidRate, @RequestParam(value = "taxYear", required = true) int taxYear, @RequestParam(value = "dateSold", required = true) Date dateSold, @RequestParam(value = "status", required = true) String status, @RequestParam(value = "statusChangeDate", required = true) Date statusChangeDate, @RequestParam(value = "storageStatus", required = true) String storageStatus, @RequestParam(value = "bank", required = true) String bank, @RequestParam(value = "expirationDate", required = true) Date expirationDate, @RequestParam(value = "countyName", required = true) String countyName, @RequestParam(value = "certificatePrincipal", required = true) Double certificatePrincipal, @RequestParam(value = "subPrincipal", required = true) Double subPrincipal, @RequestParam(value = "feePrincipal", required = true) Double feePrincipal, @RequestParam(value = "certificateRevenue", required = true) Double certificateRevenue, @RequestParam(value = "subRevenue", required = true) Double subRevenue, @RequestParam(value = "feeRevenue", required = true) Double feeRevenue, @RequestParam(value = "principal", required = true) Double principal, @RequestParam(value = "revenue", required = true) Double revenue, @RequestParam(value = "balanceDue", required = true) Double balanceDue, @RequestParam(value = "paymentInTransit", required = true) Double paymentInTransit, @RequestParam(value = "dueAfterSettlement", required = true) Double dueAfterSettlement, @RequestParam(value = "matterNumber", required = true) String matterNumber, @RequestParam(value = "initialCourtDate", required = true) Date initialCourtDate, @RequestParam(value = "filedDate", required = true) Date filedDate, @RequestParam(value = "closedDate", required = true) Date closedDate) throws EntityNotFoundException {
         PortalCertificateDataId portalcertificatedataId = new PortalCertificateDataId();
         portalcertificatedataId.setCertificateId(certificateId);
         portalcertificatedataId.setPropertyId(propertyId);
@@ -88,43 +122,11 @@ public class PortalCertificateDataController {
         return portalcertificatedata;
     }
 
-    /**
-     * @deprecated Use {@link #findPortalCertificateDatas(String)} instead.
-     */
-    @Deprecated
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    @ApiOperation(value = "Returns the list of PortalCertificateData instances matching the search criteria.")
-    public Page<PortalCertificateData> findPortalCertificateDatas(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
-        LOGGER.debug("Rendering PortalCertificateDatas list");
-        return portalCertificateDataService.findAll(queryFilters, pageable);
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the list of PortalCertificateData instances matching the search criteria.")
-    public Page<PortalCertificateData> findPortalCertificateDatas(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        LOGGER.debug("Rendering PortalCertificateDatas list");
-        return portalCertificateDataService.findAll(query, pageable);
-    }
-
-    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
-    @ApiOperation(value = "Returns downloadable file for the data.")
-    public Downloadable exportPortalCertificateDatas(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        return portalCertificateDataService.export(exportType, query, pageable);
-    }
-
     @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the total count of PortalCertificateData instances.")
     public Long countPortalCertificateDatas(@RequestParam(value = "q", required = false) String query) {
         LOGGER.debug("counting PortalCertificateDatas");
         return portalCertificateDataService.count(query);
-    }
-
-    /**
-	 * This setter method should only be used by unit tests
-	 *
-	 * @param service PortalCertificateDataService instance
-	 */
-    protected void setPortalCertificateDataService(PortalCertificateDataService service) {
-        this.portalCertificateDataService = service;
     }
 }

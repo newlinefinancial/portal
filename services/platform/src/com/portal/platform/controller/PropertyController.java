@@ -145,13 +145,6 @@ public class PropertyController {
         return propertyService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Property instances.")
-    public Long countProperties(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Properties");
-        return propertyService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/inspections", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the inspections instance associated with the given id.")
     public Page<Inspection> findAssociatedInspections(Pageable pageable, @PathVariable("id") Integer id) {
@@ -374,6 +367,14 @@ public class PropertyController {
 	 */
     protected void setCertificateService(CertificateService service) {
         this.certificateService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Property instances.")
+    public Long countProperties(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Properties");
+        return propertyService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

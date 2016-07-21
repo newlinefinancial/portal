@@ -23,6 +23,10 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "certificate",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "footer",
   "type" : "PARTIAL",
   "params" : [ ]
@@ -53,6 +57,10 @@
 }, {
   "name" : "svc_data",
   "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "svc_filter",
+  "type" : "PARTIAL",
   "params" : [ ]
 }, {
   "name" : "topnav",

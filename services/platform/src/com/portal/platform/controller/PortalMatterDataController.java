@@ -45,9 +45,43 @@ public class PortalMatterDataController {
     @Qualifier("platform.PortalMatterDataService")
     private PortalMatterDataService portalMatterDataService;
 
+    /**
+     * @deprecated Use {@link #findPortalMatterDatas(String)} instead.
+     */
+    @Deprecated
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ApiOperation(value = "Returns the list of PortalMatterData instances matching the search criteria.")
+    public Page<PortalMatterData> findPortalMatterDatas(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
+        LOGGER.debug("Rendering PortalMatterDatas list");
+        return portalMatterDataService.findAll(queryFilters, pageable);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the list of PortalMatterData instances matching the search criteria.")
+    public Page<PortalMatterData> findPortalMatterDatas(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        LOGGER.debug("Rendering PortalMatterDatas list");
+        return portalMatterDataService.findAll(query, pageable);
+    }
+
+    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @ApiOperation(value = "Returns downloadable file for the data.")
+    public Downloadable exportPortalMatterDatas(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        return portalMatterDataService.export(exportType, query, pageable);
+    }
+
+    /**
+	 * This setter method should only be used by unit tests
+	 *
+	 * @param service PortalMatterDataService instance
+	 */
+    protected void setPortalMatterDataService(PortalMatterDataService service) {
+        this.portalMatterDataService = service;
+    }
+
     @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the PortalMatterData instance associated with the given composite-id.")
-    public PortalMatterData getPortalMatterData(@RequestParam("certificateId") int certificateId, @RequestParam("propertyId") int propertyId, @RequestParam("header") String header, @RequestParam("certificateNumber") String certificateNumber, @RequestParam("taxYear") int taxYear, @RequestParam("dateSold") Date dateSold, @RequestParam("status") String status, @RequestParam("expirationDate") Date expirationDate, @RequestParam("countyName") String countyName, @RequestParam("volume") int volume, @RequestParam("taxYearNotices") String taxYearNotices, @RequestParam("matterId") int matterId, @RequestParam("matterNumber") String matterNumber, @RequestParam("filedDate") Date filedDate, @RequestParam("lastWorkDate") Date lastWorkDate, @RequestParam("initialCourtDate") Date initialCourtDate, @RequestParam("closedDate") Date closedDate, @RequestParam("addressOverride") String addressOverride, @RequestParam("pinOverride") String pinOverride, @RequestParam("piqAddress") String piqAddress, @RequestParam("piqCity") String piqCity, @RequestParam("piqState") String piqState, @RequestParam("piqZip") String piqZip, @RequestParam("pin") String pin, @RequestParam("addressSource1") String addressSource1, @RequestParam("addressSource2") String addressSource2, @RequestParam("finalPin") String finalPin) throws EntityNotFoundException {
+    public PortalMatterData getPortalMatterData(@RequestParam(value = "certificateId", required = true) int certificateId, @RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "header", required = true) String header, @RequestParam(value = "certificateNumber", required = true) String certificateNumber, @RequestParam(value = "taxYear", required = true) int taxYear, @RequestParam(value = "dateSold", required = true) Date dateSold, @RequestParam(value = "status", required = true) String status, @RequestParam(value = "expirationDate", required = true) Date expirationDate, @RequestParam(value = "countyName", required = true) String countyName, @RequestParam(value = "volume", required = true) int volume, @RequestParam(value = "taxYearNotices", required = true) String taxYearNotices, @RequestParam(value = "matterId", required = true) int matterId, @RequestParam(value = "matterNumber", required = true) String matterNumber, @RequestParam(value = "filedDate", required = true) Date filedDate, @RequestParam(value = "lastWorkDate", required = true) Date lastWorkDate, @RequestParam(value = "initialCourtDate", required = true) Date initialCourtDate, @RequestParam(value = "closedDate", required = true) Date closedDate, @RequestParam(value = "addressOverride", required = true) String addressOverride, @RequestParam(value = "pinOverride", required = true) String pinOverride, @RequestParam(value = "piqAddress", required = true) String piqAddress, @RequestParam(value = "piqCity", required = true) String piqCity, @RequestParam(value = "piqState", required = true) String piqState, @RequestParam(value = "piqZip", required = true) String piqZip, @RequestParam(value = "pin", required = true) String pin, @RequestParam(value = "addressSource1", required = true) String addressSource1, @RequestParam(value = "addressSource2", required = true) String addressSource2, @RequestParam(value = "finalPin", required = true) String finalPin) throws EntityNotFoundException {
         PortalMatterDataId portalmatterdataId = new PortalMatterDataId();
         portalmatterdataId.setCertificateId(certificateId);
         portalmatterdataId.setPropertyId(propertyId);
@@ -82,43 +116,11 @@ public class PortalMatterDataController {
         return portalmatterdata;
     }
 
-    /**
-     * @deprecated Use {@link #findPortalMatterDatas(String)} instead.
-     */
-    @Deprecated
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    @ApiOperation(value = "Returns the list of PortalMatterData instances matching the search criteria.")
-    public Page<PortalMatterData> findPortalMatterDatas(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
-        LOGGER.debug("Rendering PortalMatterDatas list");
-        return portalMatterDataService.findAll(queryFilters, pageable);
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the list of PortalMatterData instances matching the search criteria.")
-    public Page<PortalMatterData> findPortalMatterDatas(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        LOGGER.debug("Rendering PortalMatterDatas list");
-        return portalMatterDataService.findAll(query, pageable);
-    }
-
-    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
-    @ApiOperation(value = "Returns downloadable file for the data.")
-    public Downloadable exportPortalMatterDatas(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        return portalMatterDataService.export(exportType, query, pageable);
-    }
-
     @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the total count of PortalMatterData instances.")
     public Long countPortalMatterDatas(@RequestParam(value = "q", required = false) String query) {
         LOGGER.debug("counting PortalMatterDatas");
         return portalMatterDataService.count(query);
-    }
-
-    /**
-	 * This setter method should only be used by unit tests
-	 *
-	 * @param service PortalMatterDataService instance
-	 */
-    protected void setPortalMatterDataService(PortalMatterDataService service) {
-        this.portalMatterDataService = service;
     }
 }

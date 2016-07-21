@@ -67,13 +67,6 @@ public class NoteController {
         return noteService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Note instances.")
-    public Long countNotes(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Notes");
-        return noteService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class NoteController {
 	 */
     protected void setNoteService(NoteService service) {
         this.noteService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Note instances.")
+    public Long countNotes(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Notes");
+        return noteService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

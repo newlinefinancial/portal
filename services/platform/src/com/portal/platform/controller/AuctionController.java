@@ -79,13 +79,6 @@ public class AuctionController {
         return auctionService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Auction instances.")
-    public Long countAuctions(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Auctions");
-        return auctionService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/underwritings", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the underwritings instance associated with the given id.")
     public Page<Underwriting> findAssociatedUnderwritings(Pageable pageable, @PathVariable("id") Integer id) {
@@ -125,6 +118,14 @@ public class AuctionController {
 	 */
     protected void setUnderwritingService(UnderwritingService service) {
         this.underwritingService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Auction instances.")
+    public Long countAuctions(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Auctions");
+        return auctionService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

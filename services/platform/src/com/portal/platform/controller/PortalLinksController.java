@@ -44,23 +44,6 @@ public class PortalLinksController {
     @Qualifier("platform.PortalLinksService")
     private PortalLinksService portalLinksService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the PortalLinks instance associated with the given composite-id.")
-    public PortalLinks getPortalLinks(@RequestParam("propertyId") int propertyId, @RequestParam("gis") String gis, @RequestParam("assessor") String assessor, @RequestParam("treasurer") String treasurer, @RequestParam("recorder") String recorder, @RequestParam("clerk") String clerk, @RequestParam("newlinePhoto") String newlinePhoto) throws EntityNotFoundException {
-        PortalLinksId portallinksId = new PortalLinksId();
-        portallinksId.setPropertyId(propertyId);
-        portallinksId.setGis(gis);
-        portallinksId.setAssessor(assessor);
-        portallinksId.setTreasurer(treasurer);
-        portallinksId.setRecorder(recorder);
-        portallinksId.setClerk(clerk);
-        portallinksId.setNewlinePhoto(newlinePhoto);
-        LOGGER.debug("Getting PortalLinks with id: {}", portallinksId);
-        PortalLinks portallinks = portalLinksService.getById(portallinksId);
-        LOGGER.debug("PortalLinks details with id: {}", portallinks);
-        return portallinks;
-    }
-
     /**
      * @deprecated Use {@link #findPortalLinks(String)} instead.
      */
@@ -85,13 +68,6 @@ public class PortalLinksController {
         return portalLinksService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of PortalLinks instances.")
-    public Long countPortalLinks(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting PortalLinks");
-        return portalLinksService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -99,5 +75,31 @@ public class PortalLinksController {
 	 */
     protected void setPortalLinksService(PortalLinksService service) {
         this.portalLinksService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the PortalLinks instance associated with the given composite-id.")
+    public PortalLinks getPortalLinks(@RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "gis", required = true) String gis, @RequestParam(value = "assessor", required = true) String assessor, @RequestParam(value = "treasurer", required = true) String treasurer, @RequestParam(value = "recorder", required = true) String recorder, @RequestParam(value = "clerk", required = true) String clerk, @RequestParam(value = "newlinePhoto", required = true) String newlinePhoto) throws EntityNotFoundException {
+        PortalLinksId portallinksId = new PortalLinksId();
+        portallinksId.setPropertyId(propertyId);
+        portallinksId.setGis(gis);
+        portallinksId.setAssessor(assessor);
+        portallinksId.setTreasurer(treasurer);
+        portallinksId.setRecorder(recorder);
+        portallinksId.setClerk(clerk);
+        portallinksId.setNewlinePhoto(newlinePhoto);
+        LOGGER.debug("Getting PortalLinks with id: {}", portallinksId);
+        PortalLinks portallinks = portalLinksService.getById(portallinksId);
+        LOGGER.debug("PortalLinks details with id: {}", portallinks);
+        return portallinks;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of PortalLinks instances.")
+    public Long countPortalLinks(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting PortalLinks");
+        return portalLinksService.count(query);
     }
 }

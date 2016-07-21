@@ -67,13 +67,6 @@ public class AccrualController {
         return accrualService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Accrual instances.")
-    public Long countAccruals(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Accruals");
-        return accrualService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class AccrualController {
 	 */
     protected void setAccrualService(AccrualService service) {
         this.accrualService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Accrual instances.")
+    public Long countAccruals(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Accruals");
+        return accrualService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

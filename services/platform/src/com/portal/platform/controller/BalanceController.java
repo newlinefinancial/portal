@@ -44,32 +44,6 @@ public class BalanceController {
     @Qualifier("platform.BalanceService")
     private BalanceService balanceService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the Balance instance associated with the given composite-id.")
-    public Balance getBalance(@RequestParam("certificateId") int certificateId, @RequestParam("prior") Double prior, @RequestParam("certificatePrincipal") Double certificatePrincipal, @RequestParam("subPrincipal") Double subPrincipal, @RequestParam("feePrincipal") Double feePrincipal, @RequestParam("principal") Double principal, @RequestParam("certificateRevenue") Double certificateRevenue, @RequestParam("subRevenue") Double subRevenue, @RequestParam("feeRevenue") Double feeRevenue, @RequestParam("revenue") Double revenue, @RequestParam("redemptionAmount") Double redemptionAmount, @RequestParam("amountPaid") Double amountPaid, @RequestParam("balanceDue") Double balanceDue, @RequestParam("paymentInTransit") Double paymentInTransit, @RequestParam("dueAfterSettlement") Double dueAfterSettlement, @RequestParam("facilityPayoff") Double facilityPayoff) throws EntityNotFoundException {
-        BalanceId balanceId = new BalanceId();
-        balanceId.setCertificateId(certificateId);
-        balanceId.setPrior(prior);
-        balanceId.setCertificatePrincipal(certificatePrincipal);
-        balanceId.setSubPrincipal(subPrincipal);
-        balanceId.setFeePrincipal(feePrincipal);
-        balanceId.setPrincipal(principal);
-        balanceId.setCertificateRevenue(certificateRevenue);
-        balanceId.setSubRevenue(subRevenue);
-        balanceId.setFeeRevenue(feeRevenue);
-        balanceId.setRevenue(revenue);
-        balanceId.setRedemptionAmount(redemptionAmount);
-        balanceId.setAmountPaid(amountPaid);
-        balanceId.setBalanceDue(balanceDue);
-        balanceId.setPaymentInTransit(paymentInTransit);
-        balanceId.setDueAfterSettlement(dueAfterSettlement);
-        balanceId.setFacilityPayoff(facilityPayoff);
-        LOGGER.debug("Getting Balance with id: {}", balanceId);
-        Balance balance = balanceService.getById(balanceId);
-        LOGGER.debug("Balance details with id: {}", balance);
-        return balance;
-    }
-
     /**
      * @deprecated Use {@link #findBalances(String)} instead.
      */
@@ -94,13 +68,6 @@ public class BalanceController {
         return balanceService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Balance instances.")
-    public Long countBalances(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Balances");
-        return balanceService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -108,5 +75,40 @@ public class BalanceController {
 	 */
     protected void setBalanceService(BalanceService service) {
         this.balanceService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the Balance instance associated with the given composite-id.")
+    public Balance getBalance(@RequestParam(value = "certificateId", required = true) int certificateId, @RequestParam(value = "prior", required = true) Double prior, @RequestParam(value = "certificatePrincipal", required = true) Double certificatePrincipal, @RequestParam(value = "subPrincipal", required = true) Double subPrincipal, @RequestParam(value = "feePrincipal", required = true) Double feePrincipal, @RequestParam(value = "principal", required = true) Double principal, @RequestParam(value = "certificateRevenue", required = true) Double certificateRevenue, @RequestParam(value = "subRevenue", required = true) Double subRevenue, @RequestParam(value = "feeRevenue", required = true) Double feeRevenue, @RequestParam(value = "revenue", required = true) Double revenue, @RequestParam(value = "redemptionAmount", required = true) Double redemptionAmount, @RequestParam(value = "amountPaid", required = true) Double amountPaid, @RequestParam(value = "balanceDue", required = true) Double balanceDue, @RequestParam(value = "paymentInTransit", required = true) Double paymentInTransit, @RequestParam(value = "dueAfterSettlement", required = true) Double dueAfterSettlement, @RequestParam(value = "facilityPayoff", required = true) Double facilityPayoff) throws EntityNotFoundException {
+        BalanceId balanceId = new BalanceId();
+        balanceId.setCertificateId(certificateId);
+        balanceId.setPrior(prior);
+        balanceId.setCertificatePrincipal(certificatePrincipal);
+        balanceId.setSubPrincipal(subPrincipal);
+        balanceId.setFeePrincipal(feePrincipal);
+        balanceId.setPrincipal(principal);
+        balanceId.setCertificateRevenue(certificateRevenue);
+        balanceId.setSubRevenue(subRevenue);
+        balanceId.setFeeRevenue(feeRevenue);
+        balanceId.setRevenue(revenue);
+        balanceId.setRedemptionAmount(redemptionAmount);
+        balanceId.setAmountPaid(amountPaid);
+        balanceId.setBalanceDue(balanceDue);
+        balanceId.setPaymentInTransit(paymentInTransit);
+        balanceId.setDueAfterSettlement(dueAfterSettlement);
+        balanceId.setFacilityPayoff(facilityPayoff);
+        LOGGER.debug("Getting Balance with id: {}", balanceId);
+        Balance balance = balanceService.getById(balanceId);
+        LOGGER.debug("Balance details with id: {}", balance);
+        return balance;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Balance instances.")
+    public Long countBalances(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Balances");
+        return balanceService.count(query);
     }
 }

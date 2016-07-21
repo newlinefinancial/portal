@@ -85,13 +85,6 @@ public class ResearchController {
         return researchService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Research instances.")
-    public Long countResearches(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Researches");
-        return researchService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/propertySales", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the propertySales instance associated with the given id.")
     public Page<PropertySale> findAssociatedPropertySales(Pageable pageable, @PathVariable("id") Integer id) {
@@ -147,6 +140,14 @@ public class ResearchController {
 	 */
     protected void setPropertySaleService(PropertySaleService service) {
         this.propertySaleService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Research instances.")
+    public Long countResearches(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Researches");
+        return researchService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

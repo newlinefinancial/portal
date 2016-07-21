@@ -45,29 +45,6 @@ public class PortalCertificateFilterController {
     @Qualifier("platform.PortalCertificateFilterService")
     private PortalCertificateFilterService portalCertificateFilterService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the PortalCertificateFilter instance associated with the given composite-id.")
-    public PortalCertificateFilter getPortalCertificateFilter(@RequestParam("id") int id, @RequestParam("propertyId") int propertyId, @RequestParam("countyName") String countyName, @RequestParam("townshipName") String townshipName, @RequestParam("code") String code, @RequestParam("propertyType") String propertyType, @RequestParam("certificateNumber") String certificateNumber, @RequestParam("taxYear") int taxYear, @RequestParam("status") String status, @RequestParam("pin") String pin, @RequestParam("volume") int volume, @RequestParam("expirationDate") Date expirationDate, @RequestParam("tags") String tags) throws EntityNotFoundException {
-        PortalCertificateFilterId portalcertificatefilterId = new PortalCertificateFilterId();
-        portalcertificatefilterId.setId(id);
-        portalcertificatefilterId.setPropertyId(propertyId);
-        portalcertificatefilterId.setCountyName(countyName);
-        portalcertificatefilterId.setTownshipName(townshipName);
-        portalcertificatefilterId.setCode(code);
-        portalcertificatefilterId.setPropertyType(propertyType);
-        portalcertificatefilterId.setCertificateNumber(certificateNumber);
-        portalcertificatefilterId.setTaxYear(taxYear);
-        portalcertificatefilterId.setStatus(status);
-        portalcertificatefilterId.setPin(pin);
-        portalcertificatefilterId.setVolume(volume);
-        portalcertificatefilterId.setExpirationDate(expirationDate);
-        portalcertificatefilterId.setTags(tags);
-        LOGGER.debug("Getting PortalCertificateFilter with id: {}", portalcertificatefilterId);
-        PortalCertificateFilter portalcertificatefilter = portalCertificateFilterService.getById(portalcertificatefilterId);
-        LOGGER.debug("PortalCertificateFilter details with id: {}", portalcertificatefilter);
-        return portalcertificatefilter;
-    }
-
     /**
      * @deprecated Use {@link #findPortalCertificateFilters(String)} instead.
      */
@@ -92,13 +69,6 @@ public class PortalCertificateFilterController {
         return portalCertificateFilterService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of PortalCertificateFilter instances.")
-    public Long countPortalCertificateFilters(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting PortalCertificateFilters");
-        return portalCertificateFilterService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -106,5 +76,37 @@ public class PortalCertificateFilterController {
 	 */
     protected void setPortalCertificateFilterService(PortalCertificateFilterService service) {
         this.portalCertificateFilterService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the PortalCertificateFilter instance associated with the given composite-id.")
+    public PortalCertificateFilter getPortalCertificateFilter(@RequestParam(value = "id", required = true) int id, @RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "countyName", required = true) String countyName, @RequestParam(value = "townshipName", required = true) String townshipName, @RequestParam(value = "code", required = true) String code, @RequestParam(value = "propertyType", required = true) String propertyType, @RequestParam(value = "certificateNumber", required = true) String certificateNumber, @RequestParam(value = "taxYear", required = true) int taxYear, @RequestParam(value = "status", required = true) String status, @RequestParam(value = "pin", required = true) String pin, @RequestParam(value = "volume", required = true) int volume, @RequestParam(value = "expirationDate", required = true) Date expirationDate, @RequestParam(value = "tags", required = true) String tags) throws EntityNotFoundException {
+        PortalCertificateFilterId portalcertificatefilterId = new PortalCertificateFilterId();
+        portalcertificatefilterId.setId(id);
+        portalcertificatefilterId.setPropertyId(propertyId);
+        portalcertificatefilterId.setCountyName(countyName);
+        portalcertificatefilterId.setTownshipName(townshipName);
+        portalcertificatefilterId.setCode(code);
+        portalcertificatefilterId.setPropertyType(propertyType);
+        portalcertificatefilterId.setCertificateNumber(certificateNumber);
+        portalcertificatefilterId.setTaxYear(taxYear);
+        portalcertificatefilterId.setStatus(status);
+        portalcertificatefilterId.setPin(pin);
+        portalcertificatefilterId.setVolume(volume);
+        portalcertificatefilterId.setExpirationDate(expirationDate);
+        portalcertificatefilterId.setTags(tags);
+        LOGGER.debug("Getting PortalCertificateFilter with id: {}", portalcertificatefilterId);
+        PortalCertificateFilter portalcertificatefilter = portalCertificateFilterService.getById(portalcertificatefilterId);
+        LOGGER.debug("PortalCertificateFilter details with id: {}", portalcertificatefilter);
+        return portalcertificatefilter;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of PortalCertificateFilter instances.")
+    public Long countPortalCertificateFilters(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting PortalCertificateFilters");
+        return portalCertificateFilterService.count(query);
     }
 }

@@ -45,23 +45,6 @@ public class PortalAuctionNoteController {
     @Qualifier("platform.PortalAuctionNoteService")
     private PortalAuctionNoteService portalAuctionNoteService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the PortalAuctionNote instance associated with the given composite-id.")
-    public PortalAuctionNote getPortalAuctionNote(@RequestParam("propertyId") int propertyId, @RequestParam("noteId") int noteId, @RequestParam("user") String user, @RequestParam("created") Date created, @RequestParam("done") Date done, @RequestParam("noteDescription") String noteDescription, @RequestParam("noteTypeId") int noteTypeId) throws EntityNotFoundException {
-        PortalAuctionNoteId portalauctionnoteId = new PortalAuctionNoteId();
-        portalauctionnoteId.setPropertyId(propertyId);
-        portalauctionnoteId.setNoteId(noteId);
-        portalauctionnoteId.setUser(user);
-        portalauctionnoteId.setCreated(created);
-        portalauctionnoteId.setDone(done);
-        portalauctionnoteId.setNoteDescription(noteDescription);
-        portalauctionnoteId.setNoteTypeId(noteTypeId);
-        LOGGER.debug("Getting PortalAuctionNote with id: {}", portalauctionnoteId);
-        PortalAuctionNote portalauctionnote = portalAuctionNoteService.getById(portalauctionnoteId);
-        LOGGER.debug("PortalAuctionNote details with id: {}", portalauctionnote);
-        return portalauctionnote;
-    }
-
     /**
      * @deprecated Use {@link #findPortalAuctionNotes(String)} instead.
      */
@@ -86,13 +69,6 @@ public class PortalAuctionNoteController {
         return portalAuctionNoteService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of PortalAuctionNote instances.")
-    public Long countPortalAuctionNotes(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting PortalAuctionNotes");
-        return portalAuctionNoteService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -100,5 +76,31 @@ public class PortalAuctionNoteController {
 	 */
     protected void setPortalAuctionNoteService(PortalAuctionNoteService service) {
         this.portalAuctionNoteService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the PortalAuctionNote instance associated with the given composite-id.")
+    public PortalAuctionNote getPortalAuctionNote(@RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "noteId", required = true) int noteId, @RequestParam(value = "user", required = true) String user, @RequestParam(value = "created", required = true) Date created, @RequestParam(value = "done", required = true) Date done, @RequestParam(value = "noteDescription", required = true) String noteDescription, @RequestParam(value = "noteTypeId", required = true) int noteTypeId) throws EntityNotFoundException {
+        PortalAuctionNoteId portalauctionnoteId = new PortalAuctionNoteId();
+        portalauctionnoteId.setPropertyId(propertyId);
+        portalauctionnoteId.setNoteId(noteId);
+        portalauctionnoteId.setUser(user);
+        portalauctionnoteId.setCreated(created);
+        portalauctionnoteId.setDone(done);
+        portalauctionnoteId.setNoteDescription(noteDescription);
+        portalauctionnoteId.setNoteTypeId(noteTypeId);
+        LOGGER.debug("Getting PortalAuctionNote with id: {}", portalauctionnoteId);
+        PortalAuctionNote portalauctionnote = portalAuctionNoteService.getById(portalauctionnoteId);
+        LOGGER.debug("PortalAuctionNote details with id: {}", portalauctionnote);
+        return portalauctionnote;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of PortalAuctionNote instances.")
+    public Long countPortalAuctionNotes(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting PortalAuctionNotes");
+        return portalAuctionNoteService.count(query);
     }
 }

@@ -109,13 +109,6 @@ public class CountyController {
         return countyService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of County instances.")
-    public Long countCounties(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Counties");
-        return countyService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/propertyClasses", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the propertyClasses instance associated with the given id.")
     public Page<PropertyClass> findAssociatedPropertyClasses(Pageable pageable, @PathVariable("id") Integer id) {
@@ -235,6 +228,14 @@ public class CountyController {
 	 */
     protected void setTownshipService(TownshipService service) {
         this.townshipService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of County instances.")
+    public Long countCounties(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Counties");
+        return countyService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

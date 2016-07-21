@@ -67,13 +67,6 @@ public class RuleController {
         return ruleService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Rule instances.")
-    public Long countRules(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Rules");
-        return ruleService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class RuleController {
 	 */
     protected void setRuleService(RuleService service) {
         this.ruleService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Rule instances.")
+    public Long countRules(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Rules");
+        return ruleService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

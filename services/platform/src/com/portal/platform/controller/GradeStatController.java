@@ -67,13 +67,6 @@ public class GradeStatController {
         return gradeStatService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of GradeStat instances.")
-    public Long countGradeStats(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting GradeStats");
-        return gradeStatService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class GradeStatController {
 	 */
     protected void setGradeStatService(GradeStatService service) {
         this.gradeStatService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of GradeStat instances.")
+    public Long countGradeStats(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting GradeStats");
+        return gradeStatService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

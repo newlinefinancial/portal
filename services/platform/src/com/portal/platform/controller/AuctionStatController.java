@@ -45,24 +45,6 @@ public class AuctionStatController {
     @Qualifier("platform.AuctionStatService")
     private AuctionStatService auctionStatService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the AuctionStat instance associated with the given composite-id.")
-    public AuctionStat getAuctionStat(@RequestParam("auctionId") int auctionId, @RequestParam("auctionYear") int auctionYear, @RequestParam("lifetimeInvestment") BigDecimal lifetimeInvestment, @RequestParam("countPublished") Integer countPublished, @RequestParam("countAuctioned") Integer countAuctioned, @RequestParam("countForfeited") Integer countForfeited, @RequestParam("countOpensales") Integer countOpensales, @RequestParam("countOpenpriors") Integer countOpenpriors) throws EntityNotFoundException {
-        AuctionStatId auctionstatId = new AuctionStatId();
-        auctionstatId.setAuctionId(auctionId);
-        auctionstatId.setAuctionYear(auctionYear);
-        auctionstatId.setLifetimeInvestment(lifetimeInvestment);
-        auctionstatId.setCountPublished(countPublished);
-        auctionstatId.setCountAuctioned(countAuctioned);
-        auctionstatId.setCountForfeited(countForfeited);
-        auctionstatId.setCountOpensales(countOpensales);
-        auctionstatId.setCountOpenpriors(countOpenpriors);
-        LOGGER.debug("Getting AuctionStat with id: {}", auctionstatId);
-        AuctionStat auctionstat = auctionStatService.getById(auctionstatId);
-        LOGGER.debug("AuctionStat details with id: {}", auctionstat);
-        return auctionstat;
-    }
-
     /**
      * @deprecated Use {@link #findAuctionStats(String)} instead.
      */
@@ -87,13 +69,6 @@ public class AuctionStatController {
         return auctionStatService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of AuctionStat instances.")
-    public Long countAuctionStats(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting AuctionStats");
-        return auctionStatService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -101,5 +76,32 @@ public class AuctionStatController {
 	 */
     protected void setAuctionStatService(AuctionStatService service) {
         this.auctionStatService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the AuctionStat instance associated with the given composite-id.")
+    public AuctionStat getAuctionStat(@RequestParam(value = "auctionId", required = true) int auctionId, @RequestParam(value = "auctionYear", required = true) int auctionYear, @RequestParam(value = "lifetimeInvestment", required = true) BigDecimal lifetimeInvestment, @RequestParam(value = "countPublished", required = true) Integer countPublished, @RequestParam(value = "countAuctioned", required = true) Integer countAuctioned, @RequestParam(value = "countForfeited", required = true) Integer countForfeited, @RequestParam(value = "countOpensales", required = true) Integer countOpensales, @RequestParam(value = "countOpenpriors", required = true) Integer countOpenpriors) throws EntityNotFoundException {
+        AuctionStatId auctionstatId = new AuctionStatId();
+        auctionstatId.setAuctionId(auctionId);
+        auctionstatId.setAuctionYear(auctionYear);
+        auctionstatId.setLifetimeInvestment(lifetimeInvestment);
+        auctionstatId.setCountPublished(countPublished);
+        auctionstatId.setCountAuctioned(countAuctioned);
+        auctionstatId.setCountForfeited(countForfeited);
+        auctionstatId.setCountOpensales(countOpensales);
+        auctionstatId.setCountOpenpriors(countOpenpriors);
+        LOGGER.debug("Getting AuctionStat with id: {}", auctionstatId);
+        AuctionStat auctionstat = auctionStatService.getById(auctionstatId);
+        LOGGER.debug("AuctionStat details with id: {}", auctionstat);
+        return auctionstat;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of AuctionStat instances.")
+    public Long countAuctionStats(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting AuctionStats");
+        return auctionStatService.count(query);
     }
 }

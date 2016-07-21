@@ -73,13 +73,6 @@ public class AuctionResultController {
         return auctionResultService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of AuctionResult instances.")
-    public Long countAuctionResults(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting AuctionResults");
-        return auctionResultService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/propertySales", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the propertySales instance associated with the given id.")
     public Page<PropertySale> findAssociatedPropertySales(Pageable pageable, @PathVariable("id") Integer id) {
@@ -103,6 +96,14 @@ public class AuctionResultController {
 	 */
     protected void setPropertySaleService(PropertySaleService service) {
         this.propertySaleService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of AuctionResult instances.")
+    public Long countAuctionResults(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting AuctionResults");
+        return auctionResultService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

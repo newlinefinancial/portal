@@ -73,13 +73,6 @@ public class PartyController {
         return partyService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Party instances.")
-    public Long countParties(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Parties");
-        return partyService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/certificateParties", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the certificateParties instance associated with the given id.")
     public Page<CertificateParty> findAssociatedCertificateParties(Pageable pageable, @PathVariable("id") Integer id) {
@@ -103,6 +96,14 @@ public class PartyController {
 	 */
     protected void setCertificatePartyService(CertificatePartyService service) {
         this.certificatePartyService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Party instances.")
+    public Long countParties(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Parties");
+        return partyService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

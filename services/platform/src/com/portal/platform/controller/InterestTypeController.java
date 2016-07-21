@@ -73,13 +73,6 @@ public class InterestTypeController {
         return interestTypeService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of InterestType instances.")
-    public Long countInterestTypes(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting InterestTypes");
-        return interestTypeService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/certificatePartiesForInterestType3", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the certificatePartiesForInterestType3 instance associated with the given id.")
     public Page<CertificateParty> findAssociatedCertificatePartiesForInterestType3(Pageable pageable, @PathVariable("id") String id) {
@@ -117,6 +110,14 @@ public class InterestTypeController {
 	 */
     protected void setCertificatePartyService(CertificatePartyService service) {
         this.certificatePartyService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of InterestType instances.")
+    public Long countInterestTypes(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting InterestTypes");
+        return interestTypeService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

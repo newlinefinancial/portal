@@ -73,13 +73,6 @@ public class BuyerController {
         return buyerService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Buyer instances.")
-    public Long countBuyers(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Buyers");
-        return buyerService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/auctionResultsForSubBuyerId", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the auctionResultsForSubBuyerId instance associated with the given id.")
     public Page<AuctionResult> findAssociatedAuctionResultsForSubBuyerId(Pageable pageable, @PathVariable("id") Integer id) {
@@ -110,6 +103,14 @@ public class BuyerController {
 	 */
     protected void setAuctionResultService(AuctionResultService service) {
         this.auctionResultService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Buyer instances.")
+    public Long countBuyers(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Buyers");
+        return buyerService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

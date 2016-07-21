@@ -45,29 +45,6 @@ public class PortalMatterFilterController {
     @Qualifier("platform.PortalMatterFilterService")
     private PortalMatterFilterService portalMatterFilterService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the PortalMatterFilter instance associated with the given composite-id.")
-    public PortalMatterFilter getPortalMatterFilter(@RequestParam("propertyId") int propertyId, @RequestParam("countyName") String countyName, @RequestParam("certificateNumber") String certificateNumber, @RequestParam("taxYear") int taxYear, @RequestParam("status") String status, @RequestParam("pin") String pin, @RequestParam("volume") int volume, @RequestParam("expirationDate") Date expirationDate, @RequestParam("matterNumber") String matterNumber, @RequestParam("closedDate") Date closedDate, @RequestParam("filedDate") Date filedDate, @RequestParam("matterId") int matterId, @RequestParam("certificateId") int certificateId) throws EntityNotFoundException {
-        PortalMatterFilterId portalmatterfilterId = new PortalMatterFilterId();
-        portalmatterfilterId.setPropertyId(propertyId);
-        portalmatterfilterId.setCountyName(countyName);
-        portalmatterfilterId.setCertificateNumber(certificateNumber);
-        portalmatterfilterId.setTaxYear(taxYear);
-        portalmatterfilterId.setStatus(status);
-        portalmatterfilterId.setPin(pin);
-        portalmatterfilterId.setVolume(volume);
-        portalmatterfilterId.setExpirationDate(expirationDate);
-        portalmatterfilterId.setMatterNumber(matterNumber);
-        portalmatterfilterId.setClosedDate(closedDate);
-        portalmatterfilterId.setFiledDate(filedDate);
-        portalmatterfilterId.setMatterId(matterId);
-        portalmatterfilterId.setCertificateId(certificateId);
-        LOGGER.debug("Getting PortalMatterFilter with id: {}", portalmatterfilterId);
-        PortalMatterFilter portalmatterfilter = portalMatterFilterService.getById(portalmatterfilterId);
-        LOGGER.debug("PortalMatterFilter details with id: {}", portalmatterfilter);
-        return portalmatterfilter;
-    }
-
     /**
      * @deprecated Use {@link #findPortalMatterFilters(String)} instead.
      */
@@ -92,13 +69,6 @@ public class PortalMatterFilterController {
         return portalMatterFilterService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of PortalMatterFilter instances.")
-    public Long countPortalMatterFilters(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting PortalMatterFilters");
-        return portalMatterFilterService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -106,5 +76,37 @@ public class PortalMatterFilterController {
 	 */
     protected void setPortalMatterFilterService(PortalMatterFilterService service) {
         this.portalMatterFilterService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the PortalMatterFilter instance associated with the given composite-id.")
+    public PortalMatterFilter getPortalMatterFilter(@RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "countyName", required = true) String countyName, @RequestParam(value = "certificateNumber", required = true) String certificateNumber, @RequestParam(value = "taxYear", required = true) int taxYear, @RequestParam(value = "status", required = true) String status, @RequestParam(value = "pin", required = true) String pin, @RequestParam(value = "volume", required = true) int volume, @RequestParam(value = "expirationDate", required = true) Date expirationDate, @RequestParam(value = "matterNumber", required = true) String matterNumber, @RequestParam(value = "closedDate", required = true) Date closedDate, @RequestParam(value = "filedDate", required = true) Date filedDate, @RequestParam(value = "matterId", required = true) int matterId, @RequestParam(value = "certificateId", required = true) int certificateId) throws EntityNotFoundException {
+        PortalMatterFilterId portalmatterfilterId = new PortalMatterFilterId();
+        portalmatterfilterId.setPropertyId(propertyId);
+        portalmatterfilterId.setCountyName(countyName);
+        portalmatterfilterId.setCertificateNumber(certificateNumber);
+        portalmatterfilterId.setTaxYear(taxYear);
+        portalmatterfilterId.setStatus(status);
+        portalmatterfilterId.setPin(pin);
+        portalmatterfilterId.setVolume(volume);
+        portalmatterfilterId.setExpirationDate(expirationDate);
+        portalmatterfilterId.setMatterNumber(matterNumber);
+        portalmatterfilterId.setClosedDate(closedDate);
+        portalmatterfilterId.setFiledDate(filedDate);
+        portalmatterfilterId.setMatterId(matterId);
+        portalmatterfilterId.setCertificateId(certificateId);
+        LOGGER.debug("Getting PortalMatterFilter with id: {}", portalmatterfilterId);
+        PortalMatterFilter portalmatterfilter = portalMatterFilterService.getById(portalmatterfilterId);
+        LOGGER.debug("PortalMatterFilter details with id: {}", portalmatterfilter);
+        return portalmatterfilter;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of PortalMatterFilter instances.")
+    public Long countPortalMatterFilters(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting PortalMatterFilters");
+        return portalMatterFilterService.count(query);
     }
 }

@@ -44,25 +44,6 @@ public class PortalInspectFilterController {
     @Qualifier("platform.PortalInspectFilterService")
     private PortalInspectFilterService portalInspectFilterService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the PortalInspectFilter instance associated with the given composite-id.")
-    public PortalInspectFilter getPortalInspectFilter(@RequestParam("dropDown") String dropDown, @RequestParam("order") int order, @RequestParam("inspected") int inspected, @RequestParam("inspId") int inspId, @RequestParam("propertyId") int propertyId, @RequestParam("auctionId") Integer auctionId, @RequestParam("pin") String pin, @RequestParam("latlong") String latlong, @RequestParam("address") String address) throws EntityNotFoundException {
-        PortalInspectFilterId portalinspectfilterId = new PortalInspectFilterId();
-        portalinspectfilterId.setDropDown(dropDown);
-        portalinspectfilterId.setOrder(order);
-        portalinspectfilterId.setInspected(inspected);
-        portalinspectfilterId.setInspId(inspId);
-        portalinspectfilterId.setPropertyId(propertyId);
-        portalinspectfilterId.setAuctionId(auctionId);
-        portalinspectfilterId.setPin(pin);
-        portalinspectfilterId.setLatlong(latlong);
-        portalinspectfilterId.setAddress(address);
-        LOGGER.debug("Getting PortalInspectFilter with id: {}", portalinspectfilterId);
-        PortalInspectFilter portalinspectfilter = portalInspectFilterService.getById(portalinspectfilterId);
-        LOGGER.debug("PortalInspectFilter details with id: {}", portalinspectfilter);
-        return portalinspectfilter;
-    }
-
     /**
      * @deprecated Use {@link #findPortalInspectFilters(String)} instead.
      */
@@ -87,13 +68,6 @@ public class PortalInspectFilterController {
         return portalInspectFilterService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of PortalInspectFilter instances.")
-    public Long countPortalInspectFilters(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting PortalInspectFilters");
-        return portalInspectFilterService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -101,5 +75,33 @@ public class PortalInspectFilterController {
 	 */
     protected void setPortalInspectFilterService(PortalInspectFilterService service) {
         this.portalInspectFilterService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the PortalInspectFilter instance associated with the given composite-id.")
+    public PortalInspectFilter getPortalInspectFilter(@RequestParam(value = "dropDown", required = true) String dropDown, @RequestParam(value = "order", required = true) int order, @RequestParam(value = "inspected", required = true) int inspected, @RequestParam(value = "inspId", required = true) int inspId, @RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "auctionId", required = true) Integer auctionId, @RequestParam(value = "pin", required = true) String pin, @RequestParam(value = "latlong", required = true) String latlong, @RequestParam(value = "address", required = true) String address) throws EntityNotFoundException {
+        PortalInspectFilterId portalinspectfilterId = new PortalInspectFilterId();
+        portalinspectfilterId.setDropDown(dropDown);
+        portalinspectfilterId.setOrder(order);
+        portalinspectfilterId.setInspected(inspected);
+        portalinspectfilterId.setInspId(inspId);
+        portalinspectfilterId.setPropertyId(propertyId);
+        portalinspectfilterId.setAuctionId(auctionId);
+        portalinspectfilterId.setPin(pin);
+        portalinspectfilterId.setLatlong(latlong);
+        portalinspectfilterId.setAddress(address);
+        LOGGER.debug("Getting PortalInspectFilter with id: {}", portalinspectfilterId);
+        PortalInspectFilter portalinspectfilter = portalInspectFilterService.getById(portalinspectfilterId);
+        LOGGER.debug("PortalInspectFilter details with id: {}", portalinspectfilter);
+        return portalinspectfilter;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of PortalInspectFilter instances.")
+    public Long countPortalInspectFilters(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting PortalInspectFilters");
+        return portalInspectFilterService.count(query);
     }
 }

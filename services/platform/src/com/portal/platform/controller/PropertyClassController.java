@@ -73,13 +73,6 @@ public class PropertyClassController {
         return propertyClassService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of PropertyClass instances.")
-    public Long countPropertyClasses(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting PropertyClasses");
-        return propertyClassService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/assessments", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the assessments instance associated with the given id.")
     public Page<Assessment> findAssociatedAssessments(Pageable pageable, @PathVariable("id") Integer id) {
@@ -103,6 +96,14 @@ public class PropertyClassController {
 	 */
     protected void setAssessmentService(AssessmentService service) {
         this.assessmentService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of PropertyClass instances.")
+    public Long countPropertyClasses(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting PropertyClasses");
+        return propertyClassService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

@@ -67,13 +67,6 @@ public class InspectionRouteController {
         return inspectionRouteService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of InspectionRoute instances.")
-    public Long countInspectionRoutes(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting InspectionRoutes");
-        return inspectionRouteService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class InspectionRouteController {
 	 */
     protected void setInspectionRouteService(InspectionRouteService service) {
         this.inspectionRouteService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of InspectionRoute instances.")
+    public Long countInspectionRoutes(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting InspectionRoutes");
+        return inspectionRouteService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

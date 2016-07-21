@@ -1,12 +1,12 @@
 {
-  "goToPage_CertificateDetails" : {
-    "_id" : "wm-goToPage_CertificateDetails-wm.NavigationVariable-1467907875513",
-    "name" : "goToPage_CertificateDetails",
+  "goToPage_certificate" : {
+    "_id" : "wm-goToPage_certificate-wm.NavigationVariable-1469115328749",
+    "name" : "goToPage_certificate",
     "owner" : "App",
     "category" : "wm.NavigationVariable",
     "dataBinding" : [ ],
     "operation" : "gotoPage",
-    "pageName" : "CertificateDetails",
+    "pageName" : "certificate",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -67,17 +67,6 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "service",
-    "pageTransitions" : "none"
-  },
-  "goToPage_svc_data" : {
-    "_id" : "wm-goToPage_svc_data-wm.NavigationVariable-1467379931812",
-    "name" : "goToPage_svc_data",
-    "owner" : "App",
-    "category" : "wm.NavigationVariable",
-    "dataBinding" : [ ],
-    "operation" : "gotoPage",
-    "pageName" : "svc_data",
-    "dataSet" : [ ],
     "pageTransitions" : "none"
   },
   "loggedInUser" : {
@@ -156,7 +145,7 @@
     "firstRow" : 0,
     "maxResults" : 20,
     "designMaxResults" : 10,
-    "startUpdate" : false,
+    "startUpdate" : true,
     "autoUpdate" : true,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
@@ -278,6 +267,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
+    "bindCount" : 1,
     "tableName" : "accounting",
     "dbSystem" : "SQLServer",
     "properties" : [ ],
@@ -15834,7 +15824,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 14,
+    "bindCount" : 15,
     "tableName" : "portal_certificate_data",
     "dbSystem" : "SQLServer",
     "properties" : [ ],

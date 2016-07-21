@@ -45,26 +45,6 @@ public class PortalAuctionTitleController {
     @Qualifier("platform.PortalAuctionTitleService")
     private PortalAuctionTitleService portalAuctionTitleService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the PortalAuctionTitle instance associated with the given composite-id.")
-    public PortalAuctionTitle getPortalAuctionTitle(@RequestParam("consideration") Double consideration, @RequestParam("date") Date date, @RequestParam("docNumber") String docNumber, @RequestParam("grantee") String grantee, @RequestParam("grantor") String grantor, @RequestParam("id") int id, @RequestParam("propertyId") int propertyId, @RequestParam("titleType") String titleType, @RequestParam("category") String category, @RequestParam("name") String name) throws EntityNotFoundException {
-        PortalAuctionTitleId portalauctiontitleId = new PortalAuctionTitleId();
-        portalauctiontitleId.setConsideration(consideration);
-        portalauctiontitleId.setDate(date);
-        portalauctiontitleId.setDocNumber(docNumber);
-        portalauctiontitleId.setGrantee(grantee);
-        portalauctiontitleId.setGrantor(grantor);
-        portalauctiontitleId.setId(id);
-        portalauctiontitleId.setPropertyId(propertyId);
-        portalauctiontitleId.setTitleType(titleType);
-        portalauctiontitleId.setCategory(category);
-        portalauctiontitleId.setName(name);
-        LOGGER.debug("Getting PortalAuctionTitle with id: {}", portalauctiontitleId);
-        PortalAuctionTitle portalauctiontitle = portalAuctionTitleService.getById(portalauctiontitleId);
-        LOGGER.debug("PortalAuctionTitle details with id: {}", portalauctiontitle);
-        return portalauctiontitle;
-    }
-
     /**
      * @deprecated Use {@link #findPortalAuctionTitles(String)} instead.
      */
@@ -89,13 +69,6 @@ public class PortalAuctionTitleController {
         return portalAuctionTitleService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of PortalAuctionTitle instances.")
-    public Long countPortalAuctionTitles(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting PortalAuctionTitles");
-        return portalAuctionTitleService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -103,5 +76,34 @@ public class PortalAuctionTitleController {
 	 */
     protected void setPortalAuctionTitleService(PortalAuctionTitleService service) {
         this.portalAuctionTitleService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the PortalAuctionTitle instance associated with the given composite-id.")
+    public PortalAuctionTitle getPortalAuctionTitle(@RequestParam(value = "consideration", required = true) Double consideration, @RequestParam(value = "date", required = true) Date date, @RequestParam(value = "docNumber", required = true) String docNumber, @RequestParam(value = "grantee", required = true) String grantee, @RequestParam(value = "grantor", required = true) String grantor, @RequestParam(value = "id", required = true) int id, @RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "titleType", required = true) String titleType, @RequestParam(value = "category", required = true) String category, @RequestParam(value = "name", required = true) String name) throws EntityNotFoundException {
+        PortalAuctionTitleId portalauctiontitleId = new PortalAuctionTitleId();
+        portalauctiontitleId.setConsideration(consideration);
+        portalauctiontitleId.setDate(date);
+        portalauctiontitleId.setDocNumber(docNumber);
+        portalauctiontitleId.setGrantee(grantee);
+        portalauctiontitleId.setGrantor(grantor);
+        portalauctiontitleId.setId(id);
+        portalauctiontitleId.setPropertyId(propertyId);
+        portalauctiontitleId.setTitleType(titleType);
+        portalauctiontitleId.setCategory(category);
+        portalauctiontitleId.setName(name);
+        LOGGER.debug("Getting PortalAuctionTitle with id: {}", portalauctiontitleId);
+        PortalAuctionTitle portalauctiontitle = portalAuctionTitleService.getById(portalauctiontitleId);
+        LOGGER.debug("PortalAuctionTitle details with id: {}", portalauctiontitle);
+        return portalauctiontitle;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of PortalAuctionTitle instances.")
+    public Long countPortalAuctionTitles(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting PortalAuctionTitles");
+        return portalAuctionTitleService.count(query);
     }
 }

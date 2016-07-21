@@ -44,9 +44,43 @@ public class PortalTagsController {
     @Qualifier("platform.PortalTagsService")
     private PortalTagsService portalTagsService;
 
+    /**
+     * @deprecated Use {@link #findPortalTags(String)} instead.
+     */
+    @Deprecated
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ApiOperation(value = "Returns the list of PortalTags instances matching the search criteria.")
+    public Page<PortalTags> findPortalTags(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
+        LOGGER.debug("Rendering PortalTags list");
+        return portalTagsService.findAll(queryFilters, pageable);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the list of PortalTags instances matching the search criteria.")
+    public Page<PortalTags> findPortalTags(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        LOGGER.debug("Rendering PortalTags list");
+        return portalTagsService.findAll(query, pageable);
+    }
+
+    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @ApiOperation(value = "Returns downloadable file for the data.")
+    public Downloadable exportPortalTags(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        return portalTagsService.export(exportType, query, pageable);
+    }
+
+    /**
+	 * This setter method should only be used by unit tests
+	 *
+	 * @param service PortalTagsService instance
+	 */
+    protected void setPortalTagsService(PortalTagsService service) {
+        this.portalTagsService = service;
+    }
+
     @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the PortalTags instance associated with the given composite-id.")
-    public PortalTags getPortalTags(@RequestParam("propertyId") int propertyId, @RequestParam("review") Integer review, @RequestParam("inspect") Integer inspect, @RequestParam("checkCounty") Integer checkCounty, @RequestParam("checkTitle") Integer checkTitle, @RequestParam("good") Integer good, @RequestParam("meh") Integer meh, @RequestParam("poor") Integer poor, @RequestParam("vacant") Integer vacant, @RequestParam("boarded") Integer boarded, @RequestParam("gone") Integer gone, @RequestParam("ng") Integer ng, @RequestParam("forSale") Integer forSale, @RequestParam("divided") Integer divided, @RequestParam("tax_valueIssue") Integer tax_valueIssue, @RequestParam("buildingCourt") Integer buildingCourt, @RequestParam("demoLien") Integer demoLien, @RequestParam("demoOrder") Integer demoOrder, @RequestParam("extension") Integer extension, @RequestParam("takeNotice") Integer takeNotice, @RequestParam("redemptionLetter") Integer redemptionLetter, @RequestParam("sieHearing") Integer sieHearing) throws EntityNotFoundException {
+    public PortalTags getPortalTags(@RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "review", required = true) Integer review, @RequestParam(value = "inspect", required = true) Integer inspect, @RequestParam(value = "checkCounty", required = true) Integer checkCounty, @RequestParam(value = "checkTitle", required = true) Integer checkTitle, @RequestParam(value = "good", required = true) Integer good, @RequestParam(value = "meh", required = true) Integer meh, @RequestParam(value = "poor", required = true) Integer poor, @RequestParam(value = "vacant", required = true) Integer vacant, @RequestParam(value = "boarded", required = true) Integer boarded, @RequestParam(value = "gone", required = true) Integer gone, @RequestParam(value = "ng", required = true) Integer ng, @RequestParam(value = "forSale", required = true) Integer forSale, @RequestParam(value = "divided", required = true) Integer divided, @RequestParam(value = "tax_valueIssue", required = true) Integer tax_valueIssue, @RequestParam(value = "buildingCourt", required = true) Integer buildingCourt, @RequestParam(value = "demoLien", required = true) Integer demoLien, @RequestParam(value = "demoOrder", required = true) Integer demoOrder, @RequestParam(value = "extension", required = true) Integer extension, @RequestParam(value = "takeNotice", required = true) Integer takeNotice, @RequestParam(value = "redemptionLetter", required = true) Integer redemptionLetter, @RequestParam(value = "sieHearing", required = true) Integer sieHearing) throws EntityNotFoundException {
         PortalTagsId portaltagsId = new PortalTagsId();
         portaltagsId.setPropertyId(propertyId);
         portaltagsId.setReview(review);
@@ -76,43 +110,11 @@ public class PortalTagsController {
         return portaltags;
     }
 
-    /**
-     * @deprecated Use {@link #findPortalTags(String)} instead.
-     */
-    @Deprecated
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    @ApiOperation(value = "Returns the list of PortalTags instances matching the search criteria.")
-    public Page<PortalTags> findPortalTags(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
-        LOGGER.debug("Rendering PortalTags list");
-        return portalTagsService.findAll(queryFilters, pageable);
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the list of PortalTags instances matching the search criteria.")
-    public Page<PortalTags> findPortalTags(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        LOGGER.debug("Rendering PortalTags list");
-        return portalTagsService.findAll(query, pageable);
-    }
-
-    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
-    @ApiOperation(value = "Returns downloadable file for the data.")
-    public Downloadable exportPortalTags(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        return portalTagsService.export(exportType, query, pageable);
-    }
-
     @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the total count of PortalTags instances.")
     public Long countPortalTags(@RequestParam(value = "q", required = false) String query) {
         LOGGER.debug("counting PortalTags");
         return portalTagsService.count(query);
-    }
-
-    /**
-	 * This setter method should only be used by unit tests
-	 *
-	 * @param service PortalTagsService instance
-	 */
-    protected void setPortalTagsService(PortalTagsService service) {
-        this.portalTagsService = service;
     }
 }

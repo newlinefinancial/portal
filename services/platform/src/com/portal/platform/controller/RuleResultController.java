@@ -67,13 +67,6 @@ public class RuleResultController {
         return ruleResultService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of RuleResult instances.")
-    public Long countRuleResults(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting RuleResults");
-        return ruleResultService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class RuleResultController {
 	 */
     protected void setRuleResultService(RuleResultService service) {
         this.ruleResultService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of RuleResult instances.")
+    public Long countRuleResults(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting RuleResults");
+        return ruleResultService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

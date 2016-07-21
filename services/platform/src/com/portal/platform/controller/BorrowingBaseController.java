@@ -44,22 +44,6 @@ public class BorrowingBaseController {
     @Qualifier("platform.BorrowingBaseService")
     private BorrowingBaseService borrowingBaseService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the BorrowingBase instance associated with the given composite-id.")
-    public BorrowingBase getBorrowingBase(@RequestParam("state") String state, @RequestParam("county") String county, @RequestParam("taxYear") int taxYear, @RequestParam("certificatePrincipal") Double certificatePrincipal, @RequestParam("subPrincipal") Double subPrincipal, @RequestParam("trustReceipt") Double trustReceipt) throws EntityNotFoundException {
-        BorrowingBaseId borrowingbaseId = new BorrowingBaseId();
-        borrowingbaseId.setState(state);
-        borrowingbaseId.setCounty(county);
-        borrowingbaseId.setTaxYear(taxYear);
-        borrowingbaseId.setCertificatePrincipal(certificatePrincipal);
-        borrowingbaseId.setSubPrincipal(subPrincipal);
-        borrowingbaseId.setTrustReceipt(trustReceipt);
-        LOGGER.debug("Getting BorrowingBase with id: {}", borrowingbaseId);
-        BorrowingBase borrowingbase = borrowingBaseService.getById(borrowingbaseId);
-        LOGGER.debug("BorrowingBase details with id: {}", borrowingbase);
-        return borrowingbase;
-    }
-
     /**
      * @deprecated Use {@link #findBorrowingBases(String)} instead.
      */
@@ -84,13 +68,6 @@ public class BorrowingBaseController {
         return borrowingBaseService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of BorrowingBase instances.")
-    public Long countBorrowingBases(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting BorrowingBases");
-        return borrowingBaseService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -98,5 +75,30 @@ public class BorrowingBaseController {
 	 */
     protected void setBorrowingBaseService(BorrowingBaseService service) {
         this.borrowingBaseService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the BorrowingBase instance associated with the given composite-id.")
+    public BorrowingBase getBorrowingBase(@RequestParam(value = "state", required = true) String state, @RequestParam(value = "county", required = true) String county, @RequestParam(value = "taxYear", required = true) int taxYear, @RequestParam(value = "certificatePrincipal", required = true) Double certificatePrincipal, @RequestParam(value = "subPrincipal", required = true) Double subPrincipal, @RequestParam(value = "trustReceipt", required = true) Double trustReceipt) throws EntityNotFoundException {
+        BorrowingBaseId borrowingbaseId = new BorrowingBaseId();
+        borrowingbaseId.setState(state);
+        borrowingbaseId.setCounty(county);
+        borrowingbaseId.setTaxYear(taxYear);
+        borrowingbaseId.setCertificatePrincipal(certificatePrincipal);
+        borrowingbaseId.setSubPrincipal(subPrincipal);
+        borrowingbaseId.setTrustReceipt(trustReceipt);
+        LOGGER.debug("Getting BorrowingBase with id: {}", borrowingbaseId);
+        BorrowingBase borrowingbase = borrowingBaseService.getById(borrowingbaseId);
+        LOGGER.debug("BorrowingBase details with id: {}", borrowingbase);
+        return borrowingbase;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of BorrowingBase instances.")
+    public Long countBorrowingBases(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting BorrowingBases");
+        return borrowingBaseService.count(query);
     }
 }

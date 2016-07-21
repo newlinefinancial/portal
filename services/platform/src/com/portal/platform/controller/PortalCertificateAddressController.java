@@ -45,9 +45,43 @@ public class PortalCertificateAddressController {
     @Qualifier("platform.PortalCertificateAddressService")
     private PortalCertificateAddressService portalCertificateAddressService;
 
+    /**
+     * @deprecated Use {@link #findPortalCertificateAddresses(String)} instead.
+     */
+    @Deprecated
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ApiOperation(value = "Returns the list of PortalCertificateAddress instances matching the search criteria.")
+    public Page<PortalCertificateAddress> findPortalCertificateAddresses(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
+        LOGGER.debug("Rendering PortalCertificateAddresses list");
+        return portalCertificateAddressService.findAll(queryFilters, pageable);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the list of PortalCertificateAddress instances matching the search criteria.")
+    public Page<PortalCertificateAddress> findPortalCertificateAddresses(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        LOGGER.debug("Rendering PortalCertificateAddresses list");
+        return portalCertificateAddressService.findAll(query, pageable);
+    }
+
+    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @ApiOperation(value = "Returns downloadable file for the data.")
+    public Downloadable exportPortalCertificateAddresses(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        return portalCertificateAddressService.export(exportType, query, pageable);
+    }
+
+    /**
+	 * This setter method should only be used by unit tests
+	 *
+	 * @param service PortalCertificateAddressService instance
+	 */
+    protected void setPortalCertificateAddressService(PortalCertificateAddressService service) {
+        this.portalCertificateAddressService = service;
+    }
+
     @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the PortalCertificateAddress instance associated with the given composite-id.")
-    public PortalCertificateAddress getPortalCertificateAddress(@RequestParam("countyName") String countyName, @RequestParam("certificateId") int certificateId, @RequestParam("bank") String bank, @RequestParam("taxYear") int taxYear, @RequestParam("volume") int volume, @RequestParam("pin") String pin, @RequestParam("certificateNumber") String certificateNumber, @RequestParam("dateSold") Date dateSold, @RequestParam("expirationDate") Date expirationDate, @RequestParam("status") String status, @RequestParam("taxYearNotices") String taxYearNotices, @RequestParam("addressLine1") String addressLine1, @RequestParam("addressLine2") String addressLine2, @RequestParam("addressCity") String addressCity, @RequestParam("addressZip") String addressZip, @RequestParam("addressVerified") boolean addressVerified, @RequestParam("addressSource1") String addressSource1, @RequestParam("addressSource2") String addressSource2, @RequestParam("assesseeName") String assesseeName, @RequestParam("assesseeAddressLine1") String assesseeAddressLine1, @RequestParam("assesseeAddressCity") String assesseeAddressCity, @RequestParam("assesseeAddressState") String assesseeAddressState, @RequestParam("assesseeAddressZip") String assesseeAddressZip, @RequestParam("code") String code, @RequestParam("zoning") String zoning, @RequestParam("improvementLevel") String improvementLevel, @RequestParam("certificatePrincipal") Double certificatePrincipal, @RequestParam("subPrincipal") Double subPrincipal, @RequestParam("feePrincipal") Double feePrincipal, @RequestParam("principal") Double principal, @RequestParam("certificateRevenue") Double certificateRevenue, @RequestParam("subRevenue") Double subRevenue, @RequestParam("feeRevenue") Double feeRevenue, @RequestParam("revenue") Double revenue, @RequestParam("redemptionAmount") Double redemptionAmount, @RequestParam("amountPaid") Double amountPaid) throws EntityNotFoundException {
+    public PortalCertificateAddress getPortalCertificateAddress(@RequestParam(value = "countyName", required = true) String countyName, @RequestParam(value = "certificateId", required = true) int certificateId, @RequestParam(value = "bank", required = true) String bank, @RequestParam(value = "taxYear", required = true) int taxYear, @RequestParam(value = "volume", required = true) int volume, @RequestParam(value = "pin", required = true) String pin, @RequestParam(value = "certificateNumber", required = true) String certificateNumber, @RequestParam(value = "dateSold", required = true) Date dateSold, @RequestParam(value = "expirationDate", required = true) Date expirationDate, @RequestParam(value = "status", required = true) String status, @RequestParam(value = "taxYearNotices", required = true) String taxYearNotices, @RequestParam(value = "addressLine1", required = true) String addressLine1, @RequestParam(value = "addressLine2", required = true) String addressLine2, @RequestParam(value = "addressCity", required = true) String addressCity, @RequestParam(value = "addressZip", required = true) String addressZip, @RequestParam(value = "addressVerified", required = true) boolean addressVerified, @RequestParam(value = "addressSource1", required = true) String addressSource1, @RequestParam(value = "addressSource2", required = true) String addressSource2, @RequestParam(value = "assesseeName", required = true) String assesseeName, @RequestParam(value = "assesseeAddressLine1", required = true) String assesseeAddressLine1, @RequestParam(value = "assesseeAddressCity", required = true) String assesseeAddressCity, @RequestParam(value = "assesseeAddressState", required = true) String assesseeAddressState, @RequestParam(value = "assesseeAddressZip", required = true) String assesseeAddressZip, @RequestParam(value = "code", required = true) String code, @RequestParam(value = "zoning", required = true) String zoning, @RequestParam(value = "improvementLevel", required = true) String improvementLevel, @RequestParam(value = "certificatePrincipal", required = true) Double certificatePrincipal, @RequestParam(value = "subPrincipal", required = true) Double subPrincipal, @RequestParam(value = "feePrincipal", required = true) Double feePrincipal, @RequestParam(value = "principal", required = true) Double principal, @RequestParam(value = "certificateRevenue", required = true) Double certificateRevenue, @RequestParam(value = "subRevenue", required = true) Double subRevenue, @RequestParam(value = "feeRevenue", required = true) Double feeRevenue, @RequestParam(value = "revenue", required = true) Double revenue, @RequestParam(value = "redemptionAmount", required = true) Double redemptionAmount, @RequestParam(value = "amountPaid", required = true) Double amountPaid) throws EntityNotFoundException {
         PortalCertificateAddressId portalcertificateaddressId = new PortalCertificateAddressId();
         portalcertificateaddressId.setCountyName(countyName);
         portalcertificateaddressId.setCertificateId(certificateId);
@@ -91,43 +125,11 @@ public class PortalCertificateAddressController {
         return portalcertificateaddress;
     }
 
-    /**
-     * @deprecated Use {@link #findPortalCertificateAddresses(String)} instead.
-     */
-    @Deprecated
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    @ApiOperation(value = "Returns the list of PortalCertificateAddress instances matching the search criteria.")
-    public Page<PortalCertificateAddress> findPortalCertificateAddresses(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
-        LOGGER.debug("Rendering PortalCertificateAddresses list");
-        return portalCertificateAddressService.findAll(queryFilters, pageable);
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the list of PortalCertificateAddress instances matching the search criteria.")
-    public Page<PortalCertificateAddress> findPortalCertificateAddresses(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        LOGGER.debug("Rendering PortalCertificateAddresses list");
-        return portalCertificateAddressService.findAll(query, pageable);
-    }
-
-    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
-    @ApiOperation(value = "Returns downloadable file for the data.")
-    public Downloadable exportPortalCertificateAddresses(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        return portalCertificateAddressService.export(exportType, query, pageable);
-    }
-
     @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the total count of PortalCertificateAddress instances.")
     public Long countPortalCertificateAddresses(@RequestParam(value = "q", required = false) String query) {
         LOGGER.debug("counting PortalCertificateAddresses");
         return portalCertificateAddressService.count(query);
-    }
-
-    /**
-	 * This setter method should only be used by unit tests
-	 *
-	 * @param service PortalCertificateAddressService instance
-	 */
-    protected void setPortalCertificateAddressService(PortalCertificateAddressService service) {
-        this.portalCertificateAddressService = service;
     }
 }

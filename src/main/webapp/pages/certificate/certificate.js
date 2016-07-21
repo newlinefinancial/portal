@@ -1,4 +1,4 @@
-Application.$controller("CertificateDetailsPageController", ["$scope", function ($scope) {
+Application.$controller("certificatePageController", ["$scope", function ($scope) {
     "use strict";
 
     /* perform any action on widgets/variables within this block */

@@ -67,13 +67,6 @@ public class TitleTransactionController {
         return titleTransactionService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of TitleTransaction instances.")
-    public Long countTitleTransactions(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting TitleTransactions");
-        return titleTransactionService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class TitleTransactionController {
 	 */
     protected void setTitleTransactionService(TitleTransactionService service) {
         this.titleTransactionService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of TitleTransaction instances.")
+    public Long countTitleTransactions(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting TitleTransactions");
+        return titleTransactionService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

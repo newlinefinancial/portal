@@ -46,9 +46,43 @@ public class PortalAuctionHistoryController {
     @Qualifier("platform.PortalAuctionHistoryService")
     private PortalAuctionHistoryService portalAuctionHistoryService;
 
+    /**
+     * @deprecated Use {@link #findPortalAuctionHistories(String)} instead.
+     */
+    @Deprecated
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ApiOperation(value = "Returns the list of PortalAuctionHistory instances matching the search criteria.")
+    public Page<PortalAuctionHistory> findPortalAuctionHistories(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
+        LOGGER.debug("Rendering PortalAuctionHistories list");
+        return portalAuctionHistoryService.findAll(queryFilters, pageable);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the list of PortalAuctionHistory instances matching the search criteria.")
+    public Page<PortalAuctionHistory> findPortalAuctionHistories(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        LOGGER.debug("Rendering PortalAuctionHistories list");
+        return portalAuctionHistoryService.findAll(query, pageable);
+    }
+
+    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @ApiOperation(value = "Returns downloadable file for the data.")
+    public Downloadable exportPortalAuctionHistories(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        return portalAuctionHistoryService.export(exportType, query, pageable);
+    }
+
+    /**
+	 * This setter method should only be used by unit tests
+	 *
+	 * @param service PortalAuctionHistoryService instance
+	 */
+    protected void setPortalAuctionHistoryService(PortalAuctionHistoryService service) {
+        this.portalAuctionHistoryService = service;
+    }
+
     @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the PortalAuctionHistory instance associated with the given composite-id.")
-    public PortalAuctionHistory getPortalAuctionHistory(@RequestParam("propertyId") Integer propertyId, @RequestParam("auctionId") int auctionId, @RequestParam("auctionYear") int auctionYear, @RequestParam("priorYearsDue") Double priorYearsDue, @RequestParam("auctionYearBilled") Double auctionYearBilled, @RequestParam("auctionYearDue") Double auctionYearDue, @RequestParam("saleAmount") double saleAmount, @RequestParam("removed") boolean removed, @RequestParam("marketValue") Double marketValue, @RequestParam("assessedValuationBuilding") Double assessedValuationBuilding, @RequestParam("assessedValuationLand") Double assessedValuationLand, @RequestParam("assessedValuationTotal") Double assessedValuationTotal, @RequestParam("assesseeAddressCity") String assesseeAddressCity, @RequestParam("assesseeAddressLine1") String assesseeAddressLine1, @RequestParam("assesseeAddressState") String assesseeAddressState, @RequestParam("assesseeAddressZip") String assesseeAddressZip, @RequestParam("assesseeName") String assesseeName, @RequestParam("homeExemption") Double homeExemption, @RequestParam("seniorExemption") Double seniorExemption, @RequestParam("assessmentYear") Integer assessmentYear, @RequestParam("code") String code, @RequestParam("description") String description, @RequestParam("propertyType") String propertyType, @RequestParam("status") String status, @RequestParam("bidRate") Integer bidRate, @RequestParam("overrideTimestamp") Date overrideTimestamp, @RequestParam("overrideUser") String overrideUser, @RequestParam("saleDate") Date saleDate, @RequestParam("winningBid") BigDecimal winningBid, @RequestParam("buyer") String buyer, @RequestParam("auctionResult") String auctionResult, @RequestParam("auctionStatus") String auctionStatus, @RequestParam("dispositionDate") Date dispositionDate, @RequestParam("dispositionResearchDate") Date dispositionResearchDate) throws EntityNotFoundException {
+    public PortalAuctionHistory getPortalAuctionHistory(@RequestParam(value = "propertyId", required = true) Integer propertyId, @RequestParam(value = "auctionId", required = true) int auctionId, @RequestParam(value = "auctionYear", required = true) int auctionYear, @RequestParam(value = "priorYearsDue", required = true) Double priorYearsDue, @RequestParam(value = "auctionYearBilled", required = true) Double auctionYearBilled, @RequestParam(value = "auctionYearDue", required = true) Double auctionYearDue, @RequestParam(value = "saleAmount", required = true) double saleAmount, @RequestParam(value = "removed", required = true) boolean removed, @RequestParam(value = "marketValue", required = true) Double marketValue, @RequestParam(value = "assessedValuationBuilding", required = true) Double assessedValuationBuilding, @RequestParam(value = "assessedValuationLand", required = true) Double assessedValuationLand, @RequestParam(value = "assessedValuationTotal", required = true) Double assessedValuationTotal, @RequestParam(value = "assesseeAddressCity", required = true) String assesseeAddressCity, @RequestParam(value = "assesseeAddressLine1", required = true) String assesseeAddressLine1, @RequestParam(value = "assesseeAddressState", required = true) String assesseeAddressState, @RequestParam(value = "assesseeAddressZip", required = true) String assesseeAddressZip, @RequestParam(value = "assesseeName", required = true) String assesseeName, @RequestParam(value = "homeExemption", required = true) Double homeExemption, @RequestParam(value = "seniorExemption", required = true) Double seniorExemption, @RequestParam(value = "assessmentYear", required = true) Integer assessmentYear, @RequestParam(value = "code", required = true) String code, @RequestParam(value = "description", required = true) String description, @RequestParam(value = "propertyType", required = true) String propertyType, @RequestParam(value = "status", required = true) String status, @RequestParam(value = "bidRate", required = true) Integer bidRate, @RequestParam(value = "overrideTimestamp", required = true) Date overrideTimestamp, @RequestParam(value = "overrideUser", required = true) String overrideUser, @RequestParam(value = "saleDate", required = true) Date saleDate, @RequestParam(value = "winningBid", required = true) BigDecimal winningBid, @RequestParam(value = "buyer", required = true) String buyer, @RequestParam(value = "auctionResult", required = true) String auctionResult, @RequestParam(value = "auctionStatus", required = true) String auctionStatus, @RequestParam(value = "dispositionDate", required = true) Date dispositionDate, @RequestParam(value = "dispositionResearchDate", required = true) Date dispositionResearchDate) throws EntityNotFoundException {
         PortalAuctionHistoryId portalauctionhistoryId = new PortalAuctionHistoryId();
         portalauctionhistoryId.setPropertyId(propertyId);
         portalauctionhistoryId.setAuctionId(auctionId);
@@ -90,43 +124,11 @@ public class PortalAuctionHistoryController {
         return portalauctionhistory;
     }
 
-    /**
-     * @deprecated Use {@link #findPortalAuctionHistories(String)} instead.
-     */
-    @Deprecated
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    @ApiOperation(value = "Returns the list of PortalAuctionHistory instances matching the search criteria.")
-    public Page<PortalAuctionHistory> findPortalAuctionHistories(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
-        LOGGER.debug("Rendering PortalAuctionHistories list");
-        return portalAuctionHistoryService.findAll(queryFilters, pageable);
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the list of PortalAuctionHistory instances matching the search criteria.")
-    public Page<PortalAuctionHistory> findPortalAuctionHistories(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        LOGGER.debug("Rendering PortalAuctionHistories list");
-        return portalAuctionHistoryService.findAll(query, pageable);
-    }
-
-    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
-    @ApiOperation(value = "Returns downloadable file for the data.")
-    public Downloadable exportPortalAuctionHistories(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        return portalAuctionHistoryService.export(exportType, query, pageable);
-    }
-
     @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the total count of PortalAuctionHistory instances.")
     public Long countPortalAuctionHistories(@RequestParam(value = "q", required = false) String query) {
         LOGGER.debug("counting PortalAuctionHistories");
         return portalAuctionHistoryService.count(query);
-    }
-
-    /**
-	 * This setter method should only be used by unit tests
-	 *
-	 * @param service PortalAuctionHistoryService instance
-	 */
-    protected void setPortalAuctionHistoryService(PortalAuctionHistoryService service) {
-        this.portalAuctionHistoryService = service;
     }
 }

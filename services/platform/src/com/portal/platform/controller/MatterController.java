@@ -67,13 +67,6 @@ public class MatterController {
         return matterService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Matter instances.")
-    public Long countMatters(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Matters");
-        return matterService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class MatterController {
 	 */
     protected void setMatterService(MatterService service) {
         this.matterService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Matter instances.")
+    public Long countMatters(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Matters");
+        return matterService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

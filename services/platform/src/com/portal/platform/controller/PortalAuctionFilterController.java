@@ -44,9 +44,43 @@ public class PortalAuctionFilterController {
     @Qualifier("platform.PortalAuctionFilterService")
     private PortalAuctionFilterService portalAuctionFilterService;
 
+    /**
+     * @deprecated Use {@link #findPortalAuctionFilters(String)} instead.
+     */
+    @Deprecated
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ApiOperation(value = "Returns the list of PortalAuctionFilter instances matching the search criteria.")
+    public Page<PortalAuctionFilter> findPortalAuctionFilters(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
+        LOGGER.debug("Rendering PortalAuctionFilters list");
+        return portalAuctionFilterService.findAll(queryFilters, pageable);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the list of PortalAuctionFilter instances matching the search criteria.")
+    public Page<PortalAuctionFilter> findPortalAuctionFilters(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        LOGGER.debug("Rendering PortalAuctionFilters list");
+        return portalAuctionFilterService.findAll(query, pageable);
+    }
+
+    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @ApiOperation(value = "Returns downloadable file for the data.")
+    public Downloadable exportPortalAuctionFilters(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        return portalAuctionFilterService.export(exportType, query, pageable);
+    }
+
+    /**
+	 * This setter method should only be used by unit tests
+	 *
+	 * @param service PortalAuctionFilterService instance
+	 */
+    protected void setPortalAuctionFilterService(PortalAuctionFilterService service) {
+        this.portalAuctionFilterService = service;
+    }
+
     @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the PortalAuctionFilter instance associated with the given composite-id.")
-    public PortalAuctionFilter getPortalAuctionFilter(@RequestParam("auctionId") int auctionId, @RequestParam("propertyId") int propertyId, @RequestParam("taxYear") int taxYear, @RequestParam("priorYearsDue") Double priorYearsDue, @RequestParam("saleAmount") double saleAmount, @RequestParam("removed") boolean removed, @RequestParam("code") String code, @RequestParam("propertyType") String propertyType, @RequestParam("areaRating") char areaRating, @RequestParam("countyName") String countyName, @RequestParam("pin") String pin, @RequestParam("volume") Integer volume, @RequestParam("townshipName") String townshipName, @RequestParam("auctionDay") Integer auctionDay, @RequestParam("status") String status, @RequestParam("bidRate") Integer bidRate, @RequestParam("buyer") String buyer, @RequestParam("buyerType") char buyerType, @RequestParam("tags") String tags) throws EntityNotFoundException {
+    public PortalAuctionFilter getPortalAuctionFilter(@RequestParam(value = "auctionId", required = true) int auctionId, @RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "taxYear", required = true) int taxYear, @RequestParam(value = "priorYearsDue", required = true) Double priorYearsDue, @RequestParam(value = "saleAmount", required = true) double saleAmount, @RequestParam(value = "removed", required = true) boolean removed, @RequestParam(value = "code", required = true) String code, @RequestParam(value = "propertyType", required = true) String propertyType, @RequestParam(value = "areaRating", required = true) char areaRating, @RequestParam(value = "countyName", required = true) String countyName, @RequestParam(value = "pin", required = true) String pin, @RequestParam(value = "volume", required = true) Integer volume, @RequestParam(value = "townshipName", required = true) String townshipName, @RequestParam(value = "auctionDay", required = true) Integer auctionDay, @RequestParam(value = "status", required = true) String status, @RequestParam(value = "bidRate", required = true) Integer bidRate, @RequestParam(value = "buyer", required = true) String buyer, @RequestParam(value = "buyerType", required = true) char buyerType, @RequestParam(value = "tags", required = true) String tags) throws EntityNotFoundException {
         PortalAuctionFilterId portalauctionfilterId = new PortalAuctionFilterId();
         portalauctionfilterId.setAuctionId(auctionId);
         portalauctionfilterId.setPropertyId(propertyId);
@@ -73,43 +107,11 @@ public class PortalAuctionFilterController {
         return portalauctionfilter;
     }
 
-    /**
-     * @deprecated Use {@link #findPortalAuctionFilters(String)} instead.
-     */
-    @Deprecated
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    @ApiOperation(value = "Returns the list of PortalAuctionFilter instances matching the search criteria.")
-    public Page<PortalAuctionFilter> findPortalAuctionFilters(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
-        LOGGER.debug("Rendering PortalAuctionFilters list");
-        return portalAuctionFilterService.findAll(queryFilters, pageable);
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the list of PortalAuctionFilter instances matching the search criteria.")
-    public Page<PortalAuctionFilter> findPortalAuctionFilters(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        LOGGER.debug("Rendering PortalAuctionFilters list");
-        return portalAuctionFilterService.findAll(query, pageable);
-    }
-
-    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
-    @ApiOperation(value = "Returns downloadable file for the data.")
-    public Downloadable exportPortalAuctionFilters(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        return portalAuctionFilterService.export(exportType, query, pageable);
-    }
-
     @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the total count of PortalAuctionFilter instances.")
     public Long countPortalAuctionFilters(@RequestParam(value = "q", required = false) String query) {
         LOGGER.debug("counting PortalAuctionFilters");
         return portalAuctionFilterService.count(query);
-    }
-
-    /**
-	 * This setter method should only be used by unit tests
-	 *
-	 * @param service PortalAuctionFilterService instance
-	 */
-    protected void setPortalAuctionFilterService(PortalAuctionFilterService service) {
-        this.portalAuctionFilterService = service;
     }
 }

@@ -45,9 +45,43 @@ public class PortalAuctionDataController {
     @Qualifier("platform.PortalAuctionDataService")
     private PortalAuctionDataService portalAuctionDataService;
 
+    /**
+     * @deprecated Use {@link #findPortalAuctionDatas(String)} instead.
+     */
+    @Deprecated
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ApiOperation(value = "Returns the list of PortalAuctionData instances matching the search criteria.")
+    public Page<PortalAuctionData> findPortalAuctionDatas(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
+        LOGGER.debug("Rendering PortalAuctionDatas list");
+        return portalAuctionDataService.findAll(queryFilters, pageable);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the list of PortalAuctionData instances matching the search criteria.")
+    public Page<PortalAuctionData> findPortalAuctionDatas(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        LOGGER.debug("Rendering PortalAuctionDatas list");
+        return portalAuctionDataService.findAll(query, pageable);
+    }
+
+    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
+    @ApiOperation(value = "Returns downloadable file for the data.")
+    public Downloadable exportPortalAuctionDatas(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
+        return portalAuctionDataService.export(exportType, query, pageable);
+    }
+
+    /**
+	 * This setter method should only be used by unit tests
+	 *
+	 * @param service PortalAuctionDataService instance
+	 */
+    protected void setPortalAuctionDataService(PortalAuctionDataService service) {
+        this.portalAuctionDataService = service;
+    }
+
     @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the PortalAuctionData instance associated with the given composite-id.")
-    public PortalAuctionData getPortalAuctionData(@RequestParam("propertyId") int propertyId, @RequestParam("gradeId") int gradeId, @RequestParam("pin") String pin, @RequestParam("volume") Integer volume, @RequestParam("address1") String address1, @RequestParam("addressCity1") String addressCity1, @RequestParam("addressZip1") String addressZip1, @RequestParam("latitude") Float latitude, @RequestParam("longitude") Float longitude, @RequestParam("header") String header, @RequestParam("pinNd") String pinNd, @RequestParam("piqAddress") String piqAddress, @RequestParam("assessor") String assessor, @RequestParam("clerk") String clerk, @RequestParam("gis") String gis, @RequestParam("treasurer") String treasurer, @RequestParam("recorder") String recorder, @RequestParam("countyName") String countyName, @RequestParam("assesmentTaxYear") Integer assesmentTaxYear, @RequestParam("equalizedValuation") Double equalizedValuation, @RequestParam("homeExemption") Double homeExemption, @RequestParam("seniorExemption") Double seniorExemption, @RequestParam("assessedValuationBuilding") Double assessedValuationBuilding, @RequestParam("assessedValuationLand") Double assessedValuationLand, @RequestParam("assessedValuationTotal") Double assessedValuationTotal, @RequestParam("marketValue") Double marketValue, @RequestParam("assesseeName") String assesseeName, @RequestParam("assesseeAddressLine1") String assesseeAddressLine1, @RequestParam("assesseeAddressCity") String assesseeAddressCity, @RequestParam("assesseeAddressState") String assesseeAddressState, @RequestParam("assesseeAddressZip") String assesseeAddressZip, @RequestParam("taxRate") BigDecimal taxRate, @RequestParam("equalizationFactor") Float equalizationFactor, @RequestParam("taxYear") int taxYear, @RequestParam("auctionId") int auctionId, @RequestParam("priorYearsDue") Double priorYearsDue, @RequestParam("auctionInst1Due") Double auctionInst1Due, @RequestParam("auctionInst2Due") Double auctionInst2Due, @RequestParam("auctionYearBilled") Double auctionYearBilled, @RequestParam("auctionYearDue") Double auctionYearDue, @RequestParam("otherDue") Double otherDue, @RequestParam("saleAmount") double saleAmount, @RequestParam("auctionStatSummary") String auctionStatSummary, @RequestParam("currentStat") String currentStat, @RequestParam("currentBid") Integer currentBid, @RequestParam("lifetimeLtv") Float lifetimeLtv, @RequestParam("predRedemptionPct") Float predRedemptionPct, @RequestParam("predBidRate") Integer predBidRate, @RequestParam("grade") char grade, @RequestParam("avgBidrate") Float avgBidrate, @RequestParam("forfeitStat") String forfeitStat, @RequestParam("redemptionStat") String redemptionStat, @RequestParam("townshipName") String townshipName, @RequestParam("inst1") Double inst1, @RequestParam("subYear") Integer subYear, @RequestParam("inst2") Double inst2, @RequestParam("total") Double total) throws EntityNotFoundException {
+    public PortalAuctionData getPortalAuctionData(@RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "gradeId", required = true) int gradeId, @RequestParam(value = "pin", required = true) String pin, @RequestParam(value = "volume", required = true) Integer volume, @RequestParam(value = "address1", required = true) String address1, @RequestParam(value = "addressCity1", required = true) String addressCity1, @RequestParam(value = "addressZip1", required = true) String addressZip1, @RequestParam(value = "latitude", required = true) Float latitude, @RequestParam(value = "longitude", required = true) Float longitude, @RequestParam(value = "header", required = true) String header, @RequestParam(value = "pinNd", required = true) String pinNd, @RequestParam(value = "piqAddress", required = true) String piqAddress, @RequestParam(value = "assessor", required = true) String assessor, @RequestParam(value = "clerk", required = true) String clerk, @RequestParam(value = "gis", required = true) String gis, @RequestParam(value = "treasurer", required = true) String treasurer, @RequestParam(value = "recorder", required = true) String recorder, @RequestParam(value = "countyName", required = true) String countyName, @RequestParam(value = "assesmentTaxYear", required = true) Integer assesmentTaxYear, @RequestParam(value = "equalizedValuation", required = true) Double equalizedValuation, @RequestParam(value = "homeExemption", required = true) Double homeExemption, @RequestParam(value = "seniorExemption", required = true) Double seniorExemption, @RequestParam(value = "assessedValuationBuilding", required = true) Double assessedValuationBuilding, @RequestParam(value = "assessedValuationLand", required = true) Double assessedValuationLand, @RequestParam(value = "assessedValuationTotal", required = true) Double assessedValuationTotal, @RequestParam(value = "marketValue", required = true) Double marketValue, @RequestParam(value = "assesseeName", required = true) String assesseeName, @RequestParam(value = "assesseeAddressLine1", required = true) String assesseeAddressLine1, @RequestParam(value = "assesseeAddressCity", required = true) String assesseeAddressCity, @RequestParam(value = "assesseeAddressState", required = true) String assesseeAddressState, @RequestParam(value = "assesseeAddressZip", required = true) String assesseeAddressZip, @RequestParam(value = "taxRate", required = true) BigDecimal taxRate, @RequestParam(value = "equalizationFactor", required = true) Float equalizationFactor, @RequestParam(value = "taxYear", required = true) int taxYear, @RequestParam(value = "auctionId", required = true) int auctionId, @RequestParam(value = "priorYearsDue", required = true) Double priorYearsDue, @RequestParam(value = "auctionInst1Due", required = true) Double auctionInst1Due, @RequestParam(value = "auctionInst2Due", required = true) Double auctionInst2Due, @RequestParam(value = "auctionYearBilled", required = true) Double auctionYearBilled, @RequestParam(value = "auctionYearDue", required = true) Double auctionYearDue, @RequestParam(value = "otherDue", required = true) Double otherDue, @RequestParam(value = "saleAmount", required = true) double saleAmount, @RequestParam(value = "auctionStatSummary", required = true) String auctionStatSummary, @RequestParam(value = "currentStat", required = true) String currentStat, @RequestParam(value = "currentBid", required = true) Integer currentBid, @RequestParam(value = "lifetimeLtv", required = true) Float lifetimeLtv, @RequestParam(value = "predRedemptionPct", required = true) Float predRedemptionPct, @RequestParam(value = "predBidRate", required = true) Integer predBidRate, @RequestParam(value = "grade", required = true) char grade, @RequestParam(value = "avgBidrate", required = true) Float avgBidrate, @RequestParam(value = "forfeitStat", required = true) String forfeitStat, @RequestParam(value = "redemptionStat", required = true) String redemptionStat, @RequestParam(value = "townshipName", required = true) String townshipName, @RequestParam(value = "inst1", required = true) Double inst1, @RequestParam(value = "subYear", required = true) Integer subYear, @RequestParam(value = "inst2", required = true) Double inst2, @RequestParam(value = "total", required = true) Double total) throws EntityNotFoundException {
         PortalAuctionDataId portalauctiondataId = new PortalAuctionDataId();
         portalauctiondataId.setPropertyId(propertyId);
         portalauctiondataId.setGradeId(gradeId);
@@ -112,43 +146,11 @@ public class PortalAuctionDataController {
         return portalauctiondata;
     }
 
-    /**
-     * @deprecated Use {@link #findPortalAuctionDatas(String)} instead.
-     */
-    @Deprecated
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    @ApiOperation(value = "Returns the list of PortalAuctionData instances matching the search criteria.")
-    public Page<PortalAuctionData> findPortalAuctionDatas(Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
-        LOGGER.debug("Rendering PortalAuctionDatas list");
-        return portalAuctionDataService.findAll(queryFilters, pageable);
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the list of PortalAuctionData instances matching the search criteria.")
-    public Page<PortalAuctionData> findPortalAuctionDatas(@RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        LOGGER.debug("Rendering PortalAuctionDatas list");
-        return portalAuctionDataService.findAll(query, pageable);
-    }
-
-    @RequestMapping(value = "/export/{exportType}", method = RequestMethod.GET, produces = "application/octet-stream")
-    @ApiOperation(value = "Returns downloadable file for the data.")
-    public Downloadable exportPortalAuctionDatas(@PathVariable("exportType") ExportType exportType, @RequestParam(value = "q", required = false) String query, Pageable pageable) {
-        return portalAuctionDataService.export(exportType, query, pageable);
-    }
-
     @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Returns the total count of PortalAuctionData instances.")
     public Long countPortalAuctionDatas(@RequestParam(value = "q", required = false) String query) {
         LOGGER.debug("counting PortalAuctionDatas");
         return portalAuctionDataService.count(query);
-    }
-
-    /**
-	 * This setter method should only be used by unit tests
-	 *
-	 * @param service PortalAuctionDataService instance
-	 */
-    protected void setPortalAuctionDataService(PortalAuctionDataService service) {
-        this.portalAuctionDataService = service;
     }
 }

@@ -67,13 +67,6 @@ public class DisbursementTypeController {
         return disbursementTypeService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of DisbursementType instances.")
-    public Long countDisbursementTypes(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting DisbursementTypes");
-        return disbursementTypeService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class DisbursementTypeController {
 	 */
     protected void setDisbursementTypeService(DisbursementTypeService service) {
         this.disbursementTypeService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of DisbursementType instances.")
+    public Long countDisbursementTypes(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting DisbursementTypes");
+        return disbursementTypeService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

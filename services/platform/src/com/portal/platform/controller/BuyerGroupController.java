@@ -73,13 +73,6 @@ public class BuyerGroupController {
         return buyerGroupService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of BuyerGroup instances.")
-    public Long countBuyerGroups(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting BuyerGroups");
-        return buyerGroupService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/buyers", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the buyers instance associated with the given id.")
     public Page<Buyer> findAssociatedBuyers(Pageable pageable, @PathVariable("id") Integer id) {
@@ -103,6 +96,14 @@ public class BuyerGroupController {
 	 */
     protected void setBuyerService(BuyerService service) {
         this.buyerService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of BuyerGroup instances.")
+    public Long countBuyerGroups(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting BuyerGroups");
+        return buyerGroupService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

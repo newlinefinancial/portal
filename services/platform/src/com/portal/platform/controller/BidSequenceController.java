@@ -45,21 +45,6 @@ public class BidSequenceController {
     @Qualifier("platform.BidSequenceService")
     private BidSequenceService bidSequenceService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the BidSequence instance associated with the given composite-id.")
-    public BidSequence getBidSequence(@RequestParam("auctionId") int auctionId, @RequestParam("taxYear") int taxYear, @RequestParam("propertyId") int propertyId, @RequestParam("auctionDay") Integer auctionDay, @RequestParam("order") BigInteger order) throws EntityNotFoundException {
-        BidSequenceId bidsequenceId = new BidSequenceId();
-        bidsequenceId.setAuctionId(auctionId);
-        bidsequenceId.setTaxYear(taxYear);
-        bidsequenceId.setPropertyId(propertyId);
-        bidsequenceId.setAuctionDay(auctionDay);
-        bidsequenceId.setOrder(order);
-        LOGGER.debug("Getting BidSequence with id: {}", bidsequenceId);
-        BidSequence bidsequence = bidSequenceService.getById(bidsequenceId);
-        LOGGER.debug("BidSequence details with id: {}", bidsequence);
-        return bidsequence;
-    }
-
     /**
      * @deprecated Use {@link #findBidSequences(String)} instead.
      */
@@ -84,13 +69,6 @@ public class BidSequenceController {
         return bidSequenceService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of BidSequence instances.")
-    public Long countBidSequences(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting BidSequences");
-        return bidSequenceService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -98,5 +76,29 @@ public class BidSequenceController {
 	 */
     protected void setBidSequenceService(BidSequenceService service) {
         this.bidSequenceService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the BidSequence instance associated with the given composite-id.")
+    public BidSequence getBidSequence(@RequestParam(value = "auctionId", required = true) int auctionId, @RequestParam(value = "taxYear", required = true) int taxYear, @RequestParam(value = "propertyId", required = true) int propertyId, @RequestParam(value = "auctionDay", required = true) Integer auctionDay, @RequestParam(value = "order", required = true) BigInteger order) throws EntityNotFoundException {
+        BidSequenceId bidsequenceId = new BidSequenceId();
+        bidsequenceId.setAuctionId(auctionId);
+        bidsequenceId.setTaxYear(taxYear);
+        bidsequenceId.setPropertyId(propertyId);
+        bidsequenceId.setAuctionDay(auctionDay);
+        bidsequenceId.setOrder(order);
+        LOGGER.debug("Getting BidSequence with id: {}", bidsequenceId);
+        BidSequence bidsequence = bidSequenceService.getById(bidsequenceId);
+        LOGGER.debug("BidSequence details with id: {}", bidsequence);
+        return bidsequence;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of BidSequence instances.")
+    public Long countBidSequences(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting BidSequences");
+        return bidSequenceService.count(query);
     }
 }

@@ -67,13 +67,6 @@ public class TaxHistoryController {
         return taxHistoryService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of TaxHistory instances.")
-    public Long countTaxHistories(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting TaxHistories");
-        return taxHistoryService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -81,6 +74,14 @@ public class TaxHistoryController {
 	 */
     protected void setTaxHistoryService(TaxHistoryService service) {
         this.taxHistoryService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of TaxHistory instances.")
+    public Long countTaxHistories(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting TaxHistories");
+        return taxHistoryService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

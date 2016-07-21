@@ -73,13 +73,6 @@ public class AccrualTypeController {
         return accrualTypeService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of AccrualType instances.")
-    public Long countAccrualTypes(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting AccrualTypes");
-        return accrualTypeService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/accruals", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the accruals instance associated with the given id.")
     public Page<Accrual> findAssociatedAccruals(Pageable pageable, @PathVariable("id") Integer id) {
@@ -103,6 +96,14 @@ public class AccrualTypeController {
 	 */
     protected void setAccrualService(AccrualService service) {
         this.accrualService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of AccrualType instances.")
+    public Long countAccrualTypes(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting AccrualTypes");
+        return accrualTypeService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

@@ -73,13 +73,6 @@ public class SourceController {
         return sourceService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Source instances.")
-    public Long countSources(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Sources");
-        return sourceService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/partiesForSource2", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the partiesForSource2 instance associated with the given id.")
     public Page<Party> findAssociatedPartiesForSource2(Pageable pageable, @PathVariable("id") String id) {
@@ -110,6 +103,14 @@ public class SourceController {
 	 */
     protected void setPartyService(PartyService service) {
         this.partyService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Source instances.")
+    public Long countSources(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Sources");
+        return sourceService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

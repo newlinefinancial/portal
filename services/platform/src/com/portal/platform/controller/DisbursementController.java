@@ -79,13 +79,6 @@ public class DisbursementController {
         return disbursementService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Disbursement instances.")
-    public Long countDisbursements(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Disbursements");
-        return disbursementService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/payments", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the payments instance associated with the given id.")
     public Page<Payment> findAssociatedPayments(Pageable pageable, @PathVariable("id") Integer id) {
@@ -125,6 +118,14 @@ public class DisbursementController {
 	 */
     protected void setPaymentService(PaymentService service) {
         this.paymentService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Disbursement instances.")
+    public Long countDisbursements(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Disbursements");
+        return disbursementService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

@@ -73,13 +73,6 @@ public class NoteTypeController {
         return noteTypeService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of NoteType instances.")
-    public Long countNoteTypes(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting NoteTypes");
-        return noteTypeService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/notes", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the notes instance associated with the given id.")
     public Page<Note> findAssociatedNotes(Pageable pageable, @PathVariable("id") Integer id) {
@@ -103,6 +96,14 @@ public class NoteTypeController {
 	 */
     protected void setNoteService(NoteService service) {
         this.noteService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of NoteType instances.")
+    public Long countNoteTypes(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting NoteTypes");
+        return noteTypeService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

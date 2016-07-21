@@ -73,13 +73,6 @@ public class StateController {
         return stateService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of State instances.")
-    public Long countStates(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting States");
-        return stateService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/counties", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the counties instance associated with the given id.")
     public Page<County> findAssociatedCounties(Pageable pageable, @PathVariable("id") Integer id) {
@@ -103,6 +96,14 @@ public class StateController {
 	 */
     protected void setCountyService(CountyService service) {
         this.countyService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of State instances.")
+    public Long countStates(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting States");
+        return stateService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

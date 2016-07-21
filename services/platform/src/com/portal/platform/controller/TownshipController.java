@@ -79,13 +79,6 @@ public class TownshipController {
         return townshipService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of Township instances.")
-    public Long countTownships(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting Townships");
-        return townshipService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/properties", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the properties instance associated with the given id.")
     public Page<Property> findAssociatedProperties(Pageable pageable, @PathVariable("id") Integer id) {
@@ -125,6 +118,14 @@ public class TownshipController {
 	 */
     protected void setGradeService(GradeService service) {
         this.gradeService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of Township instances.")
+    public Long countTownships(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting Townships");
+        return townshipService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

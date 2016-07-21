@@ -45,24 +45,6 @@ public class PortalCertificateNoteController {
     @Qualifier("platform.PortalCertificateNoteService")
     private PortalCertificateNoteService portalCertificateNoteService;
 
-    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the PortalCertificateNote instance associated with the given composite-id.")
-    public PortalCertificateNote getPortalCertificateNote(@RequestParam("noteId") int noteId, @RequestParam("certificateId") int certificateId, @RequestParam("user") String user, @RequestParam("created") Date created, @RequestParam("due") Date due, @RequestParam("done") Date done, @RequestParam("noteDescription") String noteDescription, @RequestParam("noteTypeId") int noteTypeId) throws EntityNotFoundException {
-        PortalCertificateNoteId portalcertificatenoteId = new PortalCertificateNoteId();
-        portalcertificatenoteId.setNoteId(noteId);
-        portalcertificatenoteId.setCertificateId(certificateId);
-        portalcertificatenoteId.setUser(user);
-        portalcertificatenoteId.setCreated(created);
-        portalcertificatenoteId.setDue(due);
-        portalcertificatenoteId.setDone(done);
-        portalcertificatenoteId.setNoteDescription(noteDescription);
-        portalcertificatenoteId.setNoteTypeId(noteTypeId);
-        LOGGER.debug("Getting PortalCertificateNote with id: {}", portalcertificatenoteId);
-        PortalCertificateNote portalcertificatenote = portalCertificateNoteService.getById(portalcertificatenoteId);
-        LOGGER.debug("PortalCertificateNote details with id: {}", portalcertificatenote);
-        return portalcertificatenote;
-    }
-
     /**
      * @deprecated Use {@link #findPortalCertificateNotes(String)} instead.
      */
@@ -87,13 +69,6 @@ public class PortalCertificateNoteController {
         return portalCertificateNoteService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of PortalCertificateNote instances.")
-    public Long countPortalCertificateNotes(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting PortalCertificateNotes");
-        return portalCertificateNoteService.count(query);
-    }
-
     /**
 	 * This setter method should only be used by unit tests
 	 *
@@ -101,5 +76,32 @@ public class PortalCertificateNoteController {
 	 */
     protected void setPortalCertificateNoteService(PortalCertificateNoteService service) {
         this.portalCertificateNoteService = service;
+    }
+
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the PortalCertificateNote instance associated with the given composite-id.")
+    public PortalCertificateNote getPortalCertificateNote(@RequestParam(value = "noteId", required = true) int noteId, @RequestParam(value = "certificateId", required = true) int certificateId, @RequestParam(value = "user", required = true) String user, @RequestParam(value = "created", required = true) Date created, @RequestParam(value = "due", required = true) Date due, @RequestParam(value = "done", required = true) Date done, @RequestParam(value = "noteDescription", required = true) String noteDescription, @RequestParam(value = "noteTypeId", required = true) int noteTypeId) throws EntityNotFoundException {
+        PortalCertificateNoteId portalcertificatenoteId = new PortalCertificateNoteId();
+        portalcertificatenoteId.setNoteId(noteId);
+        portalcertificatenoteId.setCertificateId(certificateId);
+        portalcertificatenoteId.setUser(user);
+        portalcertificatenoteId.setCreated(created);
+        portalcertificatenoteId.setDue(due);
+        portalcertificatenoteId.setDone(done);
+        portalcertificatenoteId.setNoteDescription(noteDescription);
+        portalcertificatenoteId.setNoteTypeId(noteTypeId);
+        LOGGER.debug("Getting PortalCertificateNote with id: {}", portalcertificatenoteId);
+        PortalCertificateNote portalcertificatenote = portalCertificateNoteService.getById(portalcertificatenoteId);
+        LOGGER.debug("PortalCertificateNote details with id: {}", portalcertificatenote);
+        return portalcertificatenote;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of PortalCertificateNote instances.")
+    public Long countPortalCertificateNotes(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting PortalCertificateNotes");
+        return portalCertificateNoteService.count(query);
     }
 }

@@ -73,13 +73,6 @@ public class PropertyExteriorController {
         return propertyExteriorService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of PropertyExterior instances.")
-    public Long countPropertyExteriors(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting PropertyExteriors");
-        return propertyExteriorService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/properties", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the properties instance associated with the given id.")
     public Page<Property> findAssociatedProperties(Pageable pageable, @PathVariable("id") Integer id) {
@@ -103,6 +96,14 @@ public class PropertyExteriorController {
 	 */
     protected void setPropertyService(PropertyService service) {
         this.propertyService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of PropertyExterior instances.")
+    public Long countPropertyExteriors(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting PropertyExteriors");
+        return propertyExteriorService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

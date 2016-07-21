@@ -73,13 +73,6 @@ public class TitleTypeController {
         return titleTypeService.export(exportType, query, pageable);
     }
 
-    @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the total count of TitleType instances.")
-    public Long countTitleTypes(@RequestParam(value = "q", required = false) String query) {
-        LOGGER.debug("counting TitleTypes");
-        return titleTypeService.count(query);
-    }
-
     @RequestMapping(value = "/{id:.+}/titleTransactions", method = RequestMethod.GET)
     @ApiOperation(value = "Gets the titleTransactions instance associated with the given id.")
     public Page<TitleTransaction> findAssociatedTitleTransactions(Pageable pageable, @PathVariable("id") Integer id) {
@@ -103,6 +96,14 @@ public class TitleTypeController {
 	 */
     protected void setTitleTransactionService(TitleTransactionService service) {
         this.titleTransactionService = service;
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Returns the total count of TitleType instances.")
+    public Long countTitleTypes(@RequestParam(value = "q", required = false) String query) {
+        LOGGER.debug("counting TitleTypes");
+        return titleTypeService.count(query);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
