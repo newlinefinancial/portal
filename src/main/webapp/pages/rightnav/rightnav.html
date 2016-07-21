@@ -1,8 +1,13 @@
 <wm-partial data-ng-controller="rightnavPageController" name="rightnav" type="rightnav">
-    <wm-nav name="rightnav" type="pills" layout="stacked">
-        <wm-nav-item name="list_task"></wm-nav-item>
-        <wm-nav-item name="list_directory"></wm-nav-item>
-        <wm-nav-item name="list_people"></wm-nav-item>
-    </wm-nav>
-    <wm-prefab prefabname="googlemaps" name="googlemaps1"></wm-prefab>
+    <wm-content name="content">
+        <wm-page-content padding="unset 15px" columnwidth="12" name="mainContent">
+            <wm-html name="html1" autoscroll="true" width="100%" height="90%" backgroundsize="100%,100%">
+                <div id="gMapsDiv" style="height: 500px;width:100%">
+                    <h3>Maps loads here</h3>
+                </div>
+            </wm-html>
+            <wm-label name="pointLabel" caption="pointLabel"></wm-label>
+        </wm-page-content>
+    </wm-content>
+    <wm-nav name="rightnav" type="pills" layout="stacked"></wm-nav>
 </wm-partial>

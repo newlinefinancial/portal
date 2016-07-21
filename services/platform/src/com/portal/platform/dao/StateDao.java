@@ -9,18 +9,19 @@ package com.portal.platform.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
 import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.wavemaker.runtime.data.dao.WMGenericDaoImpl;
 
-import com.portal.platform.*;
+import com.portal.platform.State;
+
 /**
-* Specifies methods used to obtain and modify State related information
-* which is stored in the database.
-*/
+ * Specifies methods used to obtain and modify State related information
+ * which is stored in the database.
+ */
 @Repository("platform.StateDao")
-public class StateDao extends WMGenericDaoImpl <State, Integer> {
+public class StateDao extends WMGenericDaoImpl<State, Integer> {
 
     @Autowired
     @Qualifier("platformTemplate")

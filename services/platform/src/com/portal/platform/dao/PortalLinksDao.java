@@ -9,18 +9,20 @@ package com.portal.platform.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
 import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.wavemaker.runtime.data.dao.WMGenericDaoImpl;
 
-import com.portal.platform.*;
+import com.portal.platform.PortalLinks;
+import com.portal.platform.PortalLinksId;
+
 /**
-* Specifies methods used to obtain and modify PortalLinks related information
-* which is stored in the database.
-*/
+ * Specifies methods used to obtain and modify PortalLinks related information
+ * which is stored in the database.
+ */
 @Repository("platform.PortalLinksDao")
-public class PortalLinksDao extends WMGenericDaoImpl <PortalLinks, PortalLinksId> {
+public class PortalLinksDao extends WMGenericDaoImpl<PortalLinks, PortalLinksId> {
 
     @Autowired
     @Qualifier("platformTemplate")

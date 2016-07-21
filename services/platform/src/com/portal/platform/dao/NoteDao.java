@@ -9,18 +9,19 @@ package com.portal.platform.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
 import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.wavemaker.runtime.data.dao.WMGenericDaoImpl;
 
-import com.portal.platform.*;
+import com.portal.platform.Note;
+
 /**
-* Specifies methods used to obtain and modify Note related information
-* which is stored in the database.
-*/
+ * Specifies methods used to obtain and modify Note related information
+ * which is stored in the database.
+ */
 @Repository("platform.NoteDao")
-public class NoteDao extends WMGenericDaoImpl <Note, Integer> {
+public class NoteDao extends WMGenericDaoImpl<Note, Integer> {
 
     @Autowired
     @Qualifier("platformTemplate")

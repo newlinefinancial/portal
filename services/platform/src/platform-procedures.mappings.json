@@ -1,1 +1,5 @@
-{"name":"platform","description":"Procedure for platform","procedures":[]}
+{
+  "name" : "platform",
+  "description" : "Procedure for platform",
+  "procedures" : [ ]
+}

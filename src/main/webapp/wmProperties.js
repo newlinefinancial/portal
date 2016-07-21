@@ -1,5 +1,5 @@
 var _WM_APP_PROPERTIES = {
-  "activeTheme" : "slate",
+  "activeTheme" : "material",
   "defaultLanguage" : "en",
   "displayName" : "Portal",
   "homePage" : "Main",
