@@ -9757,7 +9757,7 @@
       "unique" : false
     } ],
     "constraints" : [ {
-      "columns" : [ "doc_number", "property_id", "research_bundle" ],
+      "columns" : [ "property_id", "doc_number", "research_bundle" ],
       "name" : "AK_title_transaction_duplicate",
       "type" : "UNIQUE",
       "virtual" : false
@@ -20046,7 +20046,7 @@
       "unique" : false
     } ],
     "constraints" : [ {
-      "columns" : [ "installment", "property_id", "tax_year" ],
+      "columns" : [ "property_id", "installment", "tax_year" ],
       "name" : "AK_available_subs_duplicate",
       "type" : "UNIQUE",
       "virtual" : false
@@ -20668,7 +20668,7 @@
       "unique" : true
     } ],
     "constraints" : [ {
-      "columns" : [ "property_id", "date", "type" ],
+      "columns" : [ "property_id", "type", "date" ],
       "name" : "AK_research_duplicate",
       "type" : "UNIQUE",
       "virtual" : false

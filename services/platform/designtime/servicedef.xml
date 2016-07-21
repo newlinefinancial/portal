@@ -286,6 +286,11 @@
             <element name="zoning" typeRef="java.lang.String" allowNull="true"/>
             <element name="filter" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
+        <dataobject javaType="com.portal.platform.DisbursementType">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="category" typeRef="java.lang.String" allowNull="true"/>
+            <element name="type" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
         <dataobject javaType="com.portal.platform.PortalMatterFilter">
             <element name="expirationDate" typeRef="java.util.Date" allowNull="true"/>
             <element name="status" typeRef="java.lang.String" allowNull="true"/>
@@ -300,11 +305,6 @@
             <element name="taxYear" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="pin" typeRef="java.lang.String" allowNull="true"/>
             <element name="volume" typeRef="java.lang.Integer" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.portal.platform.DisbursementType">
-            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="category" typeRef="java.lang.String" allowNull="true"/>
-            <element name="type" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.Buyer">
             <element name="id" typeRef="java.lang.Integer" allowNull="true"/>

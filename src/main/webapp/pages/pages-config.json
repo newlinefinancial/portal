@@ -1,8 +1,4 @@
 [ {
-  "name" : "CertificateDetails",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
@@ -57,6 +53,10 @@
 }, {
   "name" : "svc_data",
   "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "svc_details",
+  "type" : "PARTIAL",
   "params" : [ ]
 }, {
   "name" : "svc_filter",

@@ -1,9 +1,34 @@
 <wm-page data-ng-controller="servicePageController" name="page1" pagetitle="Service">
     <wm-header name="header1" content="header"></wm-header>
-    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav>
     <wm-content name="content1">
-        <wm-left-panel name="left_panel1" content="svc_filter" columnwidth="3"></wm-left-panel>
-        <wm-page-content name="page_content1" columnwidth="9"></wm-page-content>
+        <wm-left-panel name="left_panel1" content="svc_filter" columnwidth="2"></wm-left-panel>
+        <wm-page-content name="page_content1" columnwidth="10">
+            <wm-livelist name="livelist1" dataset="bind:Variables.PlatformPortalCertificateDataData1.dataSet" itemsperrow="xs-1 sm-2 md-4 lg-4" template="true" listclass="list-group" navigation="None">
+                <wm-listtemplate name="listtemplate1" layout="media">
+                    <wm-card name="Thumbnail">
+                        <wm-card-content name="card_content1">
+                            <wm-layoutgrid name="layoutgrid1">
+                                <wm-gridrow name="gridrow1">
+                                    <wm-gridcolumn class="col-xs-6" name="gridcolumn1" horizontalalign="left" columnwidth="6">
+                                        <wm-label caption="Currency" name="Currency" color="#ba5d1e"></wm-label>
+                                        <wm-label caption="Price" name="Price" color="#ba5d1e" fontsize="1.571" margin="unset unset 1px unset" fontunit="em"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn class="col-xs-6" name="gridcolumn2" horizontalalign="right" columnwidth="6">
+                                        <wm-label caption="Quantity" name="Quantity" fontsize="1.286" margin="unset 0.2em unset unset" fontunit="em"></wm-label>
+                                        <wm-label caption="Available" name="HelpText"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-card-content>
+                        <wm-card-footer name="card_footer1" horizontalalign="center">
+                            <wm-anchor class="p" caption="ADD TO CART" name="anchor1" color="#dbce11"></wm-anchor>
+                        </wm-card-footer>
+                    </wm-card>
+                    <wm-label caption="bind:Variables.PlatformPortalCertificateDataData1.dataSet.data[$i].certificateNumber" name="label7"></wm-label>
+                    <wm-label caption="bind:Variables.PlatformPortalCertificateDataData1.dataSet.data[$i].pin" name="label8" height="24" width="168"></wm-label>
+                </wm-listtemplate>
+            </wm-livelist>
+        </wm-page-content>
     </wm-content>
     <wm-footer name="footer1" content="footer"></wm-footer>
 </wm-page>
