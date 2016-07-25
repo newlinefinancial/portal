@@ -59,6 +59,17 @@
     "pageName" : "Page",
     "pageTransitions" : "none"
   },
+  "goToPage_ParcelTracking" : {
+    "_id" : "wm-goToPage_ParcelTracking-wm.NavigationVariable-1469429733716",
+    "name" : "goToPage_ParcelTracking",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ParcelTracking",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_service" : {
     "_id" : "wm-goToPage_service-wm.NavigationVariable-1459193900203",
     "name" : "goToPage_service",

@@ -23,6 +23,10 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "ParcelTracking",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "certificate",
   "type" : "PAGE",
   "params" : [ ]
