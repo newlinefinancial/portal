@@ -15835,7 +15835,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 17,
+    "bindCount" : 18,
     "tableName" : "portal_certificate_data",
     "dbSystem" : "SQLServer",
     "properties" : [ ],

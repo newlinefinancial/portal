@@ -1,8 +1,4 @@
 [ {
-  "name" : "CertificateDetails",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
