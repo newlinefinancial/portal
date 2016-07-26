@@ -1,4 +1,15 @@
 {
+  "goToPage_certifcate_details" : {
+    "_id" : "wm-goToPage_certifcate_details-wm.NavigationVariable-1469477769121",
+    "name" : "goToPage_certifcate_details",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "certifcate_details",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_certificate" : {
     "_id" : "wm-goToPage_certificate-wm.NavigationVariable-1469115328749",
     "name" : "goToPage_certificate",
@@ -6866,7 +6877,7 @@
       "primaryFields" : [ "id" ]
     },
     "isDefault" : true,
-    "bindCount" : 6,
+    "bindCount" : 8,
     "tableName" : "certificate",
     "dbSystem" : "SQLServer",
     "properties" : [ "county", "property" ],
@@ -15835,7 +15846,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 18,
+    "bindCount" : 19,
     "tableName" : "portal_certificate_data",
     "dbSystem" : "SQLServer",
     "properties" : [ ],
