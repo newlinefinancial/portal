@@ -40,6 +40,14 @@ public class PlatformQueryExecutorServiceImpl implements PlatformQueryExecutorSe
         Map<String, Object> params = new HashMap<String, Object>();
         return queryExecutor.executeNamedQuery("inspection_drop_down", params, pageable);
 	}
+	@Transactional(value = "platformTransactionManager")
+	@Override
+	public Page<Object> executeQryPortalCertificateDataById(Pageable pageable, java.lang.Integer id)
+	throws QueryParameterMismatchException{
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("id", id);
+        return queryExecutor.executeNamedQuery("qryPortalCertificateDataById", params, pageable);
+	}
 
 	@Transactional(value = "platformTransactionManager")
 	@Override

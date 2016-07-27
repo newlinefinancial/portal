@@ -91,6 +91,17 @@
     "pageName" : "service",
     "pageTransitions" : "none"
   },
+  "goToPage_test" : {
+    "_id" : "wm-goToPage_test-wm.NavigationVariable-1469546362267",
+    "name" : "goToPage_test",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "test",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "loggedInUser" : {
     "_id" : "wm-loggedInUser-wm.Variable-1459202004312",
     "name" : "loggedInUser",
@@ -15434,12 +15445,16 @@
     "relatedTables" : [ ],
     "package" : "com.portal.platform.PortalCertificateAddress"
   },
-  "PlatformPortalCertificateDataData" : {
+  "PlatformPortalCertificateDataById" : {
     "_id" : "wm-PlatformPortalCertificateDataData-wm.LiveVariable-1459194184380",
-    "name" : "PlatformPortalCertificateDataData",
+    "name" : "PlatformPortalCertificateDataById",
     "owner" : "App",
     "category" : "wm.LiveVariable",
-    "dataBinding" : [ ],
+    "dataBinding" : [ {
+      "target" : "certificateId",
+      "value" : "bind:Widgets.livelist1.selecteditem.id",
+      "type" : "number"
+    } ],
     "operation" : "read",
     "dataSet" : [ ],
     "type" : "PortalCertificateData",
@@ -15851,6 +15866,7 @@
     "dbSystem" : "SQLServer",
     "properties" : [ ],
     "relatedTables" : [ ],
+    "filterFields" : { },
     "package" : "com.portal.platform.PortalCertificateData"
   },
   "PlatformPortalCertificateFilterData" : {

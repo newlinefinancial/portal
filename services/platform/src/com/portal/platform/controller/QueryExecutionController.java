@@ -46,6 +46,15 @@ public class QueryExecutionController {
         return result;
     }
 
+    @ApiOperation(value = "Process request to execute queries")
+    @RequestMapping(value = "/queries/qryPortalCertificateDataById", method = RequestMethod.GET)
+    public Page<Object> executeQryPortalCertificateDataById(@RequestParam(value = "id", required = false) java.lang.Integer id, Pageable pageable) throws QueryParameterMismatchException {
+        LOGGER.debug("Executing named query qryPortalCertificateDataById");
+        Page<Object> result = queryService.executeQryPortalCertificateDataById(pageable, id);
+        LOGGER.debug("got the result of named query {}", result);
+        return result;
+    }
+
     @RequestMapping(value = "/queries/wm_custom", method = RequestMethod.POST)
     @ApiOperation(value = "Process request to execute customer queries")
     public Page<Object> executeWMCustomQuery(@RequestBody CustomQuery query, Pageable pageable) {

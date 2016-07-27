@@ -10,9 +10,60 @@
     "returnsSingleResult" : false,
     "update" : false,
     "queryParams" : [ ],
-    "outputType" : null,
+    "outputType" : "platforminspection_drop_downrtnType",
     "returnTypeMetadata" : {
       "drop_down" : "java.lang.String"
+    }
+  }, {
+    "name" : "qryPortalCertificateDataById",
+    "query" : "select * from review.portal_certificate_data where certificate_id = :id",
+    "comment" : "",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "id",
+      "paramType" : "java.lang.Integer",
+      "testValue" : "1470",
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : "platformqryPortalCertificateDataByIdrtnType",
+    "returnTypeMetadata" : {
+      "certificate_principal" : "java.math.BigDecimal",
+      "closed_date" : "java.lang.String",
+      "due_after_settlement" : "java.math.BigDecimal",
+      "certificate_number" : "java.lang.String",
+      "balance_due" : "java.math.BigDecimal",
+      "date_sold" : "java.sql.Date",
+      "status_change_date" : "java.sql.Date",
+      "filed_date" : "java.lang.String",
+      "sub_revenue" : "java.math.BigDecimal",
+      "principal" : "java.math.BigDecimal",
+      "bank" : "java.lang.String",
+      "matter_number" : "java.lang.String",
+      "revenue" : "java.math.BigDecimal",
+      "property_id" : "java.lang.Integer",
+      "fee_principal" : "java.math.BigDecimal",
+      "status" : "java.lang.String",
+      "certificate_id" : "java.lang.Integer",
+      "initial_court_date" : "java.lang.String",
+      "code" : "java.lang.String",
+      "header" : "java.lang.String",
+      "fee_revenue" : "java.math.BigDecimal",
+      "tax_year" : "java.lang.Integer",
+      "property_type" : "java.lang.String",
+      "sub_principal" : "java.math.BigDecimal",
+      "pin" : "java.lang.String",
+      "expiration_date" : "java.sql.Date",
+      "volume" : "java.lang.Integer",
+      "payment_in_transit" : "java.math.BigDecimal",
+      "bid_rate" : "java.lang.Double",
+      "storage_status" : "java.lang.String",
+      "certificate_revenue" : "java.math.BigDecimal",
+      "county_name" : "java.lang.String"
     }
   } ]
 }

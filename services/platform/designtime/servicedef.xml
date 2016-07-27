@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="platform" type="DataService" springFile="platform.spring.xml">
+    <operation operationType="nativequery" name="qryPortalCertificateDataById">
+        <parameter name="id" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="platformqryPortalCertificateDataByIdrtnType" isList="false"/>
+    </operation>
     <operation operationType="nativequery" name="inspection_drop_down">
         <return typeRef="platforminspection_drop_downrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="qryPortalCertificateDataById">
+        <parameter name="id" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="platformqryPortalCertificateDataByIdrtnType" isList="false"/>
     </operation>
     <dataobjects>
         <dataobject javaType="com.portal.platform.BorrowingBase">
@@ -286,6 +294,11 @@
             <element name="zoning" typeRef="java.lang.String" allowNull="true"/>
             <element name="filter" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
+        <dataobject javaType="com.portal.platform.DisbursementType">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="category" typeRef="java.lang.String" allowNull="true"/>
+            <element name="type" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
         <dataobject javaType="com.portal.platform.PortalMatterFilter">
             <element name="expirationDate" typeRef="java.util.Date" allowNull="true"/>
             <element name="status" typeRef="java.lang.String" allowNull="true"/>
@@ -300,11 +313,6 @@
             <element name="taxYear" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="pin" typeRef="java.lang.String" allowNull="true"/>
             <element name="volume" typeRef="java.lang.Integer" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.portal.platform.DisbursementType">
-            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="category" typeRef="java.lang.String" allowNull="true"/>
-            <element name="type" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.Buyer">
             <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
@@ -737,15 +745,6 @@
             <element name="inst" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="dueDate" typeRef="java.util.Date" allowNull="true"/>
         </dataobject>
-        <dataobject javaType="com.portal.platform.Grade">
-            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="township" typeRef="com.portal.platform.Township" allowNull="true"/>
-            <element name="county" typeRef="com.portal.platform.County" allowNull="true"/>
-            <element name="grade" typeRef="java.lang.String" allowNull="true"/>
-            <element name="properties" typeRef="com.portal.platform.Property" isList="true" allowNull="true"/>
-            <element name="notes" typeRef="com.portal.platform.Note" isList="true" allowNull="true"/>
-            <element name="lookup" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
         <dataobject javaType="com.portal.platform.TaxHistory">
             <element name="scavengerYear" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="inst1Due" typeRef="java.lang.Double" allowNull="true"/>
@@ -762,6 +761,15 @@
             <element name="openStatus" typeRef="java.lang.String" allowNull="true"/>
             <element name="inst2Due" typeRef="java.lang.Double" allowNull="true"/>
             <element name="dispositionDate" typeRef="java.util.Date" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.portal.platform.Grade">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="township" typeRef="com.portal.platform.Township" allowNull="true"/>
+            <element name="county" typeRef="com.portal.platform.County" allowNull="true"/>
+            <element name="grade" typeRef="java.lang.String" allowNull="true"/>
+            <element name="properties" typeRef="com.portal.platform.Property" isList="true" allowNull="true"/>
+            <element name="notes" typeRef="com.portal.platform.Note" isList="true" allowNull="true"/>
+            <element name="lookup" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.CertificateParty">
             <element name="interestTypeByInterestType2" typeRef="com.portal.platform.InterestType" allowNull="true"/>
@@ -1052,6 +1060,40 @@
         </dataobject>
         <dataobject javaType="platforminspection_drop_downrtnType">
             <element name="drop_down" typeRef="java.lang.String"/>
+        </dataobject>
+        <dataobject javaType="platformqryPortalCertificateDataByIdrtnType">
+            <element name="certificate_principal" typeRef="java.math.BigDecimal"/>
+            <element name="closed_date" typeRef="java.lang.String"/>
+            <element name="due_after_settlement" typeRef="java.math.BigDecimal"/>
+            <element name="certificate_number" typeRef="java.lang.String"/>
+            <element name="balance_due" typeRef="java.math.BigDecimal"/>
+            <element name="date_sold" typeRef="java.sql.Date"/>
+            <element name="status_change_date" typeRef="java.sql.Date"/>
+            <element name="filed_date" typeRef="java.lang.String"/>
+            <element name="sub_revenue" typeRef="java.math.BigDecimal"/>
+            <element name="principal" typeRef="java.math.BigDecimal"/>
+            <element name="bank" typeRef="java.lang.String"/>
+            <element name="matter_number" typeRef="java.lang.String"/>
+            <element name="revenue" typeRef="java.math.BigDecimal"/>
+            <element name="property_id" typeRef="java.lang.Integer"/>
+            <element name="fee_principal" typeRef="java.math.BigDecimal"/>
+            <element name="status" typeRef="java.lang.String"/>
+            <element name="certificate_id" typeRef="java.lang.Integer"/>
+            <element name="initial_court_date" typeRef="java.lang.String"/>
+            <element name="code" typeRef="java.lang.String"/>
+            <element name="header" typeRef="java.lang.String"/>
+            <element name="fee_revenue" typeRef="java.math.BigDecimal"/>
+            <element name="tax_year" typeRef="java.lang.Integer"/>
+            <element name="property_type" typeRef="java.lang.String"/>
+            <element name="sub_principal" typeRef="java.math.BigDecimal"/>
+            <element name="pin" typeRef="java.lang.String"/>
+            <element name="expiration_date" typeRef="java.sql.Date"/>
+            <element name="volume" typeRef="java.lang.Integer"/>
+            <element name="payment_in_transit" typeRef="java.math.BigDecimal"/>
+            <element name="bid_rate" typeRef="java.lang.Double"/>
+            <element name="storage_status" typeRef="java.lang.String"/>
+            <element name="certificate_revenue" typeRef="java.math.BigDecimal"/>
+            <element name="county_name" typeRef="java.lang.String"/>
         </dataobject>
     </dataobjects>
 </service>

@@ -27,10 +27,13 @@ Application.$controller("ParcelTrackingPageController", ["$scope", function($sco
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
 
-            addMarkers(map)
+
+            /// markers come here 
+
 
             // Handle click event on the map created above
             map.addListener('click', function(event) {
+                addMarkers(map);
                 // If Map zoom level is less than 15, return
                 if (map.getZoom() < REP.Layer.Google.MIN_ZOOM) {
                     console.log("Zoom Level too low for REP");
