@@ -18,6 +18,7 @@ import com.wavemaker.runtime.data.exception.QueryParameterMismatchException;
 public interface PlatformQueryExecutorService {
     Page<Object> executeInspection_drop_down(Pageable pageable) throws QueryParameterMismatchException;
     Page<Object> executeQryPortalCertificateDataById(Pageable pageable, java.lang.Integer id) throws QueryParameterMismatchException;
+    Page<Object> executeQryPortalInspectionFilterByID(Pageable pageable, java.lang.Integer property_id) throws QueryParameterMismatchException;
 
 	
 	Page<Object> executeWMCustomQuerySelect(CustomQuery query, Pageable pageable) ;

@@ -48,6 +48,14 @@ public class PlatformQueryExecutorServiceImpl implements PlatformQueryExecutorSe
         params.put("id", id);
         return queryExecutor.executeNamedQuery("qryPortalCertificateDataById", params, pageable);
 	}
+	@Transactional(value = "platformTransactionManager")
+	@Override
+	public Page<Object> executeQryPortalInspectionFilterByID(Pageable pageable, java.lang.Integer property_id)
+	throws QueryParameterMismatchException{
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("property_id", property_id);
+        return queryExecutor.executeNamedQuery("qryPortalInspectionFilterByID", params, pageable);
+	}
 
 	@Transactional(value = "platformTransactionManager")
 	@Override

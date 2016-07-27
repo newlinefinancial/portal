@@ -1,0 +1,63 @@
+<wm-page name="page1" data-ng-controller="inspectionPageController" pagetitle="Inspection">
+    <wm-header name="header1" content="header"></wm-header>
+    <wm-top-nav name="top_nav1" content="topnav"></wm-top-nav>
+    <wm-content name="content1">
+        <wm-page-content name="page_content1" columnwidth="12">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn name="gridcolumn4" columnwidth="4">
+                        <wm-livefilter title="Filter Portal_inspect_filter" name="livefilter1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" pagesize="20">
+                            <wm-layoutgrid name="layoutgrid2" columns="1">
+                                <wm-gridrow name="gridrow4">
+                                    <wm-gridcolumn name="gridcolumn10" show="true" columnwidth="12">
+                                        <wm-filter-field type="string" name="dropDown" show="true" field="dropDown" displayname="Drop Down" widget="text" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-filter-action class="btn-primary" type="button" show="true" key="filter" iconclass="wi wi-filter-list" action="filter()" display-name="Filter"></wm-filter-action>
+                            <wm-filter-action class="btn-secondary" type="button" show="true" key="clear" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear"></wm-filter-action>
+                        </wm-livefilter>
+                        <wm-livelist class="media-list" name="livelist3" dataset="bind:Widgets.livefilter1.result" orderby="order:asc" selectionlimit="10" itemsperrow="xs-1 sm-1 md-1 lg-1" showrecordcount="true" listclass="list-group" itemclass="list-group-item"
+                        template="true" navigation="Classic" datafield="All Fields">
+                            <wm-listtemplate name="listtemplate3" layout="inline">
+                                <wm-container class="media-body" name="container9">
+                                    <wm-label name="pin" caption="bind:Widgets.livefilter1.result.pin" width="293"></wm-label>
+                                    <wm-label name="address" caption="bind:Widgets.livefilter1.result.address" width="380"></wm-label>
+                                    <wm-label name="propertyID" caption="bind:Widgets.livefilter1.result.propertyId"></wm-label>
+                                </wm-container>
+                            </wm-listtemplate>
+                        </wm-livelist>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn5" columnwidth="4">
+                        <wm-layoutgrid name="layoutgrid4">
+                            <wm-gridrow name="gridrow8">
+                                <wm-gridcolumn name="gridcolumn64" columnwidth="12">
+                                    <wm-accordion name="accordion2">
+                                        <wm-accordionpane name="accordionpane2">
+                                            <wm-label name="label3" caption="bind:Variables.varPropertyID.dataSet[$i].header" height="62" width="346"></wm-label>
+                                        </wm-accordionpane>
+                                        <wm-accordionpane name="accordionpane2_1"></wm-accordionpane>
+                                    </wm-accordion>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                        <wm-livelist class="media-list" name="livelist2" dataset="bind:Variables.varPropertyID.dataSet" itemsperrow="xs-1 sm-1 md-1 lg-1" listclass="list-group" itemclass="list-group-item" template="true" navigation="Classic" datafield="All Fields">
+                            <wm-listtemplate name="listtemplate2" layout="inline">
+                                <wm-container class="media-left" name="container2">
+                                    <wm-picture class="media-object" name="Picture" height="32pt" width="32pt" shape="circle"></wm-picture>
+                                </wm-container>
+                                <wm-container class="media-body" name="container3">
+                                    <wm-label class="h4" name="Name" caption="bind:Variables.varPropertyID.dataSet[$i].header" height="47" padding="unset unset unset 1.25em" fontunit="em" whitespace="nowrap"></wm-label>
+                                </wm-container>
+                            </wm-listtemplate>
+                        </wm-livelist>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn name="gridcolumn6" columnwidth="4">
+                        <wm-iframe name="iframe1" height="293" width="403"></wm-iframe>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1" content="footer"></wm-footer>
+</wm-page>

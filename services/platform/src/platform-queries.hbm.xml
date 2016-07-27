@@ -13,4 +13,9 @@
       select * from review.portal_certificate_data where certificate_id = :id
     ]]>
   </sql-query>
+  <sql-query name="qryPortalInspectionFilterByID">
+    <![CDATA[
+      select * from review.portal_auction_data where property_id = :property_id
+    ]]>
+  </sql-query>
 </hibernate-mapping>

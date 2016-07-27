@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="platform" type="DataService" springFile="platform.spring.xml">
+    <operation operationType="nativequery" name="qryPortalInspectionFilter">
+        <parameter name="property_id" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="platformqryPortalInspectionFilterrtnType" isList="false"/>
+    </operation>
     <operation operationType="nativequery" name="qryPortalCertificateDataById">
         <parameter name="id" typeRef="java.lang.Integer" isList="false"/>
         <return typeRef="platformqryPortalCertificateDataByIdrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="qryPortalInspectionFilterByID">
+        <parameter name="property_id" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="platformqryPortalInspectionFilterByIDrtnType" isList="false"/>
     </operation>
     <operation operationType="nativequery" name="inspection_drop_down">
         <return typeRef="platforminspection_drop_downrtnType" isList="false"/>
@@ -10,6 +18,10 @@
     <operation operationType="nativequery" name="qryPortalCertificateDataById">
         <parameter name="id" typeRef="java.lang.Integer" isList="false"/>
         <return typeRef="platformqryPortalCertificateDataByIdrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="qryPortalInspectionFilterByID">
+        <parameter name="property_id" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="platformqryPortalInspectionFilterByIDrtnType" isList="false"/>
     </operation>
     <dataobjects>
         <dataobject javaType="com.portal.platform.BorrowingBase">
@@ -344,42 +356,6 @@
             <element name="sourceBySource1" typeRef="com.portal.platform.Source" allowNull="true"/>
             <element name="abacusId" typeRef="java.lang.Integer" allowNull="true"/>
         </dataobject>
-        <dataobject javaType="com.portal.platform.PortalAuctionHistory">
-            <element name="auctionYearBilled" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="saleAmount" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="assessedValuationBuilding" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="assesseeAddressState" typeRef="java.lang.String" allowNull="true"/>
-            <element name="bidRate" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="propertyId" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="description" typeRef="java.lang.String" allowNull="true"/>
-            <element name="buyer" typeRef="java.lang.String" allowNull="true"/>
-            <element name="auctionId" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="saleDate" typeRef="java.util.Date" allowNull="true"/>
-            <element name="priorYearsDue" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="assessmentYear" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="winningBid" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="auctionStatus" typeRef="java.lang.String" allowNull="true"/>
-            <element name="status" typeRef="java.lang.String" allowNull="true"/>
-            <element name="dispositionResearchDate" typeRef="java.util.Date" allowNull="true"/>
-            <element name="overrideTimestamp" typeRef="java.util.Date" allowNull="true"/>
-            <element name="code" typeRef="java.lang.String" allowNull="true"/>
-            <element name="auctionYearDue" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="seniorExemption" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="assesseeAddressZip" typeRef="java.lang.String" allowNull="true"/>
-            <element name="auctionResult" typeRef="java.lang.String" allowNull="true"/>
-            <element name="homeExemption" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="propertyType" typeRef="java.lang.String" allowNull="true"/>
-            <element name="assesseeAddressLine1" typeRef="java.lang.String" allowNull="true"/>
-            <element name="assessedValuationTotal" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="removed" typeRef="java.lang.Boolean" allowNull="true"/>
-            <element name="overrideUser" typeRef="java.lang.String" allowNull="true"/>
-            <element name="marketValue" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="dispositionDate" typeRef="java.util.Date" allowNull="true"/>
-            <element name="assesseeName" typeRef="java.lang.String" allowNull="true"/>
-            <element name="assessedValuationLand" typeRef="java.lang.Double" allowNull="true"/>
-            <element name="assesseeAddressCity" typeRef="java.lang.String" allowNull="true"/>
-            <element name="auctionYear" typeRef="java.lang.Integer" allowNull="true"/>
-        </dataobject>
         <dataobject javaType="com.portal.platform.PortalAuctionData">
             <element name="total" typeRef="java.lang.Double" allowNull="true"/>
             <element name="auctionYearBilled" typeRef="java.lang.Double" allowNull="true"/>
@@ -438,6 +414,42 @@
             <element name="volume" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="assessedValuationLand" typeRef="java.lang.Double" allowNull="true"/>
             <element name="assesseeAddressCity" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.portal.platform.PortalAuctionHistory">
+            <element name="auctionYearBilled" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="saleAmount" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="assessedValuationBuilding" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="assesseeAddressState" typeRef="java.lang.String" allowNull="true"/>
+            <element name="bidRate" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="propertyId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="description" typeRef="java.lang.String" allowNull="true"/>
+            <element name="buyer" typeRef="java.lang.String" allowNull="true"/>
+            <element name="auctionId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="saleDate" typeRef="java.util.Date" allowNull="true"/>
+            <element name="priorYearsDue" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="assessmentYear" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="winningBid" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="auctionStatus" typeRef="java.lang.String" allowNull="true"/>
+            <element name="status" typeRef="java.lang.String" allowNull="true"/>
+            <element name="dispositionResearchDate" typeRef="java.util.Date" allowNull="true"/>
+            <element name="overrideTimestamp" typeRef="java.util.Date" allowNull="true"/>
+            <element name="code" typeRef="java.lang.String" allowNull="true"/>
+            <element name="auctionYearDue" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="seniorExemption" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="assesseeAddressZip" typeRef="java.lang.String" allowNull="true"/>
+            <element name="auctionResult" typeRef="java.lang.String" allowNull="true"/>
+            <element name="homeExemption" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="propertyType" typeRef="java.lang.String" allowNull="true"/>
+            <element name="assesseeAddressLine1" typeRef="java.lang.String" allowNull="true"/>
+            <element name="assessedValuationTotal" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="removed" typeRef="java.lang.Boolean" allowNull="true"/>
+            <element name="overrideUser" typeRef="java.lang.String" allowNull="true"/>
+            <element name="marketValue" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="dispositionDate" typeRef="java.util.Date" allowNull="true"/>
+            <element name="assesseeName" typeRef="java.lang.String" allowNull="true"/>
+            <element name="assessedValuationLand" typeRef="java.lang.Double" allowNull="true"/>
+            <element name="assesseeAddressCity" typeRef="java.lang.String" allowNull="true"/>
+            <element name="auctionYear" typeRef="java.lang.Integer" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.TitleType">
             <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
@@ -607,16 +619,6 @@
             <element name="feeRevenue" typeRef="java.lang.Double" allowNull="true"/>
             <element name="dateSold" typeRef="java.util.Date" allowNull="true"/>
         </dataobject>
-        <dataobject javaType="com.portal.platform.PortalCertificateNote">
-            <element name="created" typeRef="java.util.Date" allowNull="true"/>
-            <element name="done" typeRef="java.util.Date" allowNull="true"/>
-            <element name="noteDescription" typeRef="java.lang.String" allowNull="true"/>
-            <element name="due" typeRef="java.util.Date" allowNull="true"/>
-            <element name="certificateId" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="noteId" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="user" typeRef="java.lang.String" allowNull="true"/>
-            <element name="noteTypeId" typeRef="java.lang.Integer" allowNull="true"/>
-        </dataobject>
         <dataobject javaType="com.portal.platform.PortalAuctionFilter">
             <element name="tags" typeRef="java.lang.String" allowNull="true"/>
             <element name="priorYearsDue" typeRef="java.lang.Double" allowNull="true"/>
@@ -637,6 +639,16 @@
             <element name="removed" typeRef="java.lang.Boolean" allowNull="true"/>
             <element name="auctionDay" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="townshipName" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.portal.platform.PortalCertificateNote">
+            <element name="created" typeRef="java.util.Date" allowNull="true"/>
+            <element name="done" typeRef="java.util.Date" allowNull="true"/>
+            <element name="noteDescription" typeRef="java.lang.String" allowNull="true"/>
+            <element name="due" typeRef="java.util.Date" allowNull="true"/>
+            <element name="certificateId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="noteId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="user" typeRef="java.lang.String" allowNull="true"/>
+            <element name="noteTypeId" typeRef="java.lang.Integer" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.Auction">
             <element name="priorYearsDue" typeRef="java.lang.Double" allowNull="true"/>
@@ -745,6 +757,15 @@
             <element name="inst" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="dueDate" typeRef="java.util.Date" allowNull="true"/>
         </dataobject>
+        <dataobject javaType="com.portal.platform.Grade">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="township" typeRef="com.portal.platform.Township" allowNull="true"/>
+            <element name="county" typeRef="com.portal.platform.County" allowNull="true"/>
+            <element name="grade" typeRef="java.lang.String" allowNull="true"/>
+            <element name="properties" typeRef="com.portal.platform.Property" isList="true" allowNull="true"/>
+            <element name="notes" typeRef="com.portal.platform.Note" isList="true" allowNull="true"/>
+            <element name="lookup" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
         <dataobject javaType="com.portal.platform.TaxHistory">
             <element name="scavengerYear" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="inst1Due" typeRef="java.lang.Double" allowNull="true"/>
@@ -761,15 +782,6 @@
             <element name="openStatus" typeRef="java.lang.String" allowNull="true"/>
             <element name="inst2Due" typeRef="java.lang.Double" allowNull="true"/>
             <element name="dispositionDate" typeRef="java.util.Date" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.portal.platform.Grade">
-            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="township" typeRef="com.portal.platform.Township" allowNull="true"/>
-            <element name="county" typeRef="com.portal.platform.County" allowNull="true"/>
-            <element name="grade" typeRef="java.lang.String" allowNull="true"/>
-            <element name="properties" typeRef="com.portal.platform.Property" isList="true" allowNull="true"/>
-            <element name="notes" typeRef="com.portal.platform.Note" isList="true" allowNull="true"/>
-            <element name="lookup" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.CertificateParty">
             <element name="interestTypeByInterestType2" typeRef="com.portal.platform.InterestType" allowNull="true"/>
@@ -1094,6 +1106,65 @@
             <element name="storage_status" typeRef="java.lang.String"/>
             <element name="certificate_revenue" typeRef="java.math.BigDecimal"/>
             <element name="county_name" typeRef="java.lang.String"/>
+        </dataobject>
+        <dataobject javaType="platformqryPortalInspectionFilterByIDrtnType">
+            <element name="total" typeRef="java.lang.String"/>
+            <element name="avg_bidrate" typeRef="java.math.BigDecimal"/>
+            <element name="sale_amount" typeRef="java.math.BigDecimal"/>
+            <element name="current_stat" typeRef="java.lang.String"/>
+            <element name="treasurer" typeRef="java.lang.String"/>
+            <element name="address1" typeRef="java.lang.String"/>
+            <element name="auction_year_due" typeRef="java.math.BigDecimal"/>
+            <element name="market_value" typeRef="java.math.BigDecimal"/>
+            <element name="equalized_valuation" typeRef="java.math.BigDecimal"/>
+            <element name="assessed_valuation_building" typeRef="java.math.BigDecimal"/>
+            <element name="assessee_address_state" typeRef="java.lang.String"/>
+            <element name="sub_year" typeRef="java.lang.String"/>
+            <element name="longitude" typeRef="java.math.BigDecimal"/>
+            <element name="other_due" typeRef="java.math.BigDecimal"/>
+            <element name="property_id" typeRef="java.lang.Integer"/>
+            <element name="auction_year_billed" typeRef="java.math.BigDecimal"/>
+            <element name="pred_bid_rate" typeRef="java.lang.String"/>
+            <element name="gis" typeRef="java.lang.String"/>
+            <element name="header" typeRef="java.lang.String"/>
+            <element name="piq_address" typeRef="java.lang.String"/>
+            <element name="assessor" typeRef="java.lang.String"/>
+            <element name="auction_id" typeRef="java.lang.Integer"/>
+            <element name="clerk" typeRef="java.lang.String"/>
+            <element name="recorder" typeRef="java.lang.String"/>
+            <element name="township_name" typeRef="java.lang.String"/>
+            <element name="grade_id" typeRef="java.lang.Integer"/>
+            <element name="latitude" typeRef="java.math.BigDecimal"/>
+            <element name="auction_stat_summary" typeRef="java.lang.String"/>
+            <element name="county_name" typeRef="java.lang.String"/>
+            <element name="equalization_factor" typeRef="java.lang.String"/>
+            <element name="assessed_valuation_land" typeRef="java.math.BigDecimal"/>
+            <element name="address_city1" typeRef="java.lang.String"/>
+            <element name="address_zip1" typeRef="java.lang.String"/>
+            <element name="auction_inst2_due" typeRef="java.math.BigDecimal"/>
+            <element name="assessee_address_zip" typeRef="java.lang.String"/>
+            <element name="pred_redemption_pct" typeRef="java.lang.String"/>
+            <element name="assessee_address_line1" typeRef="java.lang.String"/>
+            <element name="senior_exemption" typeRef="java.math.BigDecimal"/>
+            <element name="home_exemption" typeRef="java.math.BigDecimal"/>
+            <element name="assessee_address_city" typeRef="java.lang.String"/>
+            <element name="grade" typeRef="java.lang.String"/>
+            <element name="current_bid" typeRef="java.lang.Integer"/>
+            <element name="assesment_tax_year" typeRef="java.lang.Integer"/>
+            <element name="auction_inst1_due" typeRef="java.math.BigDecimal"/>
+            <element name="inst2" typeRef="java.lang.String"/>
+            <element name="assessee_name" typeRef="java.lang.String"/>
+            <element name="inst1" typeRef="java.lang.String"/>
+            <element name="assessed_valuation_total" typeRef="java.math.BigDecimal"/>
+            <element name="tax_year" typeRef="java.lang.Integer"/>
+            <element name="forfeit_stat" typeRef="java.lang.String"/>
+            <element name="redemption_stat" typeRef="java.lang.String"/>
+            <element name="pin" typeRef="java.lang.String"/>
+            <element name="prior_years_due" typeRef="java.math.BigDecimal"/>
+            <element name="volume" typeRef="java.lang.Integer"/>
+            <element name="pin_nd" typeRef="java.lang.String"/>
+            <element name="lifetime_ltv" typeRef="java.math.BigDecimal"/>
+            <element name="tax_rate" typeRef="java.math.BigDecimal"/>
         </dataobject>
     </dataobjects>
 </service>
