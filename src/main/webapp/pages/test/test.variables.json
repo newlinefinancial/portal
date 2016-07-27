@@ -10,8 +10,8 @@
     "type" : "Accounting",
     "isList" : true,
     "saveInPhonegap" : false,
-    "maxResults" : 20,
-    "designMaxResults" : 10,
+    "maxResults" : 5,
+    "designMaxResults" : 5,
     "startUpdate" : true,
     "autoUpdate" : true,
     "inFlightBehavior" : "executeLast",
@@ -138,6 +138,7 @@
     "tableName" : "accounting",
     "properties" : [ ],
     "relatedTables" : [ ],
+    "filterFields" : { },
     "package" : "com.portal.platform.Accounting"
   },
   "PlatformPortalCertificateFilterData1" : {
