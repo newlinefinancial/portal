@@ -15620,7 +15620,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 8,
+    "bindCount" : 9,
     "tableName" : "portal_inspect_filter",
     "dbSystem" : "SQLServer",
     "properties" : [ ],

@@ -1,4 +1,4 @@
-<wm-page name="page1" data-ng-controller="inspectPageController" pagetitle="Inspect">
+<wm-page data-ng-controller="inspectPageController" name="page1" pagetitle="Inspect">
     <wm-header name="header1" content="header"></wm-header>
     <wm-top-nav name="top_nav1" content="topnav"></wm-top-nav>
     <wm-content name="content1">
@@ -20,7 +20,9 @@
                         </wm-carousel-content>
                     </wm-carousel>
                 </wm-accordionpane>
-                <wm-accordionpane name="accordionpane2" heading="Recent Auction"></wm-accordionpane>
+                <wm-accordionpane name="accordionpane2" heading="Recent Auction">
+                    <wm-label caption="bind:Variables.var_inspection_filter_PropertyID.dataSet[$i].address1" name="label1" height="56" width="283"></wm-label>
+                </wm-accordionpane>
                 <wm-accordionpane name="accordionpane3" heading="Certificate"></wm-accordionpane>
                 <wm-accordionpane name="accordionpane4" heading="Notes"></wm-accordionpane>
             </wm-accordion>

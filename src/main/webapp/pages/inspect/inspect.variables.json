@@ -1,1 +1,29 @@
-{ }
+{
+  "var_inspection_filter_PropertyID" : {
+    "_id" : "wm-var_inspection_filter_PropertyID-wm.ServiceVariable-1470065395805",
+    "name" : "var_inspection_filter_PropertyID",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "property_id",
+      "value" : "bind:Widgets.left_panel1.Widgets.livelist1.selecteditem.propertyId",
+      "type" : "integer"
+    } ],
+    "type" : "platformqryPortalInspectionFilterByIDrtnType",
+    "service" : "platform",
+    "operation" : "executeQryPortalInspectionFilterByID",
+    "operationId" : "QueryExecutionController_executeQryPortalInspectionFilterByID",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}
