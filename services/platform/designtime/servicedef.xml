@@ -12,6 +12,10 @@
         <parameter name="property_id" typeRef="java.lang.Integer" isList="false"/>
         <return typeRef="platformqryPortalInspectionFilterByIDrtnType" isList="false"/>
     </operation>
+    <operation operationType="nativequery" name="qryPortalInspectionFilterByName">
+        <parameter name="drop_down" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="platformqryPortalInspectionFilterByNamertnType" isList="false"/>
+    </operation>
     <operation operationType="nativequery" name="inspection_drop_down">
         <return typeRef="platforminspection_drop_downrtnType" isList="false"/>
     </operation>
@@ -22,6 +26,10 @@
     <operation operationType="nativequery" name="qryPortalInspectionFilterByID">
         <parameter name="property_id" typeRef="java.lang.Integer" isList="false"/>
         <return typeRef="platformqryPortalInspectionFilterByIDrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="qryPortalInspectionFilterByName">
+        <parameter name="drop_down" typeRef="java.lang.String" isList="false"/>
+        <return typeRef="platformqryPortalInspectionFilterByNamertnType" isList="false"/>
     </operation>
     <dataobjects>
         <dataobject javaType="com.portal.platform.BorrowingBase">
@@ -619,6 +627,16 @@
             <element name="feeRevenue" typeRef="java.lang.Double" allowNull="true"/>
             <element name="dateSold" typeRef="java.util.Date" allowNull="true"/>
         </dataobject>
+        <dataobject javaType="com.portal.platform.PortalCertificateNote">
+            <element name="created" typeRef="java.util.Date" allowNull="true"/>
+            <element name="done" typeRef="java.util.Date" allowNull="true"/>
+            <element name="noteDescription" typeRef="java.lang.String" allowNull="true"/>
+            <element name="due" typeRef="java.util.Date" allowNull="true"/>
+            <element name="certificateId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="noteId" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="user" typeRef="java.lang.String" allowNull="true"/>
+            <element name="noteTypeId" typeRef="java.lang.Integer" allowNull="true"/>
+        </dataobject>
         <dataobject javaType="com.portal.platform.PortalAuctionFilter">
             <element name="tags" typeRef="java.lang.String" allowNull="true"/>
             <element name="priorYearsDue" typeRef="java.lang.Double" allowNull="true"/>
@@ -639,16 +657,6 @@
             <element name="removed" typeRef="java.lang.Boolean" allowNull="true"/>
             <element name="auctionDay" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="townshipName" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.portal.platform.PortalCertificateNote">
-            <element name="created" typeRef="java.util.Date" allowNull="true"/>
-            <element name="done" typeRef="java.util.Date" allowNull="true"/>
-            <element name="noteDescription" typeRef="java.lang.String" allowNull="true"/>
-            <element name="due" typeRef="java.util.Date" allowNull="true"/>
-            <element name="certificateId" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="noteId" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="user" typeRef="java.lang.String" allowNull="true"/>
-            <element name="noteTypeId" typeRef="java.lang.Integer" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.Auction">
             <element name="priorYearsDue" typeRef="java.lang.Double" allowNull="true"/>
@@ -1165,6 +1173,17 @@
             <element name="pin_nd" typeRef="java.lang.String"/>
             <element name="lifetime_ltv" typeRef="java.math.BigDecimal"/>
             <element name="tax_rate" typeRef="java.math.BigDecimal"/>
+        </dataobject>
+        <dataobject javaType="platformqryPortalInspectionFilterByNamertnType">
+            <element name="property_id" typeRef="java.lang.Integer"/>
+            <element name="latlong" typeRef="java.lang.String"/>
+            <element name="inspected" typeRef="java.lang.Integer"/>
+            <element name="auction_id" typeRef="java.lang.Integer"/>
+            <element name="order" typeRef="java.lang.Integer"/>
+            <element name="address" typeRef="java.lang.String"/>
+            <element name="pin" typeRef="java.lang.String"/>
+            <element name="insp_id" typeRef="java.lang.Integer"/>
+            <element name="drop_down" typeRef="java.lang.String"/>
         </dataobject>
     </dataobjects>
 </service>

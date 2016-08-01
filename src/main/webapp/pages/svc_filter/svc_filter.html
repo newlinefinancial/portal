@@ -1,40 +1,39 @@
-<wm-partial name="partial1" data-ng-controller="svc_filterPageController">
+<wm-partial data-ng-controller="svc_filterPageController" name="partial1">
     <wm-livefilter title="Filter Portal_certificate_filter" name="livefilter1" dataset="bind:Variables.PlatformPortalCertificateFilterData1.dataSet" captionalign="left" captionposition="top">
         <wm-layoutgrid name="layoutgrid1" columns="1">
             <wm-gridrow name="gridrow1">
-                <wm-gridcolumn name="gridcolumn1" show="true" columnwidth="12">
-                    <wm-filter-field type="string" name="countyName" show="true" field="countyName" displayname="County Name" widget="text" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
+                <wm-gridcolumn show="true" name="gridcolumn1" columnwidth="12">
+                    <wm-filter-field type="string" show="true" name="countyName" field="countyName" displayname="County Name" widget="text" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
                 </wm-gridcolumn>
             </wm-gridrow>
             <wm-gridrow name="gridrow2">
-                <wm-gridcolumn name="gridcolumn2" show="true" columnwidth="12">
-                    <wm-filter-field type="string" name="certificateNumber" show="true" field="certificateNumber" displayname="Certificate Number" widget="text" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
+                <wm-gridcolumn show="true" name="gridcolumn2" columnwidth="12">
+                    <wm-filter-field type="string" show="true" name="certificateNumber" field="certificateNumber" displayname="Certificate Number" widget="text" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
                 </wm-gridcolumn>
             </wm-gridrow>
             <wm-gridrow name="gridrow3">
-                <wm-gridcolumn name="gridcolumn3" show="true" columnwidth="12">
-                    <wm-filter-field type="integer" name="taxYear" show="true" field="taxYear" displayname="Tax Year" widget="number" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
+                <wm-gridcolumn show="true" name="gridcolumn3" columnwidth="12">
+                    <wm-filter-field type="integer" show="true" name="taxYear" field="taxYear" displayname="Tax Year" widget="number" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
                 </wm-gridcolumn>
             </wm-gridrow>
             <wm-gridrow name="gridrow4">
-                <wm-gridcolumn name="gridcolumn4" show="true" columnwidth="12">
-                    <wm-filter-field type="string" name="status" show="true" field="status" displayname="Status" widget="text" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
+                <wm-gridcolumn show="true" name="gridcolumn4" columnwidth="12">
+                    <wm-filter-field type="string" show="true" name="status" field="status" displayname="Status" widget="text" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
                 </wm-gridcolumn>
             </wm-gridrow>
             <wm-gridrow name="gridrow5">
-                <wm-gridcolumn name="gridcolumn5" show="true" columnwidth="12">
-                    <wm-filter-field type="string" name="pin" show="true" field="pin" displayname="Pin" widget="text" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
+                <wm-gridcolumn show="true" name="gridcolumn5" columnwidth="12">
+                    <wm-filter-field type="string" show="true" name="pin" field="pin" displayname="Pin" widget="text" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"></wm-filter-field>
                 </wm-gridcolumn>
             </wm-gridrow>
         </wm-layoutgrid>
         <wm-filter-action class="btn-primary" type="button" show="true" key="filter" iconclass="wi wi-filter-list" action="filter()" display-name="Filter"></wm-filter-action>
         <wm-filter-action class="btn-secondary" type="button" show="true" key="clear" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear"></wm-filter-action>
     </wm-livefilter>
-    <wm-livelist class="media-list" name="livelist1" dataset="bind:Widgets.livefilter1.result" navigation="Classic" listclass="list-group" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" showrecordcount="true" itemclass="list-group-item" datafield="All Fields"
-    on-Click="goToPage_certifcate_details">
+    <wm-livelist class="media-list" name="livelist1" dataset="bind:Widgets.livefilter1.result" datafield="All Fields" showrecordcount="true" listclass="list-group" itemclass="list-group-item" template="true" navigation="Classic" itemsperrow="xs-1 sm-1 md-1 lg-1">
         <wm-listtemplate name="listtemplate1" layout="inline">
             <wm-container class="media-body" name="container2">
-                <wm-label name="certificate" caption="bind:Widgets.livefilter1.result.certificateNumber"></wm-label>
+                <wm-label caption="bind:Widgets.livefilter1.result.certificateNumber" name="certificate"></wm-label>
             </wm-container>
         </wm-listtemplate>
     </wm-livelist>

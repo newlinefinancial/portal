@@ -56,6 +56,14 @@ public class PlatformQueryExecutorServiceImpl implements PlatformQueryExecutorSe
         params.put("property_id", property_id);
         return queryExecutor.executeNamedQuery("qryPortalInspectionFilterByID", params, pageable);
 	}
+	@Transactional(value = "platformTransactionManager")
+	@Override
+	public Page<Object> executeQryPortalInspectionFilterByName(Pageable pageable, java.lang.String drop_down)
+	throws QueryParameterMismatchException{
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("drop_down", drop_down);
+        return queryExecutor.executeNamedQuery("qryPortalInspectionFilterByName", params, pageable);
+	}
 
 	@Transactional(value = "platformTransactionManager")
 	@Override
