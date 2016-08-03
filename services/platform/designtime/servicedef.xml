@@ -314,11 +314,6 @@
             <element name="zoning" typeRef="java.lang.String" allowNull="true"/>
             <element name="filter" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
-        <dataobject javaType="com.portal.platform.DisbursementType">
-            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="category" typeRef="java.lang.String" allowNull="true"/>
-            <element name="type" typeRef="java.lang.String" allowNull="true"/>
-        </dataobject>
         <dataobject javaType="com.portal.platform.PortalMatterFilter">
             <element name="expirationDate" typeRef="java.util.Date" allowNull="true"/>
             <element name="status" typeRef="java.lang.String" allowNull="true"/>
@@ -333,6 +328,11 @@
             <element name="taxYear" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="pin" typeRef="java.lang.String" allowNull="true"/>
             <element name="volume" typeRef="java.lang.Integer" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.portal.platform.DisbursementType">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="category" typeRef="java.lang.String" allowNull="true"/>
+            <element name="type" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.Buyer">
             <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
@@ -984,6 +984,17 @@
             <element name="grades" typeRef="com.portal.platform.Grade" isList="true" allowNull="true"/>
             <element name="clerkCost" typeRef="java.lang.Double" allowNull="true"/>
         </dataobject>
+        <dataobject javaType="com.portal.platform.State">
+            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="termMonths" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="counties" typeRef="com.portal.platform.County" isList="true" allowNull="true"/>
+            <element name="subRate" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="certPeriod" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="state" typeRef="java.lang.String" allowNull="true"/>
+            <element name="subPeriod" typeRef="java.lang.Integer" allowNull="true"/>
+            <element name="frequency" typeRef="java.lang.String" allowNull="true"/>
+            <element name="interestType" typeRef="java.lang.String" allowNull="true"/>
+        </dataobject>
         <dataobject javaType="com.portal.platform.GradeStat">
             <element name="countForfeited" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="areaGrade" typeRef="java.lang.String" allowNull="true"/>
@@ -997,17 +1008,6 @@
             <element name="lookup" typeRef="java.lang.String" allowNull="true"/>
             <element name="countyId" typeRef="java.lang.Integer" allowNull="true"/>
             <element name="avgBidrate" typeRef="java.lang.Float" allowNull="true"/>
-        </dataobject>
-        <dataobject javaType="com.portal.platform.State">
-            <element name="id" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="termMonths" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="counties" typeRef="com.portal.platform.County" isList="true" allowNull="true"/>
-            <element name="subRate" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="certPeriod" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="state" typeRef="java.lang.String" allowNull="true"/>
-            <element name="subPeriod" typeRef="java.lang.Integer" allowNull="true"/>
-            <element name="frequency" typeRef="java.lang.String" allowNull="true"/>
-            <element name="interestType" typeRef="java.lang.String" allowNull="true"/>
         </dataobject>
         <dataobject javaType="com.portal.platform.TitleTransaction">
             <element name="id" typeRef="java.lang.Integer" allowNull="true"/>

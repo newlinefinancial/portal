@@ -1,4 +1,4 @@
-Application.$controller("MainPageController", ["$scope", function($scope) {
+Application.$controller("rightnavPageController", ["$scope", function($scope) {
     "use strict";
 
     /* perform any action on widgets/variables within this block */
