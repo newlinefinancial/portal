@@ -41,17 +41,6 @@
     "pageName" : "inspect_filter",
     "pageTransitions" : "none"
   },
-  "goToPage_inspection" : {
-    "_id" : "wm-goToPage_inspection-wm.NavigationVariable-1469629467680",
-    "name" : "goToPage_inspection",
-    "owner" : "App",
-    "category" : "wm.NavigationVariable",
-    "dataBinding" : [ ],
-    "operation" : "gotoPage",
-    "pageName" : "inspection",
-    "dataSet" : [ ],
-    "pageTransitions" : "none"
-  },
   "goToPage_Issues" : {
     "_id" : "wm-goToPage_Issues-wm.NavigationVariable-1467826225753",
     "name" : "goToPage_Issues",
@@ -70,27 +59,6 @@
     "category" : "wm.NavigationVariable",
     "operation" : "gotoPage",
     "pageName" : "Main"
-  },
-  "goToPage_Page" : {
-    "_id" : "wm-goToPage_Page-wm.NavigationVariable-1459199897491",
-    "name" : "goToPage_Page",
-    "owner" : "App",
-    "category" : "wm.NavigationVariable",
-    "dataBinding" : [ ],
-    "operation" : "gotoPage",
-    "pageName" : "Page",
-    "pageTransitions" : "none"
-  },
-  "goToPage_ParcelTracking" : {
-    "_id" : "wm-goToPage_ParcelTracking-wm.NavigationVariable-1469429733716",
-    "name" : "goToPage_ParcelTracking",
-    "owner" : "App",
-    "category" : "wm.NavigationVariable",
-    "dataBinding" : [ ],
-    "operation" : "gotoPage",
-    "pageName" : "ParcelTracking",
-    "dataSet" : [ ],
-    "pageTransitions" : "none"
   },
   "goToPage_service" : {
     "_id" : "wm-goToPage_service-wm.NavigationVariable-1459193900203",

@@ -1,33 +1,25 @@
 <wm-partial name="partial1" data-ng-controller="inspect_filterPageController">
-    <wm-composite name="composite1">
-        <wm-label class="col-md-3 control-label" name="label4" caption="Select Route"></wm-label>
-        <wm-container class="col-md-9" name="container1">
-            <wm-select name="select1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" datafield="dropDown" displayfield="dropDown"></wm-select>
-        </wm-container>
-    </wm-composite>
-    <wm-livelist name="livelist1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" navigation="Classic" template="true" itemclass="list-group-item" listclass="list-group" showrecordcount="true">
-        <wm-listtemplate name="listtemplate1" layout="blank">
-            <wm-container class="blank" name="container2" data-template-ctr="true">
-                <wm-layoutgrid class="gridlayout" name="layoutgrid1">
-                    <wm-gridrow name="gridrow1">
-                        <wm-gridcolumn class="col-xs-6" name="gridcolumn2" columnwidth="3">
-                            <wm-label name="pin" caption="bind:Variables.PlatformPortalInspectFilterData.dataSet.pin" width="100%"></wm-label>
-                        </wm-gridcolumn>
-                        <wm-gridcolumn class="col-xs-6" name="gridcolumn4" columnwidth="1">
-                            <wm-label name="insp_id" show="false" caption="bind:Variables.PlatformPortalInspectFilterData.dataSet.inspId" width="100%"></wm-label>
-                            <wm-label name="order" caption="bind:Variables.PlatformPortalInspectFilterData.dataSet.order" width="100%"></wm-label>
-                        </wm-gridcolumn>
-                    </wm-gridrow>
-                    <wm-gridrow name="gridrow2">
-                        <wm-gridcolumn name="gridcolumn12" columnwidth="3">
-                            <wm-label name="address" caption="bind:Variables.PlatformPortalInspectFilterData.dataSet.address" width="100%"></wm-label>
-                        </wm-gridcolumn>
-                        <wm-gridcolumn name="gridcolumn14" columnwidth="1">
-                            <wm-label name="inspected" caption="bind:Variables.PlatformPortalInspectFilterData.dataSet.inspected" width="100%"></wm-label>
-                        </wm-gridcolumn>
-                    </wm-gridrow>
-                </wm-layoutgrid>
-            </wm-container>
-        </wm-listtemplate>
-    </wm-livelist>
+    <wm-gridcolumn columnwidth="12" name="gridcolumn5">
+        <wm-livefilter title="Filter Portal_inspect_filter" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" pagesize="20" name="livefilter1">
+            <wm-layoutgrid columns="1" name="layoutgrid2">
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn show="true" columnwidth="12" name="gridcolumn6">
+                        <wm-filter-field type="string" show="true" field="dropDown" displayname="Drop Down" widget="text" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true" name="filter_field1"></wm-filter-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-filter-action class="btn-primary" type="button" show="true" key="filter" iconclass="wi wi-filter-list" action="filter()" display-name="Filter"></wm-filter-action>
+            <wm-filter-action class="btn-secondary" type="button" show="true" key="clear" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear"></wm-filter-action>
+        </wm-livefilter>
+        <wm-livelist class="media-list" dataset="bind:Widgets.livefilter1.result" orderby="order:asc" selectionlimit="10" itemsperrow="xs-1 sm-1 md-1 lg-1" showrecordcount="true" listclass="list-group" itemclass="list-group-item" template="true" navigation="Classic"
+        datafield="All Fields" name="livelist2">
+            <wm-listtemplate layout="inline" name="listtemplate2">
+                <wm-container class="media-body" name="container3">
+                    <wm-label caption="bind:Widgets.livefilter1.result.pin" width="293" name="label7"></wm-label>
+                    <wm-label caption="bind:Widgets.livefilter1.result.address" width="380" name="label8"></wm-label>
+                    <wm-label caption="bind:Widgets.livefilter1.result.propertyId" name="label9"></wm-label>
+                </wm-container>
+            </wm-listtemplate>
+        </wm-livelist>
+    </wm-gridcolumn>
 </wm-partial>

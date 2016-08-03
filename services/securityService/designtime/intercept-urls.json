@@ -1,9 +1,4 @@
 [ {
-  "urlPattern" : "/pages/ParcelTracking/**",
-  "permission" : "PermitAll",
-  "roles" : [ ],
-  "httpMethod" : null
-}, {
   "urlPattern" : "/prefabs/googlemaps/**",
   "permission" : "PermitAll",
   "roles" : [ ],
