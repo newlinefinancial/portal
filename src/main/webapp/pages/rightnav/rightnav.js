@@ -11,7 +11,7 @@ Application.$controller("rightnavPageController", ["$scope", function($scope) {
         }
 
         // Constants & Variables
-        var GOOGLE_MAPS_API_KEY = "AIzaSyBzs_6EsdrgAmboMDgXKFm0_Iv_78EE-_Y";
+        var GOOGLE_MAPS_API_KEY = "AIzaSyBIyCMrqG7koL8sSyWj2py34BYX-n_gYLk";
         var map;
         var infoWindow = null;
         var mapFeatures = [];
