@@ -1,8 +1,4 @@
 [ {
-  "name" : "CertificateDetails",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
@@ -16,6 +12,14 @@
   "params" : [ ]
 }, {
   "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Page",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ParcelTracking",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -41,6 +45,10 @@
 }, {
   "name" : "inspect_filter",
   "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "inspection",
+  "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "leftnav",
