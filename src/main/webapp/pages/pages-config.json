@@ -19,6 +19,14 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "Page",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ParcelTracking",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "certifcate_details",
   "type" : "PAGE",
   "params" : [ ]
@@ -41,6 +49,10 @@
 }, {
   "name" : "inspect_filter",
   "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "inspection",
+  "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "leftnav",

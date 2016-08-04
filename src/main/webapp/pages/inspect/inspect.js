@@ -15,3 +15,11 @@ Application.$controller("inspectPageController", ["$scope", function ($scope) {
     };
 
 }]);
+
+
+Application.$controller("livefilter1Controller", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
+]);

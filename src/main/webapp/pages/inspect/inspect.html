@@ -2,32 +2,91 @@
     <wm-header name="header1" content="header"></wm-header>
     <wm-top-nav name="top_nav1" content="topnav"></wm-top-nav>
     <wm-content name="content1">
-        <wm-left-panel name="left_panel1" animation="slide-over" content="inspect_filter" columnwidth="3" overflow="scroll"></wm-left-panel>
-        <wm-page-content name="page_content1" columnwidth="4">
-            <wm-panel name="panel1"></wm-panel>
-            <wm-checkboxset name="checkboxset1" height="auto" layout="inline"></wm-checkboxset>
-            <wm-accordion name="accordion1" closeothers="false">
-                <wm-accordionpane name="accordionpane1" heading="Photo">
-                    <wm-carousel name="carousel1" height="480" animationinterval="0">
-                        <wm-carousel-content name="carousel_content1">
-                            <wm-picture name="picture3" width="100%"></wm-picture>
-                        </wm-carousel-content>
-                        <wm-carousel-content name="carousel_content2">
-                            <wm-picture name="picture4" width="100%"></wm-picture>
-                        </wm-carousel-content>
-                        <wm-carousel-content name="carousel_content3">
-                            <wm-picture name="picture5" width="100%"></wm-picture>
-                        </wm-carousel-content>
-                    </wm-carousel>
-                </wm-accordionpane>
-                <wm-accordionpane name="accordionpane2" heading="Recent Auction">
-                    <wm-label caption="bind:Variables.var_inspection_filter_PropertyID.dataSet[$i].address1" name="label1" height="56" width="283"></wm-label>
-                </wm-accordionpane>
-                <wm-accordionpane name="accordionpane3" heading="Certificate"></wm-accordionpane>
-                <wm-accordionpane name="accordionpane4" heading="Notes"></wm-accordionpane>
-            </wm-accordion>
+        <wm-page-content name="page_content1" columnwidth="12">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn1">
+                        <wm-buttongroup name="buttonGroupTop">
+                            <wm-button class="btn-default btn-info" caption="Buy" name="button1"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Service" name="button2"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Legal" name="button3"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Inspect" name="button4"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Lists" name="button5"></wm-button>
+                        </wm-buttongroup>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-composite name="composite1">
+                            <wm-container class="col-md-9" name="container1">
+                                <wm-select name="select1" placeholder="Tools"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn4">
+                        <wm-livefilter title="Filter Portal_inspect_filter" name="livefilter1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" pagesize="20">
+                            <wm-layoutgrid name="layoutgrid2" columns="1">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn name="gridcolumn6" columnwidth="12">
+                                        <wm-filter-field type="string" name="filter_field1" show="true" placeholder="Enter value" field="dropDown" displayname="Drop Down" widget="select" is-range="false" is-primary-key="false" generator="assigned" pc-display="true"
+                                        mobile-display="true" key="dropDown" inputtype="text" is-related="false" matchmode="start"></wm-filter-field>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-filter-action title="Filter" class="btn-primary" type="button" show="true" iconclass="wi wi-filter-list" key="filter" action="filter()" display-name="Filter"></wm-filter-action>
+                            <wm-filter-action title="Clear" class="btn-secondary" type="button" show="true" iconclass="wi wi-cancel" key="clear" action="clearFilter()" display-name="Clear"></wm-filter-action>
+                        </wm-livefilter>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="9" name="gridcolumn5">
+                        <wm-buttongroup name="buttongroup2" horizontalalign="center" vertical="false">
+                            <wm-button class="btn-default btn-info" caption="Review" name="button0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Inspect" name="button1"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Check County" name="button2"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Check Title" name="button3"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Good" name="button4"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Empty" name="button5"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Bad" name="button6"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Boarded" name="button7"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Gone" name="button8"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Kill" name="button9"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="For Sale" name="button10"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Bldg Court" name="button11"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Hight LTV" name="button12"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Divided" name="button13"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Demo" name="button14"></wm-button>
+                        </wm-buttongroup>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3" height="400px">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn7">
+                        <wm-livelist class="media-list" name="livelist2" dataset="bind:Widgets.livefilter1.result" datafield="All Fields" navigation="Scroll" template="true" itemclass="list-group-item" listclass="list-group" showrecordcount="true" itemsperrow="xs-1 sm-1 md-1 lg-1"
+                        selectionlimit="10" orderby="order:asc">
+                            <wm-listtemplate name="listtemplate2" layout="inline">
+                                <wm-container class="media-body" name="container3">
+                                    <p>
+                                        <wm-label name="label7" caption="bind:Widgets.livefilter1.result.pin"></wm-label>
+                                    </p>
+                                    <p>
+                                        <wm-label name="label8" caption="bind:Widgets.livefilter1.result.address"></wm-label>
+                                    </p>
+                                    <p>
+                                        <wm-label name="label9" caption="bind:Widgets.livefilter1.result.propertyId"></wm-label>
+                                    </p>
+                                </wm-container>
+                            </wm-listtemplate>
+                        </wm-livelist>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn8">
+                        <wm-accordion name="accordion1">
+                            <wm-accordionpane name="accordionpane1"></wm-accordionpane>
+                        </wm-accordion>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn10">
+                        <wm-html name="html1"></wm-html>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
         </wm-page-content>
-        <wm-right-panel name="right_panel1" content="rightnav" columnwidth="5"></wm-right-panel>
     </wm-content>
     <wm-footer name="footer1" content="footer"></wm-footer>
 </wm-page>
