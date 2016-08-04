@@ -1,4 +1,40 @@
 {
+  "svReportallUsa" : {
+    "_id" : "wm-svReportAllUsa-wm.ServiceVariable-1470304838191",
+    "name" : "svReportallUsa",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "v",
+      "value" : "2",
+      "type" : "string"
+    }, {
+      "target" : "client",
+      "value" : "DBGUwzBN1o",
+      "type" : "string"
+    }, {
+      "target" : "si_srid",
+      "value" : "4326",
+      "type" : "string"
+    } ],
+    "type" : "reportallusa.RootResponse",
+    "service" : "reportallusa",
+    "operation" : "invoke",
+    "operationId" : "reportallusa_RestServiceVirtualController-invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "onSuccess" : "svReportallUsaonSuccess($event, $scope)",
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "RestServiceVirtual"
+  },
   "var_inspection_filter_PropertyID" : {
     "_id" : "wm-var_inspection_filter_PropertyID-wm.ServiceVariable-1470065395805",
     "name" : "var_inspection_filter_PropertyID",

@@ -16,8 +16,8 @@
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="6" name="gridcolumn3">
                         <wm-composite name="composite1">
-                            <wm-container class="col-md-9" name="container1">
-                                <wm-select name="select1" placeholder="Tools"></wm-select>
+                            <wm-container class="col-md-9" name="container1" horizontalalign="right">
+                                <wm-select name="select1" placeholder="Tools" textalign="center"></wm-select>
                             </wm-container>
                         </wm-composite>
                     </wm-gridcolumn>
@@ -38,7 +38,7 @@
                         </wm-livefilter>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="9" name="gridcolumn5">
-                        <wm-buttongroup name="buttongroup2" horizontalalign="center" vertical="false">
+                        <wm-buttongroup name="buttongroup2" horizontalalign="center" vertical="false" padding="1em">
                             <wm-button class="btn-default btn-info" caption="Review" name="button0"></wm-button>
                             <wm-button class="btn-default btn-info" caption="Inspect" name="button1"></wm-button>
                             <wm-button class="btn-default btn-info" caption="Check County" name="button2"></wm-button>
@@ -82,7 +82,11 @@
                         </wm-accordion>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn10">
-                        <wm-html name="html1"></wm-html>
+                        <wm-html name="html1">
+                            <div id="gMapsDiv" style="height: 400px;width:100%">
+                                <h3>Maps loads here</h3>
+                            </div>
+                        </wm-html>
                     </wm-gridcolumn>
                 </wm-gridrow>
             </wm-layoutgrid>

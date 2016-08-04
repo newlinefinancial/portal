@@ -23966,5 +23966,18 @@
     "type" : "string",
     "isList" : false,
     "saveInPhonegap" : false
+  },
+  "svPointData" : {
+    "_id" : "wm-svPointData-wm.Variable-1470304760731",
+    "name" : "svPointData",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
   }
 }
