@@ -10,7 +10,7 @@
                             <wm-button class="btn-default btn-info" caption="Buy" name="button1"></wm-button>
                             <wm-button class="btn-default btn-info" caption="Service" name="button2"></wm-button>
                             <wm-button class="btn-default btn-info" caption="Legal" name="button3"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Inspect" name="button4"></wm-button>
+                            <wm-button class="btn-defalt btn-info" caption="Inspect" name="button4"></wm-button>
                             <wm-button class="btn-default btn-info" caption="Lists" name="button5"></wm-button>
                         </wm-buttongroup>
                     </wm-gridcolumn>
@@ -23,7 +23,7 @@
                     </wm-gridcolumn>
                 </wm-gridrow>
                 <wm-gridrow name="gridrow2">
-                    <wm-gridcolumn columnwidth="3" name="gridcolumn4">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn4" padding="unset 1em unset unset">
                         <wm-livefilter title="Filter Portal_inspect_filter" name="livefilter1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" pagesize="20">
                             <wm-layoutgrid name="layoutgrid2" columns="1">
                                 <wm-gridrow name="gridrow3">
@@ -36,29 +36,6 @@
                             <wm-filter-action title="Filter" class="btn-primary" type="button" show="true" iconclass="wi wi-filter-list" key="filter" action="filter()" display-name="Filter"></wm-filter-action>
                             <wm-filter-action title="Clear" class="btn-secondary" type="button" show="true" iconclass="wi wi-cancel" key="clear" action="clearFilter()" display-name="Clear"></wm-filter-action>
                         </wm-livefilter>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="9" name="gridcolumn5">
-                        <wm-buttongroup name="buttongroup2" horizontalalign="center" vertical="false" padding="1em">
-                            <wm-button class="btn-default btn-info" caption="Review" name="button0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Inspect" name="button1"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Check County" name="button2"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Check Title" name="button3"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Good" name="button4"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Empty" name="button5"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Bad" name="button6"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Boarded" name="button7"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Gone" name="button8"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Kill" name="button9"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="For Sale" name="button10"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Bldg Court" name="button11"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Hight LTV" name="button12"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Divided" name="button13"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Demo" name="button14"></wm-button>
-                        </wm-buttongroup>
-                    </wm-gridcolumn>
-                </wm-gridrow>
-                <wm-gridrow name="gridrow3" height="400px">
-                    <wm-gridcolumn columnwidth="3" name="gridcolumn7">
                         <wm-livelist class="media-list" name="livelist2" dataset="bind:Widgets.livefilter1.result" datafield="All Fields" navigation="Scroll" template="true" itemclass="list-group-item" listclass="list-group" showrecordcount="true" itemsperrow="xs-1 sm-1 md-1 lg-1"
                         selectionlimit="10" orderby="order:asc">
                             <wm-listtemplate name="listtemplate2" layout="inline">
@@ -76,28 +53,47 @@
                             </wm-listtemplate>
                         </wm-livelist>
                     </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn8">
-                        <wm-accordion name="accordion1">
-                            <wm-accordionpane name="accordionpane1" title="Certificate Data">
-                                <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" class="media-list" dataset="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet" navigation="Classic" name="livelist3">
-                                    <wm-listtemplate layout="media" name="listtemplate3">
-                                        <wm-container class="media-left media-top" name="container4"></wm-container>
-                                        <wm-container class="media-body" padding="unset 1.5em unset 1.25em" name="container5">
-                                            <wm-label class="pull-left" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.property_id" name="Name" margin="0em unset 0.5em unset" fontsize="1.143" fontunit="em" whitespace="nowrap"></wm-label>
-                                            <wm-label name="Time" class="pull-right text-muted" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.address1" whitespace="nowrap"></wm-label>
-                                            <wm-label caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.pin" name="Description" class="p text-muted" whitespace="nowrap"></wm-label>
-                                        </wm-container>
-                                        <wm-container class="media-right" horizontalalign="right" padding="unset 1em unset unset" name="container6">
-                                            <wm-menu caption="" type="anchor" iconclass="wi wi-more-vert" menuposition="down,left" name="menu1"></wm-menu>
-                                        </wm-container>
-                                    </wm-listtemplate>
-                                </wm-livelist>
-                            </wm-accordionpane>
-                        </wm-accordion>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn5">
+                        <wm-buttongroup name="buttongroup2" horizontalalign="left" vertical="false" padding="1em">
+                            <wm-button class="btn-default btn-info" caption="Review" name="button0" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Inspect" name="button1" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Check County" name="button2" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Check Title" name="button3" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Good" name="button4" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Empty" name="button5" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Bad" name="button6" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Boarded" name="button7" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Gone" name="button8" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Kill" name="button9" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="For Sale" name="button10" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Bldg Court" name="button11" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Hight LTV" name="button12" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Divided" name="button13" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" caption="Demo" name="button14" margin=".5em 0"></wm-button>
+                        </wm-buttongroup>
+                        <wm-container name="container6_1" margin="2em unset unset unset">
+                            <wm-accordion name="accordion1">
+                                <wm-accordionpane name="accordionpane1" title="Certificate Data" padding="1em">
+                                    <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" class="media-list" dataset="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet" navigation="Classic" name="livelist3">
+                                        <wm-listtemplate layout="media" name="listtemplate3">
+                                            <wm-container class="media-left media-top" name="container4"></wm-container>
+                                            <wm-container class="media-body" padding="unset 1.5em unset 1.25em" name="container5">
+                                                <wm-label class="pull-left" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.property_id" name="Name" margin="0em unset 0.5em unset" fontsize="1.143" fontunit="em" whitespace="nowrap"></wm-label>
+                                                <wm-label name="Time" class="pull-right text-muted" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.address1" whitespace="nowrap"></wm-label>
+                                                <wm-label caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.pin" name="Description" class="p text-muted" whitespace="nowrap"></wm-label>
+                                            </wm-container>
+                                            <wm-container class="media-right" horizontalalign="right" padding="unset 1em unset unset" name="container6">
+                                                <wm-menu caption="" type="anchor" iconclass="wi wi-more-vert" menuposition="down,left" name="menu1"></wm-menu>
+                                            </wm-container>
+                                        </wm-listtemplate>
+                                    </wm-livelist>
+                                </wm-accordionpane>
+                            </wm-accordion>
+                        </wm-container>
                     </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn10">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn9" padding="unset unset unset 1em">
                         <wm-html name="html1">
-                            <div id="gMapsDiv" style="height: 400px">
+                            <div id="gMapsDiv" style="height: 600px">
                                 <h3>Maps loads here</h3>
                             </div>
                         </wm-html>
