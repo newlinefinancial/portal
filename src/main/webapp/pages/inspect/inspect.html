@@ -5,15 +5,7 @@
         <wm-page-content name="page_content1" columnwidth="12">
             <wm-layoutgrid name="layoutgrid1">
                 <wm-gridrow name="gridrow1">
-                    <wm-gridcolumn columnwidth="6" name="gridcolumn1">
-                        <wm-buttongroup name="buttonGroupTop">
-                            <wm-button class="btn-default btn-info" caption="Buy" name="button1"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Service" name="button2"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Legal" name="button3"></wm-button>
-                            <wm-button class="btn-defalt btn-info" caption="Inspect" name="button4"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Lists" name="button5"></wm-button>
-                        </wm-buttongroup>
-                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn1"></wm-gridcolumn>
                     <wm-gridcolumn columnwidth="6" name="gridcolumn3">
                         <wm-composite name="composite1">
                             <wm-container class="col-md-9" name="container1" horizontalalign="right">
@@ -23,7 +15,7 @@
                     </wm-gridcolumn>
                 </wm-gridrow>
                 <wm-gridrow name="gridrow2">
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn4" padding="unset 1em unset unset">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn4" padding="unset 1em unset unset">
                         <wm-livefilter title="Filter Portal_inspect_filter" name="livefilter1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" pagesize="20">
                             <wm-layoutgrid name="layoutgrid2" columns="1">
                                 <wm-gridrow name="gridrow3">
@@ -55,7 +47,7 @@
                             </wm-livelist>
                         </wm-container>
                     </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn5">
+                    <wm-gridcolumn columnwidth="5" name="gridcolumn5">
                         <wm-buttongroup name="inspection_tags" horizontalalign="left" vertical="false" padding="1em">
                             <wm-button class="btn-default btn-info" caption="Review" name="button0" margin=".5em 0"></wm-button>
                             <wm-button class="btn-default btn-info" caption="Inspect" name="button1" margin=".5em 0"></wm-button>
