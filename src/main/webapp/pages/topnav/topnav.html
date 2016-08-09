@@ -1,7 +1,7 @@
 <wm-partial data-ng-controller="topnavPageController" name="topnav" type="topnav">
     <wm-layoutgrid name="layoutgrid1">
         <wm-gridrow name="gridrow1">
-            <wm-gridcolumn columnwidth="8" name="gridcolumn1">
+            <wm-gridcolumn columnwidth="6" name="gridcolumn1">
                 <wm-nav name="leftTopLinks" type="navbar" class="navbar-left">
                     <wm-nav-item name="list_home">
                         <wm-anchor caption="Underwrite" name="underwrite" iconclass="glyphicon glyphicon-home" on-click="goToPage_Main"></wm-anchor>
@@ -22,6 +22,13 @@
             </wm-gridcolumn>
             <wm-gridcolumn columnwidth="4" name="gridcolumn2">
                 <wm-select placeholder="Tools" textalign="center" name="select1"></wm-select>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="2" name="gridcolumn3">
+                <wm-nav type="navbar" class="navbar-right">
+                    <wm-nav-item>
+                        <wm-anchor caption="Logout" iconclass="glyphicon glyphicon-log-out" on-click="logoutVariable"></wm-anchor>
+                    </wm-nav-item>
+                </wm-nav>
             </wm-gridcolumn>
         </wm-gridrow>
     </wm-layoutgrid>
