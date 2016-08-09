@@ -95,7 +95,6 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
             $scope.Variables.svReportallUsa.update()
         }
 
-
         // When marker data is passed in using url params, add markers
         function addMarkers(map) {
             console.log("Number of markers supplied: " + markers.length)
@@ -150,7 +149,6 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-
         // The code in this method is triggered when ReportAllUSA returns success
         $scope.svReportallUsaonSuccess = function(variable, data) {
             console.log("ReportAllUSA returned SUCCESS")
@@ -161,15 +159,9 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
             }
             infoWindow.setContent(contentString);
         };
-
-
         // Load the scripts and start maps rendering in UI
         loadScripts();
-
     };
-
-
-
 }]);
 
 
