@@ -124,6 +124,26 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
             })
         }
 
+        // This method adds markers to the map after a click in the live list
+        $scope.container5Click = function($event, $isolateScope) {
+            console.log("CLick event inside live list item");
+            var lat1 = parseFloat($scope.Widgets.labelLat.caption);
+            var long1 = parseFloat($scope.Widgets.labelLong.caption);
+            var markerId = $scope.Widgets.Name.caption + "";
+            console.log("lat: " + lat1);
+            console.log("long: " + long1);
+            var myLatLng = {
+                lat: lat1,
+                lng: long1
+            };
+            map.panTo(myLatLng);
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: markerId
+            });
+        };
+
         // Load Google Maps and ReportAllUsa scripts, in order.
         function loadScripts() {
             var googleMapsJS = "https://maps.googleapis.com/maps/api/js?key=" + GOOGLE_MAPS_API_KEY;
@@ -162,6 +182,9 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
         // Load the scripts and start maps rendering in UI
         loadScripts();
     };
+
+
+
 }]);
 
 
