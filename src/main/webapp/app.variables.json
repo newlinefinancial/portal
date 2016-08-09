@@ -10,17 +10,6 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
-  "goToPage_certificate" : {
-    "_id" : "wm-goToPage_certificate-wm.NavigationVariable-1469115328749",
-    "name" : "goToPage_certificate",
-    "owner" : "App",
-    "category" : "wm.NavigationVariable",
-    "dataBinding" : [ ],
-    "operation" : "gotoPage",
-    "pageName" : "certificate",
-    "dataSet" : [ ],
-    "pageTransitions" : "none"
-  },
   "goToPage_inspect" : {
     "_id" : "wm-goToPage_inspect-wm.NavigationVariable-1459198656127",
     "name" : "goToPage_inspect",
