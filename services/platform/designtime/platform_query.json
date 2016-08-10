@@ -197,5 +197,58 @@
       "insp_id" : "java.lang.Integer",
       "drop_down" : "java.lang.String"
     }
+  }, {
+    "name" : "qryPortalAuctionHistoryByPropertyID",
+    "query" : "select * from review.portal_auction_history where property_id = :property_id",
+    "comment" : "",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "property_id",
+      "paramType" : "java.lang.Integer",
+      "testValue" : "462746",
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : "platformqryPortalAuctionHistoryByPropertyIDrtnType",
+    "returnTypeMetadata" : {
+      "sale_amount" : "java.math.BigDecimal",
+      "winning_bid" : "java.math.BigDecimal",
+      "assessed_valuation_land" : "java.lang.String",
+      "auction_result" : "java.lang.String",
+      "assessment_year" : "java.lang.String",
+      "auction_year_due" : "java.math.BigDecimal",
+      "assessee_address_zip" : "java.lang.String",
+      "market_value" : "java.lang.String",
+      "assessed_valuation_building" : "java.lang.String",
+      "assessee_address_line1" : "java.lang.String",
+      "senior_exemption" : "java.lang.String",
+      "description" : "java.lang.String",
+      "home_exemption" : "java.lang.String",
+      "buyer" : "java.lang.String",
+      "assessee_address_city" : "java.lang.String",
+      "assessee_address_state" : "java.lang.String",
+      "disposition_research_date" : "java.sql.Date",
+      "override_user" : "java.lang.String",
+      "disposition_date" : "java.sql.Date",
+      "sale_date" : "java.sql.Date",
+      "auction_year" : "java.lang.Integer",
+      "property_id" : "java.lang.Integer",
+      "auction_year_billed" : "java.lang.String",
+      "auction_status" : "java.lang.String",
+      "status" : "java.lang.String",
+      "assessee_name" : "java.lang.String",
+      "code" : "java.lang.String",
+      "assessed_valuation_total" : "java.lang.String",
+      "override_timestamp" : "java.lang.String",
+      "property_type" : "java.lang.String",
+      "auction_id" : "java.lang.Integer",
+      "prior_years_due" : "java.math.BigDecimal",
+      "bid_rate" : "java.lang.String",
+      "removed" : "java.lang.Boolean"
+    }
   } ]
 }

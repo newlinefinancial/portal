@@ -17,6 +17,7 @@ public interface PlatformQueryExecutorService {
     Page<Object> executeQryPortalInspectionFilterByID(Pageable pageable, java.lang.Integer property_id) throws QueryParameterMismatchException;
     Page<Object> executeQryPortalInspectionFilterByName(Pageable pageable, java.lang.String drop_down) throws QueryParameterMismatchException;
     Page<Object> executeQryPortalInspectFilterDataByDropDownId(Pageable pageable, java.lang.String drop_down) throws QueryParameterMismatchException;
+    Page<Object> executeQryPortalAuctionHistoryByPropertyID(Pageable pageable, java.lang.Integer property_id) throws QueryParameterMismatchException;
 
 	
 	Page<Object> executeWMCustomQuerySelect(CustomQuery query, Pageable pageable) ;
