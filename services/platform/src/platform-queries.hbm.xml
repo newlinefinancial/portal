@@ -23,4 +23,9 @@
       select * from review.portal_inspect_filter where drop_down = :drop_down
     ]]>
   </sql-query>
+  <sql-query name="qryPortalInspectFilterDataByDropDownId">
+    <![CDATA[
+      select * from review.portal_inspect_filter where drop_down = :drop_down
+    ]]>
+  </sql-query>
 </hibernate-mapping>

@@ -8,7 +8,6 @@ package com.portal.platform;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -37,12 +36,12 @@ public class PortalCertificateData implements Serializable {
     private String certificateNumber;
     private BigDecimal bidRate;
     private int taxYear;
-    private Date dateSold;
+    private java.util.Date dateSold;
     private String status;
-    private Date statusChangeDate;
+    private java.util.Date statusChangeDate;
     private String storageStatus;
     private String bank;
-    private Date expirationDate;
+    private java.util.Date expirationDate;
     private String countyName;
     private Double certificatePrincipal;
     private Double subPrincipal;
@@ -56,9 +55,9 @@ public class PortalCertificateData implements Serializable {
     private Double paymentInTransit;
     private Double dueAfterSettlement;
     private String matterNumber;
-    private Date initialCourtDate;
-    private Date filedDate;
-    private Date closedDate;
+    private java.util.Date initialCourtDate;
+    private java.util.Date filedDate;
+    private java.util.Date closedDate;
 
     @Id
     @Column(name = "`certificate_id`", nullable = false, scale = 0, precision = 10)
@@ -163,11 +162,11 @@ public class PortalCertificateData implements Serializable {
     @Id
     @Temporal(TemporalType.DATE)
     @Column(name = "`date_sold`", nullable = false)
-    public Date getDateSold() {
+    public java.util.Date getDateSold() {
         return this.dateSold;
     }
 
-    public void setDateSold(Date dateSold) {
+    public void setDateSold(java.util.Date dateSold) {
         this.dateSold = dateSold;
     }
 
@@ -184,11 +183,11 @@ public class PortalCertificateData implements Serializable {
     @Id
     @Temporal(TemporalType.DATE)
     @Column(name = "`status_change_date`", nullable = true)
-    public Date getStatusChangeDate() {
+    public java.util.Date getStatusChangeDate() {
         return this.statusChangeDate;
     }
 
-    public void setStatusChangeDate(Date statusChangeDate) {
+    public void setStatusChangeDate(java.util.Date statusChangeDate) {
         this.statusChangeDate = statusChangeDate;
     }
 
@@ -215,11 +214,11 @@ public class PortalCertificateData implements Serializable {
     @Id
     @Temporal(TemporalType.DATE)
     @Column(name = "`expiration_date`", nullable = false)
-    public Date getExpirationDate() {
+    public java.util.Date getExpirationDate() {
         return this.expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(java.util.Date expirationDate) {
         this.expirationDate = expirationDate;
     }
 
@@ -356,33 +355,33 @@ public class PortalCertificateData implements Serializable {
     @Id
     @Temporal(TemporalType.DATE)
     @Column(name = "`initial_court_date`", nullable = true)
-    public Date getInitialCourtDate() {
+    public java.util.Date getInitialCourtDate() {
         return this.initialCourtDate;
     }
 
-    public void setInitialCourtDate(Date initialCourtDate) {
+    public void setInitialCourtDate(java.util.Date initialCourtDate) {
         this.initialCourtDate = initialCourtDate;
     }
 
     @Id
     @Temporal(TemporalType.DATE)
     @Column(name = "`filed_date`", nullable = true)
-    public Date getFiledDate() {
+    public java.util.Date getFiledDate() {
         return this.filedDate;
     }
 
-    public void setFiledDate(Date filedDate) {
+    public void setFiledDate(java.util.Date filedDate) {
         this.filedDate = filedDate;
     }
 
     @Id
     @Temporal(TemporalType.DATE)
     @Column(name = "`closed_date`", nullable = true)
-    public Date getClosedDate() {
+    public java.util.Date getClosedDate() {
         return this.closedDate;
     }
 
-    public void setClosedDate(Date closedDate) {
+    public void setClosedDate(java.util.Date closedDate) {
         this.closedDate = closedDate;
     }
 

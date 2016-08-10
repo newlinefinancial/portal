@@ -8,7 +8,6 @@ package com.portal.platform;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,8 +35,8 @@ import javax.persistence.UniqueConstraint;
 public class Party implements Serializable {
 
     private int id;
-    private Date createdTimestamp;
-    private Date updatedTimestamp;
+    private java.util.Date createdTimestamp;
+    private java.util.Date updatedTimestamp;
     private String class_;
     private boolean piq;
     private String name;
@@ -64,21 +63,21 @@ public class Party implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "`created_timestamp`", nullable = false)
-    public Date getCreatedTimestamp() {
+    public java.util.Date getCreatedTimestamp() {
         return this.createdTimestamp;
     }
 
-    public void setCreatedTimestamp(Date createdTimestamp) {
+    public void setCreatedTimestamp(java.util.Date createdTimestamp) {
         this.createdTimestamp = createdTimestamp;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "`updated_timestamp`", nullable = false)
-    public Date getUpdatedTimestamp() {
+    public java.util.Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
 
-    public void setUpdatedTimestamp(Date updatedTimestamp) {
+    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 

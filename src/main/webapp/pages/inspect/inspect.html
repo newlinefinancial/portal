@@ -9,21 +9,21 @@
                 </wm-gridrow>
                 <wm-gridrow name="gridrow2">
                     <wm-gridcolumn columnwidth="3" name="gridcolumn4" padding="unset 1em unset unset">
-                        <wm-livefilter title="Filter Portal_inspect_filter" name="livefilter1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" pagesize="20">
+                        <wm-livefilter title="" name="livefilter1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" pagesize="20">
                             <wm-layoutgrid name="layoutgrid2" columns="1">
                                 <wm-gridrow name="gridrow3">
                                     <wm-gridcolumn name="gridcolumn6" columnwidth="12">
-                                        <wm-filter-field type="string" name="filter_field1" show="true" placeholder="Enter value" field="dropDown" displayname="Drop Down" widget="select" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true" key="dropDown"
-                                        inputtype="text" is-related="false" matchmode="start"></wm-filter-field>
+                                        <wm-filter-field type="string" name="filter_field1" show="true" placeholder="Certificate number" field="dropDown" widget="select" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"
+                                        key="dropDown" inputtype="text" is-related="false" matchmode="start"></wm-filter-field>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>
                             <wm-filter-action title="Filter" class="btn-primary" type="button" show="true" iconclass="wi wi-filter-list" key="filter" action="filter()" display-name="Filter"></wm-filter-action>
                             <wm-filter-action title="Clear" class="btn-secondary" type="button" show="true" iconclass="wi wi-cancel" key="clear" action="clearFilter()" display-name="Clear"></wm-filter-action>
                         </wm-livefilter>
-                        <wm-container name="container7" backgroundattachment="scroll">
-                            <wm-livelist class="media-list" name="livelist2" dataset="bind:Widgets.livefilter1.result" datafield="All Fields" navigation="Scroll" template="true" itemclass="list-group-item" listclass="list-group" showrecordcount="true" itemsperrow="xs-1 sm-1 md-1 lg-1"
-                            selectionlimit="10" orderby="order:asc" backgroundattachment="scroll">
+                        <wm-container name="container7" backgroundattachment="scroll" backgroundsize="500px.500px">
+                            <wm-livelist class="media-list" name="livelist2" dataset="bind:Widgets.livefilter1.result" datafield="All Fields" navigation="Pager" template="true" itemclass="list-group-item" listclass="list-group" showrecordcount="true" itemsperrow="xs-1 sm-1 md-1 lg-1"
+                            selectionlimit="10" orderby="order:asc" backgroundattachment="scroll" backgroundsize="500px,500px" height="400px">
                                 <wm-listtemplate name="listtemplate2" layout="inline">
                                     <wm-container class="media-body" name="container3">
                                         <p>

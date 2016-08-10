@@ -9,7 +9,6 @@ package com.portal.platform;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,14 +42,14 @@ public class Certificate implements Serializable {
     private int volume;
     private String vol;
     private BigDecimal bidRate;
-    private Date dateSold;
-    private Date expirationDate;
+    private java.util.Date dateSold;
+    private java.util.Date expirationDate;
     private String status;
     private String bank;
     private String storageStatus;
-    private Date releasedDate;
+    private java.util.Date releasedDate;
     private int currentPenaltyPeriod;
-    private Date statusChangeDate;
+    private java.util.Date statusChangeDate;
     private boolean selectPrint;
     private String taxYearNotices;
     private Integer lastImportId;
@@ -59,7 +58,7 @@ public class Certificate implements Serializable {
     private String specialMunicipality;
     private String certificateType;
     private String subtaxDecision;
-    private Date subtaxDecisionDate;
+    private java.util.Date subtaxDecisionDate;
     private List<Disbursement> disbursements = new ArrayList<>();
     private List<Note> notes = new ArrayList<>();
     private List<Matter> matters = new ArrayList<>();
@@ -137,21 +136,21 @@ public class Certificate implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "`date_sold`", nullable = false)
-    public Date getDateSold() {
+    public java.util.Date getDateSold() {
         return this.dateSold;
     }
 
-    public void setDateSold(Date dateSold) {
+    public void setDateSold(java.util.Date dateSold) {
         this.dateSold = dateSold;
     }
 
     @Temporal(TemporalType.DATE)
     @Column(name = "`expiration_date`", nullable = false)
-    public Date getExpirationDate() {
+    public java.util.Date getExpirationDate() {
         return this.expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(java.util.Date expirationDate) {
         this.expirationDate = expirationDate;
     }
 
@@ -184,11 +183,11 @@ public class Certificate implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "`released_date`", nullable = true)
-    public Date getReleasedDate() {
+    public java.util.Date getReleasedDate() {
         return this.releasedDate;
     }
 
-    public void setReleasedDate(Date releasedDate) {
+    public void setReleasedDate(java.util.Date releasedDate) {
         this.releasedDate = releasedDate;
     }
 
@@ -203,11 +202,11 @@ public class Certificate implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "`status_change_date`", nullable = true)
-    public Date getStatusChangeDate() {
+    public java.util.Date getStatusChangeDate() {
         return this.statusChangeDate;
     }
 
-    public void setStatusChangeDate(Date statusChangeDate) {
+    public void setStatusChangeDate(java.util.Date statusChangeDate) {
         this.statusChangeDate = statusChangeDate;
     }
 
@@ -285,11 +284,11 @@ public class Certificate implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "`subtax_decision_date`", nullable = true)
-    public Date getSubtaxDecisionDate() {
+    public java.util.Date getSubtaxDecisionDate() {
         return this.subtaxDecisionDate;
     }
 
-    public void setSubtaxDecisionDate(Date subtaxDecisionDate) {
+    public void setSubtaxDecisionDate(java.util.Date subtaxDecisionDate) {
         this.subtaxDecisionDate = subtaxDecisionDate;
     }
 

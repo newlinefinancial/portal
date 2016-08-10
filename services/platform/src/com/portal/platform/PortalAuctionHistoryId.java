@@ -8,7 +8,6 @@ package com.portal.platform;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.Objects;
 
 public class PortalAuctionHistoryId implements Serializable {
@@ -38,15 +37,15 @@ public class PortalAuctionHistoryId implements Serializable {
     private String propertyType;
     private String status;
     private Integer bidRate;
-    private Date overrideTimestamp;
+    private java.util.Date overrideTimestamp;
     private String overrideUser;
-    private Date saleDate;
+    private java.util.Date saleDate;
     private BigDecimal winningBid;
     private String buyer;
     private String auctionResult;
     private String auctionStatus;
-    private Date dispositionDate;
-    private Date dispositionResearchDate;
+    private java.util.Date dispositionDate;
+    private java.util.Date dispositionResearchDate;
 
     public Integer getPropertyId() {
         return this.propertyId;
@@ -248,11 +247,11 @@ public class PortalAuctionHistoryId implements Serializable {
         this.bidRate = bidRate;
     }
 
-    public Date getOverrideTimestamp() {
+    public java.util.Date getOverrideTimestamp() {
         return this.overrideTimestamp;
     }
 
-    public void setOverrideTimestamp(Date overrideTimestamp) {
+    public void setOverrideTimestamp(java.util.Date overrideTimestamp) {
         this.overrideTimestamp = overrideTimestamp;
     }
 
@@ -264,11 +263,11 @@ public class PortalAuctionHistoryId implements Serializable {
         this.overrideUser = overrideUser;
     }
 
-    public Date getSaleDate() {
+    public java.util.Date getSaleDate() {
         return this.saleDate;
     }
 
-    public void setSaleDate(Date saleDate) {
+    public void setSaleDate(java.util.Date saleDate) {
         this.saleDate = saleDate;
     }
 
@@ -304,19 +303,19 @@ public class PortalAuctionHistoryId implements Serializable {
         this.auctionStatus = auctionStatus;
     }
 
-    public Date getDispositionDate() {
+    public java.util.Date getDispositionDate() {
         return this.dispositionDate;
     }
 
-    public void setDispositionDate(Date dispositionDate) {
+    public void setDispositionDate(java.util.Date dispositionDate) {
         this.dispositionDate = dispositionDate;
     }
 
-    public Date getDispositionResearchDate() {
+    public java.util.Date getDispositionResearchDate() {
         return this.dispositionResearchDate;
     }
 
-    public void setDispositionResearchDate(Date dispositionResearchDate) {
+    public void setDispositionResearchDate(java.util.Date dispositionResearchDate) {
         this.dispositionResearchDate = dispositionResearchDate;
     }
 

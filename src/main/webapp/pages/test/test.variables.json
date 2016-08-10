@@ -356,5 +356,32 @@
     "transformationRequired" : false,
     "saveInPhonegap" : false,
     "controller" : "QueryExecution"
+  },
+  "svPIFDByDropDownID" : {
+    "_id" : "wm-svPIFDByDropDownID-wm.ServiceVariable-1470830786553",
+    "name" : "svPIFDByDropDownID",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "drop_down",
+      "value" : "bind:Widgets.select1.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "platformqryPortalInspectFilterDataByDropDownIdrtnType",
+    "service" : "platform",
+    "operation" : "executeQryPortalInspectFilterDataByDropDownId",
+    "operationId" : "QueryExecutionController_executeQryPortalInspectFilterDataByDropDownId",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
   }
 }

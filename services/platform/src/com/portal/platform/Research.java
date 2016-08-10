@@ -8,7 +8,6 @@ package com.portal.platform;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,7 +36,7 @@ public class Research implements Serializable {
 
     private int id;
     private String type;
-    private Date date;
+    private java.util.Date date;
     private List<PropertySale> propertySales = new ArrayList<>();
     private List<TaxHistory> taxHistories = new ArrayList<>();
     private List<TitleTransaction> titleTransactions = new ArrayList<>();
@@ -65,11 +64,11 @@ public class Research implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "`date`", nullable = false)
-    public Date getDate() {
+    public java.util.Date getDate() {
         return this.date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(java.util.Date date) {
         this.date = date;
     }
 

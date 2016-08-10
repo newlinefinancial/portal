@@ -9,7 +9,6 @@ package com.portal.platform;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -40,7 +39,7 @@ public class Property implements Serializable {
 
     private int id;
     private String pin;
-    private Date updatedTimestamp;
+    private java.util.Date updatedTimestamp;
     private boolean dead;
     private Integer volume;
     private String addressLine1;
@@ -103,11 +102,11 @@ public class Property implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "`updated_timestamp`", nullable = false)
-    public Date getUpdatedTimestamp() {
+    public java.util.Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
 
-    public void setUpdatedTimestamp(Date updatedTimestamp) {
+    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 

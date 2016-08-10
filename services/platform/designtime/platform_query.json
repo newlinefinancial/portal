@@ -169,5 +169,33 @@
       "insp_id" : "java.lang.Integer",
       "drop_down" : "java.lang.String"
     }
+  }, {
+    "name" : "qryPortalInspectFilterDataByDropDownId",
+    "query" : "select * from review.portal_inspect_filter where drop_down = :drop_down",
+    "comment" : "",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "drop_down",
+      "paramType" : "java.lang.String",
+      "testValue" : "cook-2012-1",
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : "platformqryPortalInspectFilterDataByDropDownIdrtnType",
+    "returnTypeMetadata" : {
+      "property_id" : "java.lang.Integer",
+      "latlong" : "java.lang.String",
+      "inspected" : "java.lang.Integer",
+      "auction_id" : "java.lang.Integer",
+      "order" : "java.lang.Integer",
+      "address" : "java.lang.String",
+      "pin" : "java.lang.String",
+      "insp_id" : "java.lang.Integer",
+      "drop_down" : "java.lang.String"
+    }
   } ]
 }

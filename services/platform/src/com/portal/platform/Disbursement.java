@@ -8,7 +8,6 @@ package com.portal.platform;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,13 +35,13 @@ import javax.persistence.UniqueConstraint;
 public class Disbursement implements Serializable {
 
     private int id;
-    private Date createdTimestamp;
-    private Date updatedTimestamp;
+    private java.util.Date createdTimestamp;
+    private java.util.Date updatedTimestamp;
     private String category;
     private String type;
     private String taxYearPaid;
     private Integer installment;
-    private Date paymentDate;
+    private java.util.Date paymentDate;
     private double amount;
     private String reference;
     private int currentPenaltyPeriod;
@@ -66,21 +65,21 @@ public class Disbursement implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "`created_timestamp`", nullable = false)
-    public Date getCreatedTimestamp() {
+    public java.util.Date getCreatedTimestamp() {
         return this.createdTimestamp;
     }
 
-    public void setCreatedTimestamp(Date createdTimestamp) {
+    public void setCreatedTimestamp(java.util.Date createdTimestamp) {
         this.createdTimestamp = createdTimestamp;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "`updated_timestamp`", nullable = false)
-    public Date getUpdatedTimestamp() {
+    public java.util.Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
 
-    public void setUpdatedTimestamp(Date updatedTimestamp) {
+    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 
@@ -122,11 +121,11 @@ public class Disbursement implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "`payment_date`", nullable = false)
-    public Date getPaymentDate() {
+    public java.util.Date getPaymentDate() {
         return this.paymentDate;
     }
 
-    public void setPaymentDate(Date paymentDate) {
+    public void setPaymentDate(java.util.Date paymentDate) {
         this.paymentDate = paymentDate;
     }
 

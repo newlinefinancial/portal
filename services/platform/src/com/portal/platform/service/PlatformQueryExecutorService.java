@@ -1,7 +1,3 @@
-/*Copyright (c) 2016-2017 newlinefinancial.com All Rights Reserved.
- This software is the confidential and proprietary information of newlinefinancial.com You shall not disclose such Confidential Information and shall use it only in accordance
- with the terms of the source code license agreement you entered into with newlinefinancial.com*/
-
 
 package com.portal.platform.service;
 
@@ -20,6 +16,7 @@ public interface PlatformQueryExecutorService {
     Page<Object> executeQryPortalCertificateDataById(Pageable pageable, java.lang.Integer id) throws QueryParameterMismatchException;
     Page<Object> executeQryPortalInspectionFilterByID(Pageable pageable, java.lang.Integer property_id) throws QueryParameterMismatchException;
     Page<Object> executeQryPortalInspectionFilterByName(Pageable pageable, java.lang.String drop_down) throws QueryParameterMismatchException;
+    Page<Object> executeQryPortalInspectFilterDataByDropDownId(Pageable pageable, java.lang.String drop_down) throws QueryParameterMismatchException;
 
 	
 	Page<Object> executeWMCustomQuerySelect(CustomQuery query, Pageable pageable) ;

@@ -8,7 +8,6 @@ package com.portal.platform;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -35,7 +34,7 @@ public class BankReport implements Serializable {
     private int volume;
     private String pin;
     private String bank;
-    private Date activityDate;
+    private java.util.Date activityDate;
     private Double amount;
     private BigDecimal lenderPortion;
     private Double certificatePrincipal;
@@ -126,11 +125,11 @@ public class BankReport implements Serializable {
     @Id
     @Temporal(TemporalType.DATE)
     @Column(name = "`activity_date`", nullable = true)
-    public Date getActivityDate() {
+    public java.util.Date getActivityDate() {
         return this.activityDate;
     }
 
-    public void setActivityDate(Date activityDate) {
+    public void setActivityDate(java.util.Date activityDate) {
         this.activityDate = activityDate;
     }
 

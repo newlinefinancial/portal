@@ -4,149 +4,28 @@
     <wm-content name="content1">
         <wm-page-content columnwidth="12" name="page_content1">
             <wm-layoutgrid name="layoutgrid1">
-                <wm-gridrow name="gridrow9">
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn20">
-                        <wm-livefilter title="Filter Portal_certificate_filter" dataset="bind:Variables.PlatformPortalCertificateFilterData1.dataSet" captionalign="left" captionposition="top" name="livefilter1" pagesize="5" width="400">
-                            <wm-layoutgrid columns="1" name="layoutgrid2">
-                                <wm-gridrow name="gridrow4">
-                                    <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn10">
-                                        <wm-filter-field name="id" field="id" displayname="Id" widget="number" is-range="false" type="integer" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow5">
-                                    <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn11">
-                                        <wm-filter-field name="propertyId" field="propertyId" displayname="Property Id" widget="number" is-range="false" type="integer" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow6">
-                                    <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn12">
-                                        <wm-filter-field name="countyName" field="countyName" displayname="County Name" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow7">
-                                    <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn13">
-                                        <wm-filter-field name="townshipName" field="townshipName" displayname="Township Name" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                                <wm-gridrow name="gridrow8">
-                                    <wm-gridcolumn columnwidth="12" show="true" name="gridcolumn14">
-                                        <wm-filter-field name="code" field="code" displayname="Code" widget="text" is-range="false" type="string" is-primary-key="false" generator="assigned" show="true" pc-display="true" mobile-display="true"></wm-filter-field>
-                                    </wm-gridcolumn>
-                                </wm-gridrow>
-                            </wm-layoutgrid>
-                            <wm-filter-action key="filter" class="btn-primary" iconclass="wi wi-filter-list" action="filter()" display-name="Filter" show="true" type="button"></wm-filter-action>
-                            <wm-filter-action key="clear" class="btn-secondary" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear" show="true" type="button"></wm-filter-action>
-                        </wm-livefilter>
-                        <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Widgets.livefilter1.result" navigation="Basic" on-click="serviceVariable1" name="livelist1"
-                        selectfirstitem="true">
-                            <wm-listtemplate layout="inline" name="listtemplate3_1">
-                                <wm-container class="media-left" name="container7"></wm-container>
-                                <wm-container class="media-body" padding="unset unset unset 1.25em" name="container8_1">
-                                    <wm-label class="media-heading pull-left" caption="bind:Widgets.livefilter1.result.id" fontunit="em" whitespace="nowrap" name="label9"></wm-label>
-                                    <wm-label caption="bind:Widgets.livefilter1.result.propertyId" class="pull-right" margin="0px unset unset unset" whitespace="nowrap" name="label10"></wm-label>
-                                    <wm-label caption="bind:Widgets.livefilter1.result.townshipName" class="h5" margin="0px unset unset unset" whitespace="nowrap" name="label11"></wm-label>
-                                    <wm-label caption="bind:Widgets.livefilter1.result.certificateNumber" class="p text-muted" name="label12"></wm-label>
-                                </wm-container>
-                                <wm-container class="media-right" name="container9_1"></wm-container>
-                            </wm-listtemplate>
-                        </wm-livelist>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="8" name="gridcolumn15" padding="unset unset 1em 1em">
-                        <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.serviceVariable1.dataSet" navigation="Basic" name="livelist3">
-                            <wm-listtemplate layout="inline" name="listtemplate3">
-                                <wm-container name="pictureContainer" class="media-left"></wm-container>
-                                <wm-container class="media-body" padding="unset unset unset 1.25em" name="container8">
-                                    <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.serviceVariable1.dataSet.property_id" fontunit="em" whitespace="nowrap"></wm-label>
-                                    <wm-label name="Time" caption="bind:Variables.serviceVariable1.dataSet.certificate_number" class="pull-right" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
-                                    <wm-label caption="bind:Variables.serviceVariable1.dataSet.certificate_number" class="h5" margin="0px unset unset unset" name="Job Title" whitespace="nowrap"></wm-label>
-                                    <wm-label name="Content" caption="bind:Variables.serviceVariable1.dataSet.matter_number" class="p text-muted"></wm-label>
-                                </wm-container>
-                                <wm-container class="media-right" name="container9"></wm-container>
-                            </wm-listtemplate>
-                        </wm-livelist>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="8" name="gridcolumn16" padding="unset unset unset 1em">
-                        <wm-grid gridfirstrowselect="true" readonlygrid="false" title="Accounting List" dataset="bind:Variables.PlatformAccountingData1.dataSet" navigation="Basic" name="grid1">
-                            <wm-grid-column binding="certificateId" caption="Certificate Id" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-grid-column>
-                            <wm-grid-column binding="accountingDate" caption="Accounting Date" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-grid-column>
-                            <wm-grid-column binding="effectiveDate" caption="Effective Date" generator="assigned" pcdisplay="true" mobiledisplay="true" type="date"></wm-grid-column>
-                            <wm-grid-column binding="transaction" caption="Transaction" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
-                            <wm-grid-column binding="category" caption="Category" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
-                            <wm-grid-column binding="type" caption="Type" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-grid-column>
-                            <wm-grid-column binding="principal" caption="Principal" generator="assigned" pcdisplay="true" mobiledisplay="true" type="double"></wm-grid-column>
-                            <wm-grid-column binding="revenue" caption="Revenue" generator="assigned" pcdisplay="true" mobiledisplay="true" type="double"></wm-grid-column>
-                            <wm-grid-column binding="cash" caption="Cash" generator="assigned" pcdisplay="true" mobiledisplay="true" type="double"></wm-grid-column>
-                            <wm-grid-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer"></wm-grid-action>
-                            <wm-grid-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-grid-row-action>
-                            <wm-grid-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-grid-row-action>
-                        </wm-grid>
-                    </wm-gridcolumn>
-                </wm-gridrow>
                 <wm-gridrow name="gridrow1">
-                    <wm-gridcolumn columnwidth="12" name="gridcolumn2">
-                        <wm-livegrid formlayout="dialog" name="livegrid1">
-                            <wm-liveform novalidate="false" title="Accounting Info" formlayout="dialog" dataset="bind:Variables.PlatformAccountingData1.dataSet" captionalign="left" captionposition="top" name="liveform1">
-                                <wm-layoutgrid columns="1" name="layoutgrid3">
-                                    <wm-gridrow name="gridrow8_1">
-                                        <wm-gridcolumn columnwidth="12" name="gridcolumn10_1">
-                                            <wm-form-field name="certificateId" displayname="Certificate Id" required="true" show="true" generator="assigned" primary-key="false" key="certificateId" type="integer" is-related="false" step="0" pc-display="true"
-                                            mobile-display="true" widget="number"></wm-form-field>
-                                        </wm-gridcolumn>
-                                    </wm-gridrow>
-                                    <wm-gridrow name="gridrow9_1">
-                                        <wm-gridcolumn columnwidth="12" name="gridcolumn11_1">
-                                            <wm-form-field name="accountingDate" displayname="Accounting Date" required="false" show="true" generator="assigned" primary-key="false" key="accountingDate" type="date" is-related="false" pc-display="true" mobile-display="true"
-                                            widget="date"></wm-form-field>
-                                        </wm-gridcolumn>
-                                    </wm-gridrow>
-                                    <wm-gridrow name="gridrow10">
-                                        <wm-gridcolumn columnwidth="12" name="gridcolumn12_1">
-                                            <wm-form-field name="effectiveDate" displayname="Effective Date" required="false" show="true" generator="assigned" primary-key="false" key="effectiveDate" type="date" is-related="false" pc-display="true" mobile-display="true"
-                                            widget="date"></wm-form-field>
-                                        </wm-gridcolumn>
-                                    </wm-gridrow>
-                                    <wm-gridrow name="gridrow11">
-                                        <wm-gridcolumn columnwidth="12" name="gridcolumn13_1">
-                                            <wm-form-field name="transaction" displayname="Transaction" required="true" show="true" generator="assigned" primary-key="false" key="transaction" type="string" is-related="false" maxchars="12" pc-display="true"
-                                            mobile-display="true" widget="text"></wm-form-field>
-                                        </wm-gridcolumn>
-                                    </wm-gridrow>
-                                    <wm-gridrow name="gridrow12">
-                                        <wm-gridcolumn columnwidth="12" name="gridcolumn14_1">
-                                            <wm-form-field name="category" displayname="Category" required="false" show="true" generator="assigned" primary-key="false" key="category" type="string" is-related="false" maxchars="50" pc-display="true" mobile-display="true"
-                                            widget="text"></wm-form-field>
-                                        </wm-gridcolumn>
-                                    </wm-gridrow>
-                                    <wm-gridrow name="gridrow13">
-                                        <wm-gridcolumn columnwidth="12" name="gridcolumn15_1">
-                                            <wm-form-field name="type" displayname="Type" required="false" show="true" generator="assigned" primary-key="false" key="type" type="string" is-related="false" maxchars="50" pc-display="true" mobile-display="true"
-                                            widget="text"></wm-form-field>
-                                        </wm-gridcolumn>
-                                    </wm-gridrow>
-                                    <wm-gridrow name="gridrow14">
-                                        <wm-gridcolumn columnwidth="12" name="gridcolumn16_1">
-                                            <wm-form-field name="principal" displayname="Principal" required="false" show="true" generator="assigned" primary-key="false" key="principal" type="double" is-related="false" step="0.0001" pc-display="true" mobile-display="true"
-                                            widget="number"></wm-form-field>
-                                        </wm-gridcolumn>
-                                    </wm-gridrow>
-                                    <wm-gridrow name="gridrow15">
-                                        <wm-gridcolumn columnwidth="12" name="gridcolumn17">
-                                            <wm-form-field name="revenue" displayname="Revenue" required="false" show="true" generator="assigned" primary-key="false" key="revenue" type="double" is-related="false" step="0.0001" pc-display="true" mobile-display="true"
-                                            widget="number"></wm-form-field>
-                                        </wm-gridcolumn>
-                                    </wm-gridrow>
-                                    <wm-gridrow name="gridrow16">
-                                        <wm-gridcolumn columnwidth="12" name="gridcolumn18">
-                                            <wm-form-field name="cash" displayname="Cash" required="false" show="true" generator="assigned" primary-key="false" key="cash" type="double" is-related="false" step="0.0001" pc-display="true" mobile-display="true"
-                                            widget="number"></wm-form-field>
-                                        </wm-gridcolumn>
-                                    </wm-gridrow>
-                                </wm-layoutgrid>
-                                <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
-                                <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
-                            </wm-liveform>
-                        </wm-livegrid>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn1">
+                        <wm-composite name="composite1">
+                            <wm-container class="col-md-9" name="container1">
+
+                                <wm-select name="select1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" datafield="dropDown" displayfield="dropDown" orderby="dropDown:asc" on-change="select1Change($event, $scope)"></wm-select>
+                                <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.svPIFDByDropDownID.dataSet" navigation="Basic" name="livelist2" height="600px">
+                                    <wm-listtemplate layout="inline" name="listtemplate2">
+                                        <wm-container name="pictureContainer" class="media-left"></wm-container>
+                                        <wm-container class="media-body" padding="unset unset unset 1.25em" name="container6">
+                                            <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.svPIFDByDropDownID.dataSet.auction_id" fontunit="em" whitespace="nowrap"></wm-label>
+                                            <wm-label name="Time" caption="bind:Variables.svPIFDByDropDownID.dataSet.drop_down" class="pull-right" margin="0px unset unset unset" whitespace="nowrap"></wm-label>
+                                            <wm-label caption="bind:Variables.svPIFDByDropDownID.dataSet.order" class="h5" margin="0px unset unset unset" name="Job Title" whitespace="nowrap"></wm-label>
+                                            <wm-label name="Content" caption="bind:Variables.svPIFDByDropDownID.dataSet.address" class="p text-muted"></wm-label>
+                                        </wm-container>
+                                        <wm-container class="media-right" name="container7"></wm-container>
+                                    </wm-listtemplate>
+                                </wm-livelist>
+                            </wm-container>
+                        </wm-composite>
                     </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn2"></wm-gridcolumn>
                 </wm-gridrow>
             </wm-layoutgrid>
         </wm-page-content>

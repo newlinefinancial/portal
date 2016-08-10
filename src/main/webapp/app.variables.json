@@ -8981,6 +8981,84 @@
           "scale" : 0
         } ]
       }, {
+        "fieldName" : "rejectReason",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "reject_reason_id",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "relatedTableName" : "reject_reason",
+        "relatedEntityName" : "RejectReason",
+        "relatedFieldName" : "rejectReason.id",
+        "isList" : false,
+        "targetTable" : "reject_reason",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "id",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "Id",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "identity",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "rejectReason",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "reject_reason",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 50,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "type",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "type",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 50,
+          "precision" : 19,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "noteTypeId",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "note_type_id",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "newNoteTypeId",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "new_note_type_id",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        } ]
+      }, {
         "fieldName" : "id",
         "type" : "integer",
         "fullyQualifiedType" : "integer",
@@ -9041,18 +9119,6 @@
         "isRelated" : false,
         "scale" : 0
       }, {
-        "fieldName" : "rejectReasonId",
-        "type" : "integer",
-        "fullyQualifiedType" : "integer",
-        "columnName" : "reject_reason_id",
-        "isPrimaryKey" : false,
-        "notNull" : false,
-        "length" : 255,
-        "precision" : 10,
-        "generator" : "assigned",
-        "isRelated" : false,
-        "scale" : 0
-      }, {
         "fieldName" : "user",
         "type" : "string",
         "fullyQualifiedType" : "string",
@@ -9084,12 +9150,18 @@
     "isDefault" : true,
     "tableName" : "inspection",
     "dbSystem" : "SQLServer",
-    "properties" : [ "property" ],
+    "properties" : [ "property", "rejectReason" ],
     "relatedTables" : [ {
       "columnName" : "property",
       "relationName" : "property",
       "type" : "Property",
       "watchOn" : "PlatformPropertyData",
+      "package" : "com.portal.platform.Inspection"
+    }, {
+      "columnName" : "rejectReason",
+      "relationName" : "rejectReason",
+      "type" : "RejectReason",
+      "watchOn" : "PlatformRejectReasonData",
       "package" : "com.portal.platform.Inspection"
     } ],
     "package" : "com.portal.platform.Inspection"
@@ -15577,7 +15649,7 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 9,
+    "bindCount" : 16,
     "tableName" : "portal_inspect_filter",
     "dbSystem" : "SQLServer",
     "properties" : [ ],

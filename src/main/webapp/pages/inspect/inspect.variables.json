@@ -27,6 +27,35 @@
     "isDefault" : true,
     "controller" : "QueryExecution"
   },
+  "svPlatformPortalInspectFilterDataByDropDownID" : {
+    "_id" : "wm-svPlatformPortalInspectFilterDataByDropDownID-wm.ServiceVariable-1470827715477",
+    "name" : "svPlatformPortalInspectFilterDataByDropDownID",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "dropDown",
+      "value" : "bind:Widgets.select1.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.portal.platform.PortalInspectFilter",
+    "service" : "platform",
+    "operation" : "getPortalInspectFilter",
+    "operationId" : "PortalInspectFilterController_getPortalInspectFilter",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "PortalInspectFilter",
+    "spinnerContext" : "page",
+    "spinnerMessage" : "Retrieving Platform Inspect Filter Data"
+  },
   "svPortalAuctionDataFromPropertyID" : {
     "_id" : "wm-svPortalAuctionDataFromPropertyID-wm.ServiceVariable-1470403180165",
     "name" : "svPortalAuctionDataFromPropertyID",

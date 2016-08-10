@@ -185,6 +185,11 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
 
 
 
+
+    $scope.select1Change = function($event, $isolateScope) {
+        console.log($scope.Widgets.select1.datavalue);
+    };
+
 }]);
 
 

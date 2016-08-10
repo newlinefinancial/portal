@@ -1,7 +1,3 @@
-/*Copyright (c) 2016-2017 newlinefinancial.com All Rights Reserved.
- This software is the confidential and proprietary information of newlinefinancial.com You shall not disclose such Confidential Information and shall use it only in accordance
- with the terms of the source code license agreement you entered into with newlinefinancial.com*/
-
 
 package com.portal.platform.service;
 
@@ -63,6 +59,14 @@ public class PlatformQueryExecutorServiceImpl implements PlatformQueryExecutorSe
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("drop_down", drop_down);
         return queryExecutor.executeNamedQuery("qryPortalInspectionFilterByName", params, pageable);
+	}
+	@Transactional(value = "platformTransactionManager")
+	@Override
+	public Page<Object> executeQryPortalInspectFilterDataByDropDownId(Pageable pageable, java.lang.String drop_down)
+	throws QueryParameterMismatchException{
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("drop_down", drop_down);
+        return queryExecutor.executeNamedQuery("qryPortalInspectFilterDataByDropDownId", params, pageable);
 	}
 
 	@Transactional(value = "platformTransactionManager")

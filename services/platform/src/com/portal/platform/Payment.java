@@ -8,7 +8,6 @@ package com.portal.platform;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,11 +35,11 @@ import javax.persistence.UniqueConstraint;
 public class Payment implements Serializable {
 
     private int id;
-    private Date updatedTimestamp;
+    private java.util.Date updatedTimestamp;
     private String paymentType;
     private double amount;
-    private Date effectiveDate;
-    private Date receivedDate;
+    private java.util.Date effectiveDate;
+    private java.util.Date receivedDate;
     private String checkNumber;
     private String user;
     private boolean locked;
@@ -61,11 +60,11 @@ public class Payment implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "`updated_timestamp`", nullable = false)
-    public Date getUpdatedTimestamp() {
+    public java.util.Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
 
-    public void setUpdatedTimestamp(Date updatedTimestamp) {
+    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 
@@ -89,21 +88,21 @@ public class Payment implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "`effective_date`", nullable = false)
-    public Date getEffectiveDate() {
+    public java.util.Date getEffectiveDate() {
         return this.effectiveDate;
     }
 
-    public void setEffectiveDate(Date effectiveDate) {
+    public void setEffectiveDate(java.util.Date effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
 
     @Temporal(TemporalType.DATE)
     @Column(name = "`received_date`", nullable = true)
-    public Date getReceivedDate() {
+    public java.util.Date getReceivedDate() {
         return this.receivedDate;
     }
 
-    public void setReceivedDate(Date receivedDate) {
+    public void setReceivedDate(java.util.Date receivedDate) {
         this.receivedDate = receivedDate;
     }
 

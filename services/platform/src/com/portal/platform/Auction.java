@@ -8,7 +8,6 @@ package com.portal.platform;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -34,7 +33,7 @@ import javax.persistence.TemporalType;
 public class Auction implements Serializable {
 
     private int id;
-    private Date updatedTimestamp;
+    private java.util.Date updatedTimestamp;
     private int taxYear;
     private Integer sequence;
     private Double priorYearsDue;
@@ -49,6 +48,7 @@ public class Auction implements Serializable {
     private List<Underwriting> underwritings = new ArrayList<>();
     private County county;
     private Property property;
+    private List<Sample> samples = new ArrayList<>();
     private List<AuctionResult> auctionResults = new ArrayList<>();
 
     @Id
@@ -64,11 +64,11 @@ public class Auction implements Serializable {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "`updated_timestamp`", nullable = false)
-    public Date getUpdatedTimestamp() {
+    public java.util.Date getUpdatedTimestamp() {
         return this.updatedTimestamp;
     }
 
-    public void setUpdatedTimestamp(Date updatedTimestamp) {
+    public void setUpdatedTimestamp(java.util.Date updatedTimestamp) {
         this.updatedTimestamp = updatedTimestamp;
     }
 
@@ -198,6 +198,15 @@ public class Auction implements Serializable {
 
     public void setProperty(Property property) {
         this.property = property;
+    }
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "auction")
+    public List<Sample> getSamples() {
+        return this.samples;
+    }
+
+    public void setSamples(List<Sample> samples) {
+        this.samples = samples;
     }
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "auction")

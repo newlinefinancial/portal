@@ -8,7 +8,6 @@ package com.portal.platform;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -52,15 +51,15 @@ public class PortalAuctionHistory implements Serializable {
     private String propertyType;
     private String status;
     private Integer bidRate;
-    private Date overrideTimestamp;
+    private java.util.Date overrideTimestamp;
     private String overrideUser;
-    private Date saleDate;
+    private java.util.Date saleDate;
     private BigDecimal winningBid;
     private String buyer;
     private String auctionResult;
     private String auctionStatus;
-    private Date dispositionDate;
-    private Date dispositionResearchDate;
+    private java.util.Date dispositionDate;
+    private java.util.Date dispositionResearchDate;
 
     @Id
     @Column(name = "`property_id`", nullable = true, scale = 0, precision = 10)
@@ -315,11 +314,11 @@ public class PortalAuctionHistory implements Serializable {
     @Id
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "`override_timestamp`", nullable = true)
-    public Date getOverrideTimestamp() {
+    public java.util.Date getOverrideTimestamp() {
         return this.overrideTimestamp;
     }
 
-    public void setOverrideTimestamp(Date overrideTimestamp) {
+    public void setOverrideTimestamp(java.util.Date overrideTimestamp) {
         this.overrideTimestamp = overrideTimestamp;
     }
 
@@ -336,11 +335,11 @@ public class PortalAuctionHistory implements Serializable {
     @Id
     @Temporal(TemporalType.DATE)
     @Column(name = "`sale_date`", nullable = true)
-    public Date getSaleDate() {
+    public java.util.Date getSaleDate() {
         return this.saleDate;
     }
 
-    public void setSaleDate(Date saleDate) {
+    public void setSaleDate(java.util.Date saleDate) {
         this.saleDate = saleDate;
     }
 
@@ -387,22 +386,22 @@ public class PortalAuctionHistory implements Serializable {
     @Id
     @Temporal(TemporalType.DATE)
     @Column(name = "`disposition_date`", nullable = true)
-    public Date getDispositionDate() {
+    public java.util.Date getDispositionDate() {
         return this.dispositionDate;
     }
 
-    public void setDispositionDate(Date dispositionDate) {
+    public void setDispositionDate(java.util.Date dispositionDate) {
         this.dispositionDate = dispositionDate;
     }
 
     @Id
     @Temporal(TemporalType.DATE)
     @Column(name = "`disposition_research_date`", nullable = true)
-    public Date getDispositionResearchDate() {
+    public java.util.Date getDispositionResearchDate() {
         return this.dispositionResearchDate;
     }
 
-    public void setDispositionResearchDate(Date dispositionResearchDate) {
+    public void setDispositionResearchDate(java.util.Date dispositionResearchDate) {
         this.dispositionResearchDate = dispositionResearchDate;
     }
 
