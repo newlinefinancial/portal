@@ -1,4 +1,4 @@
-<wm-page name="page1" data-ng-controller="inspectPageController" pagetitle="Inspect">
+<wm-page name="inspect" data-ng-controller="inspectPageController" pagetitle="Inspect">
     <wm-header name="header" content="header"></wm-header>
     <wm-top-nav name="top_nav" content="topnav"></wm-top-nav>
     <wm-content name="content1">
@@ -15,8 +15,8 @@
                             <wm-layoutgrid name="layoutgrid2" columns="1">
                                 <wm-gridrow name="gridrow1">
                                     <wm-gridcolumn columnwidth="12" name="gridcolumn1">
-                                        <wm-filter-field type="string" name="filter_field1" widget="select" generator="assigned" show="true" field="dropDown" is-range="false" is-primary-key="false" key="dropDown" placeholder="Select" matchmode="start" is-related="false"
-                                        datafield="key" displayfield="value" autofocus="true" height="25px"></wm-filter-field>
+                                        <wm-filter-field type="string" name="filter_field1" widget="select" generator="assigned" show="true" field="dropDown" is-range="false" is-primary-key="false" key="dropDown" placeholder="Select" matchmode="start" is-related="false" datafield="key" displayfield="value"
+                                        autofocus="true" height="25px"></wm-filter-field>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>
@@ -24,8 +24,8 @@
                             <wm-filter-action title="Clear" class="btn-secondary" type="button" action="clearFilter()" show="true" key="clear" iconclass="wi wi-cancel" display-name="Clear"></wm-filter-action>
                         </wm-livefilter>
                         <wm-container name="container_route" backgroundsize="500px.500px" backgroundattachment="scroll">
-                            <wm-livelist class="media-list" name="livelist2" navigation="Pager" template="true" height="400px" dataset="bind:Widgets.livefilter1.result" datafield="All Fields" backgroundsize="500px,500px" backgroundattachment="scroll" orderby="order:asc"
-                            selectionlimit="10" itemsperrow="xs-1 sm-1 md-1 lg-1" listclass="list-group" itemclass="list-group-item" showrecordcount="true" selectfirstitem="true">
+                            <wm-livelist class="media-list" name="livelist2" navigation="Pager" template="true" height="400px" dataset="bind:Widgets.livefilter1.result" datafield="All Fields" backgroundsize="500px,500px" backgroundattachment="scroll" orderby="order:asc" selectionlimit="10"
+                            itemsperrow="xs-1 sm-1 md-1 lg-1" listclass="list-group" itemclass="list-group-item" showrecordcount="true" selectfirstitem="true">
                                 <wm-listtemplate name="listtemplate2" layout="inline">
                                     <wm-container class="media-body" name="container2">
                                         <p>
@@ -242,8 +242,8 @@
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow6">
-                                            <wm-livelist class="media-list" name="livelist4" navigation="None" template="true" horizontalalign="left" dataset="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet" datafield="All Fields" itemsperrow="xs-1 sm-1 md-1 lg-1"
-                                            listclass="list-group" itemclass="list-group-item" navigationalign="left">
+                                            <wm-livelist class="media-list" name="livelist4" navigation="None" template="true" horizontalalign="left" dataset="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet" datafield="All Fields" itemsperrow="xs-1 sm-1 md-1 lg-1" listclass="list-group"
+                                            itemclass="list-group-item" navigationalign="left">
                                                 <wm-listtemplate name="listtemplate4" layout="inline">
                                                     <wm-layoutgrid name="layoutgrid4" columns="6">
                                                         <wm-gridrow name="gridrow16">
@@ -342,7 +342,7 @@
                         </wm-container>
                     </wm-gridcolumn>
                     <wm-gridcolumn name="gridcolumn9" padding="unset unset unset 1em" columnwidth="4">
-                        <wm-html name="html1" horizontalalign="center">
+                        <wm-html name="html_map" horizontalalign="center">
                             <div id="gMapsDiv" style="height: 600px">
                                 <h3>Maps loads here</h3>
                             </div>
