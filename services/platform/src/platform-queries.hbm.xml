@@ -38,4 +38,22 @@
       select * from review.portal_auction_note where property_id = :property_id
     ]]>
   </sql-query>
+  <sql-query name="qryLatLngFromDropDown">
+    <![CDATA[
+      select  [order], inspected
+      ,case when latlong is not null then 'latlng' else 'address' end as lookup_type, coalesce(latlong,address)
+      from review.portal_inspect_filter
+      where inspected = 0
+      and drop_down = :dropdown
+      
+      union
+      
+      select [order], inspected
+      ,case when latlong is not null then 'latlng' else 'address' end as lookup_type, coalesce(latlong,address)
+      from review.portal_inspect_filter
+      where inspected = 1
+      and drop_down = :dropdown
+      order by [order] desc
+    ]]>
+  </sql-query>
 </hibernate-mapping>

@@ -276,5 +276,28 @@
       "note_type_id" : "java.lang.Integer",
       "user" : "java.lang.String"
     }
+  }, {
+    "name" : "qryLatLngFromDropDown",
+    "query" : "select  [order], inspected\r\n,case when latlong is not null then 'latlng' else 'address' end as lookup_type, coalesce(latlong,address)\r\nfrom review.portal_inspect_filter\r\nwhere inspected = 0\r\nand drop_down = :dropdown\r\n \r\nunion\r\n \r\nselect [order], inspected\r\n,case when latlong is not null then 'latlng' else 'address' end as lookup_type, coalesce(latlong,address)\r\nfrom review.portal_inspect_filter\r\nwhere inspected = 1\r\nand drop_down = :dropdown\r\norder by [order] desc",
+    "comment" : "",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "dropdown",
+      "paramType" : "java.lang.String",
+      "testValue" : "cook_aug_8",
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : "platformqryLatLngFromDropDownrtnType",
+    "returnTypeMetadata" : {
+      "" : "java.lang.String",
+      "inspected" : "java.lang.Integer",
+      "order" : "java.lang.Integer",
+      "lookup_type" : "java.lang.String"
+    }
   } ]
 }

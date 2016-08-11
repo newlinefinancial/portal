@@ -50,15 +50,6 @@ public class SysdiagramsController {
     @Qualifier("platform.SysdiagramsService")
     private SysdiagramsService sysdiagramsService;
 
-    @RequestMapping(method = RequestMethod.POST)
-    @ApiOperation(value = "Creates a new Sysdiagrams instance.")
-    public Sysdiagrams createSysdiagrams(@RequestBody Sysdiagrams sysdiagrams) {
-        LOGGER.debug("Create Sysdiagrams with information: {}", sysdiagrams);
-        sysdiagrams = sysdiagramsService.create(sysdiagrams);
-        LOGGER.debug("Created Sysdiagrams with information: {}", sysdiagrams);
-        return sysdiagrams;
-    }
-
     @RequestMapping(value = "/{id}/content/{fieldName}", method = RequestMethod.GET, produces = "application/octet-stream")
     @ApiOperation(value = "Retrieves content for the given BLOB field in Sysdiagrams instance")
     public DownloadResponse getSysdiagramsBLOBContent(@PathVariable("id") Integer id, @PathVariable("fieldName") String fieldName, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, @RequestParam(value = "download", defaultValue = "false") boolean download) {
@@ -103,9 +94,19 @@ public class SysdiagramsController {
         this.sysdiagramsService = service;
     }
 
+    @RequestMapping(method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Creates a new Sysdiagrams instance.")
+    public Sysdiagrams createSysdiagrams(@RequestBody Sysdiagrams sysdiagrams) {
+        LOGGER.debug("Create Sysdiagrams with information: {}", sysdiagrams);
+        sysdiagrams = sysdiagramsService.create(sysdiagrams);
+        LOGGER.debug("Created Sysdiagrams with information: {}", sysdiagrams);
+        return sysdiagrams;
+    }
+
     @RequestMapping(method = RequestMethod.POST, consumes = { "multipart/form-data" })
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Creates a new Sysdiagrams instance.This API should be used when the Sysdiagrams instance has fields that requires multipart data.")
+    @ApiOperation(value = "Creates a new Sysdiagrams instance.")
     public Sysdiagrams createSysdiagrams(MultipartHttpServletRequest multipartHttpServletRequest) {
         Sysdiagrams sysdiagrams = WMMultipartUtils.toObject(multipartHttpServletRequest, Sysdiagrams.class, "platform");
         LOGGER.debug("Creating a new Sysdiagrams with information: {}", sysdiagrams);

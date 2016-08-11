@@ -97,6 +97,15 @@ public class QueryExecutionController {
         return result;
     }
 
+    @ApiOperation(value = "Process request to execute queries")
+    @RequestMapping(value = "/queries/qryLatLngFromDropDown", method = RequestMethod.GET)
+    public Page<Object> executeQryLatLngFromDropDown(@RequestParam(value = "dropdown", required = false) java.lang.String dropdown, Pageable pageable) throws QueryParameterMismatchException {
+        LOGGER.debug("Executing named query qryLatLngFromDropDown");
+        Page<Object> result = queryService.executeQryLatLngFromDropDown(pageable, dropdown);
+        LOGGER.debug("got the result of named query {}", result);
+        return result;
+    }
+
     @RequestMapping(value = "/queries/wm_custom", method = RequestMethod.POST)
     @ApiOperation(value = "Process request to execute customer queries")
     public Page<Object> executeWMCustomQuery(@RequestBody CustomQuery query, Pageable pageable) {
