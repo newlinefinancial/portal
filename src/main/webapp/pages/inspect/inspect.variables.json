@@ -110,6 +110,33 @@
     "saveInPhonegap" : false,
     "controller" : "QueryExecution"
   },
+  "svPortalAuctionNote" : {
+    "_id" : "wm-svPortalAuctionNote-wm.ServiceVariable-1470880830084",
+    "name" : "svPortalAuctionNote",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "property_id",
+      "value" : "bind:Widgets.livelist2.selecteditem.propertyId",
+      "type" : "integer"
+    } ],
+    "type" : "platformqryPortalAuctionNotertnType",
+    "service" : "platform",
+    "operation" : "executeQryPortalAuctionNote",
+    "operationId" : "QueryExecutionController_executeQryPortalAuctionNote",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
   "svReportallUsa" : {
     "_id" : "wm-svReportAllUsa-wm.ServiceVariable-1470304838191",
     "name" : "svReportallUsa",

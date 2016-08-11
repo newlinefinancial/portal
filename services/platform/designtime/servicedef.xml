@@ -22,6 +22,10 @@
     </operation>
     <operation operationType="nativequery" name="qryPortalAuctionHistoryByPropertyID">
         <parameter name="property_id" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="platformqryPortalAuctionHistoryByPropertyIDrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="qryPortalAuctionNote">
+        <parameter name="property_id" typeRef="java.lang.Integer" isList="false"/>
         <return isList="false"/>
     </operation>
     <operation operationType="nativequery" name="inspection_drop_down">
@@ -46,6 +50,10 @@
     <operation operationType="nativequery" name="qryPortalAuctionHistoryByPropertyID">
         <parameter name="property_id" typeRef="java.lang.Integer" isList="false"/>
         <return typeRef="platformqryPortalAuctionHistoryByPropertyIDrtnType" isList="false"/>
+    </operation>
+    <operation operationType="nativequery" name="qryPortalAuctionNote">
+        <parameter name="property_id" typeRef="java.lang.Integer" isList="false"/>
+        <return typeRef="platformqryPortalAuctionNotertnType" isList="false"/>
     </operation>
     <dataobjects>
         <dataobject javaType="com.portal.platform.BorrowingBase">
@@ -1470,6 +1478,15 @@
             <element name="prior_years_due" typeRef="java.math.BigDecimal"/>
             <element name="bid_rate" typeRef="java.lang.String"/>
             <element name="removed" typeRef="java.lang.Boolean"/>
+        </dataobject>
+        <dataobject javaType="platformqryPortalAuctionNotertnType">
+            <element name="property_id" typeRef="java.lang.Integer"/>
+            <element name="note_id" typeRef="java.lang.Integer"/>
+            <element name="note_description" typeRef="java.lang.String"/>
+            <element name="created" typeRef="java.sql.Timestamp"/>
+            <element name="done" typeRef="java.lang.String"/>
+            <element name="note_type_id" typeRef="java.lang.Integer"/>
+            <element name="user" typeRef="java.lang.String"/>
         </dataobject>
     </dataobjects>
 </service>

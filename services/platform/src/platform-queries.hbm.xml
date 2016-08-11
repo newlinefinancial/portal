@@ -33,4 +33,9 @@
       select * from review.portal_auction_history where property_id = :property_id
     ]]>
   </sql-query>
+  <sql-query name="qryPortalAuctionNote">
+    <![CDATA[
+      select * from review.portal_auction_note where property_id = :property_id
+    ]]>
+  </sql-query>
 </hibernate-mapping>

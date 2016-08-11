@@ -250,5 +250,31 @@
       "bid_rate" : "java.lang.String",
       "removed" : "java.lang.Boolean"
     }
+  }, {
+    "name" : "qryPortalAuctionNote",
+    "query" : "select * from review.portal_auction_note where property_id = :property_id",
+    "comment" : "",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "property_id",
+      "paramType" : "java.lang.Integer",
+      "testValue" : "614010",
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : "platformqryPortalAuctionNotertnType",
+    "returnTypeMetadata" : {
+      "property_id" : "java.lang.Integer",
+      "note_id" : "java.lang.Integer",
+      "note_description" : "java.lang.String",
+      "created" : "java.sql.Timestamp",
+      "done" : "java.lang.String",
+      "note_type_id" : "java.lang.Integer",
+      "user" : "java.lang.String"
+    }
   } ]
 }
