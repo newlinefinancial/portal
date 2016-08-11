@@ -94,6 +94,15 @@ public class SysdiagramsController {
         this.sysdiagramsService = service;
     }
 
+    @RequestMapping(method = RequestMethod.POST, consumes = { "multipart/form-data" })
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "Creates a new Sysdiagrams instance.This API should be used when the Sysdiagrams instance has fields that requires multipart data.")
+    public Sysdiagrams createSysdiagrams(MultipartHttpServletRequest multipartHttpServletRequest) {
+        Sysdiagrams sysdiagrams = WMMultipartUtils.toObject(multipartHttpServletRequest, Sysdiagrams.class, "platform");
+        LOGGER.debug("Creating a new Sysdiagrams with information: {}", sysdiagrams);
+        return sysdiagramsService.create(sysdiagrams);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Creates a new Sysdiagrams instance.")
@@ -102,15 +111,6 @@ public class SysdiagramsController {
         sysdiagrams = sysdiagramsService.create(sysdiagrams);
         LOGGER.debug("Created Sysdiagrams with information: {}", sysdiagrams);
         return sysdiagrams;
-    }
-
-    @RequestMapping(method = RequestMethod.POST, consumes = { "multipart/form-data" })
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Creates a new Sysdiagrams instance.This API should be used when the Sysdiagrams instance has fields that requires multipart data.")
-    public Sysdiagrams createSysdiagrams(MultipartHttpServletRequest multipartHttpServletRequest) {
-        Sysdiagrams sysdiagrams = WMMultipartUtils.toObject(multipartHttpServletRequest, Sysdiagrams.class, "platform");
-        LOGGER.debug("Creating a new Sysdiagrams with information: {}", sysdiagrams);
-        return sysdiagramsService.create(sysdiagrams);
     }
 
     @RequestMapping(value = "/count", method = RequestMethod.GET)
