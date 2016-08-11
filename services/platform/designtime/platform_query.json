@@ -299,5 +299,31 @@
       "order" : "java.lang.Integer",
       "lookup_type" : "java.lang.String"
     }
+  }, {
+    "name" : "qryPortalLinksByProperyID",
+    "query" : "select * from review.portal_links where property_id = :property_id",
+    "comment" : "",
+    "description" : null,
+    "nativeSql" : true,
+    "returnsSingleResult" : false,
+    "update" : false,
+    "queryParams" : [ {
+      "paramName" : "property_id",
+      "paramType" : "java.lang.Integer",
+      "testValue" : "464444",
+      "systemParamName" : null,
+      "systemParam" : false,
+      "list" : false
+    } ],
+    "outputType" : "platformqryPortalLinksByProperyIDrtnType",
+    "returnTypeMetadata" : {
+      "property_id" : "java.lang.Integer",
+      "assessor" : "java.lang.String",
+      "newline_photo" : "java.lang.String",
+      "clerk" : "java.lang.String",
+      "recorder" : "java.lang.String",
+      "treasurer" : "java.lang.String",
+      "gis" : "java.lang.String"
+    }
   } ]
 }

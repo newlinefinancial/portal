@@ -8,22 +8,22 @@
                     <wm-gridcolumn name="gridcolumn1" columnwidth="12"></wm-gridcolumn>
                 </wm-gridrow>
                 <wm-gridrow name="gridrow2">
-                    <wm-gridcolumn name="gridcolumn4" columnwidth="3" padding="unset 1em unset unset">
-                        <wm-livefilter title="" name="livefilter1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" collapsible="true" pagesize="20">
+                    <wm-gridcolumn name="gridcolumn4" padding="unset 1em unset unset" columnwidth="3">
+                        <wm-livefilter title="" name="livefilter1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" pagesize="20" collapsible="true">
                             <wm-layoutgrid name="layoutgrid2" columns="1">
                                 <wm-gridrow name="gridrow3">
                                     <wm-gridcolumn name="gridcolumn6" columnwidth="12">
-                                        <wm-filter-field type="string" name="filter_field1" show="true" field="dropDown" displayname="Inspection Group" widget="select" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"
-                                        key="dropDown" placeholder="Select" displayfield="value" datafield="key" is-related="false" matchmode="start"></wm-filter-field>
+                                        <wm-filter-field type="string" name="filter_field1" widget="select" generator="assigned" show="true" field="dropDown" displayname="Inspection Group" is-range="false" is-primary-key="false" pc-display="true" mobile-display="true"
+                                        key="dropDown" placeholder="Select" matchmode="start" is-related="false" datafield="key" displayfield="value"></wm-filter-field>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>
-                            <wm-filter-action title="Filter" class="btn-primary" type="button" show="true" key="filter" iconclass="wi wi-filter-list" action="filter()" display-name="Filter"></wm-filter-action>
-                            <wm-filter-action title="Clear" class="btn-secondary" type="button" show="true" key="clear" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear"></wm-filter-action>
+                            <wm-filter-action title="Filter" class="btn-primary" type="button" action="filter()" show="true" key="filter" iconclass="wi wi-filter-list" display-name="Filter"></wm-filter-action>
+                            <wm-filter-action title="Clear" class="btn-secondary" type="button" action="clearFilter()" show="true" key="clear" iconclass="wi wi-cancel" display-name="Clear"></wm-filter-action>
                         </wm-livefilter>
-                        <wm-container name="container7" backgroundattachment="scroll" backgroundsize="500px.500px">
-                            <wm-livelist class="media-list" name="livelist2" height="400px" dataset="bind:Widgets.livefilter1.result" navigation="Pager" showrecordcount="true" datafield="All Fields" backgroundattachment="scroll" backgroundsize="500px,500px"
-                            template="true" itemclass="list-group-item" listclass="list-group" itemsperrow="xs-1 sm-1 md-1 lg-1" selectionlimit="10" orderby="order:asc">
+                        <wm-container name="container7" backgroundsize="500px.500px" backgroundattachment="scroll">
+                            <wm-livelist class="media-list" name="livelist2" navigation="Pager" template="true" height="400px" dataset="bind:Widgets.livefilter1.result" datafield="All Fields" backgroundsize="500px,500px" backgroundattachment="scroll" orderby="order:asc"
+                            selectionlimit="10" itemsperrow="xs-1 sm-1 md-1 lg-1" listclass="list-group" itemclass="list-group-item" showrecordcount="true">
                                 <wm-listtemplate name="listtemplate2" layout="inline">
                                     <wm-container class="media-body" name="container3">
                                         <p>
@@ -41,7 +41,7 @@
                         </wm-container>
                     </wm-gridcolumn>
                     <wm-gridcolumn name="gridcolumn5" columnwidth="5">
-                        <wm-buttongroup name="inspection_tags" horizontalalign="left" padding="1em" vertical="false">
+                        <wm-buttongroup name="inspection_tags" padding="1em" horizontalalign="left" vertical="false">
                             <wm-button class="btn-default btn-info" name="button0" caption="Review" margin=".5em 0"></wm-button>
                             <wm-button class="btn-default btn-info" name="button1" caption="Inspect" margin=".5em 0"></wm-button>
                             <wm-button class="btn-default btn-info" name="button2" caption="Check County" margin=".5em 0"></wm-button>
@@ -61,17 +61,17 @@
                         <wm-container name="inspection_container" margin="2em unset unset unset">
                             <wm-accordion name="accordion1">
                                 <wm-accordionpane title="Certificate" name="accordionpane1" padding="1em">
-                                    <wm-livelist class="media-list" name="livelist3" dataset="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet" navigation="Classic" template="true" itemclass="list-group-item" listclass="list-group">
+                                    <wm-livelist class="media-list" name="livelist3" navigation="Classic" template="true" dataset="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet" listclass="list-group" itemclass="list-group-item">
                                         <wm-listtemplate name="listtemplate3" layout="media">
                                             <wm-container class="media-left media-top" name="container4"></wm-container>
                                             <wm-container class="media-body" name="container5" padding="unset 1.5em unset 1.25em" on-click="container5Click($event, $isolateScope)">
-                                                <wm-label class="pull-left" name="Name" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.property_id" fontsize="1.143" margin="0em unset 0.5em unset" fontunit="em" whitespace="nowrap"></wm-label>
+                                                <wm-label class="pull-left" name="Name" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.property_id" fontsize="1.143" margin="0em unset 0.5em unset" whitespace="nowrap" fontunit="em"></wm-label>
                                                 <wm-label class="pull-right text-muted" name="Time" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.address1" whitespace="nowrap"></wm-label>
                                                 <wm-label class="p text-muted" name="Description" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.pin" whitespace="nowrap"></wm-label>
                                                 <wm-label class="p text-muted" name="labelLat" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet[$i].latitude | toNumber: '2'" whitespace="nowrap"></wm-label>
                                                 <wm-label class="p text-muted" name="labelLong" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet[$i].longitude | toNumber: '2'" whitespace="nowrap"></wm-label>
                                             </wm-container>
-                                            <wm-container class="media-right" name="container6" horizontalalign="right" padding="unset 1em unset unset">
+                                            <wm-container class="media-right" name="container6" padding="unset 1em unset unset" horizontalalign="right">
                                                 <wm-menu type="anchor" name="menu1" caption="" iconclass="wi wi-more-vert" menuposition="down,left"></wm-menu>
                                             </wm-container>
                                         </wm-listtemplate>
@@ -82,7 +82,7 @@
                                         <wm-gridrow name="gridrow30">
                                             <wm-gridcolumn name="gridcolumn85_1" columnwidth="3">
                                                 <wm-label name="label59" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].tax_year"></wm-label>
-                                                <wm-label name="label60" caption="Taxes" horizontalalign="center" width="49"></wm-label>
+                                                <wm-label name="label60" width="49" caption="Taxes" horizontalalign="center"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn88" columnwidth="4">
                                                 <wm-label name="label61" caption="Auction ID:"></wm-label>
@@ -91,7 +91,7 @@
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow31">
                                             <wm-gridcolumn name="gridcolumn89" columnwidth="1">
-                                                <wm-label name="label63" caption="Tax" fontstyle="italic" textdecoration="underline" fontweight="bold"></wm-label>
+                                                <wm-label name="label63" caption="Tax" fontweight="bold" textdecoration="underline" fontstyle="italic"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn90" columnwidth="1"></wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn91" columnwidth="1"></wm-gridcolumn>
@@ -174,7 +174,7 @@
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow9">
                                             <wm-gridcolumn name="gridcolumn26" columnwidth="3">
-                                                <wm-label name="label17_1" caption="Stats" fontstyle="italic" textdecoration="underline" fontweight="bold"></wm-label>
+                                                <wm-label name="label17_1" caption="Stats" fontweight="bold" textdecoration="underline" fontstyle="italic"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn27" columnwidth="4"></wm-gridcolumn>
                                         </wm-gridrow>
@@ -238,7 +238,7 @@
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow19">
                                             <wm-gridcolumn name="gridcolumn49" columnwidth="4">
-                                                <wm-label name="label25" caption="Tax &amp; Sale History" fontstyle="italic" textdecoration="underline" fontweight="bold"></wm-label>
+                                                <wm-label name="label25" caption="Tax &amp; Sale History" fontweight="bold" textdecoration="underline" fontstyle="italic"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn50" columnwidth="4"></wm-gridcolumn>
                                         </wm-gridrow>
@@ -259,8 +259,8 @@
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                     </wm-layoutgrid>
-                                    <wm-livelist class="media-list" name="livelist4" horizontalalign="left" dataset="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet" navigation="None" navigationalign="left" datafield="All Fields" template="true"
-                                    itemclass="list-group-item" listclass="list-group" itemsperrow="xs-1 sm-1 md-1 lg-1">
+                                    <wm-livelist class="media-list" name="livelist4" navigation="None" template="true" horizontalalign="left" dataset="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet" datafield="All Fields" itemsperrow="xs-1 sm-1 md-1 lg-1"
+                                    listclass="list-group" itemclass="list-group-item" navigationalign="left">
                                         <wm-listtemplate name="listtemplate4" layout="inline">
                                             <wm-layoutgrid name="layoutgrid4" columns="6">
                                                 <wm-gridrow name="gridrow16">
@@ -300,7 +300,7 @@
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                     </wm-layoutgrid>
-                                    <wm-livelist class="media-list" name="livelist4_1" dataset="bind:Variables.svPortalAuctionNote.dataSet" navigation="None" template="true" itemclass="list-group-item" listclass="list-group" itemsperrow="xs-1 sm-1 md-1 lg-1">
+                                    <wm-livelist class="media-list" name="livelist4_1" navigation="None" template="true" dataset="bind:Variables.svPortalAuctionNote.dataSet" itemsperrow="xs-1 sm-1 md-1 lg-1" listclass="list-group" itemclass="list-group-item">
                                         <wm-listtemplate name="listtemplate4_1" layout="inline">
                                             <wm-layoutgrid name="layoutgrid6_1">
                                                 <wm-gridrow name="gridrow24_1">
@@ -321,12 +321,15 @@
                                         </wm-listtemplate>
                                     </wm-livelist>
                                 </wm-accordionpane>
-                                <wm-accordionpane title="Photo" name="accordionpane4"></wm-accordionpane>
+                                <wm-accordionpane title="Photo" name="accordionpane4">
+                                    <wm-label name="label60_1" width="483" caption="bind:Variables.svPortalLink.dataSet[$i].recorder" height="44"></wm-label>
+                                    <wm-iframe name="iframe1" width="476" height="308" iframesrc="bind:Variables.svPortalLink.dataSet[$i].recorder"></wm-iframe>
+                                </wm-accordionpane>
                                 <wm-accordionpane title="Links" name="accordionpane5"></wm-accordionpane>
                             </wm-accordion>
                         </wm-container>
                     </wm-gridcolumn>
-                    <wm-gridcolumn name="gridcolumn9" columnwidth="4" padding="unset unset unset 1em">
+                    <wm-gridcolumn name="gridcolumn9" padding="unset unset unset 1em" columnwidth="4">
                         <wm-html name="html1" horizontalalign="center">
                             <div id="gMapsDiv" style="height: 600px">
                                 <h3>Maps loads here</h3>

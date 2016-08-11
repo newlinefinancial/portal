@@ -56,4 +56,9 @@
       order by [order] desc
     ]]>
   </sql-query>
+  <sql-query name="qryPortalLinksByProperyID">
+    <![CDATA[
+      select * from review.portal_links where property_id = :property_id
+    ]]>
+  </sql-query>
 </hibernate-mapping>
