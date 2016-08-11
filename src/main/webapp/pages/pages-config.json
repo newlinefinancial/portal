@@ -1,4 +1,8 @@
 [ {
+  "name" : "CertificateDetails",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Common",
   "type" : "PARTIAL",
   "params" : [ ]
@@ -15,19 +19,7 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
-  "name" : "Page",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "ParcelTracking",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
   "name" : "certifcate_details",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "certificate",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -47,10 +39,6 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
-  "name" : "inspection",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
   "name" : "leftnav",
   "type" : "PARTIAL",
   "params" : [ ]
@@ -60,10 +48,6 @@
   "params" : [ ]
 }, {
   "name" : "service",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "svc_data",
   "type" : "PAGE",
   "params" : [ ]
 }, {

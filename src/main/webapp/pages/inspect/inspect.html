@@ -59,7 +59,7 @@
                             <wm-button class="btn-default btn-info" name="button14" caption="Demo" margin=".5em 0"></wm-button>
                         </wm-buttongroup>
                         <wm-container name="inspection_container" margin="2em unset unset unset">
-                            <wm-accordion name="accordion1">
+                            <wm-accordion name="accordion1" closeothers="false">
                                 <wm-accordionpane title="Certificate" name="accordionpane1" padding="1em">
                                     <wm-livelist class="media-list" name="livelist3" navigation="Classic" template="true" dataset="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet" listclass="list-group" itemclass="list-group-item">
                                         <wm-listtemplate name="listtemplate3" layout="media">
@@ -322,8 +322,11 @@
                                     </wm-livelist>
                                 </wm-accordionpane>
                                 <wm-accordionpane title="Photo" name="accordionpane4">
-                                    <wm-label name="label60_1" width="483" caption="bind:Variables.svPortalLink.dataSet[$i].recorder" height="44"></wm-label>
-                                    <wm-iframe name="iframe1" width="476" height="308" iframesrc="bind:Variables.svPortalLink.dataSet[$i].recorder"></wm-iframe>
+                                    <wm-carousel height="480" name="carousel2" animationinterval="0">
+                                        <wm-carousel-content name="carousel_content3">
+                                            <wm-picture width="100%" name="picture4" picturesource="bind:Variables.svPortalLink.dataSet[$i].recorder"></wm-picture>
+                                        </wm-carousel-content>
+                                    </wm-carousel>
                                 </wm-accordionpane>
                                 <wm-accordionpane title="Links" name="accordionpane5"></wm-accordionpane>
                             </wm-accordion>
