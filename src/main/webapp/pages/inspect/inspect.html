@@ -1,6 +1,6 @@
-<wm-page data-ng-controller="inspectPageController" name="page1" pagetitle="Inspect">
-    <wm-header name="header" content="header"></wm-header>
-    <wm-top-nav name="top_nav" content="topnav"></wm-top-nav>
+<wm-page name="page1" data-ng-controller="inspectPageController" pagetitle="Inspect">
+    <wm-header content="header" name="header"></wm-header>
+    <wm-top-nav content="topnav" name="top_nav"></wm-top-nav>
     <wm-content name="content1">
         <wm-page-content name="page_content1" columnwidth="12">
             <wm-layoutgrid name="layoutgrid1">
@@ -9,31 +9,31 @@
                 </wm-gridrow>
                 <wm-gridrow name="gridrow2">
                     <wm-gridcolumn name="gridcolumn4" columnwidth="3" padding="unset 1em unset unset">
-                        <wm-livefilter title="" name="livefilter1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" collapsible="true" pagesize="20">
+                        <wm-livefilter title="" name="livefilter1" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" captionalign="left" captionposition="top" pagesize="20" collapsible="true">
                             <wm-layoutgrid name="layoutgrid2" columns="1">
                                 <wm-gridrow name="gridrow3">
                                     <wm-gridcolumn name="gridcolumn6" columnwidth="12">
-                                        <wm-filter-field type="string" show="true" name="filter_field1" placeholder="Select" field="dropDown" displayname="Inspection Group" widget="select" is-range="false" is-primary-key="false" generator="assigned" pc-display="true"
-                                        mobile-display="true" key="dropDown" displayfield="value" datafield="key" is-related="false" matchmode="start"></wm-filter-field>
+                                        <wm-filter-field type="string" name="filter_field1" show="true" field="dropDown" displayname="Inspection Group" widget="select" is-range="false" is-primary-key="false" generator="assigned" pc-display="true" mobile-display="true"
+                                        key="dropDown" placeholder="Select" matchmode="start" is-related="false" datafield="key" displayfield="value"></wm-filter-field>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                             </wm-layoutgrid>
                             <wm-filter-action title="Filter" class="btn-primary" type="button" show="true" key="filter" iconclass="wi wi-filter-list" action="filter()" display-name="Filter"></wm-filter-action>
                             <wm-filter-action title="Clear" class="btn-secondary" type="button" show="true" key="clear" iconclass="wi wi-cancel" action="clearFilter()" display-name="Clear"></wm-filter-action>
                         </wm-livefilter>
-                        <wm-container name="container7" backgroundattachment="scroll" backgroundsize="500px.500px">
-                            <wm-livelist class="media-list" name="livelist2" height="400px" dataset="bind:Widgets.livefilter1.result" datafield="All Fields" backgroundattachment="scroll" backgroundsize="500px,500px" navigation="Pager" showrecordcount="true"
-                            template="true" itemclass="list-group-item" listclass="list-group" itemsperrow="xs-1 sm-1 md-1 lg-1" selectionlimit="10" orderby="order:asc">
+                        <wm-container name="container7" backgroundsize="500px.500px" backgroundattachment="scroll">
+                            <wm-livelist class="media-list" name="livelist2" height="400px" dataset="bind:Widgets.livefilter1.result" datafield="All Fields" backgroundsize="500px,500px" backgroundattachment="scroll" orderby="order:asc" selectionlimit="10"
+                            itemsperrow="xs-1 sm-1 md-1 lg-1" listclass="list-group" itemclass="list-group-item" template="true" showrecordcount="true" navigation="Pager">
                                 <wm-listtemplate name="listtemplate2" layout="inline">
                                     <wm-container class="media-body" name="container3">
                                         <p>
-                                            <wm-label caption="bind:Widgets.livefilter1.result.pin" name="label7"></wm-label>
+                                            <wm-label name="label7" caption="bind:Widgets.livefilter1.result.pin"></wm-label>
                                         </p>
                                         <p>
-                                            <wm-label caption="bind:Widgets.livefilter1.result.address" name="label8"></wm-label>
+                                            <wm-label name="label8" caption="bind:Widgets.livefilter1.result.address"></wm-label>
                                         </p>
                                         <p>
-                                            <wm-label caption="bind:Widgets.livefilter1.result.propertyId" name="label9"></wm-label>
+                                            <wm-label name="label9" caption="bind:Widgets.livefilter1.result.propertyId"></wm-label>
                                         </p>
                                     </wm-container>
                                 </wm-listtemplate>
@@ -41,38 +41,38 @@
                         </wm-container>
                     </wm-gridcolumn>
                     <wm-gridcolumn name="gridcolumn5" columnwidth="5">
-                        <wm-buttongroup name="inspection_tags" horizontalalign="left" padding="1em" vertical="false">
-                            <wm-button class="btn-default btn-info" caption="Review" name="button0" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Inspect" name="button1" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Check County" name="button2" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Check Title" name="button3" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Good" name="button4" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Empty" name="button5" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Bad" name="button6" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Boarded" name="button7" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Gone" name="button8" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Kill" name="button9" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="For Sale" name="button10" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Bldg Court" name="button11" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Hight LTV" name="button12" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Divided" name="button13" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" caption="Demo" name="button14" margin=".5em 0"></wm-button>
+                        <wm-buttongroup vertical="false" name="inspection_tags" horizontalalign="left" padding="1em">
+                            <wm-button class="btn-default btn-info" name="button0" caption="Review" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button1" caption="Inspect" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button2" caption="Check County" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button3" caption="Check Title" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button4" caption="Good" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button5" caption="Empty" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button6" caption="Bad" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button7" caption="Boarded" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button8" caption="Gone" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button9" caption="Kill" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button10" caption="For Sale" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button11" caption="Bldg Court" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button12" caption="Hight LTV" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button13" caption="Divided" margin=".5em 0"></wm-button>
+                            <wm-button class="btn-default btn-info" name="button14" caption="Demo" margin=".5em 0"></wm-button>
                         </wm-buttongroup>
                         <wm-container name="inspection_container" margin="2em unset unset unset">
                             <wm-accordion name="accordion1">
                                 <wm-accordionpane title="Certificate" name="accordionpane1" padding="1em">
-                                    <wm-livelist class="media-list" name="livelist3" dataset="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet" navigation="Classic" template="true" itemclass="list-group-item" listclass="list-group">
+                                    <wm-livelist class="media-list" name="livelist3" dataset="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet" listclass="list-group" itemclass="list-group-item" template="true" navigation="Classic">
                                         <wm-listtemplate name="listtemplate3" layout="media">
                                             <wm-container class="media-left media-top" name="container4"></wm-container>
                                             <wm-container class="media-body" name="container5" padding="unset 1.5em unset 1.25em" on-click="container5Click($event, $isolateScope)">
-                                                <wm-label class="pull-left" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.property_id" name="Name" fontsize="1.143" margin="0em unset 0.5em unset" fontunit="em" whitespace="nowrap"></wm-label>
-                                                <wm-label class="pull-right text-muted" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.address1" name="Time" whitespace="nowrap"></wm-label>
-                                                <wm-label class="p text-muted" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.pin" name="Description" whitespace="nowrap"></wm-label>
-                                                <wm-label class="p text-muted" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet[$i].latitude | toNumber: '2'" name="labelLat" whitespace="nowrap"></wm-label>
-                                                <wm-label class="p text-muted" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet[$i].longitude | toNumber: '2'" name="labelLong" whitespace="nowrap"></wm-label>
+                                                <wm-label class="pull-left" name="Name" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.property_id" fontsize="1.143" margin="0em unset 0.5em unset" whitespace="nowrap" fontunit="em"></wm-label>
+                                                <wm-label class="pull-right text-muted" name="Time" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.address1" whitespace="nowrap"></wm-label>
+                                                <wm-label class="p text-muted" name="Description" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet.pin" whitespace="nowrap"></wm-label>
+                                                <wm-label class="p text-muted" name="labelLat" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet[$i].latitude | toNumber: '2'" whitespace="nowrap"></wm-label>
+                                                <wm-label class="p text-muted" name="labelLong" caption="bind:Variables.PlatformExecuteQryPortalInspectionFilterByID.dataSet[$i].longitude | toNumber: '2'" whitespace="nowrap"></wm-label>
                                             </wm-container>
                                             <wm-container class="media-right" name="container6" horizontalalign="right" padding="unset 1em unset unset">
-                                                <wm-menu type="anchor" caption="" name="menu1" iconclass="wi wi-more-vert" menuposition="down,left"></wm-menu>
+                                                <wm-menu type="anchor" name="menu1" caption="" iconclass="wi wi-more-vert" menuposition="down,left"></wm-menu>
                                             </wm-container>
                                         </wm-listtemplate>
                                     </wm-livelist>
@@ -80,59 +80,59 @@
                                 <wm-accordionpane title="Auction" name="accordionpane2">
                                     <wm-layoutgrid name="layoutgrid6">
                                         <wm-gridrow name="gridrow28">
-                                            <wm-gridcolumn name="gridcolumn67" columnwidth="2"></wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn68" columnwidth="2">
-                                                <wm-label caption="1st" name="label38"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn67" columnwidth="1"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn68" columnwidth="1">
+                                                <wm-label name="label38" caption="1st"></wm-label>
                                             </wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn69" columnwidth="2">
-                                                <wm-label caption="2nd" name="label39"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn69" columnwidth="1">
+                                                <wm-label name="label39" caption="2nd"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn76" columnwidth="2">
-                                                <wm-label caption="Total" name="label40"></wm-label>
+                                                <wm-label name="label40" caption="Total"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow27">
-                                            <wm-gridcolumn name="gridcolumn65_1" columnwidth="2">
-                                                <wm-label caption="Priors" name="label37"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn65_1" columnwidth="1">
+                                                <wm-label name="label37" caption="Priors"></wm-label>
                                             </wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn66" columnwidth="2"></wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn70" columnwidth="2"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn66" columnwidth="1"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn70" columnwidth="1"></wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn81" columnwidth="2">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].prior_years_due | toCurrency: '$'" name="priors"></wm-label>
+                                                <wm-label name="priors" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].prior_years_due | toCurrency: '$'"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow26">
-                                            <wm-gridcolumn name="gridcolumn63_1" columnwidth="2">
-                                                <wm-label caption="Billed" name="label36"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn63_1" columnwidth="1">
+                                                <wm-label name="label36" caption="Billed"></wm-label>
                                             </wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn64_1" columnwidth="2"></wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn71" columnwidth="2"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn64_1" columnwidth="1"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn71" columnwidth="1"></wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn82" columnwidth="2">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].auction_year_billed | toCurrency: '$'" name="lblTotalBilled"></wm-label>
+                                                <wm-label name="lblTotalBilled" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].auction_year_billed | toCurrency: '$'"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow25">
-                                            <wm-gridcolumn name="gridcolumn61_1" columnwidth="2">
-                                                <wm-label caption="Paid" name="label35"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn61_1" columnwidth="1">
+                                                <wm-label name="label35" caption="Paid"></wm-label>
                                             </wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn62_1" columnwidth="2"></wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn72" columnwidth="2"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn62_1" columnwidth="1"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn72" columnwidth="1"></wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn83" columnwidth="2">
-                                                <wm-label caption="" name="lblPaid"></wm-label>
+                                                <wm-label name="lblPaid" caption=""></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow24">
-                                            <wm-gridcolumn name="gridcolumn59" columnwidth="2">
-                                                <wm-label caption="Due" name="label34"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn59" columnwidth="1">
+                                                <wm-label name="label34" caption="Due"></wm-label>
                                             </wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn60_1" columnwidth="2">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].auction_inst1_due | toCurrency: '$'" name="label44"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn60_1" columnwidth="1">
+                                                <wm-label name="label44" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].auction_inst1_due | toCurrency: '$'"></wm-label>
                                             </wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn73" columnwidth="2">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].auction_inst2_due | toCurrency: '$'" name="label45"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn73" columnwidth="1">
+                                                <wm-label name="label45" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].auction_inst2_due | toCurrency: '$'"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn84" columnwidth="2">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].auction_year_due | toCurrency: '$'" name="label46"></wm-label>
+                                                <wm-label name="label46" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].auction_year_due | toCurrency: '$'"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow23">
@@ -141,78 +141,86 @@
                                             <wm-gridcolumn name="gridcolumn74" columnwidth="2"></wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow22">
-                                            <wm-gridcolumn name="gridcolumn55" columnwidth="2">
-                                                <wm-label caption="Subs" name="label33"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn55" columnwidth="1">
+                                                <wm-label name="label33" caption="Subs"></wm-label>
                                             </wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn56" columnwidth="2"></wm-gridcolumn>
-                                            <wm-gridcolumn name="gridcolumn75" columnwidth="2"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn56" columnwidth="1"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn75" columnwidth="1"></wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn85" columnwidth="2">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].total | toCurrency: '$'" name="label47"></wm-label>
+                                                <wm-label name="label47" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].total | toCurrency: '$'" textalign="left"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
+                                        <wm-gridrow name="gridrow22_1">
+                                            <wm-gridcolumn name="gridcolumn61_2" columnwidth="4"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn62_2" columnwidth="4"></wm-gridcolumn>
+                                        </wm-gridrow>
                                         <wm-gridrow name="gridrow9">
-                                            <wm-gridcolumn name="gridcolumn26" columnwidth="4">
-                                                <wm-label caption="Stats" name="label17_1" fontweight="bold"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn26" columnwidth="3">
+                                                <wm-label name="label17_1" caption="Stats" fontweight="bold" textdecoration="underline" fontstyle="italic"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn27" columnwidth="4"></wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow12">
-                                            <wm-gridcolumn name="gridcolumn35" columnwidth="4">
-                                                <wm-label caption="Lifetime LTV" name="label18_1"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn35" columnwidth="3">
+                                                <wm-label name="label18_1" caption="Lifetime LTV"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn36" columnwidth="4">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].lifetime_ltv | toNumber" name="label26"></wm-label>
+                                                <wm-label name="label26" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].lifetime_ltv | toNumber"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow13">
-                                            <wm-gridcolumn name="gridcolumn37" columnwidth="4">
-                                                <wm-label caption="Lifetime LTV (adj)" name="label19"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn37" columnwidth="3">
+                                                <wm-label name="label19" caption="Lifetime LTV (adj)"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn38" columnwidth="4"></wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow14">
-                                            <wm-gridcolumn name="gridcolumn39" columnwidth="4">
-                                                <wm-label caption="Area Grade" name="label20"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn39" columnwidth="3">
+                                                <wm-label name="label20" caption="Area Grade"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn40" columnwidth="4">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].grade" name="label28"></wm-label>
+                                                <wm-label name="label28" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].grade"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow15">
-                                            <wm-gridcolumn name="gridcolumn41" columnwidth="4">
-                                                <wm-label caption="Area Forfeiture" name="label21"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn41" columnwidth="3">
+                                                <wm-label name="label21" caption="Area Forfeiture"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn42" columnwidth="4">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].forfeit_stat" name="label29"></wm-label>
+                                                <wm-label name="label29" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].forfeit_stat"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow16_1">
-                                            <wm-gridcolumn name="gridcolumn43" columnwidth="4">
-                                                <wm-label caption="Area Redemption" name="label22"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn43" columnwidth="3">
+                                                <wm-label name="label22" caption="Area Redemption"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn44" columnwidth="4">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].redemption_stat" name="label30"></wm-label>
+                                                <wm-label name="label30" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].redemption_stat"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow17">
-                                            <wm-gridcolumn name="gridcolumn45" columnwidth="4">
-                                                <wm-label caption="Area Bid Rate" name="label23"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn45" columnwidth="3">
+                                                <wm-label name="label23" caption="Area Bid Rate"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn46" columnwidth="4">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].pred_bid_rate" name="label31"></wm-label>
+                                                <wm-label name="label31" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].pred_bid_rate"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow18">
-                                            <wm-gridcolumn name="gridcolumn47" columnwidth="4">
-                                                <wm-label caption="Est. Redemption" name="label24"></wm-label>
+                                            <wm-gridcolumn name="gridcolumn47" columnwidth="3">
+                                                <wm-label name="label24" caption="Est. Redemption"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn48" columnwidth="4">
-                                                <wm-label caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].pred_redemption_pct" name="label32"></wm-label>
+                                                <wm-label name="label32" caption="bind:Variables.svPortalAuctionDataFromPropertyID.dataSet[$i].pred_redemption_pct"></wm-label>
                                             </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow23_1">
+                                            <wm-gridcolumn name="gridcolumn63_2" columnwidth="4"></wm-gridcolumn>
+                                            <wm-gridcolumn name="gridcolumn64_2" columnwidth="4"></wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow19">
                                             <wm-gridcolumn name="gridcolumn49" columnwidth="4">
-                                                <wm-label caption="Tax &amp; Sale History" name="label25" fontweight="bold"></wm-label>
+                                                <wm-label name="label25" caption="Tax &amp; Sale History" fontweight="bold" textdecoration="underline" fontstyle="italic"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn50" columnwidth="4"></wm-gridcolumn>
                                         </wm-gridrow>
@@ -220,35 +228,35 @@
                                     <wm-layoutgrid name="layoutgrid5">
                                         <wm-gridrow name="gridrow6">
                                             <wm-gridcolumn name="gridcolumn16" columnwidth="1">
-                                                <wm-label caption="Year" name="label13" horizontalalign="right"></wm-label>
+                                                <wm-label name="label13" caption="Year" horizontalalign="right"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn17" columnwidth="2">
-                                                <wm-label caption="Decision" name="label14"></wm-label>
+                                                <wm-label name="label14" caption="Decision"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn18" columnwidth="2">
-                                                <wm-label caption="Result" name="label17"></wm-label>
+                                                <wm-label name="label17" caption="Result"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn name="gridcolumn25" columnwidth="4">
-                                                <wm-label caption="Status" name="label18"></wm-label>
+                                                <wm-label name="label18" caption="Status"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                     </wm-layoutgrid>
-                                    <wm-livelist class="media-list" name="livelist4" horizontalalign="left" dataset="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet" datafield="All Fields" navigation="None" template="true" itemclass="list-group-item"
-                                    listclass="list-group" itemsperrow="xs-1 sm-1 md-1 lg-1" navigationalign="left">
+                                    <wm-livelist class="media-list" name="livelist4" horizontalalign="left" dataset="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet" datafield="All Fields" itemsperrow="xs-1 sm-1 md-1 lg-1" listclass="list-group"
+                                    itemclass="list-group-item" template="true" navigation="None" navigationalign="left">
                                         <wm-listtemplate name="listtemplate4" layout="inline">
                                             <wm-layoutgrid name="layoutgrid4" columns="6">
                                                 <wm-gridrow name="gridrow16">
                                                     <wm-gridcolumn name="gridcolumn60" columnwidth="1">
-                                                        <wm-label caption="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet[$i].auction_year" name="lblTaxyear"></wm-label>
+                                                        <wm-label name="lblTaxyear" caption="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet[$i].auction_year"></wm-label>
                                                     </wm-gridcolumn>
                                                     <wm-gridcolumn name="gridcolumn61" columnwidth="2">
-                                                        <wm-label caption="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet[$i].status" name="lblStatus"></wm-label>
+                                                        <wm-label name="lblStatus" caption="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet[$i].status"></wm-label>
                                                     </wm-gridcolumn>
                                                     <wm-gridcolumn name="gridcolumn62" columnwidth="2">
-                                                        <wm-label caption="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet[$i].auction_result" name="lblAuctionResult"></wm-label>
+                                                        <wm-label name="lblAuctionResult" caption="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet[$i].auction_result"></wm-label>
                                                     </wm-gridcolumn>
                                                     <wm-gridcolumn name="gridcolumn63" columnwidth="2">
-                                                        <wm-label caption="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet[$i].auction_status" name="lblAuctionStatus"></wm-label>
+                                                        <wm-label name="lblAuctionStatus" caption="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet[$i].auction_status"></wm-label>
                                                     </wm-gridcolumn>
                                                     <wm-gridcolumn name="gridcolumn64" columnwidth="2"></wm-gridcolumn>
                                                     <wm-gridcolumn name="gridcolumn65" columnwidth="2"></wm-gridcolumn>
@@ -274,5 +282,5 @@
             </wm-layoutgrid>
         </wm-page-content>
     </wm-content>
-    <wm-footer name="footer1" content="footer"></wm-footer>
+    <wm-footer content="footer" name="footer1"></wm-footer>
 </wm-page>
