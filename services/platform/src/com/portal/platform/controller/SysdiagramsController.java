@@ -106,7 +106,7 @@ public class SysdiagramsController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = { "multipart/form-data" })
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    @ApiOperation(value = "Creates a new Sysdiagrams instance.")
+    @ApiOperation(value = "Creates a new Sysdiagrams instance.This API should be used when the Sysdiagrams instance has fields that requires multipart data.")
     public Sysdiagrams createSysdiagrams(MultipartHttpServletRequest multipartHttpServletRequest) {
         Sysdiagrams sysdiagrams = WMMultipartUtils.toObject(multipartHttpServletRequest, Sysdiagrams.class, "platform");
         LOGGER.debug("Creating a new Sysdiagrams with information: {}", sysdiagrams);
