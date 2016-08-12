@@ -15649,11 +15649,14 @@
       "primaryFields" : [ ]
     },
     "isDefault" : true,
-    "bindCount" : 16,
+    "bindCount" : 17,
+    "spinnerContext" : "page",
+    "spinnerMessage" : "Loading Portal Inspection Data..",
     "tableName" : "portal_inspect_filter",
     "dbSystem" : "SQLServer",
     "properties" : [ ],
     "relatedTables" : [ ],
+    "filterFields" : { },
     "package" : "com.portal.platform.PortalInspectFilter"
   },
   "PlatformPortalLinksData" : {

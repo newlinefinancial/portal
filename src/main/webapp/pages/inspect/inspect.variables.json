@@ -1,4 +1,88 @@
 {
+  "nvInspectComplete" : {
+    "_id" : "wm-nvInspectComplete-wm.NotificationVariable-1470994492573",
+    "name" : "nvInspectComplete",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "list"
+    }, {
+      "target" : "text",
+      "value" : "Inspection Data Loaded",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "1000",
+      "type" : "list"
+    }, {
+      "target" : "class",
+      "value" : "Info",
+      "type" : "list"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "list"
+    } ],
+    "operation" : "toast"
+  },
+  "nvPortalInspectFailure" : {
+    "_id" : "wm-nvPortalInspectFailure-wm.NotificationVariable-1470994492573",
+    "name" : "nvPortalInspectFailure",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "list"
+    }, {
+      "target" : "text",
+      "value" : "ERROR: Could not load Portal Inspect data",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "1000",
+      "type" : "list"
+    }, {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "list"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "list"
+    } ],
+    "operation" : "toast"
+  },
+  "nvPortalInspectSuccess" : {
+    "_id" : "wm-nvPortalInspectSuccess-wm.NotificationVariable-1470994492573",
+    "name" : "nvPortalInspectSuccess",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "list"
+    }, {
+      "target" : "text",
+      "value" : "Loaded Portal data successfully",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "2000",
+      "type" : "list"
+    }, {
+      "target" : "class",
+      "value" : "Info",
+      "type" : "list"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "list"
+    } ],
+    "operation" : "toast"
+  },
   "PlatformExecuteQryPortalInspectionFilterByID" : {
     "_id" : "wm-PlatformExecuteQryPortalInspectionFilterByID-wm.ServiceVariable-1470403386149",
     "name" : "PlatformExecuteQryPortalInspectionFilterByID",
@@ -33,14 +117,14 @@
     "owner" : "Page",
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
-      "target" : "dropDown",
-      "value" : "bind:Widgets.select1.datavalue",
+      "target" : "drop_down",
+      "value" : "bind:Widgets.selectDropDown.datavalue",
       "type" : "string"
     } ],
-    "type" : "com.portal.platform.PortalInspectFilter",
+    "type" : "platformqryPortalInspectFilterDataByDropDownIdrtnType",
     "service" : "platform",
-    "operation" : "getPortalInspectFilter",
-    "operationId" : "PortalInspectFilterController_getPortalInspectFilter",
+    "operation" : "executeQryPortalInspectFilterDataByDropDownId",
+    "operationId" : "QueryExecutionController_executeQryPortalInspectFilterDataByDropDownId",
     "operationType" : "get",
     "serviceType" : "DataService",
     "dataSet" : [ ],
@@ -49,10 +133,12 @@
     "designMaxResults" : 10,
     "startUpdate" : false,
     "autoUpdate" : true,
+    "onSuccess" : "nvPortalInspectSuccess",
+    "onError" : "nvPortalInspectFailure",
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
     "saveInPhonegap" : false,
-    "controller" : "PortalInspectFilter",
+    "controller" : "QueryExecution",
     "spinnerContext" : "page",
     "spinnerMessage" : "Retrieving Platform Inspect Filter Data"
   },
