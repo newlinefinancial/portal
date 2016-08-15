@@ -1,6 +1,6 @@
 <wm-page name="inspect" data-ng-controller="inspectPageController" pagetitle="Inspect">
     <wm-header name="header" content="header"></wm-header>
-    <wm-top-nav name="top_nav" content="topnav"></wm-top-nav>
+    <wm-top-nav name="top_nav" content="topnav" backgroundcolor="#ffffff"></wm-top-nav>
     <wm-content name="content_page">
         <wm-page-content name="page_content1" columnwidth="12">
             <wm-layoutgrid name="layoutgrid_page">
@@ -11,8 +11,8 @@
                                 <wm-select name="selectDropDown" placeholder="Select Route" dataset="bind:Variables.PlatformPortalInspectFilterData.dataSet" datafield="dropDown" displayfield="dropDown" orderby="dropDown:asc" autofocus="true"></wm-select>
                             </wm-container>
                         </wm-composite>
-                        <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.svPlatformPortalInspectFilterDataByDropDownID.dataSet" navigation="Basic"
-                        name="livelist2" selectfirstitem="true" showrecordcount="true" nodatamessage="No data found. Select route from above" height="75%" horizontalalign="left" orderby="order:asc">
+                        <wm-livelist listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.svPlatformPortalInspectFilterDataByDropDownID.dataSet" navigation="Basic" name="livelist2" selectfirstitem="true"
+                        showrecordcount="true" nodatamessage="No data found. Select route from above" height="75%" horizontalalign="left" orderby="order:asc" tabindex="1">
                             <wm-listtemplate layout="inline" name="listtemplate2">
                                 <wm-container class="media-body" padding="unset unset unset 1.25em" name="container2" horizontalalign="left">
                                     <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.svPlatformPortalInspectFilterDataByDropDownID.dataSet.auction_id" fontunit="em" whitespace="nowrap"></wm-label>
@@ -24,24 +24,30 @@
                         </wm-livelist>
                     </wm-gridcolumn>
                     <wm-gridcolumn name="gridcolumn5" columnwidth="5">
-                        <wm-label name="label_header" caption="123 Vine Ave, Chicago IL | Single Family Home | John Doe" class="label-primary" textalign="left" horizontalalign="center"></wm-label>
-                        <wm-buttongroup name="tags_inspection" padding="1em" horizontalalign="left" vertical="false">
-                            <wm-button class="btn-default btn-info" name="button0" caption="Review" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button1" caption="Inspect" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button2" caption="Check County" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button3" caption="Check Title" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button4" caption="Good" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button5" caption="Empty" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button6" caption="Bad" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button7" caption="Boarded" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button8" caption="Gone" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button9" caption="Kill" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button10" caption="For Sale" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button11" caption="Bldg Court" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button12" caption="Hight LTV" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button13" caption="Divided" margin=".5em 0"></wm-button>
-                            <wm-button class="btn-default btn-info" name="button14" caption="Demo" margin=".5em 0"></wm-button>
-                        </wm-buttongroup>
+                        <wm-label name="label_header" caption="123 Vine Ave, Chicago IL | Single Family Home | John Doe" class="label-success h3" textalign="center" horizontalalign="center"></wm-label>
+                        <wm-tile name="tile_inspection">
+                            <wm-buttongroup name="tags_inspection1" horizontalalign="center" vertical="false">
+                                <wm-button class="btn-default btn-info" name="button0" caption="Review" tabindex="2"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button1" caption="Inspect" tabindex="3"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button2" caption="Check County" tabindex="4"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button3" caption="Check Title" tabindex="5"></wm-button>
+                            </wm-buttongroup>
+                            <wm-buttongroup name="tags_inspection2" horizontalalign="center" vertical="false">
+                                <wm-button class="btn-default btn-info" name="button4" caption="Good"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button5" caption="Empty"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button6" caption="Bad"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button7" caption="Boarded"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button8" caption="Gone"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button9" caption="Kill"></wm-button>
+                            </wm-buttongroup>
+                            <wm-buttongroup name="tags_inspection3" horizontalalign="center" vertical="false">
+                                <wm-button class="btn-default btn-info" name="button10" caption="For Sale"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button11" caption="Bldg Court"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button12" caption="Hight LTV"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button13" caption="Divided"></wm-button>
+                                <wm-button class="btn-default btn-info" name="button14" caption="Demo"></wm-button>
+                            </wm-buttongroup>
+                        </wm-tile>
                         <wm-container name="container_content" margin="2em unset unset unset">
                             <wm-accordion name="accordion1" closeothers="false">
                                 <wm-accordionpane title="Auction" name="pane_auction" isdefaultpane="false">
@@ -224,8 +230,8 @@
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow6">
-                                            <wm-livelist class="media-list" name="livelist4" navigation="None" template="true" horizontalalign="left" dataset="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet" datafield="All Fields" itemsperrow="xs-1 sm-1 md-1 lg-1"
-                                            listclass="list-group" itemclass="list-group-item" navigationalign="left">
+                                            <wm-livelist class="media-list" name="livelist4" navigation="None" template="true" horizontalalign="left" dataset="bind:Variables.svPortalAuctionHistoryFromPropertyID.dataSet" datafield="All Fields" itemsperrow="xs-1 sm-1 md-1 lg-1" listclass="list-group"
+                                            itemclass="list-group-item" navigationalign="left">
                                                 <wm-listtemplate name="listtemplate4" layout="inline">
                                                     <wm-layoutgrid name="layoutgrid4" columns="6">
                                                         <wm-gridrow name="gridrow16">
