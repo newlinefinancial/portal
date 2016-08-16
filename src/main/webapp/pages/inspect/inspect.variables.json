@@ -149,7 +149,7 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "property_id",
-      "value" : "bind:Widgets.livelist2.selecteditem.propertyId",
+      "value" : "bind:Widgets.livelist2.selecteditem.property_id",
       "type" : "integer"
     } ],
     "type" : "platformqryPortalInspectionFilterByIDrtnType",
@@ -176,7 +176,7 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "property_id",
-      "value" : "bind:Widgets.livelist2.selecteditem.propertyId",
+      "value" : "bind:Widgets.livelist2.selecteditem.property_id",
       "type" : "integer"
     } ],
     "type" : "platformqryPortalAuctionHistoryByPropertyIDrtnType",
@@ -203,7 +203,7 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "property_id",
-      "value" : "bind:Widgets.livelist2.selecteditem.propertyId",
+      "value" : "bind:Widgets.livelist2.selecteditem.property_id",
       "type" : "integer"
     } ],
     "type" : "platformqryPortalAuctionNotertnType",
@@ -230,7 +230,7 @@
     "category" : "wm.ServiceVariable",
     "dataBinding" : [ {
       "target" : "property_id",
-      "value" : "bind:Widgets.livelist2.selecteditem.propertyId",
+      "value" : "bind:Widgets.livelist2.selecteditem.property_id",
       "type" : "integer"
     } ],
     "type" : "platformqryPortalLinksByProperyIDrtnType",
