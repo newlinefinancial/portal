@@ -14,20 +14,92 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
 
         // Methid to Initalize Google Maps API
         function initMap() {
+
+            // the default location for the map
+            var defaultLocation = {
+                lat: 41.636258,
+                lng: -87.596769
+            };
+
             // setup Maps in UI
             map = new google.maps.Map(document.getElementById('gMapsDiv'), {
-                center: new google.maps.LatLng(41.636258, -87.596769),
+                center: defaultLocation,
                 zoom: 15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
+
+            // create a default marker and drop it in the center
+            var defaultMarker = {
+                map: map,
+                animation: google.maps.Animation.DROP,
+                position: defaultLocation
+            }
 
             // Handle click event on the map created above
             map.addListener('click', function(event) {
                 showREPDataOnClick(map, event);
             })
 
+            // Create geolocation button 
+            addYourLocationButton(map, defaultMarker);
+
             // Initialize REP
             REP.Layer.Google.Initialize(map);
+
+        }
+
+        function addYourLocationButton(map, marker) {
+            var controlDiv = document.createElement('div');
+            var firstChild = document.createElement('button');
+            firstChild.style.backgroundColor = '#fff';
+            firstChild.style.border = 'none';
+            firstChild.style.outline = 'none';
+            firstChild.style.width = '28px';
+            firstChild.style.hvareight = '28px';
+            firstChild.style.borderRadius = '2px';
+            firstChild.style.boxShadow = '0 1px 4px rgba(0,0,0,0.3)';
+            firstChild.style.cursor = 'pointer';
+            firstChild.style.marginRight = '10px';
+            firstChild.style.padding = '0';
+            firstChild.title = 'Your Location';
+            controlDiv.appendChild(firstChild);
+
+            var secondChild = document.createElement('div');
+            secondChild.style.margin = '5px';
+            secondChild.style.width = '18px';
+            secondChild.style.height = '18px';
+            secondChild.style.backgroundImage = 'url(https://maps.gstatic.com/tactile/mylocation/mylocation-sprite-2x.png)';
+            secondChild.style.backgroundSize = '180px 18px';
+            secondChild.style.backgroundPosition = '0 0';
+            secondChild.style.backgroundRepeat = 'no-repeat';
+            firstChild.appendChild(secondChild);
+
+            google.maps.event.addListener(map, 'center_changed', function() {
+                secondChild.style['background-position'] = '0 0';
+            });
+
+            firstChild.addEventListener('click', function() {
+                var imgX = '0',
+                    animationInterval = setInterval(function() {
+                        imgX = imgX === '-18' ? '0' : '-18';
+                        secondChild.style['background-position'] = imgX + 'px 0';
+                    }, 500);
+
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                        map.setCenter(latlng);
+                        clearInterval(animationInterval);
+                        secondChild.style['background-position'] = '-144px 0';
+                    });
+                } else {
+                    clearInterval(animationInterval);
+                    secondChild.style['background-position'] = '0 0';
+                }
+            });
+
+            controlDiv.index = 1;
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(controlDiv);
         }
 
         // When the user clicks on a grid, highlight it and show info window populated with data fetched from ReportAllUSA service
