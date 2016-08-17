@@ -4,13 +4,6 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
     /* perform any action on widgets/variables within this block */
     $scope.onPageReady = function() {
 
-
-        // read markers from URL
-        var markers = [];
-        if (getParameterByName('incomplete')) {
-            markers = getParameterByName('incomplete').split(';');
-        }
-
         // Constants & Variables
         var GOOGLE_MAPS_API_KEY = "AIzaSyBzs_6EsdrgAmboMDgXKFm0_Iv_78EE-_Y";
         var map;
@@ -28,61 +21,57 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
 
-            addMarkers(map)
-
             // Handle click event on the map created above
             map.addListener('click', function(event) {
-                // If Map zoom level is less than 15, return
-                if (map.getZoom() < REP.Layer.Google.MIN_ZOOM) {
-                    console.log("Zoom Level too low for REP");
-                    return;
-                }
-
-                // close existing infoWindow, if present
-                // if (infoWindow !== null) {
-                //     infoWindow.close();
-                // }
-
-                // Cleanup Map features
-                for (var i = 0; i < mapFeatures.length; i++) mapFeatures[i].setMap(null);
-                mapFeatures = []
-                var latLng = event.latLng;
-
-                REP.Layer.Google.IdentifyByPoint(map, latLng, function(resp) {
-
-                    if (resp.results.length) {
-                        var respRow0 = resp.results[0];
-                        for (var respKey in respRow0) {
-                            var respVal = respRow0[respKey];
-                            if (respVal === null) continue;
-                            if (respKey === 'geom') {
-                                for (var i = 0; i < respVal.length; i++) {
-                                    respVal[i].setOptions({
-                                        fillColor: 'rgb(144,238,144)',
-                                        strokeColor: 'rgb(200,0,0)'
-                                    });
-                                    respVal[i].setMap(map);
-                                }
-                                mapFeatures = respVal;
-                            } else {
-                                if (wText !== '') wText += '\n<br>';
-                                wText += respKey + ': ' + respVal;
-                            }
-                        }
-                    }
-                });
-                // old stuff
-                infoWindow = new google.maps.InfoWindow({
-                    content: contentString,
-                    position: event.latLng
-                });
-                infoWindow.open(map);
-                updateLatLong(event.latLng.lat(), event.latLng.lng());
-
+                showREPDataOnClick(map, event);
             })
 
             // Initialize REP
             REP.Layer.Google.Initialize(map);
+        }
+
+        // When the user clicks on a grid, highlight it and show info window populated with data fetched from ReportAllUSA service
+        function showREPDataOnClick(map, event) {
+            // If Map zoom level is less than 15, return
+            if (map.getZoom() < REP.Layer.Google.MIN_ZOOM) {
+                console.log("Zoom Level too low for REP");
+                return;
+            }
+
+            // Cleanup Map features
+            for (var i = 0; i < mapFeatures.length; i++) mapFeatures[i].setMap(null);
+            mapFeatures = []
+            var latLng = event.latLng;
+
+            REP.Layer.Google.IdentifyByPoint(map, latLng, function(resp) {
+                if (resp.results.length) {
+                    var respRow0 = resp.results[0];
+                    for (var respKey in respRow0) {
+                        var respVal = respRow0[respKey];
+                        if (respVal === null) continue;
+                        if (respKey === 'geom') {
+                            for (var i = 0; i < respVal.length; i++) {
+                                respVal[i].setOptions({
+                                    fillColor: 'rgb(144,238,144)',
+                                    strokeColor: 'rgb(200,0,0)'
+                                });
+                                respVal[i].setMap(map);
+                            }
+                            mapFeatures = respVal;
+                        } else {
+                            if (wText !== '') wText += '\n<br>';
+                            wText += respKey + ': ' + respVal;
+                        }
+                    }
+                }
+            });
+            // old stuff
+            infoWindow = new google.maps.InfoWindow({
+                content: contentString,
+                position: event.latLng
+            });
+            infoWindow.open(map);
+            updateLatLong(event.latLng.lat(), event.latLng.lng());
         }
 
         // Updates lat and long in the static variable as well as triggers a call to the ReportAllAPI
@@ -94,55 +83,6 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
             // Calling the ReportAll Webservice with required parameters
             $scope.Variables.svReportallUsa.update()
         }
-
-        // When marker data is passed in using url params, add markers
-        function addMarkers(map) {
-            console.log("Number of markers supplied: " + markers.length)
-            console.log("adding markers")
-            if (markers.length < 1) {
-                console.log("No markers supplied");
-                return;
-            }
-            markers.map(function(markerText) {
-                var location_details = markerText.split(':');
-                var markerId = location_details[0];
-                var latLong = location_details[2];
-                console.log("Maker ID: " + markerId + "latLong: " + latLong)
-                var lat1 = parseFloat(latLong.split(',')[0]);
-                var long1 = parseFloat(latLong.split(',')[1]);
-                console.log("lat: " + lat1);
-                console.log("long: " + long1);
-                var myLatLng = {
-                    lat: lat1,
-                    lng: long1
-                };
-                var marker = new google.maps.Marker({
-                    position: myLatLng,
-                    map: map,
-                    title: markerId
-                });
-            })
-        }
-
-        // This method adds markers to the map after a click in the live list
-        $scope.container5Click = function($event, $isolateScope) {
-            console.log("CLick event inside live list item");
-            var lat1 = parseFloat($scope.Widgets.labelLat.caption);
-            var long1 = parseFloat($scope.Widgets.labelLong.caption);
-            var markerId = $scope.Widgets.Name.caption + "";
-            console.log("lat: " + lat1);
-            console.log("long: " + long1);
-            var myLatLng = {
-                lat: lat1,
-                lng: long1
-            };
-            map.panTo(myLatLng);
-            var marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                title: markerId
-            });
-        };
 
         // Load Google Maps and ReportAllUsa scripts, in order.
         function loadScripts() {
@@ -156,17 +96,6 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
                     initMap()
                 })
             })
-        }
-
-        // Parse URL Parameters
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
         // The code in this method is triggered when ReportAllUSA returns success
@@ -183,19 +112,8 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
         loadScripts();
     };
 
-
-
-
     $scope.select1Change = function($event, $isolateScope) {
         console.log($scope.Widgets.select1.datavalue);
     };
 
 }]);
-
-
-Application.$controller("livefilter1Controller", ["$scope",
-    function($scope) {
-        "use strict";
-        $scope.ctrlScope = $scope;
-    }
-]);
