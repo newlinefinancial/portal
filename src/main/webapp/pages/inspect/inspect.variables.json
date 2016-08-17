@@ -111,6 +111,35 @@
     "isDefault" : true,
     "controller" : "QueryExecution"
   },
+  "svMarkersFromDropDown" : {
+    "_id" : "wm-svMarkersFromDropDown-wm.ServiceVariable-1471427581302",
+    "name" : "svMarkersFromDropDown",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "dropdown",
+      "value" : "bind:Widgets.livelist2.selecteditem.drop_down",
+      "type" : "string"
+    } ],
+    "type" : "platformqryLatLngFromDropDownrtnType",
+    "service" : "platform",
+    "operation" : "executeQryLatLngFromDropDown",
+    "operationId" : "QueryExecutionController_executeQryLatLngFromDropDown",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution",
+    "spinnerContext" : "page",
+    "spinnerMessage" : "Loading Marker Data.."
+  },
   "svPlatformPortalInspectFilterDataByDropDownID" : {
     "_id" : "wm-svPlatformPortalInspectFilterDataByDropDownID-wm.ServiceVariable-1470827715477",
     "name" : "svPlatformPortalInspectFilterDataByDropDownID",

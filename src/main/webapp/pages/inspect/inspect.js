@@ -188,4 +188,10 @@ Application.$controller("inspectPageController", ["$scope", function($scope) {
         console.log($scope.Widgets.select1.datavalue);
     };
 
+
+    $scope.container2Click = function($event, $isolateScope) {
+        console.log("updating markers");
+        $scope.Variables.svMarkersFromDropDown.update();
+    };
+
 }]);

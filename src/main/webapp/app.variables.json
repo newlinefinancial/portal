@@ -132,6 +132,90 @@
     "redirectTo" : "Login",
     "useDefaultSuccessHandler" : true
   },
+  "ncLatLngMarkerFailure" : {
+    "_id" : "wm-ncLatLngMarkerFailure-wm.NotificationVariable-1471424777640",
+    "name" : "ncLatLngMarkerFailure",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "list"
+    }, {
+      "target" : "text",
+      "value" : "Error: Unable to fetch markers from route",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "2000",
+      "type" : "list"
+    }, {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "list"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "list"
+    } ],
+    "operation" : "toast"
+  },
+  "ncLatLngMarkerSuccess" : {
+    "_id" : "wm-ncLatLngMarkerSuccess-wm.NotificationVariable-1471424777640",
+    "name" : "ncLatLngMarkerSuccess",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "list"
+    }, {
+      "target" : "text",
+      "value" : "Marker data fetched successfully!",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "2000",
+      "type" : "list"
+    }, {
+      "target" : "class",
+      "value" : "Success",
+      "type" : "list"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "list"
+    } ],
+    "operation" : "toast"
+  },
+  "nvLatLngMarkerSuccess" : {
+    "_id" : "wm-nvLatLngMarkerSuccess-wm.NotificationVariable-1471424777640",
+    "name" : "nvLatLngMarkerSuccess",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "list"
+    }, {
+      "target" : "text",
+      "value" : "Fetched markers from the map.",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "2000",
+      "type" : "list"
+    }, {
+      "target" : "class",
+      "value" : "Success",
+      "type" : "list"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "list"
+    } ],
+    "operation" : "toast"
+  },
   "PlatformAccountingData" : {
     "_id" : "wm-PlatformAccountingData-wm.LiveVariable-1459182643857",
     "name" : "PlatformAccountingData",
